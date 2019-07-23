@@ -1,0 +1,212 @@
+/*公用图标样式 create 2019/07/18 author：wen*/
+
+
+/*日期图标*/
+.date-icon{
+    display: block;
+    width: 0.18rem;
+    height: 0.18rem;
+    background: url("../images/date_icon.png") no-repeat center / 0.18rem;
+    cursor: pointer;
+}
+
+/*热点图标*/
+.hot-icon{
+    display: block;
+    width: 0.3rem;
+    height: 0.19rem;
+    background: url("../images/hot_icon.png") no-repeat center / 0.3rem;
+    margin-left: 0.12rem;
+    animation:bounce 0.5s linear infinite;
+    cursor: pointer;
+}
+@keyframes bounce{
+    0%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(0.05rem);
+    }
+    100%{
+        transform:translateY(0);
+    }
+}
+
+/*黄色右箭头图标*/
+.arrow-icon{
+    display: block;
+    width: 0.08rem;
+    height: 0.14rem;
+    background: url('../images/arrow_icon.png') no-repeat center / 0.08rem;
+    cursor: pointer;
+}
+
+
+/*下箭头图标*/
+.down-icon{
+    display:block;
+    width: 0.08rem;
+    height: 0.04rem;
+    background: url(../images/down_icon.png) no-repeat center / 0.08rem;
+    cursor: pointer;
+}
+.bule-down-icon{
+    width: 0.09rem;
+    height: 0.05rem;
+    background: url(../images/down_icon1.png) no-repeat center / 0.09rem;
+    margin-left: 0.07rem;
+}
+
+/*上箭头图标*/
+.top-icon{
+    display: block;
+    width: 0.08rem;
+    height: 0.04rem;
+    background: url(../images/top_icon.png) no-repeat center / 0.08rem;
+    cursor: pointer;
+}
+.bule-top-icon{
+    width: 0.09rem;
+    height: 0.05rem;
+    background: url(../images/top_icon1.png) no-repeat center / 0.09rem;
+    margin-left: 0.07rem;
+}
+
+/*推荐图标*/
+.recommended-icon{
+    display: block;
+    width: 0.58rem;
+    height: 0.58rem;
+    background: url(../images/recommended_icon.png) no-repeat center / 0.58rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/*按钮图标*/
+.button-icon{
+    width: 1rem;
+    height: 0.3rem;
+    background: url(../images/button_icon.png) no-repeat center / 1rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFEFE;
+    z-index: 100;
+    position: absolute;
+    bottom: 0.08rem;
+    right: 0.08rem;
+    font-size: 0.16rem;
+    cursor: pointer;
+}
+
+/*置顶图标*/
+.stick-icon{
+    display: block;
+    width: 0.18rem;
+    height: 0.18rem;
+    background: url(../images/stick_icon.png) no-repeat center / 0.18rem;
+    cursor:pointer;
+}
+
+/*返回顶部图标*/
+.return-icon{
+    display: block;
+    width: 0.3rem;
+    height: 0.3rem;
+    background: url(../images/return_icon.png) no-repeat center / 0.3rem;
+    cursor:pointer;
+}
+
+/*意见反馈图标*/
+.option-icon{
+    display: block;
+    width: 0.3rem;
+    height: 0.3rem;
+    background: url(../images/option_icon.png) no-repeat center / 0.3rem;
+    cursor:pointer;
+}
+/*订单详情图标*/
+.order-icon{
+    display: block;
+    width: 0.3rem;
+    height: 0.3rem;
+    background: url(../images/order_icon.png) no-repeat center / 0.3rem;
+    cursor:pointer;
+}
+
+/*未收藏图标*/
+.uncollect-icon{
+    display:block;
+    width: 0.14rem;
+    height: 0.14rem;
+    background: url(../images/collect_icon.png) no-repeat center / 0.14rem;
+    cursor:pointer;
+}
+/*已收藏*/
+.collect-icon{
+    display:block;
+    width: 0.14rem;
+    height: 0.14rem;
+    background: url(../images/collect_icon1.png) no-repeat center / 0.14rem;
+    cursor:pointer;
+}
+
+/*等级图标*/
+.l-icon1{
+    display: block;
+    width: 0.15rem;
+    height: 0.15rem;
+    background: url("../images/level_icon1.png") no-repeat center / 0.15rem;
+    margin-right: 0.08rem;
+}
+.l-icon2{
+    display: block;
+    width: 0.15rem;
+    height: 0.15rem;
+    background: url("../images/level_icon2.png") no-repeat center / 0.15rem;
+    margin-right: 0.08rem;
+}
+.l-icon3{
+    display: block;
+    width: 0.15rem;
+    height: 0.15rem;
+    background: url("../images/level_icon3.png") no-repeat center / 0.15rem;
+    margin-right: 0.08rem;
+}
+.clock-icon{
+    display: block;
+    width: 0.17rem;
+    height: 0.17rem;
+    background: url(../images/clock_icon.png) no-repeat center / 0.17rem;
+    margin-right: 0.07rem;
+}
+/*申请图标*/
+.to-icon{
+    display:block;
+    width:0.22rem;
+    height:0.2rem;
+    background:url("../images/to_icon.png") no-repeat center / 0.22rem;
+    margin-left:0.05rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

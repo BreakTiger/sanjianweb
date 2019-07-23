@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>汽车-金融-保险申请</title>
+    <script src="js/rem.js"></script>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <style>
+        #box {
+            width: 100%;
+            position: relative;
+        }
+
+        /*广告轮播*/
+        .swiper-container {
+            width: 100%;
+            margin-bottom: 0.63rem;
+        }
+
+        .swiper-container .swiper-wrapper .swiper-slide a img {
+            width: 100%;
+            height: 3rem;
+        }
+
+        /* 内容区 */
+        .content {
+            width: 11.20rem;
+            margin: auto;
+            margin-bottom: 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 1);
+            background: linear-gradient(90deg, rgba(230, 233, 240, 1) 0%, rgba(238, 241, 245, 1) 100%);
+            box-shadow: 0.02rem 0.07rem 0.21rem 0rem rgba(67, 66, 67, 0.21);
+            opacity: 0.7;
+            border-radius: 0.08rem;
+        }
+
+        /* 流程 */
+        .process {
+            background: #ffffff;
+        }
+
+        .process ul li {
+            display: flex;
+            align-items: center;
+        }
+
+        .process ul li span:nth-child(3) {
+            font-size: 0.2rem;
+            color: #363636;
+            margin-right: 0.41rem;
+        }
+
+        .process ul li:last-child {
+            margin-right: 1.25rem;
+        }
+
+        .circular {
+            display: block;
+            width: 0.34rem;
+            height: 0.34rem;
+            border: 0.02rem solid rgba(82, 82, 82, 1);
+            text-align: center;
+            line-height: 0.34rem;
+            border-radius: 50%;
+            font-size: 0.18rem;
+            color: #ffffff;
+            margin-right: 0.11rem;
+            margin-left: 0.45rem;
+        }
+
+        .finsh {
+            color: #ffffff !important;
+            background: #525252;
+        }
+
+        .arrow {
+            display: block;
+            width: 0.36rem;
+            height: 0.82rem;
+            background: url('images/s-arrow.png') no-repeat left/0.31rem;
+        }
+
+        .su-icon {
+            display: block;
+            width: 0.34rem;
+            height: 0.34rem;
+            background: url('images/sure.png') no-repeat center / 0.34rem;
+            margin-right: 0.11rem;
+            margin-left: 0.45rem;
+            display: none;
+        }
+
+        .fa-icon {
+            display: block;
+            width: 0.34rem;
+            height: 0.34rem;
+            background: url('images/f-icon.png') no-repeat center / 0.34rem;
+            margin-right: 0.11rem;
+            margin-left: 0.45rem;
+            display: none;
+        }
+
+        /* 信息容器 */
+        .message-content {
+            padding: 0.4rem 0.35rem 0.8rem 0.36rem;
+        }
+
+        .basic {
+            background: #ffffff;
+            padding: 0.32rem 1.4rem 0.48rem 0.27rem;
+            border-radius: 0.04rem;
+            margin-bottom: 0.32rem;
+        }
+
+        .city-name {
+            margin-top: 0.21rem;
+            margin-bottom: 0.16rem;
+        }
+
+        .inputs {
+            width: 2.8rem;
+            height: 0.36rem;
+            background: rgba(255, 255, 255, 1);
+            border: 0.01rem solid rgba(223, 223, 223, 1);
+            border-radius: 0.02rem;
+            text-indent: 0.17rem;
+            margin-left: 0.39rem;
+        }
+
+        /* 选择服务商 */
+        .service {
+            background: #ffffff;
+            padding: 0.22rem 0rem 0.27rem 0.29rem;
+            border-radius: 0.04rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .service>h3 {
+            margin-bottom: 0.38rem;
+        }
+
+        .service .type ul li {
+            width: 2.2rem;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 0.08rem;
+
+        }
+
+        .active {
+            border: 0.01rem solid rgba(234, 234, 234, 1);
+        }
+
+        .service .type ul li:first-child {
+            margin-left: 0.92rem;
+        }
+
+        .service .type ul li:last-child {
+            margin-right: 1.3rem;
+        }
+
+        .service .type ul li img {
+            width: 2rem;
+            height: 0.65rem;
+            margin-top: 0.08rem;
+            margin-bottom: 0.07rem;
+            margin-left: 0.1rem;
+        }
+
+        .back {
+            width: 1rem;
+            background: rgba(255, 255, 255, 1);
+            opacity: 0.5;
+            border-radius: 0.08rem;
+            padding: 0.1rem 0;
+            cursor: pointer;
+        }
+
+        .b-icon {
+            display: block;
+            width: 0.07rem;
+            height: 0.13rem;
+            background: url('images/back.png') no-repeat center/0.07rem;
+            margin-left: 0.19rem;
+            margin-right: 0.13rem;
+        }
+
+        .apply {
+            width: 2.20rem;
+            background: rgba(255, 115, 3, 1);
+            border-radius: 0.08rem;
+            padding: 0.09rem 0;
+            cursor: pointer;
+        }
+
+        .apply>span:first-child {
+            margin-left: 0.29rem;
+        }
+
+        .a-line {
+            display: block;
+            width: 0.02rem;
+            height: 0.43rem;
+            background: url('images/lines.png') no-repeat center/0.02rem;
+            margin-left: 0.28rem;
+            margin-right: 0.24rem;
+        }
+
+        .a-arrow {
+            display: block;
+            width: 0.12rem;
+            height: 0.2rem;
+            background: url('images/w-arrow.png') no-repeat center/0.12rem;
+        }
+
+
+        /* 提交申请信息+等待平台联系+完成申请 */
+        .apply-press {
+            padding: 0.54rem 0.92rem 0.71rem 1.42rem;
+        }
+
+        .left>div>h3 {
+            margin-top: 0.26rem;
+            margin-bottom: 0.48rem;
+        }
+
+        .left .one>p {
+            width: 4rem;
+            line-height: 0.25rem;
+            margin-bottom: 0.59rem;
+        }
+
+        .left>div .B-Btn {
+            width: 1.34rem;
+            background: #ffffff;
+            padding: 0.1rem 0;
+            border-radius: 0.08rem;
+            cursor: pointer;
+        }
+
+        .left .two>p {
+            width: 4rem;
+            line-height: 0.25rem;
+        }
+
+        .left .two>a {
+            display: block;
+            margin-top: 0.05rem;
+            margin-bottom: 0.34rem;
+            text-decoration: underline;
+        }
+
+        .Btnlines {
+            margin-top: 0.8rem;
+        }
+
+        .reapply {
+            background: #FF7303;
+            padding: 0.1rem 0.21rem;
+            border-radius: 0.08rem;
+            cursor: pointer;
+        }
+
+        .r-arrows {
+            display: block;
+            width: 0.07rem;
+            height: 0.13rem;
+            background: url('images/rights.png') no-repeat center/0.07rem;
+            margin-left: 0.09rem;
+        }
+
+
+
+
+
+
+        .right {
+            width: 3.31rem;
+            height: 2.94rem;
+            margin-left: 1.51rem;
+        }
+
+        .right div img {
+            width: 100%;
+            height: 100%;
+        }
+
+
+
+        /*右侧返回顶部 编辑 订单入口*/
+        .tabs {
+            width: 0.6rem;
+            height: 1.2rem;
+            background: rgba(255, 255, 255, 1);
+            border: 0.01rem solid rgba(217, 217, 217, 1);
+            position: absolute;
+            right: 0.5rem;
+            bottom: 0rem;
+        }
+
+        .tabs a {
+            height: 0.6rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .tabs a:last-child {
+            border-top: 0.01rem solid #D9D9D9;
+        }
+
+        .tabs .return-icon {
+            display: block;
+            width: 0.30rem;
+            height: 0.30rem;
+            background: url("images/order.png") no-repeat center / 0.30rem;
+        }
+
+        .tabs .option-icon {
+            display: block;
+            width: 0.30rem;
+            height: 0.30rem;
+            background: url("images/option.png") no-repeat center / 0.30rem;
+        }
+
+        .tabs a:first-child {
+            font-size: 0.2rem;
+            font-family: NotoSansHans-Medium;
+            font-weight: 500;
+            color: rgba(254, 254, 254, 1);
+            line-height: 0.22rem;
+            text-align: center;
+            padding: 0 0.1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!--html结构区域-->
+    <div id="containers">
+        <header id="header"></header>
+        <section>
+            <div id="box">
+                <!--广告轮播图-->
+                <div class="swiper-container">
+                    <!--包裹图片的父级元素 -->
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="javascript:;">
+                                <img src="resources/carbanner.png" alt="">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:;">
+                                <img src="resources/carbanner.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 内容区 -->
+                <div class="content">
+
+                    <!-- 流程 -->
+                    <div class="process">
+                        <ul class="flex fl-jsb">
+                            <li>
+                                <span class="su-icon"></span>
+                                <span class="fa-icon"></span>
+                                <span class="circular finsh">1</span>
+                                <span>提交申请信息</span>
+                                <span class="arrow"></span>
+                            </li>
+                            <li>
+                                <span class="su-icon"></span>
+                                <span class="fa-icon"></span>
+                                <span class="circular">2</span>
+                                <span>等待平台联系</span>
+                                <span class="arrow"></span>
+                            </li>
+
+                            <li>
+                                <span class="su-icon"></span>
+                                <span class="fa-icon"></span>
+                                <span class="circular">3</span>
+                                <span>处理成功，完成申请</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 信息容器 -->
+                    <div class="message-content hide">
+
+                        <!-- 基本信息 -->
+                        <div class="basic">
+                            <h3 class="fz-26 c-16">基本信息</h3>
+                            <!-- 所在城市+客户姓名 -->
+                            <div class="city-name flex fl-jsb">
+                                <div class="city">
+                                    <span class="fz-18 c-70">所在城市</span>
+                                    <input type="text" class="inputs" id="getCity" placeholder="请输入城市">
+                                </div>
+
+                                <div class="name">
+                                    <span class="fz-18 c-70">客户姓名</span>
+                                    <input type="text" class="inputs" id="getName" placeholder="请输入客户姓名">
+                                </div>
+                            </div>
+
+                            <!-- 车牌号码+联系方式 -->
+                            <div class="plate-phone flex fl-jsb">
+                                <!-- 车牌号码 -->
+                                <div class="plate">
+                                    <span class="fz-18 c-70">车牌号码</span>
+                                    <input type="text" class="inputs" id="getPlate" placeholder="请输入车牌号码">
+                                </div>
+
+                                <!-- 联系方式 -->
+                                <div class="phone">
+                                    <span class="fz-18 c-70">联系方式</span>
+                                    <input type="text" class="inputs" id="getPhone" placeholder="请输入手机号码">
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- 选择服务商 -->
+                        <div class="service">
+                            <h3 class="fz-20 c-16">请选择保险服务商</h3>
+                            <div class="type">
+                                <ul class="flex fl-jsb">
+                                    <li class="active">
+                                        <img src="resources/type-1.png">
+                                    </li>
+                                    <li>
+                                        <img src="resources/type-2.png">
+                                    </li>
+                                    <li>
+                                        <img src="resources/type-3.png">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="btn-line flex fl-jsb">
+
+                            <div class="back fl-align flex">
+                                <span class="b-icon"></span>
+                                <span class="fz-20 c-70">返回</span>
+                            </div>
+
+                            <div class="apply flex fl-align">
+                                <span class="fz-26 c-fff">提交申请</span>
+                                <span class="a-line"></span>
+                                <span class="a-arrow"></span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- 提交申请信息+等待平台联系+完成申请 -->
+                    <div class="apply-press flex">
+
+                        <div class="left">
+                            <!-- 提交申请信息 -->
+                            <div class="one ">
+                                <h3>您已成功提交信息！</h3>
+                                <p class="fz-20 c-666">
+                                    我们将在1~3个工作日内与您联系，如遇假期，
+                                    订单处理时间顺延，请您耐心等待。
+                                </p>
+                                <div class="B-Btn flex">
+                                    <span class="b-icon"></span>
+                                    <span onclick="window.location.href='carindex.html'">返回首页</span>
+                                </div>
+                            </div>
+
+                            <div class="two hide">
+                                <h3>您已成功提交信息！</h3>
+                                <p class="fz-20 c-666">
+                                    您的车险保单申请已通过，请根据客服引导，点
+                                    击以下链接填写合同及付款，谢谢您的信赖！
+                                </p>
+                                <a href="javascript:" class="c-active">http://www.pingan.com</a>
+                                <div class="B-Btn flex">
+                                    <span class="b-icon"></span>
+                                    <span onclick="window.location.href='carindex.html'">返回首页</span>
+                                </div>
+                            </div>
+                            <!-- 完成申请 -->
+                            <div class="three hide">
+                                <h3>很抱歉，您的申请未通过！</h3>
+                                <p class="fz-20 c-666">
+                                    申请信息填写有误，请修改后重新申请。
+                                </p>
+
+                                <div class="Btnlines flex fl-jsb">
+                                    <div class="B-Btn flex">
+                                        <span class="b-icon"></span>
+                                        <span onclick="window.location.href='carindex.html'">返回首页</span>
+                                    </div>
+
+                                    <div class="reapply flex fl-align">
+                                        <span class="fz-20 c-fff">重新申请</span>
+                                        <span class="r-arrows"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="right">
+
+                            <div class="one">
+                                <img src="images/info-sucess.png">
+                            </div>
+
+                            <div class="two hide">
+                                <img src="images/info-green.png">
+                            </div>
+
+                            <div class="three hide">
+                                <img src="images/info-fail.png">
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <!-- 右侧导航 -->
+                <div class="tabs">
+                    <a href="javascript:;" class="tab-ico2"><span class="option-icon"></span></a>
+                    <a href="javascript:;" class="tab-ico1"><span class="return-icon"></span></a>
+                </div>
+
+            </div>
+        </section>
+        <footer id="footer"></footer>
+    </div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/public.js"></script>
+<script src="js/common.js"></script>
+
+<script src="js/swiper.min.js"></script>
+<script type="text/javascript">
+
+</script>
+
+
+</html>

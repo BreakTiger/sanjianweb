@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>汽车-商城</title>
+    <script src="./js/rem.js"></script>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <!--css样式区域-->
+    <style>
+        /*广告轮播*/
+        .swiper-container {
+            width: 100%;
+        }
+        .swiper-container .swiper-wrapper .swiper-slide a img {
+            width: 100%;
+            height: 3.24rem;
+        }
+        /*主体内容*/
+        .main{
+            width:16.8rem;
+            max-width:16.8rem;
+            margin:auto;
+        }
+        /*头部导航列表*/
+        .main .leftmain{
+            width:11.68rem;
+        }
+        .main .leftmain .navlist{
+            border:0.01rem solid #EFEFEF;
+            border-radius:0.04rem;
+            border-top: none;
+            margin-bottom:0.32rem;
+        }
+        .main .leftmain .navlist .navs{
+            padding:0.35rem 0 0.35rem 0.35rem;
+        }
+        .main .leftmain .navlist .navs p{
+            width:1.05rem;
+            font-size:0.18rem;
+            font-family:A02-;
+            font-weight:400;
+            color:#ABABAB;
+        }
+        .main .leftmain .navlist .navs ul{
+            display:flex;
+            flex-wrap: wrap;
+            position:relative;
+            width:9.76rem;
+        }
+        .main .leftmain .navlist .navs ul li{
+            color:#707070;
+            font-size:0.18rem;
+            font-family:A03-;
+            font-weight:500;
+            margin-bottom:0.24rem;
+        }
+        .main .leftmain .navlist .navs ul li.more{
+            display:flex;
+            align-items:center;
+            font-size:0.16rem;
+            color:#0070D3;
+        }
+        .main .leftmain .navlist .navs ul li:last-child .down-icon{
+            width:0.09rem;
+            height:0.05rem;
+            background:url("images/down_icon1.png") no-repeat center / 0.09rem;
+            margin-left:0.07rem;
+        }
+        .main .leftmain .navlist .navs .prices{
+            margin-top:0.08rem;
+        }
+        .main .leftmain .navlist .navs li{
+            margin-right:0.44rem;
+        }
+        /*商品列表*/
+        .productlist ul{
+            display:flex;
+            justify-content:space-between;
+            flex-wrap:wrap;
+        }
+        .productlist ul li{
+            width:3.75rem;
+            height:3.6rem;
+            background:rgba(255,255,255,1);
+            border:0.01rem solid #F2F2F2;
+            box-shadow:0 0 0.12rem 0 rgba(46,46,46,0.06);
+            border-radius:0.04rem;
+            margin-bottom:0.2rem;
+            box-sizing:border-box;
+        }
+        .productlist ul li.elem{
+            background:#FFFFFF !important;
+            box-shadow:0 0.02rem 0.81rem 0.03rem rgba(46,46,46,0.14);
+        }
+        .productlist ul .li-item{
+            margin:0.2rem 0.28rem 0.28rem 0.28rem;
+        }
+        .productlist ul .li-item img{
+            width:3.2rem;
+            height:1.7rem;
+        }
+        .productlist ul .li-item .p1{
+            padding:0.16rem 0;
+        }
+        .productlist ul .li-item .p3{
+            padding-bottom:0.15rem;
+        }
+        .productlist ul .li-item .p4{
+            padding-top:0.15rem;
+            display:flex;
+            align-items:center;
+            font-size:0.16rem;
+            font-family:NotoSansHans-Regular;
+            font-weight:400;
+            color:#6B6B6B;
+            border-top:0.01rem solid #F2F2F2;
+        }
+        .productlist ul .li-item .p4 p:first-child{
+            margin-right:0.15rem;
+        }
+        /*右侧内容*/
+        .main .rightmain{
+            width:4.8rem;
+        }
+        .main .rightmain ul li{
+            background:#F9F9F9;
+            border-radius:0.04rem;
+            margin-bottom:0.16rem;
+        }
+        .main .rightmain ul li .lbox{
+            padding:0.28rem 0.2rem;
+        }
+        .main .rightmain ul li .lbox .lititle{
+            padding-bottom:0.13rem;
+        }
+        .main .rightmain ul li h3{
+            margin:0 0.62rem 0 0.2rem;
+            white-space:nowrap;
+        }
+        .main .rightmain ul li a{
+            width:1rem;
+            height:0.3rem;
+            background:#FF7303;
+            border-radius:0.04rem;
+            color: #FFFFFF;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+        .main .rightmain ul li .lbox .liimg img{
+            width:4.4rem;
+            height:2.8rem;
+            border-radius:0.04rem;
+            -webkit-border-radius:0.04rem;
+        }
+    </style>
+</head>
+<body>
+<!--html结构区域-->
+<div id="containers">
+    <header id="header"></header>
+    <section>
+        <div id="box">
+            <!--广告轮播图-->
+            <div class="swiper-container">
+                <!--包裹图片的父级元素 -->
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="javascript:;">
+                            <img src="resources/carmallbanner.png" alt="">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="javascript:;">
+                            <img src="resources/carmallbanner.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--主体内容-->
+            <div class="main flex fl-jsb">
+                 <div class="leftmain">
+                     <div class="navlist">
+                         <div class="navs">
+                             <div class="brands flex">
+                                 <p>品牌</p>
+                                 <ul>
+                                     <li>全部</li>
+                                     <li>丰田</li>
+                                     <li>本田</li>
+                                     <li>大众</li>
+                                     <li>日产</li>
+                                     <li>广汽</li>
+                                     <li>起亚</li>
+                                     <li>丰田</li>
+                                     <li>本田</li>
+                                     <li>大众</li>
+                                     <li>日产</li>
+                                     <li>广汽</li>
+                                     <li>起亚</li>
+                                     <li>本田</li>
+                                     <li>大众</li>
+                                     <li>日产</li>
+                                     <li>广汽</li>
+                                     <li>起亚</li>
+                                     <li class="more"><span>更多</span><span class="down-icon"></span></li>
+                                 </ul>
+                             </div>
+                             <div class="prices flex">
+                                 <p>价格</p>
+                                 <ul>
+                                     <li>全部</li>
+                                     <li>8万以下</li>
+                                     <li>8-10万</li>
+                                     <li>10-15万</li>
+                                     <li>15-20万</li>
+                                     <li>20-30万</li>
+                                     <li>30-50万</li>
+                                     <li>50万以上</li>
+                                 </ul>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="productlist">
+                         <ul>
+                             <li>
+                                 <div class="li-item">
+                                     <img src="resources/mall1.png" alt="">
+                                     <p class="p1 c-e5">
+                                         <span class="fz-20">¥</span >
+                                         <span class="fz-22 f-wb">17.80</span>
+                                         <span class="fz-20">万</span>
+                                     </p>
+                                     <p class="p2 fz-20">本田缤智</p>
+                                     <p class="p3 fz-20">2018款 1.5L CVT两驱舒适型</p>
+                                     <div class="p4">
+                                         <p>本田4s店</p>
+                                         <p><span>联系电话：</span><span>400-800-6000</span></p>
+                                     </div>
+                                 </div>
+                             </li>
+                             <li>
+                                 <div class="li-item">
+                                     <img src="resources/mall1.png" alt="">
+                                     <p class="p1 c-e5">
+                                         <span class="fz-20">¥</span >
+                                         <span class="fz-22 f-wb">17.80</span>
+                                         <span class="fz-20">万</span>
+                                     </p>
+                                     <p class="p2 fz-20">本田缤智</p>
+                                     <p class="p3 fz-20">2018款 1.5L CVT两驱舒适型</p>
+                                     <div class="p4">
+                                         <p>本田4s店</p>
+                                         <p><span>联系电话：</span><span>400-800-6000</span></p>
+                                     </div>
+                                 </div>
+                             </li>
+                             <li>
+                                 <div class="li-item">
+                                     <img src="resources/mall1.png" alt="">
+                                     <p class="p1 c-e5">
+                                         <span class="fz-20">¥</span >
+                                         <span class="fz-22 f-wb">17.80</span>
+                                         <span class="fz-20">万</span>
+                                     </p>
+                                     <p class="p2 fz-20">本田缤智</p>
+                                     <p class="p3 fz-20">2018款 1.5L CVT两驱舒适型</p>
+                                     <div class="p4">
+                                         <p>本田4s店</p>
+                                         <p><span>联系电话：</span><span>400-800-6000</span></p>
+                                     </div>
+                                 </div>
+                             </li>
+                             <li>
+                                 <div class="li-item">
+                                     <img src="resources/mall1.png" alt="">
+                                     <p class="p1 c-e5">
+                                         <span class="fz-20">¥</span >
+                                         <span class="fz-22 f-wb">17.80</span>
+                                         <span class="fz-20">万</span>
+                                     </p>
+                                     <p class="p2 fz-20">本田缤智</p>
+                                     <p class="p3 fz-20">2018款 1.5L CVT两驱舒适型</p>
+                                     <div class="p4">
+                                         <p>本田4s店</p>
+                                         <p><span>联系电话：</span><span>400-800-6000</span></p>
+                                     </div>
+                                 </div>
+                             </li>
+                             <li>
+                                 <div class="li-item">
+                                     <img src="resources/mall1.png" alt="">
+                                     <p class="p1 c-e5">
+                                         <span class="fz-20">¥</span >
+                                         <span class="fz-22 f-wb">17.80</span>
+                                         <span class="fz-20">万</span>
+                                     </p>
+                                     <p class="p2 fz-20">本田缤智</p>
+                                     <p class="p3 fz-20">2018款 1.5L CVT两驱舒适型</p>
+                                     <div class="p4">
+                                         <p>本田4s店</p>
+                                         <p><span>联系电话：</span><span>400-800-6000</span></p>
+                                     </div>
+                                 </div>
+                             </li>
+                             <li>
+                                 <div class="li-item">
+                                     <img src="resources/mall1.png" alt="">
+                                     <p class="p1 c-e5">
+                                         <span class="fz-20">¥</span >
+                                         <span class="fz-22 f-wb">17.80</span>
+                                         <span class="fz-20">万</span>
+                                     </p>
+                                     <p class="p2 fz-20">本田缤智</p>
+                                     <p class="p3 fz-20">2018款 1.5L CVT两驱舒适型</p>
+                                     <div class="p4">
+                                         <p>本田4s店</p>
+                                         <p><span>联系电话：</span><span>400-800-6000</span></p>
+                                     </div>
+                                 </div>
+                             </li>
+                             <li>
+                                 <div class="li-item">
+                                     <img src="resources/mall1.png" alt="">
+                                     <p class="p1 c-e5">
+                                         <span class="fz-20">¥</span >
+                                         <span class="fz-22 f-wb">17.80</span>
+                                         <span class="fz-20">万</span>
+                                     </p>
+                                     <p class="p2 fz-20">本田缤智</p>
+                                     <p class="p3 fz-20">2018款 1.5L CVT两驱舒适型</p>
+                                     <div class="p4">
+                                         <p>本田4s店</p>
+                                         <p><span>联系电话：</span><span>400-800-6000</span></p>
+                                     </div>
+                                 </div>
+                             </li>
+                             <li>
+                                 <div class="li-item">
+                                     <img src="resources/mall1.png" alt="">
+                                     <p class="p1 c-e5">
+                                         <span class="fz-20">¥</span >
+                                         <span class="fz-22 f-wb">17.80</span>
+                                         <span class="fz-20">万</span>
+                                     </p>
+                                     <p class="p2 fz-20">本田缤智</p>
+                                     <p class="p3 fz-20">2018款 1.5L CVT两驱舒适型</p>
+                                     <div class="p4">
+                                         <p>本田4s店</p>
+                                         <p><span>联系电话：</span><span>400-800-6000</span></p>
+                                     </div>
+                                 </div>
+                             </li>
+                             <li>
+                                 <div class="li-item">
+                                     <img src="resources/mall1.png" alt="">
+                                     <p class="p1 c-e5">
+                                         <span class="fz-20">¥</span >
+                                         <span class="fz-22 f-wb">17.80</span>
+                                         <span class="fz-20">万</span>
+                                     </p>
+                                     <p class="p2 fz-20">本田缤智</p>
+                                     <p class="p3 fz-20">2018款 1.5L CVT两驱舒适型</p>
+                                     <div class="p4">
+                                         <p>本田4s店</p>
+                                         <p><span>联系电话：</span><span>400-800-6000</span></p>
+                                     </div>
+                                 </div>
+                             </li>
+                             <li>
+                                 <div class="li-item">
+                                     <img src="resources/mall1.png" alt="">
+                                     <p class="p1 c-e5">
+                                         <span class="fz-20">¥</span >
+                                         <span class="fz-22 f-wb">17.80</span>
+                                         <span class="fz-20">万</span>
+                                     </p>
+                                     <p class="p2 fz-20">本田缤智</p>
+                                     <p class="p3 fz-20">2018款 1.5L CVT两驱舒适型</p>
+                                     <div class="p4">
+                                         <p>本田4s店</p>
+                                         <p><span>联系电话：</span><span>400-800-6000</span></p>
+                                     </div>
+                                 </div>
+                             </li>
+                             <li>
+                                 <div class="li-item">
+                                     <img src="resources/mall1.png" alt="">
+                                     <p class="p1 c-e5">
+                                         <span class="fz-20">¥</span >
+                                         <span class="fz-22 f-wb">17.80</span>
+                                         <span class="fz-20">万</span>
+                                     </p>
+                                     <p class="p2 fz-20">本田缤智</p>
+                                     <p class="p3 fz-20">2018款 1.5L CVT两驱舒适型</p>
+                                     <div class="p4">
+                                         <p>本田4s店</p>
+                                         <p><span>联系电话：</span><span>400-800-6000</span></p>
+                                     </div>
+                                 </div>
+                             </li>
+                             <li>
+                                 <div class="li-item">
+                                     <img src="resources/mall1.png" alt="">
+                                     <p class="p1 c-e5">
+                                         <span class="fz-20">¥</span >
+                                         <span class="fz-22 f-wb">17.80</span>
+                                         <span class="fz-20">万</span>
+                                     </p>
+                                     <p class="p2 fz-20">本田缤智</p>
+                                     <p class="p3 fz-20">2018款 1.5L CVT两驱舒适型</p>
+                                     <div class="p4">
+                                         <p>本田4s店</p>
+                                         <p><span>联系电话：</span><span>400-800-6000</span></p>
+                                     </div>
+                                 </div>
+                             </li>
+                         </ul>
+                     </div>
+                     <div class="page_div page_div_one" id="pagelist2"></div>
+                 </div>
+                <div class="rightmain">
+                    <ul>
+                        <li>
+                            <div class="lbox">
+                                <div class="lititle flex fl-align">
+                                    <img src="resources/channeldetail-icon.png" alt="">
+                                    <h3 class="fz-24">三江4S店销售中心</h3>
+                                    <a href="javascript:;">进入店铺</a>
+                                </div>
+                                <div class="liimg">
+                                    <img src="resources/channeldetail1.png" alt="">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="lbox">
+                                <div class="lititle flex fl-align">
+                                    <img src="resources/channeldetail-icon.png" alt="">
+                                    <h3 class="fz-24">三江4S店销售中心</h3>
+                                    <a href="javascript:;">进入店铺</a>
+                                </div>
+                                <div class="liimg">
+                                    <img src="resources/channeldetail1.png" alt="">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="lbox">
+                                <div class="lititle flex fl-align">
+                                    <img src="resources/channeldetail-icon.png" alt="">
+                                    <h3 class="fz-24">三江4S店销售中心</h3>
+                                    <a href="javascript:;">进入店铺</a>
+                                </div>
+                                <div class="liimg">
+                                    <img src="resources/channeldetail1.png" alt="">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="lbox">
+                                <div class="lititle flex fl-align">
+                                    <img src="resources/channeldetail-icon.png" alt="">
+                                    <h3 class="fz-24">三江4S店销售中心</h3>
+                                    <a href="javascript:;">进入店铺</a>
+                                </div>
+                                <div class="liimg">
+                                    <img src="resources/channeldetail1.png" alt="">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="footer"></div>
+</div>
+</body>
+<!-- js功能区域 -->
+<script src="./js/jquery.min.js"></script>
+<script src="./js/public.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/pageMe.js"></script>
+<script src="./js/swiper.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        //分页器
+        $("#pagelist2").paging({
+            pageNum: 1, // 当前页面
+            totalNum: 10, // 总页码
+            totalList: 300, // 记录总数量
+            callback: function (num) { //回调函数
+                console.log('页码数：', num);
+            }
+        });
+        /*轮播图*/
+        var mySwiper = new Swiper('.swiper-container', {
+            autoplay: {
+                delay: 3000,
+                stopOnLastSlide: false,
+                disableOnInteraction: true,
+            }
+        })
+        $('.productlist ul li').hover(
+            function(){
+                $(this).addClass('elem').siblings().removeClass('elem');
+            },
+            function(){
+                $(this).removeClass('elem');
+            }
+        )
+    })
+</script>
+</html>

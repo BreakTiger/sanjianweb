@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>汽车频道-详情</title>
+    <script src="./js/rem.js"></script>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <!--css样式区域-->
+    <style>
+        /*广告轮播*/
+        .swiper-container {
+            width: 100%;
+        }
+        .swiper-container .swiper-wrapper .swiper-slide a img {
+            width: 100%;
+            height:3.25rem;
+        }
+
+        .main{
+            width:16.8rem;
+            max-width:16.8rem;
+            margin:0.18rem auto 0.8rem;
+        }
+        /*左侧内容*/
+        .main .leftmain{
+            width:11.8rem;
+            background:#F3F5F9;
+            border-radius:0.08rem;
+            position:relative;
+            height:12.86rem;
+            max-height:12.86rem;
+            overflow-y: auto;
+
+        }
+        .leftmain::-webkit-scrollbar{
+            width:0.06rem;
+            height:1rem;
+            border:0.01rem solid #D2DEF6;
+        }
+        .leftmain::-webkit-scrollbar-thumb{
+            background:#5784DF;
+            border-radius:0.05rem;
+        }
+        .main .leftmain .mainbox{
+            padding:0 0.95rem;
+        }
+        .main .leftmain .mainbox .title {
+            padding:0.6rem 0 0.16rem 0;
+            text-align:center;
+        }
+        .main .leftmain .mainbox .source{
+            padding-bottom:0.32rem;
+            text-align:center;
+        }
+        .main .leftmain .mainbox .maintext{
+            font-size:0.18rem;
+            font-family:A02-;
+            font-weight:400;
+            color:#404040;
+            line-height:0.28rem;
+        }
+        .main .leftmain .mainbox .maintext img{
+            width:9.9rem;
+            height:6.6rem;
+        }
+        .main .leftmain .back{
+            position:absolute;
+            top:0.32rem;
+            left:0.4rem;
+            display:flex;
+            align-items:center;
+        }
+        .main .leftmain .back .back-icon{
+            display:inline-block;
+            width:0.05rem;
+            height:0.09rem;
+            background:url("images/back.png") no-repeat center / 0.05rem;
+            margin-right: 0.08rem;
+
+        }
+        .main .leftmain .back span{
+            font-size:0.16rem;
+            font-family:PingFang-SC-Medium;
+            font-weight:500;
+            color:#707070;
+        }
+        /*右侧内容*/
+        .main .rightmain{
+            width:4.8rem;
+        }
+        .main .rightmain ul li{
+            background:#F9F9F9;
+            border-radius:0.04rem;
+            margin-bottom:0.16rem;
+        }
+        .main .rightmain ul li .libox{
+            padding:0.28rem 0.2rem;
+        }
+        .main .rightmain ul li .libox .lititle{
+            padding-bottom:0.13rem;
+        }
+        .main .rightmain ul li h3{
+            margin:0 0.62rem 0 0.2rem;
+            white-space:nowrap;
+        }
+        .main .rightmain ul li a{
+            width:1rem;
+            height:0.3rem;
+            background:#FF7303;
+            border-radius:0.04rem;
+            color: #FFFFFF;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+        .main .rightmain ul li .libox .liimg img{
+            width:4.4rem;
+            height:2.8rem;
+            border-radius:0.04rem;
+            -webkit-border-radius:0.04rem;
+        }
+    </style>
+</head>
+<body>
+<!--html结构区域-->
+<div id="containers">
+    <header id="header"></header>
+    <section>
+        <div id="box">
+            <!--广告轮播图-->
+            <div class="swiperbanner">
+                <div class="swiper-container">
+                    <!--包裹图片的父级元素 -->
+                    <div class="swiper-wrapper"></div>
+                </div>
+            </div>
+            <div class="main flex fl-jsb">
+                <div class="leftmain">
+                    <div class="mainbox"></div>
+                    <a class="back" href="javascript:history.back(-1)"><span class="back-icon"></span><span>返回列表</span></a>
+                </div>
+                <div class="rightmain">
+                    <ul>
+                        <li>
+                            <div class="libox">
+                                <div class="lititle flex fl-align">
+                                    <img src="resources/channeldetail-icon.png" alt="">
+                                    <h3 class="fz-24">三江4S店销售中心</h3>
+                                    <a href="javascript:;">进入店铺</a>
+                                </div>
+                                <div class="liimg">
+                                    <img src="resources/channeldetail1.png" alt="">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="libox">
+                                <div class="lititle flex fl-align">
+                                    <img src="resources/channeldetail-icon.png" alt="">
+                                    <h3 class="fz-24">三江4S店销售中心</h3>
+                                    <a href="javascript:;">进入店铺</a>
+                                </div>
+                                <div class="liimg">
+                                    <img src="resources/channeldetail1.png" alt="">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="libox">
+                                <div class="lititle flex fl-align">
+                                    <img src="resources/channeldetail-icon.png" alt="">
+                                    <h3 class="fz-24">三江4S店销售中心</h3>
+                                    <a href="javascript:;">进入店铺</a>
+                                </div>
+                                <div class="liimg">
+                                    <img src="resources/channeldetail1.png" alt="">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="footer"></div>
+</div>
+</body>
+<!-- js功能区域 -->
+<script src="./js/jquery.min.js"></script>
+<script src="./js/public.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/swiper.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        //获取所需参数
+        var city_id=localData('get','cityinfo').city_id || 6;
+        var article_id=GetQueryString('article_id');
+
+        /*调用轮播图函数 汽车频道 sc_id=12*/
+        var params={sc_id:12,city_id:city_id};
+        getBanner(params);
+
+        //获取资讯具体详情
+        ajax_post('/api/storeArticle/carDetail',{article_id:article_id},function(r){
+            callBack(r,{
+                success:function(data){
+                    console.log(data);
+                   var detailhtml='<h3 class="title fz-22">'+data.title+'</h3>'+
+                                  '<p class="source c-90"><span>来源：'+data.store_name+'</span>&nbsp;<span>'+data.create_time+'</span></p>'+
+                                  '<div class="maintext">'+data.content+'</div>';
+
+                   $('.mainbox').append(detailhtml);
+                }
+            })
+        })
+
+
+
+
+    })
+
+</script>
+</html>

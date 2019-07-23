@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>汽车-经销商</title>
+    <script src="./js/rem.js"></script>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <!--css样式区域-->
+    <style>
+        /*广告轮播*/
+        .swiper-container {
+            width: 100%;
+        }
+        .swiper-container .swiper-wrapper .swiper-slide a img {
+            width: 100%;
+            height:3rem;
+        }
+        .main{
+            width:16.8rem;
+            max-width:16.8rem;
+            margin:0.4rem auto 0;
+        }
+        .main .leftmain{
+            width:11.68rem;
+        }
+        .toplist{
+            background: #F9F9F9;
+        }
+        .topbox{
+            margin-bottom:0.2rem;
+        }
+        .topbox .pack{
+            cursor:pointer;
+            margin-top:0.57rem;
+        }
+        .topbox .top-icon{
+            width:0.09rem;
+            height:0.05rem;
+            background:url("images/top_icon1.png") no-repeat center / 0.09rem;
+            margin-left:0.06rem;
+        }
+        .brandlist p{
+            margin:0.54rem 0.3rem 0 0.3rem;
+            white-space:nowrap;
+        }
+        .arealist p{
+            margin:0.54rem 0.3rem 0.47rem 0.3rem;
+        }
+        .brandlist ul{
+            display:flex;
+            align-items:center;
+            flex-wrap:wrap;
+            margin-top:0.2rem;
+        }
+        .brandlist ul li{
+            width:1.3rem;
+            height:1.3rem;
+            background:#FFFFFF;
+            text-align:center;
+            margin:0 0.08rem 0.08rem 0;
+        }
+        .brandlist ul li img{
+            display:block;
+            width:0.64rem;
+            height:0.64rem;
+            margin:0.15rem auto;
+        }
+        .brandlist ul li span{
+            display:block;
+            color:#888888;
+            cursor:pointer;
+        }
+        .arealist ul{
+            display:flex;
+            flex-wrap: wrap;
+            cursor:pointer;
+        }
+        .arealist ul li{
+            margin-right:0.8rem;
+            color:#888888;
+        }
+        .arealist ul li:first-child{
+            margin-left:0.42rem;
+        }
+        /*商品列表*/
+        .bottomlist img{
+            display:block;
+            width:3.82rem;
+            height:2.12rem;
+            margin-right:0.3rem;
+        }
+        .bottomlist ul li{
+            position:relative;
+            background:#F7F7F7;
+            border:1px solid #F0F0F0;
+            border-radius:0.04rem;
+            box-sizing:border-box;
+        }
+        .bottomlist .libox{
+            padding:0.34rem 0 0.34rem 0.4rem;
+        }
+        .bottomlist .libox .ltext .p1{
+            margin:0.12rem 0 0.2rem 0;
+
+        }
+        .bottomlist .libox .ltext .p3{
+            margin:0.16rem 0 0.45rem 0;
+        }
+        .c-888{
+            color:#888888;
+        }
+        .bottomlist .libox .checkbtn{
+            width:1.94rem;
+            height:0.46rem;
+            background:#FF7303;
+            border-radius:0.08rem;
+            font-size:0.18rem;
+            font-family:NotoSansHans-Medium;
+            font-weight:500;
+            color:#FFFFFF;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+        .bottomlist .libox .lovebtn{
+            width:1.1rem;
+            height:0.26rem;
+            background:#FFFFFF;
+            border-radius:0.13rem;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            position:absolute;
+            top:0.44rem;
+            right:0.38rem;
+        }
+        .bottomlist .libox .lovebtn .l-icon{
+            width:0.16rem;
+            height:0.14rem;
+            background:url("images/collect.png") no-repeat center / 0.16rem;
+            margin-right:0.05rem;
+        }
+        /*右侧内容*/
+        .main .rightmain{
+            width:4.8rem;
+        }
+        .main .rightmain ul li{
+            background:#F9F9F9;
+            border-radius:0.04rem;
+            margin-bottom:0.16rem;
+        }
+        .main .rightmain ul li .lbox{
+            padding:0.28rem 0.2rem;
+        }
+        .main .rightmain ul li .lbox .lititle{
+            padding-bottom:0.13rem;
+        }
+        .main .rightmain ul li h3{
+            margin:0 0.62rem 0 0.2rem;
+            white-space:nowrap;
+        }
+        .main .rightmain ul li a{
+            width:1rem;
+            height:0.3rem;
+            background:#FF7303;
+            border-radius:0.04rem;
+            color: #FFFFFF;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+        .main .rightmain ul li .lbox .liimg img{
+            width:4.4rem;
+            height:2.8rem;
+            border-radius:0.04rem;
+            -webkit-border-radius:0.04rem;
+        }
+    </style>
+</head>
+<body>
+<!--html结构区域-->
+<div id="containers">
+    <header id="header"></header>
+    <section>
+        <div id="box">
+            <!--广告轮播图-->
+            <div class="swiper-container">
+                <!--包裹图片的父级元素 -->
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="javascript:;">
+                            <img src="resources/cardealersbanner.png" alt="">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="javascript:;">
+                            <img src="resources/cardealersbanner.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="main flex fl-jsb">
+                    <div class="leftmain">
+                        <div class="toplist">
+                            <div class="topbox">
+                                <div class="brandlist flex">
+                                    <p>品牌筛选</p>
+                                    <ul >
+                                        <li>
+                                        <img src="resources/dealer1.png" alt="">
+                                        <span>东风启辰</span>
+                                    </li>
+                                        <li>
+                                            <img src="resources/dealer1.png" alt="">
+                                            <span>东风启辰</span>
+                                        </li>
+                                        <li>
+                                            <img src="resources/dealer1.png" alt="">
+                                            <span>东风启辰</span>
+                                        </li>
+                                        <li>
+                                            <img src="resources/dealer1.png" alt="">
+                                            <span>东风启辰</span>
+                                        </li>
+                                        <li>
+                                            <img src="resources/dealer1.png" alt="">
+                                            <span>东风启辰</span>
+                                        </li>
+                                        <li>
+                                            <img src="resources/dealer1.png" alt="">
+                                            <span>东风启辰</span>
+                                        </li>
+                                        <li>
+                                            <img src="resources/dealer1.png" alt="">
+                                            <span>东风启辰</span>
+                                        </li>
+                                        <li>
+                                            <img src="resources/dealer1.png" alt="">
+                                            <span>东风启辰</span>
+                                        </li>
+                                        <li>
+                                            <img src="resources/dealer1.png" alt="">
+                                            <span>东风启辰</span>
+                                        </li>
+                                        <li>
+                                            <img src="resources/dealer1.png" alt="">
+                                            <span>东风启辰</span>
+                                        </li>
+                                        <li>
+                                            <img src="resources/dealer1.png" alt="">
+                                            <span>东风启辰</span>
+                                        </li>
+                                        <li>
+                                            <img src="resources/dealer1.png" alt="">
+                                            <span>东风启辰</span>
+                                        </li>
+                                        <li>
+                                            <img src="resources/dealer1.png" alt="">
+                                            <span>东风启辰</span>
+                                        </li>
+                                        <li>
+                                            <img src="resources/dealer1.png" alt="">
+                                            <span>东风启辰</span>
+                                        </li>
+                                        <li>
+                                            <img src="resources/dealer1.png" alt="">
+                                            <span>东风启辰</span>
+                                        </li>
+                                        <li>
+                                            <img src="resources/dealer1.png" alt="">
+                                            <span>东风启辰</span>
+                                        </li>
+                                        <li>
+                                            <img src="resources/dealer1.png" alt="">
+                                            <span>东风启辰</span>
+                                        </li>
+                                        <li>
+                                            <img src="resources/dealer1.png" alt="">
+                                            <span>东风启辰</span>
+                                        </li>
+                                        <li>
+                                            <img src="resources/dealer1.png" alt="">
+                                            <span>东风启辰</span>
+                                        </li>
+                                        <li>
+                                            <img src="resources/dealer1.png" alt="">
+                                            <span>东风启辰</span>
+                                        </li>
+                                        <li>
+                                            <div class="flex fl-align fl-j pack">
+                                                <span class="c-active">收起</span>
+                                                <span class="top-icon"></span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="arealist flex fl-align">
+                                    <p>区域筛选</p>
+                                    <ul>
+                                        <li class="c-active">全部</li>
+                                        <li>布央区</li>
+                                        <li>程阳桥区</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bottomlist">
+                              <ul>
+                                  <li>
+                                      <div class="libox flex">
+                                          <img src="resources/channeldetail1.png" alt="">
+                                          <div class="ltext">
+                                              <p class="p1 c-16 fw-m fz-26 f-w5">广东中奥奥迪</p>
+                                              <p class="p2 fw-r fz-20">
+                                                  <span class="c-888">主营品牌：</span>
+                                                  <span class="c-333">一汽大众 奥迪 奥迪（进口）</span>
+                                              </p>
+                                              <p class="p3 fw-r fz-20">
+                                                  <span  class="c-888">地址：</span>
+                                                  <span class="c-333">广州白云区石井凰岗牌坊1号</span>
+                                              </p>
+                                              <a href="javascript:;"  class="checkbtn">查看商家</a>
+                                          </div>
+                                          <a href="javascript:;" class="lovebtn">
+                                              <span class="l-icon"></span>
+                                              <span class="c-666">收藏店铺</span>
+                                          </a>
+                                      </div>
+                                  </li>
+                                  <li>
+                                      <div class="libox flex">
+                                          <img src="resources/channeldetail1.png" alt="">
+                                          <div class="ltext">
+                                              <p class="p1 c-16 fw-m fz-26 f-w5">广东中奥奥迪</p>
+                                              <p class="p2 fw-r fz-20">
+                                                  <span class="c-888">主营品牌：</span>
+                                                  <span class="c-333">一汽大众 奥迪 奥迪（进口）</span>
+                                              </p>
+                                              <p class="p3 fw-r fz-20">
+                                                  <span  class="c-888">地址：</span>
+                                                  <span class="c-333">广州白云区石井凰岗牌坊1号</span>
+                                              </p>
+                                              <a href="javascript:;"  class="checkbtn">查看商家</a>
+                                          </div>
+                                          <a href="javascript:;" class="lovebtn">
+                                              <span class="l-icon"></span>
+                                              <span class="c-666">收藏店铺</span>
+                                          </a>
+                                      </div>
+                                  </li>
+                                  <li>
+                                      <div class="libox flex">
+                                          <img src="resources/channeldetail1.png" alt="">
+                                          <div class="ltext">
+                                              <p class="p1 c-16 fw-m fz-26 f-w5">广东中奥奥迪</p>
+                                              <p class="p2 fw-r fz-20">
+                                                  <span class="c-888">主营品牌：</span>
+                                                  <span class="c-333">一汽大众 奥迪 奥迪（进口）</span>
+                                              </p>
+                                              <p class="p3 fw-r fz-20">
+                                                  <span  class="c-888">地址：</span>
+                                                  <span class="c-333">广州白云区石井凰岗牌坊1号</span>
+                                              </p>
+                                              <a href="javascript:;"  class="checkbtn">查看商家</a>
+                                          </div>
+                                          <a href="javascript:;" class="lovebtn">
+                                              <span class="l-icon"></span>
+                                              <span class="c-666">收藏店铺</span>
+                                          </a>
+                                      </div>
+                                  </li>
+                                  <li>
+                                      <div class="libox flex">
+                                          <img src="resources/channeldetail1.png" alt="">
+                                          <div class="ltext">
+                                              <p class="p1 c-16 fw-m fz-26 f-w5">广东中奥奥迪</p>
+                                              <p class="p2 fw-r fz-20">
+                                                  <span class="c-888">主营品牌：</span>
+                                                  <span class="c-333">一汽大众 奥迪 奥迪（进口）</span>
+                                              </p>
+                                              <p class="p3 fw-r fz-20">
+                                                  <span  class="c-888">地址：</span>
+                                                  <span class="c-333">广州白云区石井凰岗牌坊1号</span>
+                                              </p>
+                                              <a href="javascript:;"  class="checkbtn">查看商家</a>
+                                          </div>
+                                          <a href="javascript:;" class="lovebtn">
+                                              <span class="l-icon"></span>
+                                              <span class="c-666">收藏店铺</span>
+                                          </a>
+                                      </div>
+                                  </li>
+                                  <li>
+                                      <div class="libox flex">
+                                          <img src="resources/channeldetail1.png" alt="">
+                                          <div class="ltext">
+                                              <p class="p1 c-16 fw-m fz-26 f-w5">广东中奥奥迪</p>
+                                              <p class="p2 fw-r fz-20">
+                                                  <span class="c-888">主营品牌：</span>
+                                                  <span class="c-333">一汽大众 奥迪 奥迪（进口）</span>
+                                              </p>
+                                              <p class="p3 fw-r fz-20">
+                                                  <span  class="c-888">地址：</span>
+                                                  <span class="c-333">广州白云区石井凰岗牌坊1号</span>
+                                              </p>
+                                              <a href="javascript:;"  class="checkbtn">查看商家</a>
+                                          </div>
+                                          <a href="javascript:;" class="lovebtn">
+                                              <span class="l-icon"></span>
+                                              <span class="c-666">收藏店铺</span>
+                                          </a>
+                                      </div>
+                                  </li>
+                                  <li>
+                                      <div class="libox flex">
+                                          <img src="resources/channeldetail1.png" alt="">
+                                          <div class="ltext">
+                                              <p class="p1 c-16 fw-m fz-26 f-w5">广东中奥奥迪</p>
+                                              <p class="p2 fw-r fz-20">
+                                                  <span class="c-888">主营品牌：</span>
+                                                  <span class="c-333">一汽大众 奥迪 奥迪（进口）</span>
+                                              </p>
+                                              <p class="p3 fw-r fz-20">
+                                                  <span  class="c-888">地址：</span>
+                                                  <span class="c-333">广州白云区石井凰岗牌坊1号</span>
+                                              </p>
+                                              <a href="javascript:;"  class="checkbtn">查看商家</a>
+                                          </div>
+                                          <a href="javascript:;" class="lovebtn">
+                                              <span class="l-icon"></span>
+                                              <span class="c-666">收藏店铺</span>
+                                          </a>
+                                      </div>
+                                  </li>
+                              </ul>
+                        </div>
+                        <!-- 分页器 -->
+                        <div id="pagelist2" class="page_div page_div_one"></div>
+                    </div>
+                    <div class="rightmain">
+                        <ul>
+                            <li>
+                                <div class="lbox">
+                                    <div class="lititle flex fl-align">
+                                        <img src="resources/channeldetail-icon.png" alt="">
+                                        <h3 class="fz-24">三江4S店销售中心</h3>
+                                        <a href="javascript:;">进入店铺</a>
+                                    </div>
+                                    <div class="liimg">
+                                        <img src="resources/channeldetail1.png" alt="">
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="lbox">
+                                    <div class="lititle flex fl-align">
+                                        <img src="resources/channeldetail-icon.png" alt="">
+                                        <h3 class="fz-24">三江4S店销售中心</h3>
+                                        <a href="javascript:;">进入店铺</a>
+                                    </div>
+                                    <div class="liimg">
+                                        <img src="resources/channeldetail1.png" alt="">
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="lbox">
+                                    <div class="lititle flex fl-align">
+                                        <img src="resources/channeldetail-icon.png" alt="">
+                                        <h3 class="fz-24">三江4S店销售中心</h3>
+                                        <a href="javascript:;">进入店铺</a>
+                                    </div>
+                                    <div class="liimg">
+                                        <img src="resources/channeldetail1.png" alt="">
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="lbox">
+                                    <div class="lititle flex fl-align">
+                                        <img src="resources/channeldetail-icon.png" alt="">
+                                        <h3 class="fz-24">三江4S店销售中心</h3>
+                                        <a href="javascript:;">进入店铺</a>
+                                    </div>
+                                    <div class="liimg">
+                                        <img src="resources/channeldetail1.png" alt="">
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="lbox">
+                                    <div class="lititle flex fl-align">
+                                        <img src="resources/channeldetail-icon.png" alt="">
+                                        <h3 class="fz-24">三江4S店销售中心</h3>
+                                        <a href="javascript:;">进入店铺</a>
+                                    </div>
+                                    <div class="liimg">
+                                        <img src="resources/channeldetail1.png" alt="">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="footer"></div>
+</div>
+</body>
+<!-- js功能区域 -->
+<script src="./js/jquery.min.js"></script>
+<script src="./js/public.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/pageMe.js"></script>
+<script src="./js/swiper.min.js"></script>
+<script type="text/javascript">
+   $(function(){
+       //分页器
+       $("#pagelist2").paging({
+           pageNum: 1, // 当前页面
+           totalNum: 10, // 总页码
+           totalList: 300, // 记录总数量
+           callback: function (num) { //回调函数
+               console.log('页码数：', num);
+           }
+       });
+       /*轮播图*/
+       var mySwiper = new Swiper('.swiper-container', {
+           autoplay: {
+               delay: 3000,
+               stopOnLastSlide: false,
+               disableOnInteraction: true,
+           }
+       })
+   })
+</script>
+</html>

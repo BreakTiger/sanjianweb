@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>汽车-金融</title>
+    <script src="js/rem.js"></script>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <style>
+        /*广告轮播*/
+        .swiper-container {
+            width: 100%;
+            margin-bottom: 0.4rem;
+        }
+
+        .swiper-container .swiper-wrapper .swiper-slide a img {
+            width: 100%;
+            height: 3rem;
+        }
+
+        /* 内容区 */
+        .content {
+            width: 16.80rem;
+            margin: auto;
+        }
+
+        /* 广告栏 */
+        .adv-line {
+            margin-bottom: 0.32rem;
+        }
+
+        .adv-line .left {
+            width: 11.8rem;
+            height: 2.8rem;
+            border-radius: 0.08rem;
+        }
+
+        .adv-line .left a img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .adv-line .right {
+            width: 4.8rem;
+            height: 2.8rem;
+            border-radius: 0.08rem;
+        }
+
+        .adv-line .right a img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .title {
+            margin-bottom: 0.28rem;
+        }
+
+        .t-icon-one {
+            display: block;
+            width: 0.38rem;
+            height: 0.39rem;
+            background: url('images/t-icon1.png') no-repeat center/0.38rem;
+            margin-right: 0.11rem;
+        }
+
+        .t-icon-two {
+            display: block;
+            width: 0.38rem;
+            height: 0.39rem;
+            background: url('images/t-icon2.png') no-repeat center/0.38rem;
+            margin-right: 0.11rem;
+        }
+
+        /* 导航框 */
+        .nav-box {
+            padding: 0.2rem 0.3rem 0.45rem 0.3rem;
+            background: #F9F9F9;
+            margin-bottom: 0.2rem;
+        }
+
+        .nav-box .brand>span {
+            display: block;
+            margin-top: 0.34rem;
+            margin-right: 0.3rem;
+        }
+
+        .brand-list {
+            width: 15.1rem;
+            margin-bottom: 0.27rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .brand-list .list-item {
+            width: 1.3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 0.15rem;
+            padding-bottom: 0.14rem;
+            margin-bottom: 0.08rem;
+        }
+
+        .brand-list .list-item>img {
+            width: 0.64rem;
+            height: 0.64rem;
+            margin-bottom: 0.15rem;
+        }
+
+        .list-last-item {
+            width: 1.3rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+        }
+
+        .list-last-item>span:first-child {
+            margin-left: 0.45rem;
+        }
+
+        .list-last-item .r-arrow {
+            display: block;
+            width: 0.05rem;
+            height: 0.09rem;
+            margin-left: 0.09rem;
+            background: url('images/r-arrow.png') no-repeat center / 0.05rem;
+        }
+
+        .price>span {
+            margin-right: 0.31rem;
+        }
+
+        .price-list>ul>li {
+            font-size: 0.18rem;
+            color: #888888;
+            margin: 0rem 0.4rem;
+        }
+
+        /* 流程图 */
+        .step-line {
+            background: #F1F1F1;
+            border: 0.02rem solid rgba(241, 241, 241, 1);
+            margin-bottom: 0.4rem;
+        }
+
+        .st {
+            background: #999999;
+            padding: 0.28rem 0.2rem;
+            margin-right: 0.93rem;
+        }
+
+        .st>span {
+            display: block;
+            width: 0.6rem;
+            height: 0.64rem;
+            background: url('images/st.png') no-repeat center/0.6rem;
+        }
+
+        .st-one {
+            display: block;
+            width: 0.9rem;
+            height: 0.9rem;
+            background: url('images/st1.png') no-repeat center / 0.9rem;
+            margin-right: 0.09rem;
+        }
+
+        .st-two {
+            display: block;
+            width: 0.9rem;
+            height: 0.9rem;
+            background: url('images/st2.png') no-repeat center / 0.9rem;
+            margin-left: 0.78rem;
+            margin-right: 0.09rem;
+        }
+
+        .st-three {
+            display: block;
+            width: 0.9rem;
+            height: 0.9rem;
+            background: url('images/st3.png') no-repeat center / 0.9rem;
+            margin-left: 0.78rem;
+            margin-right: 0.09rem;
+        }
+
+        .st-four {
+            display: block;
+            width: 0.9rem;
+            height: 0.9rem;
+            background: url('images/st4.png') no-repeat center / 0.9rem;
+            margin-left: 0.78rem;
+            margin-right: 0.09rem;
+        }
+
+        .step-info {
+            margin-right: 1.11rem;
+        }
+
+        .step-info>h2 {
+            margin-top: 0.07rem;
+        }
+
+        .step-info>span {
+            font-size: 0.18rem;
+            color: #333333;
+        }
+
+        .step-info>span:nth-child(2) {
+            margin-top: 0.15rem;
+            margin-bottom: 0.05rem;
+        }
+
+        /* 汽车列表 */
+        .car-list {
+            margin-bottom: 0.8rem;
+        }
+
+        .car-list>ul {
+            flex-wrap: wrap;
+        }
+
+        .car-list>ul>li {
+            display: flex;
+            flex-direction: column;
+            padding: 0.2rem 0.28rem 0.24rem 0.28rem;
+            border-radius: 0.04rem;
+            border: 0.01rem solid rgba(242, 242, 242, 1);
+            margin-bottom: 0.24rem;
+        }
+
+        .car-list>ul>li:hover {
+            box-shadow: 0rem 0.02rem 0.81rem 0.03rem rgba(46, 46, 46, 0.14);
+        }
+
+        .car-list>ul>li>img {
+            width: 3.46rem;
+            height: 1.7rem;
+            margin-bottom: 0.16rem;
+        }
+
+        .car-list>ul>li>span:nth-child(3) {
+            margin-top: 0.05rem;
+            margin-bottom: 0.29rem;
+        }
+
+        .c-Btn {
+            padding: 0.09rem 0.22rem;
+            background: #FF7303;
+            border-radius: 0.08rem;
+            color: #ffffff;
+            font-size: 0.18rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="containers">
+        <header id="header"></header>
+        <section>
+            <div id="box">
+
+                <!--广告轮播图-->
+                <div class="swiper-container">
+                    <!--包裹图片的父级元素 -->
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="javascript:;">
+                                <img src="resources/carbanner.png" alt="">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:;">
+                                <img src="resources/carbanner.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 内容区 -->
+                <div class="content">
+
+                    <!-- 广告栏 -->
+                    <div class="adv-line flex fl-jsb">
+                        <div class="left">
+                            <a href="javascript">
+                                <img src="resources/adv-l.png" alt="">
+                            </a>
+                        </div>
+                        <div class="right">
+                            <a href="javascript">
+                                <img src="resources/adv-r.png" alt="">
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <div class="title flex fl-align">
+                        <span class="t-icon-two"></span>
+                        <span class="fz-26 c-333 f-w5">车型选择</span>
+                    </div>
+
+                    <!-- 导航框 -->
+                    <div class="nav-box">
+                        <!-- 品牌筛选 -->
+                        <div class="brand flex">
+                            <span class="fz-20 c-666 f-w5">品牌筛选</span>
+                            <div class="brand-list">
+                                <div class="list-item">
+                                    <img src="resources/car-icon1.png">
+                                    <span class="fz-18 c-888">东风启辰</span>
+                                </div>
+                                <div class="list-item">
+                                    <img src="resources/car-icon2.png">
+                                    <span class="fz-18 c-888">东风启辰</span>
+                                </div>
+                                <div class="list-item">
+                                    <img src="resources/car-icon3.png">
+                                    <span class="fz-18 c-888">东风启辰</span>
+                                </div>
+                                <div class="list-item">
+                                    <img src="resources/car-icon4.png">
+                                    <span class="fz-18 c-888">东风启辰</span>
+                                </div>
+                                <div class="list-item">
+                                    <img src="resources/car-icon5.png">
+                                    <span class="fz-18 c-888">东风启辰</span>
+                                </div>
+                                <div class="list-item">
+                                    <img src="resources/car-icon6.png">
+                                    <span class="fz-18 c-888">东风启辰</span>
+                                </div>
+                                <div class="list-item">
+                                    <img src="resources/car-icon7.png">
+                                    <span class="fz-18 c-888">东风启辰</span>
+                                </div>
+                                <div class="list-item">
+                                    <img src="resources/car-icon8.png">
+                                    <span class="fz-18 c-888">东风启辰</span>
+                                </div>
+                                <div class="list-item">
+                                    <img src="resources/car-icon9.png">
+                                    <span class="fz-18 c-888">东风启辰</span>
+                                </div>
+                                <div class="list-item">
+                                    <img src="resources/car-icon10.png">
+                                    <span class="fz-18 c-888">东风启辰</span>
+                                </div>
+                                <div class="list-item">
+                                    <img src="resources/car-icon11.png">
+                                    <span class="fz-18 c-888">东风启辰</span>
+                                </div>
+                                <div class="list-item">
+                                    <img src="resources/car-icon12.png">
+                                    <span class="fz-18 c-888">东风启辰</span>
+                                </div>
+                                <div class="list-item">
+                                    <img src="resources/car-icon13.png">
+                                    <span class="fz-18 c-888">东风启辰</span>
+                                </div>
+                                <div class="list-item">
+                                    <img src="resources/car-icon14.png">
+                                    <span class="fz-18 c-888">东风启辰</span>
+                                </div>
+                                <div class="list-item">
+                                    <img src="resources/car-icon15.png">
+                                    <span class="fz-18 c-888">东风启辰</span>
+                                </div>
+                                <div class="list-item">
+                                    <img src="resources/car-icon16.png">
+                                    <span class="fz-18 c-888">东风启辰</span>
+                                </div>
+                                <div class="list-item">
+                                    <img src="resources/car-icon17.png">
+                                    <span class="fz-18 c-888">东风启辰</span>
+                                </div>
+                                <div class="list-item">
+                                    <img src="resources/car-icon18.png">
+                                    <span class="fz-18 c-888">东风启辰</span>
+                                </div>
+                                <div class="list-item">
+                                    <img src="resources/car-icon19.png">
+                                    <span class="fz-18 c-888">东风启辰</span>
+                                </div>
+                                <div class="list-item">
+                                    <img src="resources/car-icon20.png">
+                                    <span class="fz-18 c-888">东风启辰</span>
+                                </div>
+                                <div class="list-item">
+                                    <img src="resources/car-icon20.png">
+                                    <span class="fz-18 c-888">东风启辰</span>
+                                </div>
+                                <div class="list-last-item">
+                                    <span class="fz-16 c-active">更多</span>
+                                    <span class="r-arrow"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 价格筛选 -->
+                        <div class="price flex fl-align">
+                            <span class="fz-20 c-666 f-w5">价格筛选</span>
+                            <div class="price-list">
+                                <ul class="flex">
+                                    <li class="c-active">不限</li>
+                                    <li>8万以下</li>
+                                    <li>8-10万</li>
+                                    <li>10-15万</li>
+                                    <li>15-20万</li>
+                                    <li>20-30万</li>
+                                    <li>30-50万</li>
+                                    <li>50万以上</li>
+                                </ul>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- 流程图 -->
+                    <div class="step-line flex fl-align">
+                        <div class="st">
+                            <span></span>
+                        </div>
+                        <div class="st-list">
+                            <ul class="flex fl-align fl-jsb">
+                                <li class="lineright flex">
+                                    <span class="st-one"></span>
+                                    <div class="step-info flex col">
+                                        <h2 class="fz-24 c-333">STEP1</h2>
+                                        <span>选择意向车型</span>
+                                        <span>提交分期申请</span>
+                                    </div>
+                                </li>
+                                <li class="lineright flex">
+                                    <span class="st-two"></span>
+                                    <div class="step-info flex col">
+                                        <h2>STEP2</h2>
+                                        <span>等待电话回访</span>
+                                        <span>沟通申请意向</span>
+                                    </div>
+                                </li>
+                                <li class="lineright flex">
+                                    <span class="st-three"></span>
+                                    <div class="step-info flex col">
+                                        <h2 class="fz-24 c-333">STEP3</h2>
+                                        <span>审批通过</span>
+                                        <span>立即放款</span>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <span class="st-four"></span>
+                                    <div class="step-info flex col">
+                                        <h2 class="fz-24 c-333">STEP4</h2>
+                                        <span>一对一服务</span>
+                                        <span>预定、提车</span>
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <div class="title flex fl-align">
+                        <span class="t-icon-one"></span>
+                        <span class="fz-26 c-333 f-w5">汽车贷款</span>
+                    </div>
+
+                    <!-- 汽车列表 -->
+                    <div class="car-list">
+                        <ul class="flex fl-jsb">
+                            <li>
+                                <img src="resources/cars1.png">
+                                <span>本田缤智</span>
+                                <span>2018款 1.5L CVT两驱舒适型</span>
+                                <div class="line flex fl-align fl-jsb">
+                                    <div class="prices">
+                                        <span class="fz-20 c-666">参考价：</span>
+                                        <span class="fz-22 c-e5">200.0</span>
+                                    </div>
+                                    <div class="c-Btn">选择</div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <img src="resources/cars1.png">
+                                <span>本田缤智</span>
+                                <span>2018款 1.5L CVT两驱舒适型</span>
+                                <div class="line flex fl-align fl-jsb">
+                                    <div class="prices">
+                                        <span class="fz-20 c-666">参考价：</span>
+                                        <span class="fz-22 c-e5">200.0</span>
+                                    </div>
+                                    <div class="c-Btn">选择</div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <img src="resources/cars1.png">
+                                <span>本田缤智</span>
+                                <span>2018款 1.5L CVT两驱舒适型</span>
+                                <div class="line flex fl-align fl-jsb">
+                                    <div class="prices">
+                                        <span class="fz-20 c-666">参考价：</span>
+                                        <span class="fz-22 c-e5">200.0</span>
+                                    </div>
+                                    <div class="c-Btn">选择</div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <img src="resources/cars1.png">
+                                <span>本田缤智</span>
+                                <span>2018款 1.5L CVT两驱舒适型</span>
+                                <div class="line flex fl-align fl-jsb">
+                                    <div class="prices">
+                                        <span class="fz-20 c-666">参考价：</span>
+                                        <span class="fz-22 c-e5">200.0</span>
+                                    </div>
+                                    <div class="c-Btn">选择</div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <img src="resources/cars1.png">
+                                <span>本田缤智</span>
+                                <span>2018款 1.5L CVT两驱舒适型</span>
+                                <div class="line flex fl-align fl-jsb">
+                                    <div class="prices">
+                                        <span class="fz-20 c-666">参考价：</span>
+                                        <span class="fz-22 c-e5">200.0</span>
+                                    </div>
+                                    <div class="c-Btn">选择</div>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="resources/cars1.png">
+                                <span>本田缤智</span>
+                                <span>2018款 1.5L CVT两驱舒适型</span>
+                                <div class="line flex fl-align fl-jsb">
+                                    <div class="prices">
+                                        <span class="fz-20 c-666">参考价：</span>
+                                        <span class="fz-22 c-e5">200.0</span>
+                                    </div>
+                                    <div class="c-Btn">选择</div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <img src="resources/cars1.png">
+                                <span>本田缤智</span>
+                                <span>2018款 1.5L CVT两驱舒适型</span>
+                                <div class="line flex fl-align fl-jsb">
+                                    <div class="prices">
+                                        <span class="fz-20 c-666">参考价：</span>
+                                        <span class="fz-22 c-e5">200.0</span>
+                                    </div>
+                                    <div class="c-Btn">选择</div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <img src="resources/cars1.png">
+                                <span>本田缤智</span>
+                                <span>2018款 1.5L CVT两驱舒适型</span>
+                                <div class="line flex fl-align fl-jsb">
+                                    <div class="prices">
+                                        <span class="fz-20 c-666">参考价：</span>
+                                        <span class="fz-22 c-e5">200.0</span>
+                                    </div>
+                                    <div class="c-Btn">选择</div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <img src="resources/cars1.png">
+                                <span>本田缤智</span>
+                                <span>2018款 1.5L CVT两驱舒适型</span>
+                                <div class="line flex fl-align fl-jsb">
+                                    <div class="prices">
+                                        <span class="fz-20 c-666">参考价：</span>
+                                        <span class="fz-22 c-e5">200.0</span>
+                                    </div>
+                                    <div class="c-Btn">选择</div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <img src="resources/cars1.png">
+                                <span>本田缤智</span>
+                                <span>2018款 1.5L CVT两驱舒适型</span>
+                                <div class="line flex fl-align fl-jsb">
+                                    <div class="prices">
+                                        <span class="fz-20 c-666">参考价：</span>
+                                        <span class="fz-22 c-e5">200.0</span>
+                                    </div>
+                                    <div class="c-Btn">选择</div>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="resources/cars1.png">
+                                <span>本田缤智</span>
+                                <span>2018款 1.5L CVT两驱舒适型</span>
+                                <div class="line flex fl-align fl-jsb">
+                                    <div class="prices">
+                                        <span class="fz-20 c-666">参考价：</span>
+                                        <span class="fz-22 c-e5">200.0</span>
+                                    </div>
+                                    <div class="c-Btn">选择</div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <img src="resources/cars1.png">
+                                <span>本田缤智</span>
+                                <span>2018款 1.5L CVT两驱舒适型</span>
+                                <div class="line flex fl-align fl-jsb">
+                                    <div class="prices">
+                                        <span class="fz-20 c-666">参考价：</span>
+                                        <span class="fz-22 c-e5">200.0</span>
+                                    </div>
+                                    <div class="c-Btn">选择</div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <img src="resources/cars1.png">
+                                <span>本田缤智</span>
+                                <span>2018款 1.5L CVT两驱舒适型</span>
+                                <div class="line flex fl-align fl-jsb">
+                                    <div class="prices">
+                                        <span class="fz-20 c-666">参考价：</span>
+                                        <span class="fz-22 c-e5">200.0</span>
+                                    </div>
+                                    <div class="c-Btn">选择</div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <img src="resources/cars1.png">
+                                <span>本田缤智</span>
+                                <span>2018款 1.5L CVT两驱舒适型</span>
+                                <div class="line flex fl-align fl-jsb">
+                                    <div class="prices">
+                                        <span class="fz-20 c-666">参考价：</span>
+                                        <span class="fz-22 c-e5">200.0</span>
+                                    </div>
+                                    <div class="c-Btn">选择</div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <img src="resources/cars1.png">
+                                <span>本田缤智</span>
+                                <span>2018款 1.5L CVT两驱舒适型</span>
+                                <div class="line flex fl-align fl-jsb">
+                                    <div class="prices">
+                                        <span class="fz-20 c-666">参考价：</span>
+                                        <span class="fz-22 c-e5">200.0</span>
+                                    </div>
+                                    <div class="c-Btn">选择</div>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="resources/cars1.png">
+                                <span>本田缤智</span>
+                                <span>2018款 1.5L CVT两驱舒适型</span>
+                                <div class="line flex fl-align fl-jsb">
+                                    <div class="prices">
+                                        <span class="fz-20 c-666">参考价：</span>
+                                        <span class="fz-22 c-e5">200.0</span>
+                                    </div>
+                                    <div class="c-Btn">选择</div>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    <!-- 分页器 -->
+                    <div id="left-pages" class="page_div page_div_one"></div>
+
+                </div>
+
+            </div>
+        </section>
+        <footer id="footer"></footer>
+    </div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/public.js"></script>
+<script src="js/common.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/pageMe.js"></script>
+<script type="text/javascript">
+    $(function () {
+        // 分页器
+        $("#left-pages").paging({
+            pageNum: 1, // 当前页面
+            totalNum: 14, // 总页码
+            totalList: 300, // 记录总数量
+            callback: function (num) { //回调函数
+            }
+        });
+    })
+
+</script>
+
+</html>

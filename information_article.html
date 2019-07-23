@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>信息-文章</title>
+    <script src="./js/rem.js"></script>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <link rel="stylesheet" href="css/icon.css">
+    <style>
+        body {
+            /* overflow: auto !important; */
+        }
+
+        /* 整体容器 */
+        #box {
+            width: 100%;
+            position: relative;
+        }
+
+        /* 轮播图 */
+        .swiper-container {
+            margin-bottom: 0.64rem;
+        }
+
+        .swiper-container .swiper-wrapper .swiper-slide {
+            width: 19.20rem;
+            height: 3rem;
+        }
+
+        .swiper-container .swiper-wrapper .swiper-slide>a>img {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 内容区 */
+        .content {
+            width: 16.8rem;
+            margin: auto;
+            margin-bottom: 0.8rem;
+        }
+
+        /* 左边 */
+        .left-content {
+            width: 12.6rem;
+            background: rgba(254, 254, 255, 1);
+            border: 0.01rem solid rgba(255, 255, 255, 1);
+            box-shadow: 0rem 0.02rem 0.16rem 0rem rgba(0, 19, 34, 0.18);
+            border-radius: 0.08rem;
+        }
+
+        /* 左边导航 */
+        .left-content .left-nav {
+            width: 1.9rem;
+            height: 100%;
+            background: rgba(243, 245, 249, 1);
+            text-align: center;
+        }
+
+        .left-nav>ul>li {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0.25rem 0;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .left-nav>ul>li>span:first-child {
+            font-size: 0.26rem;
+            margin-left: 0.32rem;
+            color: #909090;
+        }
+
+        .arrow {
+            display: block;
+            width: 0.16rem;
+            height: 0.27rem;
+            background: url('images/arrows.png') no-repeat center/0.16rem;
+            position: absolute;
+            right: 0rem;
+        }
+
+        /* 左边切换内容框 */
+        .left-switch {
+            width: 10.70rem;
+        }
+
+        /* 资讯列表 */
+
+        /* 类型导航 */
+        .left-switch .information-list .switch-nav {
+            width: 10.15rem;
+            margin: auto;
+            border-bottom: 0.02rem solid #ECEEF4;
+            padding-top: 0.25rem;
+            padding-bottom: 0.12rem;
+        }
+
+        .left-switch .information-list .switch-nav>ul>li {
+            font-size: 0.22rem;
+            /* color: #6B6B6B; */
+            cursor: pointer;
+            margin-right: 0.85rem;
+            padding: 0.07rem 0.18rem 0.08rem 0.19rem;
+            border-radius: 0.04rem;
+        }
+
+        .hovers {
+            background: #EEEEEE;
+        }
+
+        .left-switch .information-list .switch-nav>ul>li:first-child {
+            margin-left: 0.33rem;
+        }
+
+        .hover {
+            background: #EEEEEE;
+        }
+
+        /* 列表 */
+        .list-content {
+            width: 10.15rem;
+            margin: auto;
+            margin-bottom: 0.43rem;
+        }
+
+        /* 头条+其他 */
+
+        .list-content .list-item-top,
+        .list-item {
+            padding: 0.2rem 0;
+            border-bottom: 0.01rem dashed rgba(212, 212, 212, 1);
+        }
+
+        .list-content .list-item-top .top-info-line,
+        .list-item>div {
+            width: 9.98rem;
+        }
+
+        .list-content .list-item-top .top-icon {
+            display: block;
+            width: 0.18rem;
+            height: 0.18rem;
+            background: url('images/top.png') no-repeat center/0.18rem;
+            margin-right: 0.09rem;
+        }
+
+        .list-item>div {
+            margin-left: 0.16rem;
+        }
+
+        .infos {
+            width: 7.71rem;
+        }
+
+        .infos:hover {
+            color: #FF7303 !important;
+            cursor: pointer;
+        }
+
+        /* 分页器 */
+
+        /* 左侧分页器 */
+        .page_div {
+            text-align: center;
+        }
+
+        /* 页数按钮样式 */
+        .page_div button {
+            display: inline-block;
+            min-width: 0.33rem;
+            height: 0.33rem;
+            cursor: pointer;
+            color: #666;
+            font-size: 0.13rem;
+            line-height: 0.28rem;
+            background-color: #f9f9f9;
+            border: 0.01rem solid rgba(217, 217, 217, 1);
+            text-align: center;
+            margin: 0 0.07rem;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border-radius: 0.04rem;
+        }
+
+        #firstPage,
+        #lastPage,
+        #nextPage,
+        #prePage {
+            color: #626262;
+            border: 0.01rem solid #D9D9D9;
+            padding-left: 0.15rem;
+            padding-right: 0.11rem;
+        }
+
+        .page_div .current {
+            font-size: 0.14rem;
+            color: #626262;
+            background: rgba(236, 236, 236, 1);
+            border: 0.01rem solid rgba(217, 217, 217, 1);
+        }
+
+        /* 页面数量 */
+        .totalPages {
+            margin: 0 0.10rem;
+        }
+
+        .totalPages span,
+        .totalSize span {
+            color: #0073A9;
+            margin: 0 0.05rem;
+        }
+
+        /*button禁用*/
+        .page_div button:disabled {
+            opacity: 0.5;
+            cursor: no-drop
+        }
+
+        /* 资讯详情 */
+        .information-detail .floor-one {
+            border-bottom: 0.01rem solid #ECECEC;
+        }
+
+        .information-detail .floor-one .one-box {
+            width: 9.91rem;
+            margin: auto;
+            padding-top: 0.33rem;
+            padding-bottom: 0.45rem;
+            border-bottom: 0.01rem solid #ECEEF4;
+        }
+
+        /* 返回 */
+        .information-detail .floor-one .one-box .back {
+            cursor: pointer;
+            margin-bottom: 0.28rem;
+        }
+
+        .information-detail .floor-one .one-box .back .b-icon {
+            display: block;
+            width: 0.05rem;
+            height: 0.09rem;
+            background: url('images/back.png') no-repeat center/0.05rem;
+            margin-right: 0.09rem;
+        }
+
+        /* 文章详情 */
+        .info-detail-content {
+            margin-bottom: 1.08rem;
+            height: 12.86rem;
+            overflow: auto;
+        }
+
+        .info-detail-content .titles {
+            text-align: center;
+        }
+
+        .info-detail-content .times {
+            margin-top: 0.17rem;
+            margin-bottom: 0.33rem;
+            text-align: center;
+        }
+
+        .info-detail-content .detail-content {
+            width: 100%;
+        }
+
+        .info-detail-content .scrollbar {
+            width: 0.08rem;
+            height: 9.4rem;
+            margin: 0 auto;
+            float: right
+        }
+
+        .info-detail-content::-webkit-scrollbar {
+            width: 0.06rem;
+            height: 6rem;
+            border: 0.01rem solid rgba(210, 222, 246, 1);
+            border-radius: 0.04rem;
+        }
+
+        .info-detail-content::-webkit-scrollbar-thumb {
+            border-radius: 0.03rem;
+            -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+            background: #5784DF;
+
+        }
+
+        .info-detail-content::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+            border-radius: 0.04rem;
+            background: #D2DEF6;
+        }
+
+
+
+
+        /* 点赞+评论 */
+        .btn-line {
+            width: 9.91rem;
+            margin: auto;
+            justify-content: flex-end;
+            padding-top: 0.24rem;
+            padding-bottom: 0.45rem;
+        }
+
+        .btn-line>div {
+            border: 0.01rem solid rgba(208, 208, 208, 1);
+            border-radius: 0.04rem;
+        }
+
+        .btn-line>div:first-child {
+            padding: 0.08rem 0.17rem 0.08rem 0.15rem;
+            cursor: pointer;
+        }
+
+        .btn-line>div:last-child {
+            padding: 0.08rem 0.21rem 0.08rem 0.14rem;
+            margin-left: 0.11rem;
+            cursor: pointer;
+        }
+
+        .mdown {
+            border: 0.01rem solid rgba(64, 64, 64, 1) !important;
+        }
+
+
+        .zang {
+            display: block;
+            width: 0.14rem;
+            height: 0.14rem;
+            background: url('images/zan.png')no-repeat center/0.14rem;
+            margin-right: 0.09rem;
+        }
+
+        .talk {
+            display: block;
+            width: 0.16rem;
+            height: 0.14rem;
+            background: url('images/talk.png')no-repeat center/0.14rem;
+            margin-right: 0.13rem;
+        }
+
+
+        /* 输入栏 */
+        .input {
+            width: 9.91rem;
+            margin: auto;
+            padding-top: 0.34rem;
+            padding-bottom: 0.15rem;
+        }
+
+        /* 未登录 */
+        .input .unlogin {
+            padding: 0.25rem 0.29rem 0.18rem 0.28rem;
+            border: 0.01rem solid rgba(228, 231, 238, 1);
+            border-radius: 0.08rem;
+            background: #E4E7EE;
+            margin-bottom: 0.24rem;
+        }
+
+        .input .unlogin>div .notice>div {
+            margin-left: 0.19rem;
+        }
+
+        .input .unlogin>div .notice>div>span,
+        a {
+            color: #FF7303;
+            font-size: 0.18rem;
+        }
+
+        /* 已登陆 */
+        .input .login {
+            width: 9.91rem;
+            padding-top: 0.25rem;
+            padding-bottom: 0.18rem;
+            background: #F3F5F9;
+            border-radius: 0.08rem;
+            position: relative;
+            margin-bottom: 0.24rem;
+        }
+
+        .input .login>textarea {
+            width: 8.87rem;
+            height: 0.79rem;
+            margin-left: 0.2rem;
+            margin-right: 0.2rem;
+            line-height: 0.25rem;
+            font-size: 0.18rem;
+            color: #404040;
+        }
+
+        .Send {
+            width: 1.40rem;
+            height: 0.50rem;
+            background: rgba(235, 238, 243, 1);
+            border-radius: 0.08rem;
+            margin-left: 8.51rem;
+            cursor: pointer;
+        }
+
+        .active {
+            background: #FF7303;
+            color: #FFFEFE;
+        }
+
+
+        .title {
+            padding-bottom: 0.11rem;
+            padding-left: 0.39rem;
+            border-bottom: 0.01rem solid #ECECEC;
+        }
+
+        .comments-list {
+            width: 9.92rem;
+            margin: auto;
+
+        }
+
+        .comments-list .list-items {
+            padding-top: 0.32rem;
+            padding-bottom: 0.32rem;
+            border-bottom: 0.01rem solid #ECECEC;
+        }
+
+        .comments-list .list-items:last-child {
+            border: none;
+        }
+
+        .comments-list .list-items>img {
+            width: 0.6rem;
+            height: 0.6rem;
+            border-radius: 50%;
+            margin-right: 0.2rem;
+        }
+
+
+
+        .comments-list .list-items .line-1 {
+            width: 9.1rem;
+            margin-bottom: 0.23rem;
+        }
+
+        .comments-list .list-items .line-2 {
+            width: 9.1rem;
+            word-wrap: break-word;
+            line-height: 0.2rem;
+        }
+
+
+        .showMore {
+            padding-top: 0.31rem;
+            padding-bottom: 0.31rem;
+            padding-left: 4.31rem;
+            padding-right: 0.4rem;
+            border-top: 0.01rem solid #ECECEC;
+        }
+
+        .showMore>span {
+            cursor: pointer;
+        }
+
+        .writer {
+            cursor: pointer;
+        }
+
+        .w-icon {
+            display: block;
+            width: 0.14rem;
+            height: 0.14rem;
+            background: url('images/writer.png') no-repeat center/0.14rem;
+            margin-right: 0.08rem;
+        }
+
+        /* 右边 */
+        .right-content {
+            width: 3.8rem;
+        }
+
+        /* 广告盒子 */
+        .right-content .adv-box {
+            width: 3.8rem;
+            height: 6.3rem;
+            margin-bottom: 0.17rem;
+        }
+
+        .right-content .adv-box>a>img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .right-content>div:last-child {
+            margin-bottom: 0rem;
+        }
+
+        /*右侧返回顶部 编辑 订单入口*/
+        .tabs {
+            width: 0.6rem;
+            height: 1.8rem;
+            background: rgba(255, 255, 255, 1);
+            border: 0.01rem solid rgba(217, 217, 217, 1);
+            position: absolute;
+            right: 0.4rem;
+            bottom: 0.03rem;
+        }
+
+        .tabs a {
+            height: 0.6rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .tabs a:first-child {
+            border-bottom: 0.01rem solid #D9D9D9;
+        }
+
+        /* .tabs .return-icon {
+            display: block;
+            width: 0.30rem;
+            height: 0.30rem;
+            background: url("images/return.png") no-repeat center / 0.30rem;
+        }
+
+        .tabs .option-icon {
+            display: block;
+            width: 0.30rem;
+            height: 0.30rem;
+            background: url("images/option.png") no-repeat center / 0.30rem;
+        } */
+
+        .tabs a:last-child {
+            background: rgba(217, 217, 217, 1);
+            font-size: 0.2rem;
+            font-family: NotoSansHans-Medium;
+            font-weight: 500;
+            color: rgba(254, 254, 254, 1);
+            line-height: 0.22rem;
+            text-align: center;
+            padding: 0 0.1rem;
+        }
+
+        .other {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1rem;
+            color: rgba(112, 112, 112, 1);
+        }
+
+        .disabled {
+            pointer-events: none;
+        }
+
+        .page_div {
+            background: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="containers">
+        <header id="header"></header>
+        <section>
+            <div id="box">
+                <!-- 轮播图 -->
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <!-- <div class="swiper-slide">
+                            <a href="javascript:;">
+                                <img src="resources/banner1.png" alt="">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:;">
+                                <img src="resources/banner1.png" alt="">
+                            </a>
+                        </div> -->
+                    </div>
+                </div>
+                <!-- 内容区 -->
+                <div class="content flex fl-jsb">
+                    <!-- 左边： -->
+                    <div class="left-content flex">
+                        <!-- 左边导航 -->
+                        <div class="left-nav">
+                            <ul></ul>
+                        </div>
+                        <!-- 左边切换内容框 -->
+                        <div class="left-switch">
+                            <!-- 资讯列表 -->
+                            <div class="information-list">
+                                <div class="switch-nav">
+                                    <ul class="flex fl-align lnav">
+                                        <li class="c-active" data-id="0">全部</li>
+                                    </ul>
+                                </div>
+                                <div class="list-content">
+                                    <!-- <div class="list-item-top flex fl-align">
+                                        <span class="top-icon"></span>
+                                        <div class="top-info-line flex fl-jsb">
+                                            <span
+                                                class="infos clamp1 fz-18 c-40">家住中山西路的柳州妹为患癌母亲“征集女儿”，原因感动哭晕柳州人！</span>
+                                            <span class="fz-18 c-90">2019/04/04 10:58</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="list-item-top flex fl-align">
+                                        <span class="top-icon"></span>
+                                        <div class="top-info-line flex fl-jsb">
+                                            <span
+                                                class="infos clamp1 fz-18 c-40">家住中山西路的柳州妹为患癌母亲“征集女儿”，原因感动哭晕柳州人！</span>
+                                            <span class="fz-18 c-90">2019/04/04 10:58</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="list-item-top flex fl-align">
+                                        <span class="top-icon"></span>
+                                        <div class="top-info-line flex fl-jsb">
+                                            <span
+                                                class="infos clamp1 fz-18 c-40">家住中山西路的柳州妹为患癌母亲“征集女儿”，原因感动哭晕柳州人！</span>
+                                            <span class="fz-18 c-90">2019/04/04 10:58</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="list-item-top flex fl-align">
+                                        <span class="top-icon"></span>
+                                        <div class="top-info-line flex fl-jsb">
+                                            <span
+                                                class="infos clamp1 fz-18 c-40">家住中山西路的柳州妹为患癌母亲“征集女儿”，原因感动哭晕柳州人！</span>
+                                            <span class="fz-18 c-90">2019/04/04 10:58</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="list-item-top flex fl-align">
+                                        <span class="top-icon"></span>
+                                        <div class="top-info-line flex fl-jsb">
+                                            <span
+                                                class="infos clamp1 fz-18 c-40">家住中山西路的柳州妹为患癌母亲“征集女儿”，原因感动哭晕柳州人！</span>
+                                            <span class="fz-18 c-90">2019/04/04 10:58</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="list-item-top flex fl-align">
+                                        <span class="top-icon"></span>
+                                        <div class="top-info-line flex fl-jsb">
+                                            <span
+                                                class="infos clamp1 fz-18 c-40">家住中山西路的柳州妹为患癌母亲“征集女儿”，原因感动哭晕柳州人！</span>
+                                            <span class="fz-18 c-90">2019/04/04 10:58</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="list-item-top flex fl-align">
+                                        <span class="top-icon"></span>
+                                        <div class="top-info-line flex fl-jsb">
+                                            <span
+                                                class="infos clamp1 fz-18 c-40">家住中山西路的柳州妹为患癌母亲“征集女儿”，原因感动哭晕柳州人！</span>
+                                            <span class="fz-18 c-90">2019/04/04 10:58</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="list-item-top flex fl-align">
+                                        <span class="top-icon"></span>
+                                        <div class="top-info-line flex fl-jsb">
+                                            <span
+                                                class="infos clamp1 fz-18 c-40">家住中山西路的柳州妹为患癌母亲“征集女儿”，原因感动哭晕柳州人！</span>
+                                            <span class="fz-18 c-90">2019/04/04 10:58</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="list-item-top flex fl-align">
+                                        <span class="top-icon"></span>
+                                        <div class="top-info-line flex fl-jsb">
+                                            <span
+                                                class="infos clamp1 fz-18 c-40">家住中山西路的柳州妹为患癌母亲“征集女儿”，原因感动哭晕柳州人！</span>
+                                            <span class="fz-18 c-90">2019/04/04 10:58</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="list-item-top flex fl-align">
+                                        <span class="top-icon"></span>
+                                        <div class="top-info-line flex fl-jsb">
+                                            <span
+                                                class="infos clamp1 fz-18 c-40">家住中山西路的柳州妹为患癌母亲“征集女儿”，原因感动哭晕柳州人！</span>
+                                            <span class="fz-18 c-90">2019/04/04 10:58</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="list-item-top flex fl-align">
+                                        <span class="top-icon"></span>
+                                        <div class="top-info-line flex fl-jsb">
+                                            <span
+                                                class="infos clamp1 fz-18 c-40">家住中山西路的柳州妹为患癌母亲“征集女儿”，原因感动哭晕柳州人！</span>
+                                            <span class="fz-18 c-90">2019/04/04 10:58</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="list-item-top flex fl-align">
+                                        <span class="top-icon"></span>
+                                        <div class="top-info-line flex fl-jsb">
+                                            <span
+                                                class="infos clamp1 fz-18 c-40">家住中山西路的柳州妹为患癌母亲“征集女儿”，原因感动哭晕柳州人！</span>
+                                            <span class="fz-18 c-90">2019/04/04 10:58</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="list-item-top flex fl-align">
+                                        <span class="top-icon"></span>
+                                        <div class="top-info-line flex fl-jsb">
+                                            <span
+                                                class="infos clamp1 fz-18 c-40">家住中山西路的柳州妹为患癌母亲“征集女儿”，原因感动哭晕柳州人！</span>
+                                            <span class="fz-18 c-90">2019/04/04 10:58</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="list-item-top flex fl-align">
+                                        <span class="top-icon"></span>
+                                        <div class="top-info-line flex fl-jsb">
+                                            <span
+                                                class="infos clamp1 fz-18 c-40">家住中山西路的柳州妹为患癌母亲“征集女儿”，原因感动哭晕柳州人！</span>
+                                            <span class="fz-18 c-90">2019/04/04 10:58</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="list-item-top flex fl-align">
+                                        <span class="top-icon"></span>
+                                        <div class="top-info-line flex fl-jsb">
+                                            <span
+                                                class="infos clamp1 fz-18 c-40">家住中山西路的柳州妹为患癌母亲“征集女儿”，原因感动哭晕柳州人！</span>
+                                            <span class="fz-18 c-90">2019/04/04 10:58</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="list-item-top flex fl-align">
+                                        <span class="top-icon"></span>
+                                        <div class="top-info-line flex fl-jsb">
+                                            <span
+                                                class="infos clamp1 fz-18 c-40">家住中山西路的柳州妹为患癌母亲“征集女儿”，原因感动哭晕柳州人！</span>
+                                            <span class="fz-18 c-90">2019/04/04 10:58</span>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <!-- 文章列表分页器 -->
+                                <div id="list-pages" class="page_div"></div>
+                                <div class="other">暂无符合条件的查询</div>
+                            </div>
+                            <!-- 资讯详情 -->
+                            <div class="information-detail hide">
+                                <div class="floor-one">
+                                    <div class="one-box">
+                                        <!-- 返回 -->
+                                        <div class="back flex fl-align">
+                                            <span class="b-icon"></span>
+                                            <span class="fz-16 c-70">返回列表</span>
+                                        </div>
+                                        <!-- 文章详情 -->
+                                        <div class="info-detail-content flex col">
+                                            <span class="titles"></span>
+                                            <span class="times"></span>
+                                            <div class="detail-content"></div>
+                                            <div class="scrollbar"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 点赞+评论 -->
+                                    <div class="btn-line flex fl-align">
+                                        <div class="flex Like">
+                                            <span class="zang"></span>
+                                            <span class="nums fz-14 c-70"></span>
+                                        </div>
+                                        <!-- <div class="flex review">
+                                            <span class="talk"></span>
+                                            <span class="fz-14 c-70">32</span>
+                                        </div> -->
+                                    </div>
+
+                                </div>
+
+                                <!-- 输入栏 -->
+                                <div class="input">
+
+                                    <!-- 未登录 -->
+                                    <div class="unlogin">
+
+                                        <div class="flex fl-align fl-jsb">
+
+                                            <div class="notice flex fl-align">
+                                                <span class="fz-18 c-bf">您需要登录后才可以评论</span>
+                                                <div>
+                                                    <a href="login.html">登录</a>
+                                                    <span>|</span>
+                                                    <a href="register.html">立即注册</a>
+                                                </div>
+                                            </div>
+
+                                            <span class="fz-18 c-90">200</span>
+
+                                        </div>
+
+                                    </div>
+
+                                    <!-- 已登陆 -->
+                                    <div class="login hide">
+                                        <textarea name="" id="inputarea" cols="5" rows="2" placeholder="说点什么..."
+                                            maxlength="200"></textarea>
+                                        <span class="fz-18 c-90">200</span>
+                                    </div>
+
+                                    <button class="Send" disabled="true">评论</button>
+
+
+                                </div>
+
+
+                                <div class="floor-two">
+
+                                    <div class="title">
+                                        <span class="fz-14 c-70">全部评论（15）</span>
+                                    </div>
+
+                                    <!-- 评论列表 -->
+                                    <div class="comments-list">
+
+                                        <!-- <div class="list-items flex">
+
+                                            <img src="" alt="">
+
+                                            <div class="iteminfo">
+
+                                                <div class="line-1 flex fl-align fl-jsb">
+                                                    <h2 class="fz-18 c-333">古道印残灯</h2>
+                                                    <span class="fz-20 c-bf">2019/05/13 13:49</span>
+                                                </div>
+
+                                                <div class="line-2 fz-16 c-70">
+                                                    描述得太好了，太全面了！
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="list-items flex">
+
+                                            <img src="resources/head1.png" alt="">
+
+                                            <div class="iteminfo">
+
+                                                <div class="line-1 flex fl-align fl-jsb">
+                                                    <h2 class="fz-18 c-333">古道印残灯</h2>
+                                                    <span class="fz-20 c-bf">2019/05/13 13:49</span>
+                                                </div>
+
+                                                <div class="line-2 fz-16 c-70">
+                                                    描述得太好了，太全面了！
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="list-items flex">
+
+                                            <img src="resources/head1.png" alt="">
+
+                                            <div class="iteminfo">
+
+                                                <div class="line-1 flex fl-align fl-jsb">
+                                                    <h2 class="fz-18 c-333">古道印残灯</h2>
+                                                    <span class="fz-20 c-bf">2019/05/13 13:49</span>
+                                                </div>
+
+                                                <div class="line-2 fz-16 c-70">
+                                                    描述得太好了，太全面了！
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="list-items flex">
+
+                                            <img src="resources/head1.png" alt="">
+
+                                            <div class="iteminfo">
+
+                                                <div class="line-1 flex fl-align fl-jsb">
+                                                    <h2 class="fz-18 c-333">古道印残灯</h2>
+                                                    <span class="fz-20 c-bf">2019/05/13 13:49</span>
+                                                </div>
+
+                                                <div class="line-2 fz-16 c-70">
+                                                    描述得太好了，太全面了！
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="list-items flex">
+
+                                            <img src="resources/head1.png" alt="">
+
+                                            <div class="iteminfo">
+
+                                                <div class="line-1 flex fl-align fl-jsb">
+                                                    <h2 class="fz-18 c-333">古道印残灯</h2>
+                                                    <span class="fz-20 c-bf">2019/05/13 13:49</span>
+                                                </div>
+
+                                                <div class="line-2 fz-16 c-70">
+                                                    描述得太好了，太全面了！
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="list-items flex">
+
+                                            <img src="resources/head1.png" alt="">
+
+                                            <div class="iteminfo">
+
+                                                <div class="line-1 flex fl-align fl-jsb">
+                                                    <h2 class="fz-18 c-333">古道印残灯</h2>
+                                                    <span class="fz-20 c-bf">2019/05/13 13:49</span>
+                                                </div>
+
+                                                <div class="line-2 fz-16 c-70">
+                                                    描述得太好了，太全面了！
+                                                </div>
+
+                                            </div>
+
+                                        </div> -->
+
+                                    </div>
+
+                                    <div class="showMore flex fl-jsb">
+                                        <span class="fz-16 c-hover">查看更多评论</span>
+                                        <div class="writer flex fl-align">
+                                            <span class="w-icon"></span>
+                                            <span class="fz-16 c-70">写评论</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 右边: -->
+                    <div class="right-content">
+                        <div class="adv-box">
+                            <a href="javascript:;">
+                                <img src="resources/infoadv1.png" alt="">
+                            </a>
+                        </div>
+                        <div class="adv-box">
+                            <a href="javascript:;">
+                                <img src="resources/infoadv2.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 右侧导航 -->
+            <div class="tabs">
+                <a href="javascript:;" class="tab-ico1"><span class="return-icon"></span></a>
+                <a href="javascript:;" class="tab-ico2"><span class="option-icon"></span></a>
+                <a href="javascript:;" class="tab-ico3"><span class="order-text">订单入口</span></a>
+            </div>
+
+    </div>
+
+    </section>
+    <div id="footer"></div>
+    </div>
+</body>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/public.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/swiper.min.js"></script>
+<script src="./js/pageMe.js"></script>
+<script type="text/javascript">
+    $(function () {
+        // 进入到该页面有三种方式：
+
+        // 1.头部二级导航对应点击进入，显示对应的模块内容
+
+        // 2.从信息模块首页，每一模块的查看更多进去，显示对应的模块内容
+
+        // 3.从信息模块首页，点击文章列表的列表项进入，显示对应的模块，以及其文章详情页面
+
+        // 必要参数：模块ID，文章ID，token
+
+        // 模块ID
+        let inds = GetQueryString('inds');
+        console.log('模块ID:', inds);
+        // 文章id
+        let aid = GetQueryString('aid');
+        console.log('文章ID：', aid);
+        // token
+        let token = localData('get', 'userLoginInfo').token
+        console.log('token:', token);
+
+        // 判断展示内容：
+        if (aid) { //存在时，显示文字详情
+            $('.information-list').addClass('hide');
+            $('.information-detail').removeClass('hide');
+            
+            if (token) { //存在token，允许发布评论
+                $('.unlogin').addClass('hide');
+                $('.login').removeClass('hide');
+                $('.Send').removeAttr('disabled');
+                // $('.Send').attr("disabled", true)
+            }
+            // 文章详情接口
+            detail(aid)
+        }
+
+
+        // 左侧导航
+        ajax_post('/api/article/typelist', { pid: 0 }, function (r) {
+            let html = ''
+            callBack(r, {
+                success: function (data) {
+                    for (let i = 0; i < data.length; i++) {
+                        if (inds == data[i].id) {
+                            html += '<li data-id="' + data[i].id + '">' +
+                                '<span class="c-16">' + data[i].name + '</span>' +
+                                '<span class="arrow">' + '</span>' +
+                                '</li>';
+                        } else {
+                            html += '<li data-id="' + data[i].id + '">' +
+                                '<span>' + data[i].name + '</span>' +
+                                '<span>' + '</span>' +
+                                '</li>'
+                        }
+                    }
+                    $('.left-nav ul').append(html);
+                    // 默认执行的二级导航
+                    typelist(inds)
+                    if (!aid) {
+                        // 左边导航动销
+                        $('.left-nav ul').on('click', 'li', function () {
+                            lnav();
+                            $(this).children().eq(0).addClass('c-16');
+                            $(this).children().eq(1).addClass('arrow');
+                            // 清空全部以外的所以有标签节点
+                            $('.switch-nav>ul>li').not(":first").remove();
+                            // 获取选择的一级导航的节点上的ID
+                            let one = $(this).attr('data-id');
+                            console.log('一级ID：', one);
+                            UpdateUrlParam('inds', one);
+
+                            // typelist(one);
+                        });
+
+                        // 循环一级导航
+                        function lnav() {
+                            $('.left-nav ul').find('li').each(function (index, e) {
+                                $(this).find('span').removeClass('c-16');
+                                $(this).find('span').removeClass('arrow');
+                            })
+                        };
+
+                    }
+                }
+            })
+        })
+
+        // 二级导航
+        function typelist(e) {
+            console.log(e);
+            ajax_post('/api/article/typelist', { pid: e }, function (r) {
+                let html = ''
+                callBack(r, {
+                    success: function (data) {
+                        let count = 0;
+                        for (let i = 0; i < data.length; i++) {
+                            count++;
+                            html += '<li data-id="' + data[i].id + '">' + data[i].name + '</li>';
+                        }
+                        $('.switch-nav>ul').append(html);
+
+                        // // 因为初始化选择的为全部，参数id选择一级导航的参数
+                        showList(e, 1, 16);
+
+                        $('.switch-nav ul').on('click', 'li', function () {
+
+                            $(this).addClass('c-active').siblings().removeClass('c-active')
+                            // 获取ID
+                            let id = $(this).attr('data-id');
+                            console.log(id);
+                            if (id == 0) {
+                                showList(e, 1, 16);
+                            } else {
+                                showList(id, 1, 16);
+                            }
+                        })
+
+                    }
+                })
+            })
+        }
+
+        function showList(type_id, page, row) {
+            let param = {
+                type_id: type_id,
+                page: page,
+                row: row
+            }
+            console.log(param);
+            ajax_post('/api/article/showList', param, function (r) {
+                callBack(r, {
+                    success: function (data) {
+                        let list = data.data
+                        if (list.length > 0) {
+                            $('.other').hide();
+                            let html = '';
+                            for (let i = 0; i < list.length; i++) {
+                                let top = list[i].is_top
+                                html += '<div class="list-item-top flex fl-align" data-id="' + list[i].article_id + '">' +
+                                    '<span class="top-icon ' + (top ? "" : "v-h") + '">' + '</span>' +
+                                    '<div class="top-info-line flex fl-jsb">' +
+                                    '<span class="infos clamp1 fz-18 c-40">' + list[i].title + '</span>' +
+                                    '<span class="fz-18 c-90">' + list[i].create_time + '</span>' +
+                                    '</div>' +
+                                    '</div>';
+                            }
+                            $('.list-content').html(html);
+                            // 分页器
+                            var totalPages = Math.ceil(data.total / data.per_page);//计算总页数
+                            $("#list-pages").paging({
+                                pageNum: data.current_page, // 当前页面
+                                totalNum: totalPages, // 总页码
+                                totalList: data.total, // 记录总数量
+                                callback: function (num) { //回调函数
+                                    console.log(num);
+                                    showList(type_id, num, 16)
+                                }
+                            });
+                            $('#list-pages').show();
+                            // 进入文章详情
+                            $('.list-item-top').on('click', function () {
+                                $('.information-list').addClass('hide');
+                                $('.information-detail').removeClass('hide');
+                                let aid = $(this).attr('data-id');
+                                UpdateUrlParam('aid', aid);
+                                // 文章详情
+                                detail(aid);
+                            })
+                        } else {
+                            $('.list-content').html('');
+                            $('#list-pages').hide();
+                            $('.other').show();
+                        }
+                    }
+                })
+            })
+        }
+
+
+        // 文章详情接口
+        function detail(e) {
+            ajax_post('/api/article/detail', { article_id: e }, function (r) {
+                callBack(r, {
+                    success: function (data) {
+                        console.log(data);
+                        // 标题
+                        let title = data.title
+                        $('.info-detail-content .titles').html(title)
+                        // 时间
+                        let time = data.create_time
+                        $('.info-detail-content .times').html(time)
+                        // 内容
+                        let html = data.content
+                        $('.info-detail-content .detail-content').html(html);
+                        // 获取文章点赞数
+                        let zan = data.good_count
+                        $('.Like .nums').html(zan);
+                        $('.Like .nums').attr('data-num', zan);
+                    }
+                })
+            })
+        }
+
+
+
+
+        // 返回文章列表
+        $('.back').on('click', function () {
+            var thisURL = document.location.href;
+            let url = delUrlParam(thisURL, 'aid')
+            location.href = url;
+        })
+
+
+        // 文章点赞&取消
+        let count = 0;
+        $('.Like').on('click', function () {
+            if (count == 0) { //点赞
+                ajax_post('/api/article/good', { article_id: aid }, function (r) {
+                    console.log(r);
+                    console.log(r)
+                    let status = r.status
+                    if (status == 200) {
+                        count++;
+                        detail(aid)
+                        alert('点赞成功！')
+                    } else {
+                        console.log(1111);
+                        alert("点赞失败，请先登录！");
+                    }
+                })
+            } else if (count == 1) { //取消点赞
+                ajax_post('/api/article/good', { article_id: aid }, function (r) {
+                    console.log(r)
+                    let status = r.status
+                    if (status == 200) {
+                        count--;
+                        detail(aid)
+                        alert('取消成功！')
+                    } else {
+                        console.log(1111);
+                        alert("点赞失败，请先登录！");
+                    }
+                })
+            }
+        })
+
+
+
+
+
+        // 写评论
+        $('.writer').on('click', function () {
+            $('html,body').animate({ scrollTop: $('.information-detail .input').offset().top }, 400);
+        })
+
+
+        // 评论列表
+        if (aid) {
+            commentList(aid, 6.1);
+        }
+        function commentList(article_id, row, page) {
+            let comments = {
+                article_id: aid,
+                row: row,
+                page: page
+            }
+            ajax_post('/api/article/commentList', comments, function (r) {
+                callBack(r, {
+                    success: function (data) {
+                        // console.log(data);
+                        // 总条数
+                        let dom = '全部评论（' + data.total + '）';
+                        $('.floor-two .title').html(dom);
+                        if (data.total >= 6) {
+                            $('.showMore').removeClass('hide');
+                            let list = data.data
+                            let html = ''
+                            for (let i = 0; i < list.length; i++) {
+                                html += '<div class="list-items flex">' +
+                                    '<img src="' + list[i].user.head_pic + '">' +
+                                    '<div class="iteminfo">' +
+                                    '<div class="line-1 flex fl-align fl-jsb">' +
+                                    '<h2 class="fz-18 c-333">' + list[i].user.nickname + '</h2>' +
+                                    '<span class="fz-20 c-bf">' + list[i].create_time + '</span>' +
+                                    '</div>' +
+                                    '<div class="line-2">' + list[i].content + '</div>' +
+                                    '</div>' +
+                                    '</div>';
+                            }
+                            $('.comments-list').html(html);
+                        } else {
+                            $('.showMore').addClass('hide');
+                            let list = data.data
+                            let html = ''
+                            for (let i = 0; i < list.length; i++) {
+                                html += '<div class="list-items flex">' +
+                                    '<img src="' + list[i].user.head_pic + '">' +
+                                    '<div class="iteminfo">' +
+                                    '<div class="line-1 flex fl-align fl-jsb">' +
+                                    '<h2 class="fz-18 c-333">' + list[i].user.nickname + '</h2>' +
+                                    '<span class="fz-20 c-bf">' + list[i].create_time + '</span>' +
+                                    '</div>' +
+                                    '<div>' + list[i].content + '</div>' +
+                                    '</div>' +
+                                    '</div>';
+                            }
+                            $('.comments-list').html(html);
+                        }
+                    }
+                })
+            })
+        }
+
+        // 查看更多评论
+        let page = 2; // 从第二页开始
+        $('.showMore>span').on('click', function () {
+
+            let param = {
+                article_id: aid,
+                row: 6,
+                page: page
+            }
+            console.log(param)
+            ajax_post('/api/article/commentList', param, function (r) {
+                // console.log(r);
+                callBack(r, {
+                    success: function (data) {
+                        console.log(data);
+                        let list = data.data
+                        console.log(list)
+                        let html = ''
+                        //分页加载的条数必须有六条
+                        if (list.length == 6) { //
+                            $('.showMore').removeClass('hide');
+                            for (let i = 0; i < list.length; i++) {
+                                html += '<div class="list-items flex">' +
+                                    '<img src="' + list[i].user.head_pic + '">' +
+                                    '<div class="iteminfo">' +
+                                    '<div class="line-1 flex fl-align fl-jsb">' +
+                                    '<h2 class="fz-18 c-333">' + list[i].user.nickname + '</h2>' +
+                                    '<span class="fz-20 c-bf">' + list[i].create_time + '</span>' +
+                                    '</div>' +
+                                    '<div>' + list[i].content + '</div>' +
+                                    '</div>' +
+                                    '</div>';
+                            }
+                            // console.log('1:',html);
+                            $('.comments-list').append(html);
+                            page++;
+                            console.log(page);
+                        } else {
+                            $('.showMore').addClass('hide');
+                            for (let i = 0; i < list.length; i++) {
+                                html += '<div class="list-items flex">' +
+                                    '<img src="' + list[i].user.head_pic + '">' +
+                                    '<div class="iteminfo">' +
+                                    '<div class="line-1 flex fl-align fl-jsb">' +
+                                    '<h2 class="fz-18 c-333">' + list[i].user.nickname + '</h2>' +
+                                    '<span class="fz-20 c-bf">' + list[i].create_time + '</span>' +
+                                    '</div>' +
+                                    '<div>' + list[i].content + '</div>' +
+                                    '</div>' +
+                                    '</div>';
+                            }
+                            // console.log('2:',html);
+                            $('.comments-list').append(html);
+                        }
+
+
+                    }
+                })
+            })
+        })
+
+        // 添加 或者 修改 url中参数的值
+        function UpdateUrlParam(name, val) {
+            var thisURL = document.location.href;
+            // console.log('当前url：', thisURL)
+            // 如果 url中包含这个参数 则修改
+            if (thisURL.indexOf(name + '=') > 0) {
+                var v = getUrlParam(name);
+                if (v != null) {
+                    // 是否包含参数
+                    thisURL = thisURL.replace(name + '=' + v, name + '=' + val);
+                }
+                else {
+                    thisURL = thisURL.replace(name + '=', name + '=' + val);
+                }
+
+            } // 不包含这个参数 则添加
+            else {
+                if (thisURL.indexOf("?") > 0) {
+                    thisURL = thisURL + "&" + name + "=" + val;
+                }
+                else {
+                    thisURL = thisURL + "?" + name + "=" + val;
+                }
+            }
+            location.href = thisURL;
+        };
+
+        // 删除参数
+        function delUrlParam(url, ref) {
+            // 如果不包括此参数
+            if (url.indexOf(ref) == -1)
+                return url;
+            var arr_url = url.split('?');
+            var base = arr_url[0];
+            var arr_param = arr_url[1].split('&');
+            var index = -1;
+            for (i = 0; i < arr_param.length; i++) {
+                var paired = arr_param[i].split('=');
+                if (paired[0] == ref) {
+                    index = i;
+                    break;
+                }
+            }
+            if (index == -1) {
+                return url;
+            } else {
+                arr_param.splice(index, 1);
+                return base + "?" + arr_param.join('&');
+            }
+
+        }
+
+        // 获取参数
+        function getUrlParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) {
+                return unescape(r[2]);
+            }
+            return null;
+        };
+
+
+        // 发布评论
+        $('.Send').on('click', function () {
+            let content = $('#inputarea').val()
+            console.log(content);
+            if (content) {
+                let param = {
+                    article_id: aid,
+                    content: content
+                }
+                ajax_post('/api/article/addComment', param, function (r) {
+                    console.log(r);
+                    if (r.status == 200) {
+                        commentList(aid, 6.1);
+                        $('#inputarea').val('');
+                    } else {
+                        alert('评论发布失败')
+                    }
+                })
+            } else {
+                alert('请输入发布内容')
+            }
+
+        })
+
+        let tolen = 200;
+        $('#inputarea').on('input propertychange', function () {
+            // 实时获取长度
+            let len = $(this).val().length;
+            let sen = tolen - len;
+            $('.login span').html(sen);
+
+        })
+
+    });
+</script>
+
+</html>

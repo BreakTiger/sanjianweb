@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>汽车商城-详情</title>
+    <script src="./js/rem.js"></script>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <!--css样式区域-->
+    <style>
+        /*广告轮播*/
+        .swiper-container {
+            width: 100%;
+        }
+        .swiper-container .swiper-wrapper .swiper-slide a img {
+            width: 100%;
+            height: 3.24rem;
+        }
+        /*主体内容*/
+        .main{
+            width:16.8rem;
+            max-width:16.8rem;
+            margin:auto;
+            padding-bottom:0.8rem;
+        }
+        .main .topmain{
+            width:16.8rem;
+            background:#FFFFFF;
+            box-shadow:0 0.02rem 0.24rem 0 rgba(46,46,46,0.1);
+            border-radius:0.08rem;
+            margin-bottom:0.28rem;
+            position:relative;
+        }
+        /*头部左侧图片*/
+        .main .topmain .topbox{
+            padding:0.2rem 0 0.35rem 0.2rem;
+        }
+        .main .topmain .topbox .lefttop{
+            width:7rem;
+            margin-right:0.28rem;
+        }
+        .main .topmain .topbox .lefttop .pic{
+            position:relative;
+        }
+        .main .topmain .topbox .lefttop .pic img{
+            width:6.99rem;
+            height:3.87rem;
+            z-index: 1;
+        }
+        .main .topmain .topbox .lefttop .pic .icon{
+            display:block;
+            width:0.63rem;
+            height:1.21rem;
+            position:absolute;
+            z-index:99;
+        }
+        .main .topmain .topbox .lefttop .pic .icon1{
+            display:block;
+            width:0.15rem;
+            height:0.27rem;
+            position:absolute;
+            z-index:100;
+        }
+        .main .topmain .topbox .lefttop .pic .lefts .left-semicircle{
+            background:url("images/b-left.png") no-repeat center / 0.63rem;
+            top:1.25rem;
+            left:0;
+        }
+        .main .topmain .topbox .lefttop .pic .lefts .left-icon{
+            background:url("images/lefts.png") no-repeat center / 0.15rem;
+            top:1.72rem;
+            left:0.16rem;
+        }
+        .main .topmain .topbox .lefttop .pic .rights .right-semicircle{
+            background:url("images/b-right.png") no-repeat center / 0.63rem;
+            top:1.25rem;
+            right:0;
+        }
+        .main .topmain .topbox .lefttop .pic .rights .right-icon{
+            background:url("images/rights.png") no-repeat center / 0.15rem;
+            top:1.72rem;
+            right:0.16rem;
+        }
+        .main .topmain .topbox .lefttop .piclist{
+            padding-top:0.12rem;
+        }
+        .main .topmain .topbox .lefttop .piclist li img{
+            width:2.2rem;
+            height:1.3rem;
+        }
+        /*头部右侧内容*/
+        .righttop .introduce h3{
+            padding:0.1rem 0 0.35rem 0;
+
+        }
+        .righttop .introduce .price{
+            padding-bottom:0.3rem;
+        }
+        .righttop .introduce .price p:first-child{
+            margin-right:0.16rem;
+        }
+        .righttop .introduce .rtext{
+            width:6.54rem;
+            height:4.03rem;
+            background:#F6F6F6;
+        }
+        .righttop .introduce .rtext .rinfo{
+            width:6.05rem;
+            margin:0 auto;
+            padding-top:0.24rem;
+        }
+        .righttop .introduce .rtext .rinfo .info-text{
+            display:flex;
+            flex-wrap:wrap;
+            border-bottom:0.01rem solid #EDEDED;
+        }
+        .righttop .introduce .rtext .rinfo .info-text p{
+            width:3rem;
+            display:flex;
+            padding-bottom:0.3rem;
+
+        }
+        .righttop .introduce .rtext .rinfo .info-text p span:first-child{
+            display:inline-block;
+            width:0.66rem;
+            white-space:nowrap;
+            color:#838383;
+        }
+        .righttop .introduce .rtext .rinfo .info-text p span:last-child{
+            color:#454545;
+        }
+        .righttop .introduce .rtext .rinfo .info-text p span b{
+            font-weight:normal;
+        }
+        .righttop .introduce .rtext .rinfo .infolist .lone{
+            padding:0.4rem 0 0.3rem 0;
+        }
+        .righttop .introduce .rtext .rinfo .infolist .down-icon{
+            display:block;
+            width:0.08rem;
+            height:0.04rem;
+            background:url("images/down_icon.png") no-repeat center / 0.08rem;
+            margin-left:0.2rem;
+        }
+        .righttop .introduce .rtext .rinfo .infolist .lnav{
+            cursor:pointer;
+        }
+        .righttop .introduce .rtext .rinfo .infolist .lnav div:first-child{
+            margin-right:0.24rem;
+            color:#838383;
+        }
+        .righttop .introduce .rtext .rinfo .infolist .lnav div:last-child{
+            width:1rem;
+            height:0.3rem;
+            background:#FFFFFF;
+            border-radius:0.08rem;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+        .righttop .introduce .rtext .buybtn{
+            display:block;
+            width:6.05rem;
+            height:0.6rem;
+            background:#FF7303;
+            border-radius:0.08rem;
+            font-size:0.26rem;
+            font-family:NotoSansHans-Medium;
+            font-weight:500;
+            color:rgba(255,255,255,1);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            margin:0.8rem auto 0.28rem;
+        }
+        .righttop .salesnum{
+            width:2.25rem;
+            height:0.6rem;
+            background:rgba(255,245,230,1);
+            border-radius:0.08rem;
+            position:absolute;
+            top: 0.77rem;
+            right: 0;
+        }
+        .righttop  .salesnum div{
+            text-align:center;
+        }
+        .righttop  .salesnum div:first-child{
+            margin: 0.1rem 0.4rem 0.1rem 0.5rem;
+        }
+        /*底部左侧内容*/
+        .bottommain .leftbottom{
+            width:11.68rem;
+            background:rgba(255,255,255,1);
+            border:0.01rem solid rgba(170, 170, 170, 0.3);
+            border-radius:0.04rem;
+        }
+        .bottommain .leftbottom .bottombox{
+            width:100%;
+            height:0.7rem;
+        }
+        .bottommain .leftbottom .bottombox ul li{
+            width:1.7rem;
+            height:0.7rem;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            border-bottom:0.01rem solid rgba(170, 170, 170, 0.3);
+            color:#707070;
+            cursor:pointer;
+        }
+        .bottommain .leftbottom .bottombox ul li:first-child{
+            border-right:0.01rem solid rgba(170, 170, 170, 0.3);
+        }
+        .bottommain .leftbottom .bottombox ul li.elem{
+            border-top:0.04rem solid #0070D3 !important;
+            border-bottom:none !important;
+            color:#161616 !important;
+        }
+        .bottommain .leftbottom .bottombox .line{
+            width:8.28rem;
+            height:0.7rem;
+            border-bottom:0.01rem solid rgba(170, 170, 170, 0.3);
+        }
+        /*div内容区域*/
+
+        /*右侧内容*/
+        .storebox{
+            width:4.88rem;
+            border-top:0.08rem solid #0070D3;
+            border-radius:0.04rem;
+            margin-bottom:0.32rem;
+        }
+        .storebox .store{
+            padding:0 0.24rem;
+            background:#F7F7F7;
+        }
+        .storebox .store h3{
+            padding:0.33rem 0 0.37rem 0;
+        }
+        .storebox .store .address{
+            padding:0.11rem 0 0.38rem 0;
+        }
+        .storebox .store .map{
+            padding-bottom:0.3rem;
+        }
+        .storebox .store .simg1{
+            width:4.4rem;
+            height:4.35rem;
+        }
+        .storebox .simg2{
+            width:100%;
+            height:1rem;
+        }
+        /*商品列表*/
+        .carlist{
+            width:4.88rem;
+            background:#F7F7F7;
+            border:0.01rem solid #B7DDFF;
+            border-radius:0.04rem;
+        }
+        .carlist .cartitle{
+            text-align:center;
+            padding:0.4rem 0 0.24rem 0;
+        }
+        .carlist .list{
+            margin:0 0.24rem 0.16rem 0.24rem;
+            position:relative;
+        }
+        .carlist .list .cartext{
+            position:absolute;
+            top:0.2rem;
+            left:0.2rem;
+            z-index:99;
+            font-size:0.2rem;
+            font-family:NotoSansHans-Medium;
+            font-weight:500;
+            color:#FFFFFF;
+        }
+        .carlist .list .gobtn{
+            display:block;
+            width:1.25rem;
+            height:0.37rem;
+            position:absolute;
+            right:0.22rem;
+            bottom:0.16rem;
+            background:url("images/button.png") no-repeat center / 1.25rem;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-size:0.18rem;
+            font-family:NotoSansHans-Regular;
+            font-weight:400;
+            color:#FFFEFE;
+            z-index:99;
+        }
+        .carlist .carimg{
+            width:4.4rem;
+            height:2.8rem;
+        }
+    </style>
+</head>
+<body>
+<!--html结构区域-->
+<div id="containers">
+    <header id="header"></header>
+    <section>
+        <div id="box">
+            <!--广告轮播图-->
+            <div class="swiper-container">
+                <!--包裹图片的父级元素 -->
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="javascript:;">
+                            <img src="resources/carmallbanner.png" alt="">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="javascript:;">
+                            <img src="resources/carmallbanner.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--主体内容-->
+            <div class="main">
+                <!--头部区域-->
+                <div class="topmain">
+                    <div class="topbox flex">
+                        <div class="lefttop">
+                            <div class="pic">
+                                <img src="resources/malldetail1.png" alt="">
+                                <div class="lefts">
+                                    <span class="left-semicircle icon"></span>
+                                    <span class="left-icon icon1"></span>
+                                </div>
+                                <div class="rights">
+                                    <span class="right-semicircle icon"></span>
+                                    <span class="right-icon icon1"></span>
+                                </div>
+                            </div>
+                            <div class="piclist">
+                                <ul class="flex fl-align fl-jsb">
+                                    <li>
+                                        <img src="resources/malldetail2.png" alt="">
+                                    </li>
+                                    <li>
+                                        <img src="resources/malldetail3.png" alt="">
+                                    </li>
+                                    <li>
+                                        <img src="resources/malldetail4.png" alt="">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="righttop">
+                            <div class="introduce">
+                                <h3 class="fz-26">雪佛兰科沃兹  2019款 320 自动欣享天窗版</h3>
+                                <div class="price flex fl-align c-e5">
+                                    <p class="c-6b">售价</p>
+                                    <p>
+                                        <span class="fz-20">¥</span>
+                                        <span class="fz-28 f-wb">17.80</span>
+                                        <span class="fz-20">万</span>
+                                    </p>
+                                </div>
+                                <div class="rtext">
+                                    <div class="rinfo">
+                                        <div class="info-text">
+                                            <p>
+                                               <span>指导价</span><span>￥<b>22.29</b>万</span>
+                                            </p>
+                                            <p>
+                                               <span>提车地</span><span>柳州</span>
+                                            </p>
+                                            <p>
+                                                <span>变速箱</span><span>手动  无级变速</span>
+                                            </p>
+                                            <p>
+                                                <span>级  别</span><span>小型车</span>
+                                            </p>
+                                        </div>
+                                        <div class="infolist">
+                                            <div class="lone lnav flex fl-align">
+                                               <div>选择内饰颜色</div>
+                                               <div>
+                                                   <p class="flex fl-align">
+                                                       <span>炫黑晶</span>
+                                                       <span class="down-icon"></span>
+                                                   </p>
+                                               </div>
+                                            </div>
+                                            <div class="ltwo  lnav flex fl-align">
+                                                <div>选择车身颜色</div>
+                                                <div>
+                                                    <p class="flex fl-align">
+                                                        <span>炫黑晶</span>
+                                                        <span class="down-icon"></span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="javascript:;" class="buybtn">
+                                        <span>支付定金 &nbsp;￥</span>
+                                        <span>5,000.00</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="salesnum flex fl-align">
+                                <div>
+                                    <p class="c-hover fz-18"><span>9</span>台</p>
+                                    <p class="fz-14 c-6b">已售</p>
+                                </div>
+                                <div>
+                                    <p class="c-hover fz-18"><span>6</span>台</p>
+                                    <p  class="fz-14 c-6b">库存</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--底部区域-->
+                <div class="bottommain flex fl-jsb">
+                    <div class="leftbottom">
+                        <div class="bottombox flex">
+                            <ul class="flex fl-align">
+                                <li class="elem" data-target="#lione">参数配置</li>
+                                <li data-target="#litwo">实拍图</li>
+                            </ul>
+                            <div class="line"></div>
+                        </div>
+                        <div class="boxlist">
+                            <div id="lione">
+
+                            </div>
+                            <div id="litwo">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rightbottom">
+                        <div class="storebox">
+                            <div class="store">
+                                <h3 class="fz-26 fw-m">上海大众4S店</h3>
+                                <p class="tel c-6b"><span>联系电话：</span><span>020-8845455</span></p>
+                                <p class="address c-6b">
+                                    <span>地址：</span>
+                                    <span>柳州市三江市人民大道中路360号</span>
+                                </p>
+                                <div class="map">
+                                    <img src="resources/map.png" alt="" class="simg1">
+                                </div>
+                            </div>
+                            <img src="resources/malldetail6.png" alt="" class="simg2">
+                        </div>
+                        <div class="carlist">
+                            <p class="cartitle">看过该车的人还看过</p>
+                            <div class="list">
+                                <img src="resources/malldetail1.png" alt="" class="carimg">
+                                <p class="cartext"><span>宝马</span>&nbsp;<span>29.8</span> 万起</p>
+                                <a href="javascript:;" class="gobtn">询底价</a>
+                            </div>
+                            <div class="list">
+                                <img src="resources/malldetail2.png" alt="" class="carimg">
+                                <p class="cartext"><span>宝马</span>&nbsp;<span>29.8</span> 万起</p>
+                                <a href="javascript:;" class="gobtn">询底价</a>
+                            </div>
+                            <div class="list">
+                                <img src="resources/malldetail3.png" alt="" class="carimg">
+                                <p class="cartext"><span>宝马</span>&nbsp;<span>29.8</span> 万起</p>
+                                <a href="javascript:;" class="gobtn">询底价</a>
+                            </div>
+                            <div class="list">
+                                <img src="resources/malldetail4.png" alt="" class="carimg">
+                                <p class="cartext"><span>宝马</span>&nbsp;<span>29.8</span> 万起</p>
+                                <a href="javascript:;" class="gobtn">询底价</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="footer"></div>
+</div>
+</body>
+<!-- js功能区域 -->
+<script src="./js/jquery.min.js"></script>
+<script src="./js/public.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/pageMe.js"></script>
+<script src="./js/swiper.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        /*轮播图*/
+        var mySwiper = new Swiper('.swiper-container', {
+            autoplay: {
+                delay: 3000,
+                stopOnLastSlide: false,
+                disableOnInteraction: true,
+            }
+        })
+        $('.bottombox ul').on('click','li[data-target]',function(){
+            $(this).addClass('elem').siblings().removeClass('elem');
+            $($(this).data('target')).show().siblings().hide();
+            if($(this).data('target')=='#litwo'){
+                $('.more').show();
+            }else{
+                $('.more').hide();
+            }
+        })
+    })
+</script>
+</html>

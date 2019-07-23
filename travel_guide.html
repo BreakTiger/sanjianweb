@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>旅游-旅游路线</title>
+    <script src="./js/rem.js"></script>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./css/icon.css">
+    <link rel="stylesheet" href="./css/travelstorelist.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+</head>
+
+<!--html结构区域 -->
+<body>
+    <div id="containers">
+        <header id="header"></header>
+        <section>
+            <div id="box">
+                <!--广告轮播图-->
+                <div class="swiperbanner">
+                    <div class="swiper-container">
+                        <!--包裹图片的父级元素 -->
+                        <div class="swiper-wrapper"></div>
+                    </div>
+                </div>
+                <!--内容区域-->
+                <div class="content">
+                    <div class="left-content">
+                        <!--左侧内容导航-->
+                        <div class="left-nav">
+                            <div class="nav-one nav">
+                                <p>区域筛选</p>
+                                <ul data-val=""> </ul>
+                            </div>
+                            <div class="nav-two nav">
+                                <p>类型筛选</p>
+                                <ul></ul>
+                            </div>
+                            <div class="nav-four nav">
+                                <p>筛选条件</p>
+                                <ul data-val="1">
+                                    <li data-id="1">
+                                        <button class="item">综合排序</button>
+                                    </li>
+                                    <li data-id="2">
+                                        <button class="item">销量排序</button>
+                                    </li>
+                                    <li data-id="3">
+                                        <button class="item">评分排序</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--左侧内容卡片-->
+                        <div class="left-box">
+                            <!--左侧内容卡片 -->
+                            <div class="left-main">
+                                <ul></ul>
+                            </div>
+                            <!-- 左侧分页器 -->
+                            <div id="pagelist1" class="page_div page_div_one"></div>
+                            <div class="other">暂无符合条件的查询</div>
+                        </div>
+                    </div>
+                    <div class="right-content f-w5"></div>
+                    <!--右侧返回顶部 编辑 订单入口-->
+                    <div class="tabs">
+                        <a href="javascript:;" class="tab-ico1"><span class="return-icon"></span></a>
+                        <a href="javascript:;" class="tab-ico2"><span class="option-icon"></span></a>
+                        <div class="tab-ico3">
+                            <p>
+                                <span class="order-text">订单</span>
+                                <span>入口</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!--商家入驻logo-->
+                <div class="foot">
+                    <div class="f-box">
+                        <div class="f-text">
+                            <p>入驻商家</p>
+                            <p>RESIDENT MERCHANT</p>
+                        </div>
+                        <div class="section-inner">
+                            <div class="swiper-container swiper-container-horizontal">
+                                <div class="swiper-wrapper"></div>
+                            </div>
+                            <div class="button-prev"></div>
+                            <div class="button-next"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer id="footer"></footer>
+    </div>
+</body>
+
+<!-- js功能区域 -->
+<script src="./js/jquery.min.js"></script>
+<script src="./js/public.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/pageMe.js"></script>
+<script src="./js/swiper.min.js"></script>
+<script text="type/javascript">
+    $(function () {
+        /*获取所需参数*/
+        var city_id=localData('get','cityinfo').city_id || 6;
+        var sc_id=GetQueryString('sc_id');
+
+        /*调用轮播图函数，路线 sc_id=10*/
+        var param1={sc_id:sc_id,city_id:city_id};
+        getBanner(param1);
+
+        /*获取二级区域*/
+        getCity(city_id);
+
+        //导游门店类型 获取门店类型，路线 sc_id为10*/
+        var param2={sc_id:sc_id};
+        getStore(param2);
+
+        //路线列表
+        let param3={keyword:'',area_id:city_id,attr_id:0,sc_id:sc_id,page:'',row:''};
+        getShowList(param3);
+        
+        /*点击区域和门店类型,获取导游列表 综合排序by为1 销量排序by为2 评分排序为3*/
+           $('.left-nav ul').each(function(index,item){
+           $(item).addClass('ul'+index);
+           $(item).on('click','li',function(){
+                var id=$(this).data('id');
+                $(this).parent().attr('data-val',id);
+                var area_id=$('.ul0').attr('data-val');
+                var attr_id=$('.ul1').attr('data-val');
+                var by=$('.ul2').attr('data-val');
+                var param4={keyword:'',area_id:area_id,attr_id:attr_id,sc_id:sc_id,by:by,page:'',row:6};
+                getShowList(param4);
+           })
+        })
+
+        // 入驻商家logo
+        var param5={sc_id:sc_id,city_id:city_id};
+        blogrollList(param5);
+
+        /*侧边获取商家店铺列表*/
+        getShopList(sc_id,city_id);
+
+        /*切换*/
+        $('.nav').on('click', 'li', function () {
+            $(this).addClass('c-active').siblings().removeClass('c-active');
+        });
+        $('.left-nav .nav-four>ul').on('click', 'li', function () {
+            $(this).find('button').toggleClass('b-active');
+            $(this).siblings().find('button').removeClass('b-active');
+        });
+
+        /*返回顶部功能*/
+        $('.order-text').on('click', function () {
+            var T = $(window).scrollTop();
+            var t = setInterval(function () {
+                if (T < 0) {
+                    clearInterval(t);
+                } else {
+                    T -= 50;
+                    $(window).scrollTop(T);
+                }
+            }, 20);
+        });
+
+        /*##########页面测试跳转链接########*/
+        $('.left-main ul').on('click','li',function(){
+            var id=$(this).data('storeid');
+            window.location.href='guide_show.html?store_id='+id;
+        });
+    })
+
+</script>
+
+</html>

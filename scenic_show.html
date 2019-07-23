@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>旅游-景区详情</title>
+    <script src="./js/rem.js"></script>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./css/icon.css">
+    <link rel="stylesheet" href="./css/travelproductlist.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <style>
+        /*左侧商品列表*/
+        .main .left {
+            width: 11.68rem;
+            margin-right: 0.24rem;
+        }
+        .main .left .ticket {
+            width: 100%;
+            height: auto;
+            background: #F0F0F0;
+            margin-bottom: 0.24rem;
+        }
+        .main .left .ticket .title {
+            padding-top: 0.33rem;
+            padding-bottom: 0.39rem;
+            padding-left: 0.42rem;
+            border-bottom: 0.01rem solid rgba(240, 240, 240, 1);
+        }
+        .main .left .ticket .list .list-item {
+            width: 11.68rem;
+            height: 2.8rem;
+            background: #F7F7F7;
+            border-bottom: 0.01rem solid #F0F0F0;
+        }
+        .main .left .ticket .list .list-item:hover {
+            box-shadow: 0rem 0.02rem 0.17rem 0.01rem rgba(46, 46, 46, 0.18);
+        }
+        .main .left .ticket .list .list-item .item {
+            padding: 0.34rem 0.41rem 0.34rem 0.41rem;
+        }
+        .main .left .ticket .list .list-item .item>img {
+            width: 3.82rem;
+            height: 2.12rem;
+            margin-right: 0.3rem;
+            border-radius:0.04rem;
+        }
+        .main .left .ticket .list .list-item .item .item-info {
+            width: 6.74rem
+        }
+        .main .left .ticket .list .list-item .item .item-info>p:nth-child(1) {
+            margin-bottom: 0.32rem;
+        }
+        .main .left .ticket .list .list-item .item .item-info>p:nth-child(2) {
+            margin-bottom: 0.67rem;
+        }
+        .main .left .ticket .list .list-item .item .item-info .buyBtn {
+            display:block;
+            width: 1.94rem;
+            height: 0.46rem;
+            line-height: 0.46rem;
+            background: rgba(255, 115, 3, 1);
+            border-radius: 0.08rem;
+            text-align: center;
+            cursor:pointer;
+
+        }
+        .main .left .attractions {
+            width: 100%;
+            height:8.9rem;
+            max-height:8.9rem;
+            overflow-y:auto;
+            background: #F0F0F0;
+            margin-bottom: 0.8rem;
+        }
+        .main .left .attractions .title {
+            padding-top: 0.3rem;
+            padding-bottom: 0.2rem;
+            padding-left: 0.42rem;
+            background: #F7F7F7;
+            border-bottom: 0.01rem solid #ffffff;
+        }
+        .main .left .attractions .introduce {
+            width: 10.85rem;
+            margin: auto;
+            padding-bottom: 0.79rem;
+            padding-top: 0.26rem;
+        }
+        .main .left .attractions .introduce p{
+            line-height:0.26rem;
+        }
+        .main .left .attractions .introduce>p:nth-child(1) {
+            margin-bottom: 0.19rem;
+        }
+        .main .left .attractions .introduce .imgs-box {
+            width: 100%;
+            margin-bottom: 0.25rem;
+        }
+        .main .left .attractions .introduce .imgs-box>img {
+            width: 5.36rem;
+            height: 3.05rem;
+        }
+        .main .left .attractions .introduce>p:nth-child(3) {
+            margin-bottom: 0.24rem;
+        }
+        .main .right {
+            width: 4.88rem;
+        }
+
+    </style>
+</head>
+
+
+<body>
+<div id="containers">
+    <!-- 头部 -->
+    <header id="header"></header>
+
+    <!-- 主体 -->
+    <section>
+        <div id="box">
+            <!--广告轮播图-->
+            <div class="swiperbanner">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper"></div>
+                </div>
+            </div>
+            <!-- 内容区 -->
+            <div class="content">
+                <!--广告图详情-->
+                <div class="advertshow">
+                    <div class="detail-box"></div>
+                </div>
+                <div class="main flex">
+                    <!--左侧商品列表-->
+                    <div class="left">
+                        <!-- 门票 -->
+                        <div class="ticket">
+                            <div class="title fz-26 c-16 f-w5">门票购买</div>
+                            <div class="list">
+                            </div>
+                        </div>
+                        <!-- 景点介绍 -->
+                        <div class="attractions">
+                            <div class="title fz-26 c-16">景点简介</div>
+                            <div class="introduce"></div>
+                        </div>
+                    </div>
+                    <!--右侧列表-->
+                    <div class="right">
+                        <!--相册 -->
+                        <div class="merchants">
+                            <div class="merchantsbox">
+                                <div class="titles">
+                                    <span class="fz-26 c-16 f-w5">商家相册</span>
+                                    <span class="fz-16 c-6a btn-img">点击预览大图</span>
+                                </div>
+                                <div class="pics">
+                                    <div class="swiper-container">
+                                        <div class="swiper-wrapper"></div>
+                                    </div>
+                                </div>
+                                <div class="pro">
+                                    <div class="probtn"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--商家介绍-->
+                        <div class="facilities">
+                            <div class="facilibox"></div>
+                            <div class="fac-three">
+                                <div class="map">
+                                    <a href="javascript:;">
+                                        <img src="resources/map.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--店铺-->
+                        <div class="storebox"></div>
+                    </div>
+                </div>
+                <!--右侧返回顶部 编辑 订单入口-->
+                <div class="tabs">
+                    <a href="javascript:;" class="tab-ico1"><span class="return-icon"></span></a>
+                    <a href="javascript:;" class="tab-ico3">
+                            <span>
+                                   <span class="order-text">意见</span>
+                                   <span class="order-text">反馈</span>
+                            </span>
+                    </a>
+                    <a href="javascript:;" class="tab-ico2"><span class="order-icon"></span></a>
+                </div>
+            </div>
+        </div>
+        <!--相册弹窗-->
+        <div id="showModel">
+            <div class="model-box">
+                <div class="close-btn"></div>
+                <div class="model-list">
+                    <div class="model-img">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="left-btn"></div>
+                <div class="right-btn"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部 -->
+    <footer id="footer"></footer>
+</div>
+</body>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/public.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/swiper.min.js"></script>
+<script text="type/javascript">
+    $(function () {
+        //获取所需参数
+        var city_id=localData('get','cityinfo').city_id || 6;
+        var store_id=GetQueryString("store_id");
+
+        /*调用轮播图函数，景区sc_id=8*/
+        var param={sc_id:8,city_id:city_id};
+        getBanner(param);
+
+        /*获取景区列表数据*/
+        var params={page:'',row:6,store_id:store_id};
+        ajax_post('/api/goods/scenicList',params,function(r){
+            callBack(r,{
+                success:function(res){
+                    var Array=res.data;
+                    var scenichtml='';
+                    Array.forEach(function(item,index){
+                        scenichtml+='<div class="list-item" data-id="'+item.id+'">'+
+                                        '<div class="item flex">'+
+                                            '<img src="'+item.img+'" alt="">'+
+                                            '<div class="item-info">'+
+                                                '<p class="flex fl-jsb fl-align">'+
+                                                    '<span class="fz-26 c-16 f-w5">'+item.name+'</span>'+
+                                                    '<span class="fz-16 c-4a">已售'+item.order_count+'</span>'+
+                                                '</p>'+
+                                                '<p>'+
+                                                    '<span class="price fz-20 c-e5">¥</span>'+
+                                                    '<span class="fz-26 c-e5">'+item.min_price+'-'+item.min_price+'</span>'+
+                                                    '<span class="fz-16 c-6b">/份</span>'+
+                                                '</p>'+
+                                                '<a class="buyBtn fz-18 c-fff" href="scenic_detail.html?goods_id='+item.id+'">立即预订</a>'+
+                                            '</div>'+
+                                        '</div>'+
+                                      '</div>';
+
+                    })
+                    $('.ticket .list').append(scenichtml);
+                }
+            })
+        });
+
+        /*获取商家相册数据*/
+        album(store_id);
+
+        /*获取店铺列表*/
+        getDetailShopList(8,store_id,city_id);
+
+
+        /*返回顶部功能*/
+        $('.return-icon').on('click', function () {
+            var T = $(window).scrollTop();
+            var t = setInterval(function () {
+                if (T < 0) {
+                    clearInterval(t);
+                } else {
+                    T -= 50;
+                    $(window).scrollTop(T);
+                }
+            }, 20);
+        });
+
+    });
+</script>
+
+</html>

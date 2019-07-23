@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>汽车-金融-贷款申请</title>
+    <script src="js/rem.js"></script>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <style>
+        #box {
+            width: 100%;
+            position: relative;
+        }
+
+        /*广告轮播*/
+        .swiper-container {
+            width: 100%;
+            margin-bottom: 0.63rem;
+        }
+
+        .swiper-container .swiper-wrapper .swiper-slide a img {
+            width: 100%;
+            height: 3rem;
+        }
+
+        /* 内容区 */
+        .content {
+            width: 11.20rem;
+            margin: auto;
+            margin-bottom: 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 1);
+            background: linear-gradient(90deg, rgba(230, 233, 240, 1) 0%, rgba(238, 241, 245, 1) 100%);
+            box-shadow: 0.02rem 0.07rem 0.21rem 0rem rgba(67, 66, 67, 0.21);
+            opacity: 0.7;
+            border-radius: 0.08rem;
+        }
+
+        /* 流程 */
+        .process {
+            background: #ffffff;
+        }
+
+        .process ul li {
+            display: flex;
+            align-items: center;
+        }
+
+        .process ul li span:nth-child(2) {
+            font-size: 0.2rem;
+            color: #363636;
+            margin-right: 0.41rem;
+        }
+
+        .circular {
+            display: block;
+            width: 0.34rem;
+            height: 0.34rem;
+            border: 0.02rem solid rgba(82, 82, 82, 1);
+            text-align: center;
+            line-height: 0.34rem;
+            border-radius: 50%;
+            font-size: 0.18rem;
+            color: #363636;
+            margin-right: 0.11rem;
+            margin-left: 0.45rem;
+        }
+
+        .finsh {
+            color: #ffffff;
+            background: #525252;
+        }
+
+        .arrow {
+            display: block;
+            width: 0.31rem;
+            height: 0.82rem;
+            background: url('images/s-arrow.png') no-repeat left/0.31rem;
+            margin-left: 0.9rem;
+        }
+
+        /* 信息容器 */
+        .message-content {
+            padding: 0.4rem 0.35rem 0.8rem 0.36rem;
+        }
+
+        .message-content .car-info {
+            background: #ffffff;
+            padding: 0.22rem 0.28rem;
+            margin-bottom: 0.24rem;
+            border-radius: 0.04rem;
+        }
+
+        .message-content .car-info>img {
+            width: 3.46rem;
+            height: 1.7rem;
+            margin-right: 0.25rem;
+        }
+
+        .Specifications>h2 {
+            margin-top: 0.05rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .Specifications>span {
+            display: block;
+            margin-top: 0.13rem;
+            color: #999999;
+        }
+
+        .info-input {
+            padding: 0.32rem 0.3rem;
+            background: #ffffff;
+            border-radius: 0.04rem;
+            margin-bottom: 0.6rem;
+        }
+
+
+        .info-input h3 {
+            margin-bottom: 0.21rem;
+        }
+
+        /* 真实姓名+意向购车时间 */
+        .name-buytime {
+            margin-bottom: 0.16rem;
+        }
+
+        #getname {
+            width: 2.8rem;
+            height: 0.36rem;
+            background: rgba(255, 255, 255, 1);
+            border: 0.01rem solid rgba(223, 223, 223, 1);
+            border-radius: 0.02rem;
+            margin-left: 0.42rem;
+            text-indent: 0.17rem;
+            cursor: pointer;
+        }
+
+        .getBuyTime {
+            width: 2.8rem;
+            height: 0.36rem;
+            background: rgba(255, 255, 255, 1);
+            border: 1px solid rgba(199, 199, 199, 1);
+            border-radius: 2px;
+            margin-left: 0.42rem;
+            line-height: 0.36rem;
+            cursor: pointer;
+        }
+
+        .getBuyTime>span:first-child {
+            display: block;
+            margin-left: 0.17rem;
+        }
+
+        .d-icon {
+            display: block;
+            width: 0.09rem;
+            height: 0.05rem;
+            background: url('images/down_icon.png') no-repeat center/0.09rem;
+            margin-top: 0.18rem;
+            margin-right: 0.12rem;
+        }
+
+        /* 性别+上牌城市 */
+        .gender-city {
+            margin-bottom: 0.16rem;
+        }
+
+        .gender>span {
+            display: block;
+            margin-right: 0.79rem;
+        }
+
+        .gender>input {
+            margin-right: 0.09rem;
+            cursor: pointer;
+        }
+
+        .gender>input:nth-child(3) {
+            margin-left: 0.37rem;
+        }
+
+        #getcity {
+            width: 2.82rem;
+            height: 0.36rem;
+            background: rgba(255, 255, 255, 1);
+            border: 0.01rem solid rgba(199, 199, 199, 1);
+            border-radius: 0.02rem;
+            margin-left: 0.76rem;
+            text-indent: 0.17rem;
+            cursor: pointer;
+        }
+
+        /* 手机号码 */
+        #getPhone {
+            width: 2.82rem;
+            height: 0.36rem;
+            background: rgba(255, 255, 255, 1);
+            border: 0.01rem solid rgba(199, 199, 199, 1);
+            border-radius: 0.02rem;
+            margin-left: 0.39rem;
+            text-indent: 0.17rem;
+            cursor: pointer;
+        }
+
+        .back {
+            width: 1rem;
+            /* height: 40px; */
+            background: rgba(255, 255, 255, 1);
+            opacity: 0.5;
+            border-radius: 0.08rem;
+            padding: 0.1rem 0;
+            cursor: pointer;
+        }
+
+        .b-icon {
+            display: block;
+            width: 0.07rem;
+            height: 0.13rem;
+            background: url('images/back.png') no-repeat center/0.07rem;
+            margin-left: 0.19rem;
+            margin-right: 0.13rem;
+        }
+
+        .apply {
+            width: 2.20rem;
+            /* height:60px; */
+            background: rgba(255, 115, 3, 1);
+            border-radius: 0.08rem;
+            padding: 0.09rem 0;
+            cursor: pointer;
+        }
+
+        .apply>span:first-child {
+            margin-left: 0.29rem;
+        }
+
+        .a-line {
+            display: block;
+            width: 0.02rem;
+            height: 0.43rem;
+            background: url('images/lines.png') no-repeat center/0.02rem;
+            margin-left: 0.28rem;
+            margin-right: 0.24rem;
+        }
+
+        .a-arrow {
+            display: block;
+            width: 0.12rem;
+            height: 0.2rem;
+            background: url('images/w-arrow.png') no-repeat center/0.12rem;
+        }
+
+        .buytime {
+            position: relative;
+        }
+
+        .menu {
+            width: 2.82rem;
+            position: absolute;
+            top: 0.45rem;
+            left: 1.5rem;
+            background: rgba(255, 255, 255, 1);
+            border: 0.01rem solid rgba(255, 255, 255, 1);
+            box-shadow: 0rem 0.04rem 0.18rem 0rem rgba(0, 19, 34, 0.14);
+            border-radius: 0.04rem;
+            z-index: 100;
+            padding: 0.24rem 0.4rem 0.36rem 0.4rem;
+
+        }
+
+        .menu>ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .menu>ul>li {
+            width: 1.06rem;
+            padding: 0.11rem 0rem;
+            margin-bottom: 0.12rem;
+            text-align: center;
+            background: rgba(243, 245, 249, 1);
+            font-size: 0.18rem;
+            color: #909090;
+        }
+
+        .menu>ul>li:hover {
+            color: #555555;
+        }
+
+
+        .apply-press {
+            background: #F0F2F7;
+            padding: 0.54rem 0.91rem 0.71rem 1.43rem;
+        }
+
+        .left>div>h3 {
+            margin-top: 0.26rem;
+            margin-bottom: 0.48rem;
+        }
+
+        .left>div>p {
+            width: 4rem;
+            line-height: 0.25rem;
+            margin-bottom: 0.59rem;
+        }
+
+        .left>div .B-Btn {
+            width: 1.34rem;
+            background: #ffffff;
+            padding: 0.1rem 0;
+            border-radius: 0.08rem;
+            cursor: pointer;
+        }
+
+        .right {
+            width: 3.31rem;
+            height: 2.94rem;
+            margin-left: 1.51rem;
+        }
+
+        .right div img {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 右侧导航 */
+
+        /*右侧返回顶部 编辑 订单入口*/
+        .tabs {
+            width: 0.6rem;
+            height: 1.2rem;
+            background: rgba(255, 255, 255, 1);
+            border: 0.01rem solid rgba(217, 217, 217, 1);
+            position: absolute;
+            right: 0.5rem;
+            top: 7.45rem;
+        }
+
+        .tabs a {
+            height: 0.6rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .tabs a:last-child {
+            border-top: 0.01rem solid #D9D9D9;
+        }
+
+        .tabs .return-icon {
+            display: block;
+            width: 0.30rem;
+            height: 0.30rem;
+            background: url("images/order.png") no-repeat center / 0.30rem;
+        }
+
+        .tabs .option-icon {
+            display: block;
+            width: 0.30rem;
+            height: 0.30rem;
+            background: url("images/option.png") no-repeat center / 0.30rem;
+        }
+
+        .tabs a:first-child {
+            font-size: 0.2rem;
+            font-family: NotoSansHans-Medium;
+            font-weight: 500;
+            color: rgba(254, 254, 254, 1);
+            line-height: 0.22rem;
+            text-align: center;
+            padding: 0 0.1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="containers">
+        <header id="header"></header>
+        <section>
+            <div id="box">
+                <!--广告轮播图-->
+                <div class="swiper-container">
+                    <!--包裹图片的父级元素 -->
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="javascript:;">
+                                <img src="resources/carbanner.png" alt="">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:;">
+                                <img src="resources/carbanner.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 内容区 -->
+                <div class="content">
+
+                    <!-- 流程 -->
+                    <div class="process">
+                        <ul class="flex">
+                            <li>
+                                <span class="circular finsh">1</span>
+                                <span>提交申请信息</span>
+                                <span class="arrow"></span>
+                            </li>
+                            <li>
+                                <span class="circular">2</span>
+                                <span>等待电话回访</span>
+                                <span class="arrow"></span>
+                            </li>
+                            <li>
+                                <span class="circular">3</span>
+                                <span>线下面签</span>
+                                <span class="arrow"></span>
+                            </li>
+                            <li>
+                                <span class="circular">4</span>
+                                <span>申请通过，放款</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 信息容器 -->
+                    <div class="message-content hide">
+                        <div class="car-info flex">
+                            <img src="resources/cars1.png">
+                            <div class="Specifications">
+                                <h2 class="fz-20 f-w5">大众朗逸 2017款 1.6L 自动风尚版</h2>
+                                <p>
+                                    <span class="fz-20 c-666">参考价：</span>
+                                    <span class="fz-22 c-e5">8.08万</span>
+                                </p>
+                                <span class="fz-16">经销商：广汽集团东风中路4S店</span>
+                            </div>
+
+                        </div>
+                        <div class="info-input">
+                            <h3 class="fz-26">申请信息</h3>
+
+                            <!-- 真实姓名+意向购车时间 -->
+                            <div class="name-buytime flex fl-align fl-jsb">
+
+                                <!-- 真实姓名 -->
+                                <div class="name flex fl-align">
+                                    <span class="fz-18 c-70">真实姓名</span>
+                                    <input type="text" id="getname" placeholder="请输入真实姓名">
+                                </div>
+
+                                <!-- 意向购车时间 -->
+                                <div class="buytime flex fl-align">
+                                    <span class="fz-18 c-70">意向购车时间</span>
+                                    <div class="getBuyTime flex fl-jsb">
+                                        <span class="fz-16 c-6a">一个月内</span>
+                                        <span class="d-icon"></span>
+                                    </div>
+                                    <div class="menu hide">
+                                        <ul>
+                                            <li>一个月内</li>
+                                            <li>半年内</li>
+                                            <li>今年内</li>
+                                            <li>待定</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- 性别+上牌城市 -->
+                            <div class="gender-city flex fl-align fl-jsb">
+                                <!-- 性别 -->
+                                <div class="gender flex">
+                                    <span class="fz-18 c-70">性别</span>
+                                    <input name="sex" type="radio" checked="checked" />
+                                    <label for="male">男</label>
+                                    <input name="sex" type="radio" />
+                                    <label for="female">女</label>
+                                </div>
+
+                                <!-- 上牌城市 -->
+                                <div class="city">
+                                    <span class="fz-18 c-70">上牌城市</span>
+                                    <input type="text" id="getcity" placeholder="请输入上牌城市">
+                                </div>
+
+                            </div>
+
+                            <!-- 手机号码 -->
+                            <div class="phone">
+                                <span class="fz-18 c-70">手机号码</span>
+                                <input type="text" id="getPhone" placeholder="请输入手机号码">
+                            </div>
+
+
+                        </div>
+                        <div class="btn-line flex fl-jsb">
+
+                            <div class="back fl-align flex">
+                                <span class="b-icon"></span>
+                                <span class="fz-20 c-70">返回</span>
+                            </div>
+
+                            <div class="apply flex fl-align">
+                                <span class="fz-26 c-fff">提交申请</span>
+                                <span class="a-line"></span>
+                                <span class="a-arrow"></span>
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+                    <!-- 成功提交信息+等待电话回访+线下面签+申请通过，放款 -->
+                    <div class="apply-press flex">
+
+                        <div class="left">
+                            <div class="one">
+                                <h3>您已成功提交信息！</h3>
+                                <p class="fz-20 c-666">
+                                    我们将在1~3个工作日内与您联系，如遇假期，
+                                    订单处理时间顺延，请您耐心等待。
+                                </p>
+                                <div class="B-Btn flex">
+                                    <span class="b-icon"></span>
+                                    <span onclick="window.location.href='carindex.html'">返回首页</span>
+                                </div>
+                            </div>
+
+                            <div class="two hide">
+                                <h3>回访结束</h3>
+                                <p class="fz-20 c-666">
+                                    我们已经通过电话回访啦，请您尽快前往指定
+                                    门店进行线下面签，感谢您的信任与支持！
+                                </p>
+                                <div class="B-Btn flex">
+                                    <span class="b-icon"></span>
+                                    <span onclick="window.location.href='carindex.html'">返回首页</span>
+                                </div>
+                            </div>
+
+                            <div class="three hide">
+                                <h3>恭喜您，您的申请已通过！</h3>
+                                <p class="fz-20 c-666">
+                                    您的贷款申请已通过，平台将在3个工作日内
+                                    将款项打入您指定的账户内，请注意查收！
+                                </p>
+                                <div class="B-Btn flex">
+                                    <span class="b-icon"></span>
+                                    <span onclick="window.location.href='carindex.html'">返回首页</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="right">
+
+                            <div class="one">
+                                <img src="images/info-sucess.png">
+                            </div>
+
+                            <div class="two hide">
+                                <img src="images/info-finsh.png">
+                            </div>
+
+                            <div class="three hide">
+                                <img src="images/info-green.png">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- 右侧导航 -->
+                <div class="tabs">
+                    <a href="javascript:;" class="tab-ico2"><span class="option-icon"></span></a>
+                    <a href="javascript:;" class="tab-ico1"><span class="return-icon"></span></a>
+                </div>
+
+            </div>
+        </section>
+        <footer id="footer"></footer>
+    </div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/public.js"></script>
+<script src="js/common.js"></script>
+<script src="js/swiper.min.js"></script>
+<script type="text/javascript">
+
+</script>
+
+</html>

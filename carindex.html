@@ -1,0 +1,1003 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>汽车板块-主页</title>
+    <script src="./js/rem.js"></script>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./css/icon.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <!--css样式区域-->
+    <style>
+        /*底部线条*/
+        .line{
+            position: relative;
+            z-index: 0;
+        }
+        .line::after{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius:0.02rem;
+            border-bottom: 0.01rem solid #ECEEF4;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-transform-origin: left top;
+            transform-origin: left top;
+            width:200%;
+            height:200%;
+            -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+        }
+        .line div,.line span, .line a .line li{
+            position: relative;
+        }
+        .lineone{
+            position: relative;
+            z-index: 0;
+        }
+        .lineone::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius:0.02rem;
+            border-bottom: 0.02rem solid #ECEEF4;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-transform-origin: left top;
+            transform-origin: left top;
+            width:200%;
+            height:200%;
+            -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+            margin-top:-0.65rem;
+        }
+        .lineone div,.lineone span, .lineone a .lineone li{
+            position: relative;
+        }
+        /*广告轮播*/
+        .swiper-container {
+            width: 100%;
+            height: 5.1rem;
+        }
+        .swiper-container .swiper-wrapper .swiper-slide a img {
+            width: 100%;
+            height: 5.1rem;
+        }
+        /*###楼层结构样式start###*/
+        .carfloor{
+            width:16.8rem;
+            max-width:16.8rem;
+            margin:auto;
+        }
+        .carfloor .adimg li img{
+            width:100%;
+            height:1.2rem;
+        }
+        .carfloor .floor{
+            margin-top:0.44rem;
+        }
+        .carfloor .floor .titles{
+            height:auto;
+            padding-bottom:0.15rem;
+            cursor: pointer;
+            border-bottom:1px solid #ECEEF4;
+        }
+        .carfloor .floor .titles h1{
+            font-size:0.32rem;
+            font-family:A07-;
+            font-weight:900;
+            color:#161616;
+        }
+        .arrow-icon{
+            margin-left:0.12rem;
+        }
+        /*汽车频道*/
+        .car-channel .channel .leftimg{
+            width:3.8rem;
+            height:6.3rem;
+        }
+        .car-channel .channel{
+            margin:0.45rem 0;
+        }
+        .car-channel .channel .leftimg img{
+            width:100%;
+            height:100%;
+        }
+        .car-channel .channel .rightimg{
+            width:2rem;
+        }
+        .car-channel .channel .rightimg ul li{
+            margin-bottom:0.15rem;
+            position:relative;
+        }
+        .car-channel .channel .rightimg ul li img{
+            width:2rem;
+            height:2rem;
+            border-radius:0.04rem;
+            -webkit-border-radius:0.04rem;
+        }
+        .car-channel .channel .rightimg ul li a{
+            display:block;
+            position:absolute;
+            width:1rem;
+            height:0.3rem;
+            background:url("images/button_icon.png") no-repeat center / 1rem;
+            font-family:NotoSansHans-Regular;
+            color:rgba(255,254,254,1);
+            right:0.12rem;
+            bottom:0.08rem;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+        .car-channel .channel .main{
+            width:9.5rem;
+            margin:0 0.7rem 0 0.45rem;
+        }
+        .car-channel .channel .main .maintitle{
+            margin-bottom:0.4rem;
+            cursor: pointer;
+        }
+        .car-channel .channel .main .maintitle h3{
+            font-size:0.24rem;
+            font-family:A03-;
+            font-weight:500;
+            color:#161616;
+        }
+        .car-channel .channel .main .mainbox .ulone li:first-child{
+            margin-bottom:0.28rem;
+        }
+        .car-channel .channel .main .mainbox .ulone li{
+            width:2.8rem;
+            height:2.7rem;
+        }
+        .car-channel .channel .main .mainbox .ulone li img{
+            width:100%;
+            height:100%;
+            border-radius:0.04rem;
+            -webkit-border-radius:0.04rem;
+        }
+        .car-channel .channel .main .mainbox .ultwo{
+            margin-left:0.25rem;
+        }
+        .car-channel .channel .main .mainbox .ultwo li{
+            width:6.55rem;
+            font-size:0.18rem;
+            font-family:NotoSansHans-Medium;
+            font-weight:500;
+            color:rgba(64,64,64,1);
+            line-height:0.22rem;
+            padding:0.18rem 0;
+            cursor:pointer;
+        }
+        .car-channel .channel .main .mainbox .ultwo li:first-child{
+            padding-top:0;
+        }
+        /*洗车服务*/
+        .car-service .service{
+            margin-top:0.36rem;
+        }
+        .car-service .service ul{
+            flex-wrap: wrap;
+        }
+        .car-service .service ul li{
+            width:4rem;
+            height:3.6rem;
+            margin-bottom:0.28rem;
+            background:#FCFCFC;
+            position:relative;
+
+        }
+        .car-service .service ul .card{
+            background:#FFFFFF !important;
+            box-shadow:0 0.04rem 0.2rem 0 rgba(9,10,14,0.18);
+        }
+        .car-service .service ul li .libox{
+            padding:0.12rem;
+        }
+        .car-service .service ul li .libox .liimg{
+            width:3.76rem;
+            height:2.06rem;
+        }
+        .car-service .service ul li .libox .liimg img{
+            width:100%;
+            height:100%;
+            border-radius:0.04rem;
+            -webkit-border-radius:0.04rem;
+        }
+        .car-service .service ul li .libox .lititle{
+            padding:0.24rem 0 0.17rem 0;
+        }
+        .car-service .service ul li .libox .liprice{
+            margin-top:0.2rem;
+        }
+        .car-service .service ul li .libox .liprice .salesnum{
+            width:1rem;
+            height:0.24rem;
+            background:#EFEFEF;
+            border-radius:0.12rem;
+            font-family:NotoSansHans-Regular;
+            font-weight:400;
+            color:#AAAAAA;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+        .car-service .service ul li .lipic{
+            position:absolute;
+            top:0.2rem;
+            left:0.05rem;
+            width:1.9rem;
+            height:0.34rem;
+            background:url("images/carservice.png") no-repeat center / 1.9rem;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-size:0.18rem;
+            font-family:NotoSansHans-Regular;
+            font-weight:400;
+            color:rgba(255,255,255,1);
+        }
+        /*汽车金融*/
+        .car-financing .financing{
+            margin:0.45rem 0;
+        }
+        .car-financing .financing .leftbox{
+            width:12.4rem;
+            height:6.3rem;
+            background:url("resources/carbg.png") no-repeat center / 12.4rem;
+            z-index:9;
+            position:relative;
+            overflow:hidden;
+        }
+        .car-financing .financing .leftbox ul{
+            width:1000rem;
+            z-index:10;
+            position:absolute;
+            left:0;
+        }
+        .car-financing .financing .leftbox ul li{
+            float:left;
+            width:9.5rem;
+            height:4.65rem;
+            background:rgba(251,251,251,1);
+            border:0.01rem solid rgba(255,255,255,1);
+            box-shadow:0 0.1rem 0.28rem 0 rgba(32,38,62,0.2);
+            opacity:0.7;
+            border-radius:0.08rem;
+            margin:0.55rem 0.24rem 0 0.45rem;
+            box-sizing:border-box;
+            position:relative;
+            cursor:pointer;
+        }
+        .car-financing .financing .leftbox ul li .ftitle{
+            margin:0.25rem 0.4rem;
+            padding-bottom:0.15rem;
+        }
+        .car-financing .financing .leftbox ul li .ftitle h3{
+            font-size:0.26rem;
+            font-family:NotoSansHans-Medium;
+            font-weight:500;
+            color:#161616;
+        }
+        .car-financing .financing .leftbox ul li .fimg{
+            display:block;
+            width:1.1rem;
+            height:1.15rem;
+            position:absolute;
+            top:0;
+            right:0;
+        }
+        .car-financing .financing .leftbox ul li .fimg1{
+            background:url("images/loan1.png") no-repeat center / 1.1rem;
+        }
+        .car-financing .financing .leftbox ul li .fimg2{
+            background:url("images/loan2.png") no-repeat center / 1.1rem;
+        }
+        .car-financing .financing .leftbox ul li .fbox{
+            margin:0 0.4rem;
+        }
+        .car-financing .financing .leftbox ul li .fbox .fb-img{
+            width:3.75rem;
+            height:2.05rem;
+            margin-right:0.32rem;
+        }
+        .car-financing .financing .leftbox ul li .fbox .fb-img img{
+            width:100%;
+            height:100%;
+            border-radius:0.04rem;
+            -webkit-border-radius:0.04rem;
+        }
+        .car-financing .financing .leftbox ul li .fbox .fb-text{
+            width:4.6rem;
+        }
+        .car-financing .financing .leftbox ul li .fbox .fb-text .p1{
+            font-size:0.22rem;
+            font-family:NotoSansHans-Medium;
+            font-weight:500;
+            color:rgba(22,22,22,1);
+            line-height:0.22rem;
+            margin:0.1rem 0 0.25rem 0;
+        }
+        .car-financing .financing .leftbox ul li .fbox .fb-text .p2{
+            font-size:0.22rem;
+            font-family:NotoSansHans-Regular;
+            font-weight:400;
+            color:rgba(102,102,102,1);
+            line-height:0.3rem;
+            margin-bottom:0.45rem;
+        }
+        .car-financing .financing .leftbox ul li .fbox .fb-text .p3:last-child{
+            cursor:pointer;
+        }
+        .car-financing .financing .rightpic a img{
+            width:3.8rem;
+            height:6.3rem;
+            border-radius:0.04rem;
+            -webkit-border-radius:0.04rem;
+        }
+        /*汽车商城*/
+        .car-mall .mall{
+            margin:0.4rem 0;
+        }
+        .car-mall .mall .leftmall{
+            margin-right:0.4rem;
+            cursor:pointer;
+        }
+        .rightmall a img{
+            width:3.8rem;
+            height:6.3rem;
+            border-radius:0.04rem;
+            -webkit-border-radius:0.04rem;
+        }
+        .morecar{
+            white-space:nowrap;
+        }
+        .car-mall .mall .leftmall .malltop .carrecommend-icon{
+            display:block;
+            width: 1rem;
+            height:0.4rem;
+            background:url("images/c-icon.png") no-repeat center / 1rem;
+        }
+        .car-mall .mall .leftmall .malltop .mallnav{
+            margin:0 0.8rem 0 0.5rem;
+        }
+        .car-mall .mall .leftmall .malltop .mallnav li{
+            margin-right:0.4rem;
+            white-space:nowrap;
+        }
+        .car-mall .mall .leftmall .malltop .mallnav li a{
+            font-size:0.24rem;
+            font-family:NotoSansHans-Medium;
+            font-weight:500;
+            color:#666666;
+        }
+        .car-mall .mall .leftmall .mallmain ul{
+            display:flex;
+            justify-content:space-between;
+            flex-wrap:wrap;
+
+        }
+        .car-mall .mall .leftmall .mallmain ul li{
+            width:2.95rem;
+            height:2.75rem;
+            margin-top:0.2rem;
+            background:rgba(255,255,255,1);
+            box-shadow:0 0.02rem 0.06rem 0 rgba(32,38,62,0.2);
+        }
+        .car-mall .mall .leftmall .mallmain ul li img{
+            width:2.95rem;
+            height:1.8rem;
+            margin-bottom:0.25rem;
+        }
+        .car-mall .mall .leftmall .mallmain ul li .mtext{
+            width:2.15rem;
+            text-align:center;
+            margin:0 auto;
+            font-size:0.2rem;
+            font-family:NotoSansHans-Regular;
+            font-weight:400;
+            color:rgba(22,22,22,1);
+            line-height:0.24rem;
+        }
+        /*经销商展示*/
+        .car-dealers .dealers{
+            margin:0.45rem 0;
+        }
+        .car-dealers .dealers ul{
+            display:flex;
+            justify-content:space-between;
+            flex-wrap: wrap;
+        }
+        .car-dealers .dealers ul li{
+            width:5.4rem;
+            height:2.4rem;
+            margin:0.2rem 0 0 0.2rem;
+        }
+        .car-dealers .dealers ul li .dealersmain img{
+           margin-right:0.2rem;
+            width:1.2rem;
+            height:1.2rem;
+        }
+        .car-dealers .dealers ul li .dealersmain .dtext h3{
+            margin-bottom:0.2rem;
+        }
+        .car-dealers .dealers ul li .dealersmain .dtext div{
+            margin-bottom:0.16rem;
+        }
+        .car-dealers .dealers ul li .dealersmain .dtext div p:first-child{
+            color:#888888;
+            font-family:NotoSansHans-Regular;
+            font-weight:400;
+            color:rgba(136,136,136,1);
+        }
+        /*试驾申请*/
+        .car-drive{
+            padding-bottom:0.8rem;
+        }
+        .car-drive .drive{
+            margin-top:0.48rem;
+        }
+        .car-drive .drive .driveleft .drivetext{
+            padding: 0 0.4rem;
+            background:#ECEEF4;
+            border-right:0.04rem solid #0070D3;
+        }
+        .car-drive .drive .driveleft .drivetext .pone{
+            margin:0.16rem 0;
+            color:rgba(22,22,22,1);
+        }
+        .car-drive .drive .driveleft .drivetext .pthree{
+            margin-top:0.58rem;
+            cursor:pointer;
+        }
+        .car-drive .drive .driveimg{
+            padding-left:0.5rem;
+        }
+
+    </style>
+</head>
+<body>
+<!--html结构区域-->
+<div id="containers">
+    <header id="header"></header>
+    <section>
+        <div id="box">
+            <!--广告轮播图-->
+            <div class="swiperbanner">
+                <div class="swiper-container">
+                    <!--包裹图片的父级元素 -->
+                    <div class="swiper-wrapper"></div>
+                </div>
+            </div>
+            <!--楼层结构-->
+            <div class="carfloor">
+                <!--汽车频道-->
+                <div class="floor car-channel">
+                    <div class="titles flex fl-jsb fl-align">
+                         <h1>汽车频道</h1>
+                         <a class="flex fl-align" href="car_channel.html?sc_id=12">
+                             <span class="c-hover fz-18">查看更多</span>
+                             <span class="arrow-icon"></span>
+                         </a>
+                    </div>
+                    <div class="channel flex">
+                        <div class="leftimg">
+                            <img src="resources/advert6.png">
+                        </div>
+                        <div class="main">
+                            <div class="maintitle flex fl-jsb fl-align">
+                                <h3>汽车资讯</h3>
+                                <p class="flex fl-align">
+                                    <span class="c-hover fz-18">更多资讯信息</span>
+                                    <span class="arrow-icon"></span>
+                                </p>
+                            </div>
+                            <div class="mainbox flex">
+                                <ul class="ulone">
+                                    <li><img src="resources/car1.png"></li>
+                                    <li><img src="resources/car2.png"></li>
+                                </ul>
+                                <ul class="ultwo">
+                                    <li class="line">帝豪热销中 购车优惠高达2万元,帝豪热销中 购车优惠高达2万元.</li>
+                                    <li class="line">帝豪热销中 购车优惠高达2万元,帝豪热销中 购车优惠高达2万元.</li>
+                                    <li class="line">帝豪热销中 购车优惠高达2万元,帝豪热销中 购车优惠高达2万元.</li>
+                                    <li class="line">帝豪热销中 购车优惠高达2万元,帝豪热销中 购车优惠高达2万元.</li>
+                                    <li class="line">帝豪热销中 购车优惠高达2万元,帝豪热销中 购车优惠高达2万元.</li>
+                                    <li class="line">帝豪热销中 购车优惠高达2万元,帝豪热销中 购车优惠高达2万元.</li>
+                                    <li class="line">帝豪热销中 购车优惠高达2万元,帝豪热销中 购车优惠高达2万元.</li>
+                                    <li class="line">帝豪热销中 购车优惠高达2万元,帝豪热销中 购车优惠高达2万元.</li>
+                                    <li class="line">帝豪热销中 购车优惠高达2万元,帝豪热销中 购车优惠高达2万元.</li>
+                                    <li class="line">帝豪热销中 购车优惠高达2万元,帝豪热销中 购车优惠高达2万元.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="rightimg">
+                            <ul>
+                                <li><img src="resources/car3.png"><a href="javascript:;">查看</a></li>
+                                <li><img src="resources/car3.png"><a href="javascript:;">查看</a></li>
+                                <li><img src="resources/car3.png"><a href="javascript:;">查看</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <ul class="adimg">
+                    <li><a href="javascript:;"><img src="resources/ad_2.png"></a></li>
+                </ul>
+                <!--洗车服务-->
+                <div class="floor car-service">
+                    <div class="titles flex fl-jsb fl-align">
+                        <h1>洗车服务</h1>
+                        <a class="flex fl-align" href="car_service.html?sc_id=11">
+                            <span class="c-hover fz-18">查看更多</span>
+                            <span class="arrow-icon"></span>
+                        </a>
+                    </div>
+                    <div class="service">
+                        <ul class="flex fl-jsb">
+                            <li>
+                                <div class="libox">
+                                    <div class="liimg"><img src="resources/cars1.png"></div>
+                                    <div class="lititle line c-333 fz-26">精品洗车套餐</div>
+                                    <div class="liprice flex fl-jsb fl-align">
+                                        <p class="c-e5"><span class="fz-22 f-wb">¥</span><span class="fz-36 f-w4">29.90</span></p>
+                                        <p class="salesnum">已售891件</p>
+                                    </div>
+                                </div>
+                                <div class="lipic"><span>新用户首单9.9元</span></div>
+                            </li>
+                            <li>
+                                <div class="libox">
+                                    <div class="liimg"><img src="resources/cars1.png"></div>
+                                    <div class="lititle line c-333 fz-26">精品洗车套餐</div>
+                                    <div class="liprice flex fl-jsb fl-align">
+                                        <p class="c-e5"><span class="fz-22 f-wb">¥</span><span class="fz-36 f-w4">29.90</span></p>
+                                        <p class="salesnum">已售891件</p>
+                                    </div>
+                                </div>
+                                <div class="lipic"><span>新用户首单9.9元</span></div>
+                            </li>
+                            <li>
+                                <div class="libox">
+                                    <div class="liimg"><img src="resources/cars1.png"></div>
+                                    <div class="lititle line c-333 fz-26">精品洗车套餐</div>
+                                    <div class="liprice flex fl-jsb fl-align">
+                                        <p class="c-e5"><span class="fz-22 f-wb">¥</span><span class="fz-36 f-w4">29.90</span></p>
+                                        <p class="salesnum">已售891件</p>
+                                    </div>
+                                </div>
+                                <div class="lipic"><span>新用户首单9.9元</span></div>
+                            </li>
+                            <li>
+                                <div class="libox">
+                                    <div class="liimg"><img src="resources/cars1.png"></div>
+                                    <div class="lititle line c-333 fz-26">精品洗车套餐</div>
+                                    <div class="liprice flex fl-jsb fl-align">
+                                        <p class="c-e5"><span class="fz-22 f-wb">¥</span><span class="fz-36 f-w4">29.90</span></p>
+                                        <p class="salesnum">已售891件</p>
+                                    </div>
+                                </div>
+                                <div class="lipic"><span>新用户首单9.9元</span></div>
+                            </li>
+                            <li>
+                                <div class="libox">
+                                    <div class="liimg"><img src="resources/cars1.png"></div>
+                                    <div class="lititle line c-333 fz-26">精品洗车套餐</div>
+                                    <div class="liprice flex fl-jsb fl-align">
+                                        <p class="c-e5"><span class="fz-22 f-wb">¥</span><span class="fz-36 f-w4">29.90</span></p>
+                                        <p class="salesnum">已售891件</p>
+                                    </div>
+                                </div>
+                                <div class="lipic"><span>新用户首单9.9元</span></div>
+                            </li>
+                            <li>
+                                <div class="libox">
+                                    <div class="liimg"><img src="resources/cars1.png"></div>
+                                    <div class="lititle line c-333 fz-26">精品洗车套餐</div>
+                                    <div class="liprice flex fl-jsb fl-align">
+                                        <p class="c-e5"><span class="fz-22 f-wb">¥</span><span class="fz-36 f-w4">29.90</span></p>
+                                        <p class="salesnum">已售891件</p>
+                                    </div>
+                                </div>
+                                <div class="lipic"><span>新用户首单9.9元</span></div>
+                            </li>
+                            <li>
+                                <div class="libox">
+                                    <div class="liimg"><img src="resources/cars1.png"></div>
+                                    <div class="lititle line c-333 fz-26">精品洗车套餐</div>
+                                    <div class="liprice flex fl-jsb fl-align">
+                                        <p class="c-e5"><span class="fz-22 f-wb">¥</span><span class="fz-36 f-w4">29.90</span></p>
+                                        <p class="salesnum">已售891件</p>
+                                    </div>
+                                </div>
+                                <div class="lipic"><span>新用户首单9.9元</span></div>
+                            </li>
+                            <li>
+                                <div class="libox">
+                                    <div class="liimg"><img src="resources/cars1.png"></div>
+                                    <div class="lititle line c-333 fz-26">精品洗车套餐</div>
+                                    <div class="liprice flex fl-jsb fl-align">
+                                        <p class="c-e5"><span class="fz-22 f-wb">¥</span><span class="fz-36 f-w4">29.90</span></p>
+                                        <p class="salesnum">已售891件</p>
+                                    </div>
+                                </div>
+                                <div class="lipic"><span>新用户首单9.9元</span></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <ul class="adimg">
+                    <li><a href="javascript:;"><img src="resources/ad_1.png"></a></li>
+                </ul>
+                <!--汽车金融-->
+                <div class="floor car-financing">
+                    <div class="titles flex fl-jsb fl-align">
+                        <h1>汽车金融</h1>
+                    </div>
+                    <div class="financing flex fl-jsb">
+                        <div class="leftbox">
+                            <ul>
+                                <li>
+                                    <div class="ftitle"><h3>贷款购车</h3></div>
+                                    <span class="fimg1 fimg"></span>
+                                    <div class="fbox flex">
+                                        <div class="fb-img"><img src="resources/fin1.png"></div>
+                                        <div class="fb-text">
+                                            <p class="p1">在线申请贷款，最快十分钟审批！</p>
+                                            <p class="p2">贷款购车申请流程文字说明贷款购车申请流程文字说明贷款购车申请流程文字说明，贷款购
+                                                车申请流程文字说明，贷款购车申请流程文字说明贷款购车申请流程文字说明。
+                                            </p>
+                                            <div class="p3 flex fl-jsb fl-align">
+                                                <p class="fz-22 c-666"><span>累计</span>&nbsp;<span>2898201</span>&nbsp;<span>人申请</span></p>
+                                                <p class="flex fl-align"><span class="c-hover">前往申请</span><span class="to-icon"></span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="ftitle"><h3>车保险</h3></div>
+                                    <span class="fimg2 fimg"></span>
+                                    <div class="fbox flex">
+                                        <div class="fb-img"><img src="resources/fin2.png"></div>
+                                        <div class="fb-text">
+                                            <p class="p1">在线申请贷款，最快十分钟审批！</p>
+                                            <p class="p2">贷款购车申请流程文字说明贷款购车申请流程文字说明贷款购车申请流程文字说明，贷款购
+                                                车申请流程文字说明，贷款购车申请流程文字说明贷款购车申请流程文字说明。
+                                            </p>
+                                            <div class="p3 flex fl-jsb fl-align">
+                                                <p class="fz-22 c-666"><span>累计</span>&nbsp;<span>2898201</span>&nbsp;<span>人申请</span></p>
+                                                <p class="flex fl-align"><span class="c-hover">前往申请</span><span class="to-icon"></span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="rightpic">
+                            <a href="javascript:;"><img src="resources/advert6.png"></a>
+                        </div>
+                    </div>
+                </div>
+                <ul class="adimg">
+                    <li><a href="javascript:;"><img src="resources/ad_2.png"></a></li>
+                </ul>
+                <!--汽车商城-->
+                <div class="floor car-mall">
+                    <div class="titles flex fl-jsb fl-align">
+                        <h1>汽车商城</h1>
+                        <a class="flex fl-align" href="javascript:;">
+                            <span class="c-hover fz-18">查看更多</span>
+                            <span class="arrow-icon"></span>
+                        </a>
+                    </div>
+                    <div class="mall flex fl-jsb">
+                        <div class="leftmall">
+                             <div class="malltop flex fl-align">
+                                 <span class="carrecommend-icon"></span>
+                                 <ul class="mallnav flex">
+                                     <li><a href="javascript:;" class="c-16">广汽本田</a></li>
+                                     <li><a href="javascript:;">玛莎拉蒂</a></li>
+                                     <li><a href="javascript:;">阿尔法罗密欧</a></li>
+                                     <li><a href="javascript:;">柯斯达</a></li>
+                                     <li><a href="javascript:;">捷豹</a></li>
+                                     <li><a href="javascript:;">北汽绅宝</a></li>
+                                     <li><a href="javascript:;">凯翼汽车</a></li>
+                                 </ul>
+                                 <p class="flex fl-align">
+                                     <span class="c-hover fw-r fz-20 morecar">更多车型</span>
+                                     <span class="arrow-icon"></span>
+                                 </p>
+                             </div>
+                            <div class="mallmain">
+                                <ul>
+                                    <li>
+                                        <div><img src="resources/mall1.png"></div>
+                                        <div class=" lineone mtext">雅阁 2018款 230TURBO精英版</div>
+                                    </li>
+                                    <li>
+                                        <div><img src="resources/mall1.png"></div>
+                                        <div class=" lineone mtext">雅阁 2018款 230TURBO精英版</div>
+                                    </li>
+                                    <li>
+                                        <div><img src="resources/mall1.png"></div>
+                                        <div class=" lineone mtext">雅阁 2018款 230TURBO精英版</div>
+                                    </li>
+                                    <li>
+                                        <div><img src="resources/mall1.png"></div>
+                                        <div class=" lineone mtext">雅阁 2018款 230TURBO精英版</div>
+                                    </li>
+                                    <li>
+                                        <div><img src="resources/mall2.png"></div>
+                                        <div class=" lineone mtext">雅阁 2018款 230TURBO精英版</div>
+                                    </li>
+                                    <li>
+                                        <div><img src="resources/mall2.png"></div>
+                                        <div class=" lineone mtext">雅阁 2018款 230TURBO精英版</div>
+                                    </li>
+                                    <li>
+                                        <div><img src="resources/mall2.png"></div>
+                                        <div class=" lineone mtext">雅阁 2018款 230TURBO精英版</div>
+                                    </li>
+                                    <li>
+                                        <div><img src="resources/mall2.png"></div>
+                                        <div class=" lineone mtext">雅阁 2018款 230TURBO精英版</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="rightmall">
+                            <a href="javascript:;"><img src="resources/advert9.png"></a>
+                        </div>
+                    </div>
+                </div>
+                <ul class="adimg">
+                    <li><a href="javascript:;"><img src="resources/ad_2.png"></a></li>
+                </ul>
+                <!--经销商展示-->
+                <div class="floor car-dealers">
+                    <div class="titles flex fl-jsb fl-align">
+                        <h1>经销商展示</h1>
+                        <a class="flex fl-align" href="javascript:;">
+                            <span class="c-hover fz-18">查看更多</span>
+                            <span class="arrow-icon"></span>
+                        </a>
+                    </div>
+                    <div class="dealers">
+                        <ul>
+                            <li>
+                                <div class="dealersmain flex">
+                                    <img src="resources/brand1.png" alt="">
+                                    <div class="dtext fz-20">
+                                        <h3>广东中奥奥迪</h3>
+                                        <div class="flex dphone">
+                                            <p>电话：</p>
+                                            <p>
+                                                <span class="c-e5">400-815-9090</span>
+                                                <span class="c-666">转</span>
+                                                <span class="c-e5">4078</span>
+                                            </p>
+                                        </div>
+                                        <div class="flex dbrand c-333">
+                                            <p>主营品牌：</p>
+                                            <p>一汽大众 奥迪 奥迪（进口）</p>
+                                        </div>
+                                        <div class="flex daddress">
+                                            <p>地址：</p>
+                                            <p>广州白云区石井凰岗牌坊1号</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="dealersmain flex">
+                                    <img src="resources/brand2.png" alt="">
+                                    <div class="dtext fz-20">
+                                        <h3>广东中奥奥迪</h3>
+                                        <div class="flex dphone">
+                                            <p>电话：</p>
+                                            <p>
+                                                <span class="c-e5">400-815-9090</span>
+                                                <span class="c-666">转</span>
+                                                <span class="c-e5">4078</span>
+                                            </p>
+                                        </div>
+                                        <div class="flex dbrand c-333">
+                                            <p>主营品牌：</p>
+                                            <p>一汽大众 奥迪 奥迪（进口）</p>
+                                        </div>
+                                        <div class="flex daddress">
+                                            <p>地址：</p>
+                                            <p>广州白云区石井凰岗牌坊1号</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="dealersmain flex">
+                                    <img src="resources/brand3.png" alt="">
+                                    <div class="dtext fz-20">
+                                        <h3>广东中奥奥迪</h3>
+                                        <div class="flex dphone">
+                                            <p>电话：</p>
+                                            <p>
+                                                <span class="c-e5">400-815-9090</span>
+                                                <span class="c-666">转</span>
+                                                <span class="c-e5">4078</span>
+                                            </p>
+                                        </div>
+                                        <div class="flex dbrand c-333">
+                                            <p>主营品牌：</p>
+                                            <p>一汽大众 奥迪 奥迪（进口）</p>
+                                        </div>
+                                        <div class="flex daddress">
+                                            <p>地址：</p>
+                                            <p>广州白云区石井凰岗牌坊1号</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="dealersmain flex">
+                                    <img src="resources/brand1.png" alt="">
+                                    <div class="dtext fz-20">
+                                        <h3>广东中奥奥迪</h3>
+                                        <div class="flex dphone">
+                                            <p>电话：</p>
+                                            <p>
+                                                <span class="c-e5">400-815-9090</span>
+                                                <span class="c-666">转</span>
+                                                <span class="c-e5">4078</span>
+                                            </p>
+                                        </div>
+                                        <div class="flex dbrand c-333">
+                                            <p>主营品牌：</p>
+                                            <p>一汽大众 奥迪 奥迪（进口）</p>
+                                        </div>
+                                        <div class="flex daddress">
+                                            <p>地址：</p>
+                                            <p>广州白云区石井凰岗牌坊1号</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="dealersmain flex">
+                                    <img src="resources/brand2.png" alt="">
+                                    <div class="dtext fz-20">
+                                        <h3>广东中奥奥迪</h3>
+                                        <div class="flex dphone">
+                                            <p>电话：</p>
+                                            <p>
+                                                <span class="c-e5">400-815-9090</span>
+                                                <span class="c-666">转</span>
+                                                <span class="c-e5">4078</span>
+                                            </p>
+                                        </div>
+                                        <div class="flex dbrand c-333">
+                                            <p>主营品牌：</p>
+                                            <p>一汽大众 奥迪 奥迪（进口）</p>
+                                        </div>
+                                        <div class="flex daddress">
+                                            <p>地址：</p>
+                                            <p>广州白云区石井凰岗牌坊1号</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="dealersmain flex">
+                                    <img src="resources/brand3.png" alt="">
+                                    <div class="dtext fz-20">
+                                        <h3>广东中奥奥迪</h3>
+                                        <div class="flex dphone">
+                                            <p>电话：</p>
+                                            <p>
+                                                <span class="c-e5">400-815-9090</span>
+                                                <span class="c-666">转</span>
+                                                <span class="c-e5">4078</span>
+                                            </p>
+                                        </div>
+                                        <div class="flex dbrand c-333">
+                                            <p>主营品牌：</p>
+                                            <p>一汽大众 奥迪 奥迪（进口）</p>
+                                        </div>
+                                        <div class="flex daddress">
+                                            <p>地址：</p>
+                                            <p>广州白云区石井凰岗牌坊1号</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <ul class="adimg">
+                    <li><a href="javascript:;"><img src="resources/ad_2.png"></a></li>
+                </ul>
+                <!--试驾申请-->
+                <div class="floor car-drive">
+                    <div class="titles flex fl-jsb fl-align">
+                        <h1>试驾申请</h1>
+                    </div>
+                    <div class="drive flex fl-jsb">
+                        <div class="driveleft flex">
+                            <div><img src="resources/fin1.png" alt=""></div>
+                            <div class="drivetext fz-22">
+                                <p class="pone fw-m f-w5">在线申请试驾，新车立即享！</p>
+                                <p class="ptwo fw-r f-w4 c-666">试驾申请流程文字说明试驾申请流程文字说明试驾申请流程文字说明，试驾申
+                                    请流程文字说明，试驾申请流程文字说明试驾申请流程文字说明。
+                                </p>
+                                <div class="pthree flex fl-jsb fl-align">
+                                    <p>
+                                        <span class="c-666">累计</span>
+                                        <span class="c-333">2898201</span>
+                                        <span class="c-666">人申请</span>
+                                    </p>
+                                    <p class="flex fl-align">
+                                       <span class="c-hover">前往申请</span><span class="to-icon"></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="driveimg">
+                            <a href="javascript:;">
+                                <img src="resources/driver.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <div id="footer"></div>
+</div>
+</body>
+<!-- js功能区域 -->
+<script src="./js/jquery.min.js"></script>
+<script src="./js/public.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/swiper.min.js"></script>
+<script src="./js/jquery.SuperSlide.2.1.1.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var city_id=localData('get','cityinfo').city_id || 6;
+        /*调用轮播图函数 旅游板块首页 sc_id=2*/
+        var params={sc_id:5,city_id:city_id};
+        getBanner(params);
+
+
+
+        /*汽车频道切换换色*/
+        $('.ultwo').on('click','li',function(){
+            $(this).addClass('c-hover').siblings().removeClass('c-hover');
+        })
+        /*汽车商城切换条件*/
+        $('.mallnav').on('click','li',function(){
+            $(this).find('a').addClass('c-16');
+            $(this).siblings().find('a').removeClass('c-16');
+        })
+        /*悬停切换*/
+        $('.service ul li').hover(
+            function(){
+                $(this).addClass('card').siblings().removeClass('card')
+            },
+            function(){
+                $(this).removeClass('card');
+            }
+        );
+    })
+
+
+
+
+</script>
+</html>

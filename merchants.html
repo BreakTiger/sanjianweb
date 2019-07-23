@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>商家入驻-入驻状态</title>
+    <script src="./js/rem.js"></script>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <style>
+        #box {
+            width: 100%;
+            height: auto;
+            position: relative;
+        }
+
+        /* 轮播图 */
+        #box .swiper-container {
+            width: 100%;
+            height: 3.24rem;
+        }
+
+        #box .swiper-container .swiper-wrapper .swiper-slide a img {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 内容 */
+        #box .content {
+            width: 16.80rem;
+            max-width: 16.80rem;
+            margin: auto;
+            margin-top: 0.63rem;
+        }
+
+        /* 左边 */
+        .content .left {
+            width: 4rem;
+            margin-right: 0.2rem;
+            cursor: pointer;
+        }
+
+        .left .nav-one {
+            width: 4rem;
+            height: 1.6rem;
+            background: url('resources/innav.png') no-repeat center/ 4rem;
+            position: relative;
+            margin-bottom: 0.24rem;
+        }
+
+        .left .nav-two {
+            width: 4rem;
+            height: 1.6rem;
+            background: url('resources/innav2.png') no-repeat center/ 4rem;
+            position: relative;
+        }
+
+        .nav-info {
+            position: absolute;
+            top: 0.42rem;
+            left: 0.43rem;
+            ;
+        }
+
+        .nav-info>p:first-child {
+            margin-bottom: 0.17rem;
+        }
+
+        .chose {
+            box-shadow: 0rem 0.06rem 0.16rem 0rem rgba(0, 19, 34, 0.2);
+        }
+
+        /* 右边 */
+        .content .right {
+            width: 12.60rem;
+            background: #F3F5F9;
+        }
+
+        /* 入驻申请 */
+        .apply .apply-content {
+            width: 8.84rem;
+            margin: auto;
+        }
+
+        .apply-content .title {
+            margin-top: 0.8rem;
+            margin-bottom: 0.4rem;
+            text-align: center;
+        }
+
+
+        /* 模块 */
+        .module {
+            position: relative;
+            margin-bottom: 0.28rem;
+        }
+
+        .module>span {
+            margin-right: 0.6rem;
+        }
+
+        /* 商家 */
+        .merchants {
+            position: relative;
+            margin-bottom: 0.28rem;
+        }
+
+        .merchants>span {
+            margin-right: 0.6rem;
+        }
+
+        /* 类型 */
+        .type {
+            position: relative;
+            margin-bottom: 0.28rem;
+        }
+
+        .type>span {
+            margin-right: 0.6rem;
+        }
+
+        /* 下拉选项框 */
+        .input-box {
+            width: 7rem;
+            height: 0.60rem;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 0.04rem;
+            cursor: pointer;
+        }
+
+        .input-box>input {
+            width: 100%;
+            height: 100%;
+            text-indent: 0.32rem;
+        }
+
+        input::placeholder {
+            font-size: 0.2rem;
+            color: #909090;
+        }
+
+        .down {
+            display: block;
+            width: 0.14rem;
+            height: 0.08rem;
+            background: url('images/down_icon.png') no-repeat center/0.14rem;
+            margin-right: 0.32rem;
+        }
+
+
+        /* 商家名称 */
+        .shopname {
+            margin-bottom: 0.28rem;
+            position: relative;
+        }
+
+        .shopname>span {
+            margin-right: 0.6rem;
+        }
+
+        .shopname .name-box {
+            width: 7rem;
+            height: 0.6rem;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 0.04rem;
+        }
+
+        .shopname .name-box>input {
+            width: 100%;
+            height: 100%;
+            text-indent: 0.32rem;
+
+        }
+
+        .shopname .name-box .typeincon {
+            display: block;
+            width: 0.19rem;
+            height: 0.19rem;
+            background: url('images/sure.png') no-repeat center/0.19rem;
+            margin-right: 0.3rem;
+        }
+
+        .shopname .unuser {
+            position: absolute;
+            bottom: -0.25rem;
+            right: -0.56rem;
+            font-size: 0.16rem;
+            color: #E70000;
+        }
+
+
+        /* 商家地址 */
+        .m-address {
+            margin-bottom: 0.28rem;
+        }
+
+        .m-address .line-1>span {
+            margin-right: 0.6rem;
+        }
+
+        .m-address .line-1 .city-area {
+            width: 7rem;
+            margin-bottom: 0.16rem;
+            position: relative;
+        }
+
+        /* 入驻城市 */
+        .city-area .city {
+            width: 2rem;
+            height: 0.60rem;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 0.04rem;
+            margin-right: 0.12rem;
+            text-indent: 0.32rem;
+        }
+
+        .city-area .city>input {
+            width: 100%;
+            height: 100%;
+            text-indent: 0.32rem;
+        }
+
+        /* 下拉 */
+        .city-menu {
+            width: 4.22rem;
+            z-index: 100;
+            background: #ffffff;
+            box-shadow: 0rem 0.04rem 0.18rem 0rem rgba(0, 19, 34, 0.14);
+            border-radius: 0.04rem;
+            padding-top: 0.24rem;
+            padding-bottom: 0.36rem;
+            padding-left: 0.28rem;
+            position: absolute;
+            top: 0.7rem;
+            left: 0rem;
+        }
+
+        .city-menu>ul {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .city-menu>ul>li {
+            width: 1.06rem;
+            height: 0.38rem;
+            line-height: 0.38rem;
+            background: #F3F5F9;
+            text-align: center;
+            margin-left: 0.12rem;
+            margin-bottom: 0.12rem;
+        }
+
+        .city-menu>ul>li:hover {
+            color: #555555;
+        }
+
+
+        /* 入驻区域 */
+        .city-area .area {
+            width: 2rem;
+            height: 0.60rem;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 0.04rem;
+            margin-right: 0.12rem;
+        }
+
+        .city-area .area>input {
+            width: 100%;
+            height: 100%;
+            text-indent: 0.32rem;
+        }
+
+        .area-menu {
+            width: 4.22rem;
+            z-index: 100;
+            background: #ffffff;
+            box-shadow: 0rem 0.04rem 0.18rem 0rem rgba(0, 19, 34, 0.14);
+            border-radius: 0.04rem;
+            padding-top: 0.24rem;
+            padding-left: 0.28rem;
+            padding-bottom: 0.36rem;
+            position: absolute;
+            top: 0.7rem;
+            right: 0.37rem;
+        }
+
+        .area-menu>ul {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .area-menu>ul>li {
+            width: 1.06rem;
+            height: 0.38rem;
+            line-height: 0.38rem;
+            background: #F3F5F9;
+            text-align: center;
+            margin-bottom: 0.12rem;
+            margin-left: 0.12rem;
+            margin-bottom: 0.12rem;
+        }
+
+        .area-menu>ul>li:hover {
+            color: #555555;
+        }
+
+        .specific {
+            width: 7rem;
+            height: 0.6rem;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 0.04rem;
+            text-indent: 0.32rem;
+            margin-left: 1.8rem;
+        }
+
+        /* 下拉  */
+        .menu-list {
+            width: 7rem;
+            background: rgba(250, 251, 252, 1);
+            position: absolute;
+            top: 0.7rem;
+            right: 0.02rem;
+            ;
+            z-index: 100;
+            box-shadow: 0rem 0.04rem 0.18rem 0rem rgba(0, 19, 34, 0.14);
+            border-radius: 0.04rem;
+            padding-top: 0.24rem;
+        }
+
+        .menu-list>ul>li {
+            font-size: 0.18rem;
+            color: #909090;
+            margin-bottom: 0.2rem;
+            margin-left: 0.32rem;
+        }
+
+        .menu-list>ul>li:hover {
+            color: #555555;
+        }
+
+
+        /* 姓名 */
+        .name {
+            margin-bottom: 0.28rem;
+        }
+
+        .name>span {
+            margin-right: 0.58rem;
+        }
+
+        .name>input {
+            width: 7rem;
+            height: 0.60rem;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 0.04rem;
+            text-indent: 0.32rem;
+        }
+
+        /* 电话 */
+        .phone {
+            margin-bottom: 0.28rem;
+        }
+
+        .phone .line-1 {
+            margin-bottom: 0.16rem;
+        }
+
+        .phone .line-1>span {
+            margin-right: 0.6rem;
+        }
+
+        .phone .line-1>input {
+            width: 7rem;
+            height: 0.60rem;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 0.04rem;
+            text-indent: 0.32rem;
+        }
+
+        .phone .line-2 {
+            width: 7rem;
+            margin-left: 1.8rem;
+        }
+
+
+        .phone .line-2 .putcode {
+            width: 4rem;
+            height: 0.6rem;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 0.04rem;
+            text-indent: 0.32rem;
+        }
+
+        .phone .line-2 .getCode {
+            width: 2.9rem;
+            height: 0.6rem;
+            line-height: 0.6rem;
+            text-align: center;
+            background: rgba(255, 255, 255, 1);
+            border: 0.01rem solid rgba(227, 230, 236, 1);
+            border-radius: 0.04rem;
+        }
+
+        /* 上传 */
+        .upload {
+            margin-bottom: 1rem;
+        }
+
+        .upload .line-1 {
+            width: 8.86rem;
+            margin-bottom: 0.16rem;
+        }
+
+        .upload .line-1>span {
+            margin-right: 0.6rem;
+        }
+
+        .upload .line-1 .uploadBtn {
+            width: 1.77rem;
+            height: 0.60rem;
+            background: rgba(255, 255, 255, 1);
+            border: 0.01rem solid rgba(227, 230, 236, 1);
+            border-radius: 0.04rem;
+            margin-right: 0.32rem;
+            position: relative;
+        }
+
+        .upload .line-1 .uploadBtn .upicon {
+            display: block;
+            width: 0.22rem;
+            height: 0.18rem;
+            background: url('images/upload.png') no-repeat center/0.22rem;
+            margin-right: 0.07rem;
+            margin-left: 0.32rem;
+        }
+
+        /* 文件域 */
+
+        .upload .line-1 .uploadBtn .upfiles {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0rem;
+            left: 0rem;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+
+        .upload .line-1 .uploadBtn>form .upfiles {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0rem;
+            left: 0rem;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+
+
+        .upload .line-1 .flie-name>span {
+            font-size: 0.18rem;
+            color: #555555;
+        }
+
+        .upload .line-1 .flie-name .delicon {
+            display: block;
+            width: 0.17rem;
+            height: 0.17rem;
+            background: url('images/del.png') no-repeat center/0.17rem;
+            margin-left: 0.16rem;
+        }
+
+        .upload .line-2 {
+            width: 4rem;
+            height: 2.10rem;
+            background: rgba(248, 249, 252, 1);
+            border: 0.01rem dashed rgba(215, 218, 223, 1);
+            border-radius: 0.04rem;
+            margin-left: 1.8rem;
+            position: relative;
+        }
+
+        .upload .line-2 .prompt .fliesicon {
+            display: block;
+            width: 0.33rem;
+            height: 0.3rem;
+            background: url('images/flie.png') no-repeat center/0.33rem;
+            margin-top: 0.48rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .upload .line-2 .prompt>span:nth-child(2) {
+            margin-bottom: 0.15rem;
+        }
+
+        .upload .line-2 .upfile {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0rem;
+            left: 0rem;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+
+        /* 阅览图 */
+        .upload .line-2 .upimg {
+            width: 1.48rem;
+            height: 2.10rem;
+        }
+
+        .sub {
+            width: 2rem;
+            height: 0.6rem;
+            line-height: 0.6rem;
+            text-align: center;
+            background: #0070D3;
+            border-radius: 0.08rem;
+            margin-bottom: 1rem;
+            margin-left: 1.8rem;
+        }
+
+
+        /* 入驻介绍 */
+        .introduce .title {
+            margin-top: 0.8rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .introduce .info {
+            width: 9rem;
+        }
+
+        .introduce .info>p {
+            margin-bottom: 0.3rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .introduce .info>p:first-child {
+            margin-bottom: 0.47rem;
+        }
+
+        .introduce .info>p:last-child {
+            margin-bottom: 1.03rem;
+        }
+
+        .introduce .info>p>span {
+            font-size: 0.2rem;
+            color: #333333;
+        }
+
+        /*右侧返回顶部 编辑 订单入口*/
+        .tabs {
+            width: 0.6rem;
+            height: 1.8rem;
+            background: rgba(255, 255, 255, 1);
+            border: 0.01rem solid rgba(217, 217, 217, 1);
+            position: absolute;
+            right: 0.3rem;
+            bottom: 1.32rem;
+        }
+
+        .tabs a {
+            height: 0.6rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .tabs a:first-child {
+            border-bottom: 0.01rem solid #D9D9D9;
+        }
+
+        .tabs .return-icon {
+            display: block;
+            width: 0.30rem;
+            height: 0.30rem;
+            background: url("images/return.png") no-repeat center / 0.30rem;
+        }
+
+        .tabs .option-icon {
+            display: block;
+            width: 0.30rem;
+            height: 0.30rem;
+            background: url("images/option.png") no-repeat center / 0.30rem;
+        }
+
+        .tabs a:last-child {
+            background: rgba(217, 217, 217, 1);
+            font-size: 0.2rem;
+            font-family: NotoSansHans-Medium;
+            font-weight: 500;
+            color: rgba(254, 254, 254, 1);
+            line-height: 0.22rem;
+            text-align: center;
+            padding: 0 0.1rem;
+        }
+
+        #footer {
+            margin-top: 1rem;
+        }
+
+        .choose {
+            border: 1px solid rgba(0, 112, 211, 1);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="containers">
+        <header id="header"></header>
+        <section>
+            <div id="box">
+                <!-- 轮播图 -->
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="javascript:;">
+                                <img src="resources/in_banner.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 内容 -->
+                <div class="content flex">
+
+                    <!-- 左边 -->
+                    <div class="left">
+
+                        <div class="nav-one chose">
+                            <div class="nav-info c-16 fz-18 f-w4">
+                                <p class="fz-24">入驻申请</p>
+                                <p>Application for admission</p>
+                            </div>
+
+                        </div>
+
+                        <div class="nav-two">
+                            <div class="nav-info c-16 fz-18 f-w4">
+                                <p class="fz-24">入驻介绍</p>
+                                <p>Introduction to residence</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!-- 右边 -->
+                    <div class="right">
+
+                        <!-- 入驻申请 -->
+                        <div class="apply">
+                            <div class="apply-content flex col">
+
+                                <span class="title fz-32 c-333 f-w5">商家入驻申请</span>
+
+                                <!-- 入驻模块 -->
+                                <div class="module flex fl-align">
+
+                                    <span class="fz-20 c-333 f-w4">选择入驻板块</span>
+
+                                    <div class="input-box flex fl-align fl-jsb">
+                                        <input type="text" id="module" readonly="readonly" value="" data-id=''>
+                                        <span class="down"></span>
+                                    </div>
+
+                                    <!-- 下拉 -->
+                                    <div class="menu-list">
+                                        <ul></ul>
+                                    </div>
+
+                                </div>
+                                <!-- 入驻商家 -->
+                                <div class="merchants flex fl-align">
+
+                                    <span class="fz-20 c-333 f-w4">选择入驻商家</span>
+
+                                    <div class="input-box flex fl-align fl-jsb">
+                                        <input type="text" readonly="readonly" value="" data-id="" id="merchants">
+                                        <span class="down"></span>
+                                    </div>
+
+                                    <!-- 下拉 -->
+                                    <div class="menu-list">
+                                        <ul></ul>
+                                    </div>
+
+                                </div>
+                                <!-- 选择商家类型 -->
+                                <div class="type flex fl-align">
+
+                                    <span class="fz-20 c-333 f-w4">选择商家类型</span>
+
+                                    <div class="input-box flex fl-align fl-jsb">
+                                        <input type="text" readonly="readonly" value="" data-id="" id="type">
+                                        <span class="down"></span>
+                                    </div>
+
+                                    <!-- 下拉 -->
+                                    <div class="menu-list">
+                                        <ul></ul>
+                                    </div>
+
+                                </div>
+                                <!-- 输入商家名称 -->
+                                <div class="shopname flex fl-align">
+
+                                    <span class="fz-20 c-333 f-w4">输入商家名称</span>
+
+                                    <div class="name-box flex fl-align">
+                                        <input type="text" id="getsname" placeholder="请输入商家名称">
+                                        <span class="typeincon hide"></span>
+                                    </div>
+
+                                    <span class="unuser hide">名称被占用/名称不可用</span>
+
+                                </div>
+                                <!-- 编辑商家地址 -->
+                                <div class="m-address ">
+
+                                    <div class="line-1 flex fl-align">
+                                        <span class="fz-20 c-333 f-w4">编辑商家地址</span>
+                                        <div class="city-area flex fl-align">
+                                            <!-- 入驻城市 -->
+                                            <div class="city flex fl-align">
+                                                <input type="text" placeholder="入驻城市" readonly="readonly" value=""
+                                                    data-cid="" id="city">
+                                                <span class="down"></span>
+                                            </div>
+                                            <!-- 下拉 -->
+                                            <div class="city-menu">
+                                                <ul class="fz-18 c-90"></ul>
+                                            </div>
+
+                                            <!-- 入驻区域 -->
+                                            <div class="area flex fl-align ">
+                                                <input type="text" placeholder="入驻地区" readonly="readonly" value=""
+                                                    data-aid="" id="area">
+                                                <span class="down"></span>
+                                            </div>
+                                            <!-- 下拉 -->
+                                            <div class="area-menu">
+                                                <ul class="fz-18 c-90"></ul>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <input type="text" class="specific" placeholder="请输入详细地址">
+
+                                </div>
+                                <!-- 联系人姓名 -->
+                                <div class="name flex fl-align">
+                                    <span class="fz-20 c-333 f-w4">联 系 人 姓 名</span>
+                                    <input type="text" class="getname" placeholder="请输入联系人姓名">
+                                </div>
+
+                                <!-- 编辑联系电话 -->
+                                <div class="phone">
+
+                                    <div class="line-1 flex fl-align">
+                                        <span class="fz-20 c-333 f-w4">编辑联系电话</span>
+                                        <input type="text" class="getPhone" placeholder="请输入联系电话">
+                                    </div>
+
+                                    <div class="line-2 flex  fl-jsb">
+                                        <input type="text" class="putcode" placeholder="请输入短信验证码" maxlength="6">
+                                        <input type="button" class="getCode fz-20 c-333 f-w5" value="获取短信验证码">
+                                    </div>
+
+                                </div>
+
+                                <!-- 上传商家资质 -->
+
+                                <div class="upload">
+                                    <div class="line-1 flex fl-align">
+                                        <span class="fz-20 c-333 f-w4">上传商家资质</span>
+
+                                        <div class="uploadBtn flex fl-align">
+                                            <span class="upicon"></span>
+                                            <span class="fz-20 c-333 f-w4">点击上传</span>
+                                            <!-- 文件域 -->
+                                            <input type="file" class="upfiles">
+
+                                        </div>
+
+                                        <span class="remind fz-20 c-b5 ">未选择任何文件</span>
+
+                                        <div class="flie-name flex fl-align hide">
+                                            <span>文件名称：</span>
+                                            <span class="filesname"></span>
+                                            <span class="delicon"></span>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="line-2 flex col fl-align" id="fliesbox">
+
+                                        <div class="prompt flex col fl-align">
+                                            <span class="fliesicon"></span>
+                                            <span class="fz-18 c-70 f-w4">单击或拖动文件到此区域进行上传</span>
+                                            <span class="fz-16 c-b5 f-w4">请上传清晰的营业执照</span>
+                                            <span class="fz-16 c-b5 f-w4">个人商家用手持身份证代替</span>
+
+                                        </div>
+
+                                        <input type="file" class="upfile">
+
+
+                                        <!-- 阅览图 -->
+                                        <img src="" class="upimg hide">
+
+                                    </div>
+
+                                </div>
+
+                                <!-- 提交入驻申请 -->
+                                <div class="sub fz-22 c-fff">
+                                    提交入驻申请
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- 入驻介绍 -->
+                        <div class="introduce flex col fl-align hide">
+                            <span class="title fz-32 c-333">三江侗网综合服务平台商户入驻协议</span>
+                            <div class="info">
+                                <p>导语:共同进步即双赢是竞争最理想的结果。良好的合作，创造竞争中的双赢。接下来欢迎大家前来欣赏合作商家入驻协议书。文章仅供参考!</p>
+                                <p>
+                                    <span>一、总则</span>
+                                    <span>甲、乙双方根据中华人民共和国法律、法规等相关规定，本着诚信、互惠、规范的原则，经友好
+                                        协商，就甲方接入腾讯众创空间企业服务平台之相关合作事项，达成一致协议。</span>
+                                </p>
+                                <p>
+                                    <span>二、如无特别说明，下列术语在本协议中的定义为：</span>
+                                    <span>（一）众创空间企业服务平台，是指由腾讯公司提供技术支持和服务，且由腾讯公司以外的商户
+                                        发布和出售服务的网络交易平台网站、域名为http://c.qq.com/。众创空间企业服务平台向商户
+                                        提供的服务以下简称“平台服务”。</span>
+                                    <span>（二）商户：申请成为众创空间企业服务平台的商户必须是符合本协议第三条规定的法律实体。</span>
+                                    <span>（三）商户注册：是指商户登陆众创空间企业服务平台（http://open.qq.com/ 、http://c.qq.
+                                        com/），并按要求填写相关信并获得众创空间企业服务平台服务账户的过程。</span>
+                                    <span>（四）服务：是指商户通过众创空间企业服务平台向用户提供的财务、法务、推广、运营、设计
+                                        等服务。</span>
+                                    <span>（五）财付通服务：是指由财付通支付科技有限公司（以下简称财付通公司）为商户、用户完成
+                                        交易、转移资金提供的支付服务，详情见财付通公司网站（www.tenpay.com）相关规则及说明。</span>
+                                </p>
+                                <p>
+                                    <span> 三、申请条件</span>
+                                    <span>申请入驻众创空间企业服务平台的商户必须全部满足以下条件：</span>
+                                    <span>（一） 符合《2017众创空间企业服务平台招商标准》（具体以甲方公布的为准）的要求，并根
+                                        据《2017年众创空间企业服务平台招商标准》的要求向乙方或乙方指定合作方提交其在申请服务
+                                        时应当提供的证明文件或其他相关证明，且获得众创空间企业服务平台认可；</span>
+                                    <span>（二） 同意并遵守本协议及众创空间企业服务平台公布的其他规则。</span>
+                                    <span>（三） 在众创空间企业服务平台完成商户注册并通过乙方审核。</span>
+                                </p>
+
+                                <p>
+                                    <span>四、信息确认</span>
+                                    <span>（一）商户必须通过乙方或乙方指定的信息确认方（以下简称“信息确认方”）对商户在申请入
+                                        驻时提供的相关资料和信息进行核实、确认。具体的信息进行核实、确认的相关资料和信息包括
+                                        但不限于以下内容：</span>
+                                    <span> 1，登记的法律实体在实际经营所在地工商部门是否有合法有效的注册记录；</span>
+                                    <span> 2，登记的联系人在该法律实体的业务身份是否属实；</span>
+                                    <span>3，登记的联系人是否获得公司授权；</span>
+                                    <span>4，商户提供的营业执照、税务登记证、商标注册证、授权书等相关资料是否属实；</span>
+                                    <span>5，法律法规要求及《2017年众创空间企业服务平台招商标准》和乙方另行所要求需核查的其他
+                                        信息。</span>
+                                    <span>（二）若商户所提供的资料不真实或资料变更或其他原因导致商户未能通过信息确认，商户可在
+                                        修改资料后要求再次进行信息确认。</span>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!--右侧返回顶部 编辑 订单入口-->
+                <div class="tabs">
+                    <a href="javascript:;" class="tab-ico1"><span class="return-icon"></span></a>
+                    <a href="javascript:;" class="tab-ico2"><span class="option-icon"></span></a>
+                    <a href="javascript:;" class="tab-ico3"><span class="order-text">订单入口</span></a>
+                </div>
+            </div>
+        </section>
+        <footer id="footer"></footer>
+    </div>
+</body>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/public.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/swiper.min.js"></script>
+<script text="type/javascript">
+    $(function () {
+
+        // 左侧选项卡切换:入驻申请+入驻介绍
+        $('.left .nav-one').on('click', function () {
+            $('.right .introduce').addClass('hide');
+            $('.right .apply').removeClass('hide');
+        });
+        $('.left .nav-two').on('click', function () {
+            $('.right .apply').addClass('hide');
+            $('.right .introduce').removeClass('hide');
+        });
+
+        // 隐藏所有的下拉框
+        $('.menu-list ,.city-menu ,.area-menu').hide();
+
+        // 三级联动
+
+        // 1.
+        ajax_post('/api/category/storeCateList', { pid: '' }, function (r) {
+            let html = ''
+            callBack(r, {
+                success: function (data) {
+                    // console.log(data);
+                    for (let i = 0; i < data.length; i++) {
+                        html += '<li data-id="' + data[i].id + '">' + data[i].name + '</li>';
+                    }
+                    $('.module .menu-list>ul').html(html);
+                    // 默认选择第一个渲染的li
+                    $('#module').attr('data-id', data[0].id);
+                    $('#module').attr('value', data[0].name);
+                    let id = $('#module').attr("data-id");
+                    // 入驻商家
+                    merchants(id);
+                    // 动销
+                    $(".module .input-box").on('click', function () {
+                        $(this).next().toggle();
+                        $(".merchants .menu-list").hide();
+                        $(".type .menu-list").hide();
+                    });
+                    $(".module .menu-list>ul").on('click', 'li', function () {
+                        // 取值
+                        var li = $(this).text();
+                        var id = $(this).data('id');
+                        // 赋值
+                        $(this).parent().parent().prev().find('input').attr('value', li);
+                        $(this).parent().parent().prev().find('input').attr('data-id', id)
+                        // 隐藏
+                        $(this).parent().parent().toggle();
+                        // 重新获取入驻商家内容的接口
+                        merchants(id);
+                    });
+                }
+            })
+        })
+
+        // 2.
+        function merchants(e) {
+            ajax_post('/api/category/storeCateList', { pid: e }, function (r) {
+                // console.log(r);
+                let html = '';
+                callBack(r, {
+                    success: function (data) {
+                        // console.log(data);
+                        let leng = data.length
+                        if (leng == 0) {
+                            // 入驻商家
+                            $("#merchants").attr('data-id', '')
+                            $("#merchants").attr('value', '')
+                            // 商家类型
+                            $("#type").attr('data-id', '')
+                            $("#type").attr('value', '')
+                        } else {
+                            for (let i = 0; i < data.length; i++) {
+                                html += '<li data-id="' + data[i].id + '">' + data[i].name + '</li>';
+                            }
+                            $('.merchants .menu-list>ul').html(html);
+                            // 默认
+                            $("#merchants").attr('data-id', data[0].id)
+                            $("#merchants").attr('value', data[0].name)
+                            // 获取商家类型
+                            let id = $('#merchants').attr("data-id");
+                            type(id);
+                        }
+                    }
+                })
+            })
+        }
+
+        // 点击显示下拉的事件
+        $(".merchants .input-box").on('click', function () {
+            $(this).next().toggle();
+            $(".module .menu-list").hide()
+            $(".type .menu-list").hide()
+        })
+
+        $(".merchants .menu-list>ul").on('click', 'li', function () {
+            //取值
+            var li = $(this).text();
+            var id = $(this).data('id');
+            // 赋值
+            $(this).parent().parent().prev().find('input').attr('value', li);
+            $(this).parent().parent().prev().find('input').attr('data-id', id);
+            // 隐藏
+            $(this).parent().parent().toggle();
+            // // 重新获取商家类型
+            type(id);
+        });
+
+        // 3.
+        function type(e) {
+            ajax_post('/api/category/storeAttrList', { sc_id: e }, function (r) {
+                let html = '';
+                callBack(r, {
+                    success: function (data) {
+                        console.log(data);
+                        if (!data) {
+                            $("#type").attr('data-id', '')
+                            $("#type").attr('value', '')
+                            $('.type').addClass('hide');
+                        } else {
+                            $('.type').removeClass('hide');
+                            for (let i = 0; i < data.length; i++) {
+                                html += '<li data-id="' + data[i].id + '">' + data[i].name + '</li>';
+                            }
+                            $('.type .menu-list>ul').html(html);
+                            // // 默认项
+                            $("#type").attr('data-id', data[0].id)
+                            $("#type").attr('value', data[0].name)
+                        }
+                    }
+                })
+            })
+        }
+
+        $(".type .input-box").on('click', function () {
+            $(this).next().toggle();
+            $(".module .menu-list").hide()
+            $(".merchants .menu-list").hide()
+        });
+        $(".type .menu-list>ul").on('click', 'li', function () {
+            // 取值
+            var li = $(this).text();
+            var id = $(this).data('id');
+            // 赋值
+            $(this).parent().parent().prev().find('input').attr('value', li);
+            $(this).parent().parent().prev().find('input').attr('data-id', id);
+            // 隐藏
+            $(this).parent().parent().toggle();
+        });
+
+        // 商家名称唯一
+        $('#getsname').on('blur', function () {
+            let sname = $(this).val();
+            console.log(sname);
+            if (sname) {
+                let param = { store_name: sname };
+                ajax_post('/api/store/checkStoreName', param, function (r) {
+                    let status = r.data
+                    if (status) {
+                        $('.typeincon').addClass('hide')
+                        $('.unuser').addClass('hide')
+                    } else {
+                        $('.typeincon').removeClass('hide')
+                        $('.unuser').removeClass('hide')
+                    }
+                })
+            }
+        });
+
+
+        // 1.城市
+        let city = {};
+        ajax_post('/api/category/area', city, function (r) {
+            callBack(r, {
+                success: function (data) {
+                    for (let i = 0; i < data.length; i++) {
+                        let html = '<li data-id="' + data[i].id + '">' + data[i].name + '</li>';
+                        $('.city-menu>ul').append(html);
+                    }
+                }
+            })
+        });
+
+        $('.city').on('click', function () {
+            $(this).next().toggle();
+        });
+
+        $('.city-menu>ul').on('click', 'li', function () {
+            let li = $(this).text();
+            let id = $(this).attr('data-id');
+            $('.city').find('input').attr('value', li);
+            $('.city').find('input').attr('data-cid', id);
+            $(this).parent().parent().hide();
+
+            // 入驻区域
+            let area = { pid: id };
+            ajax_post('/api/category/area', area, function (r) {
+                callBack(r, {
+                    success: function (data) {
+                        let html = '';
+                        for (let i = 0; i < data.length; i++) {
+                            html += '<li data-id="' + data[i].id + '">' + data[i].name + '</li>';
+                        }
+                        $('.area-menu>ul>li').remove();
+                        $('.area-menu>ul').append(html);
+                    }
+
+                })
+                $('.area').find('input').attr('value', '');
+                $('.area').find('input').attr('data-aid', '');
+            })
+        });
+
+        $('.area').on('click', function () {
+            // 判断：是否已经选择了城市
+            let id = $('#city').attr('data-cid');
+            if (id == "") {
+                alert('请先选择入驻城市！');
+            } else {
+                $(this).next().toggle();
+            }
+        });
+        $('.area-menu>ul').on('click', 'li', function () {
+            var li = $(this).text();
+            let id = $(this).attr('data-id');
+            $(this).parent().parent().hide();
+            $('.area').find('input').attr('value', li);
+            $('.area').find('input').attr('data-aid', id);
+        });
+
+        // 获取验证码
+        $('.getCode').on('click', function () {
+            // 获取手机号码
+            let phone = $('.getPhone').val();
+            // 判断
+            if (!phone) {
+                alert('手机号码不能为空');
+                return false;
+            } else if (!(/^1[34578]\d{9}$/.test(phone))) {
+                alert('手机号码有误，请重新输入');
+                return false;
+            } else {
+                let param = {
+                    mobile: phone,
+                    length: 6
+                }
+                ajax_post('/api/common/sendCode', param, function (r) {
+                    if (r.status == 200) {
+                        //倒计时
+                        timer();
+                    }
+                })
+            }
+        });
+
+        // 倒计时
+        var time = 60;
+        function timer() {
+            if (time == 0) {
+                $('.getCode').attr("disabled", false); //取消按钮的不可使用属性
+                $('.getCode').val("获取短信验证码");
+                time = 60; //重设倒计时的时间
+                return false;
+            } else {
+                $('.getCode').attr("disabled", true); //设置不可用属性
+                $('.getCode').val("重新获取" + time); //变更按钮的文字；
+                time--;//递减
+                // 并每隔一秒刷新执行倒计时的方法
+                setTimeout(function () {
+                    timer();
+                }, 1000)
+            }
+        };
+
+        // 上传按钮
+        $('.upfiles').change(function (e) {
+            // 文件信息
+            let file = e.currentTarget.files[0]
+            // 文件大小
+            let filesize = file.size / 1024
+            // 文件类型
+            let filetype = file.type
+            //后缀名
+            let type = (filetype.substr(filetype.lastIndexOf("/") + 1)).toLowerCase();
+            // 判断
+            if (type != "jpg" && type != "gif" && type != "jpeg" && type != "png") {
+                alert("您上传图片的类型不符合(.jpg|.jpeg|.gif|.png)！");
+                return false;
+            } else if (filesize > 500) {
+                alert("上传大小不能超过500K.");
+                return false;
+            } else {
+                // 上传方法
+                upload(file);
+            }
+
+        });
+
+        // 点击文件区
+        $('.upfile').change(function (e) {
+            // 文件信息
+            let file = e.currentTarget.files[0]
+            // 文件大小
+            let filesize = file.size / 1024
+            // 文件类型
+            let filetype = file.type
+
+            //后缀名
+            let type = (filetype.substr(filetype.lastIndexOf("/") + 1)).toLowerCase();
+            // 判断
+            if (type != "jpg" && type != "gif" && type != "jpeg" && type != "png") {
+                alert("您上传图片的类型不符合(.jpg|.jpeg|.gif|.png)！");
+                return false;
+            } else if (filesize > 500) {
+                alert("上传大小不能超过500K.");
+                return false;
+            } else {
+                // 上传方法
+                upload(file);
+            }
+        });
+
+        // 拖拽
+        // 阻止浏览器的拖动事件
+        $(document).on({
+            dragleave: function (e) { //拖离 
+                e.preventDefault();
+            },
+            drop: function (e) { //拖后放 
+                e.preventDefault();
+            },
+            dragenter: function (e) { //拖进 
+                e.preventDefault();
+            },
+            dragover: function (e) { //拖来拖去 
+                e.preventDefault();
+            }
+        });
+        let box = document.getElementById('fliesbox');
+        box.addEventListener('drop', function (e) {
+            e.preventDefault();
+            //以下俩句为：火狐兼容，防止弹出新tab
+            e.stopPropagation();
+            e.dataTransfer = e.dataTransfer;
+            let fileList = e.dataTransfer.files;
+            let file = fileList[0]
+            // 文件大小
+            let filesize = file.size / 1024
+            // 文件类型
+            let filetype = file.type
+            //后缀名
+            let type = (filetype.substr(filetype.lastIndexOf("/") + 1)).toLowerCase();
+            // 判断
+            if (type != "jpg" && type != "gif" && type != "jpeg" && type != "png") {
+                alert("您上传图片的类型不符合(.jpg|.jpeg|.gif|.png)！");
+                return false;
+            } else if (filesize > 500) {
+                alert("上传大小不能超过500K.");
+                return false;
+            } else {
+                // 上传方法
+                upload(file);
+            }
+        });
+
+        // 删除上传的图片
+        $('.delicon').on('click', function () {
+            // 清空展示图片，图片名称
+            $('.line-2 .upimg').attr('src', '');
+            $('.filesname').text('');
+            //隐藏
+            $('.flie-name').addClass('hide');
+            $('.upimg').addClass('hide');
+            // 显示
+            $('.remind').removeClass('hide');
+            $('.prompt').removeClass('hide');
+        });
+
+        // 上传
+        function upload(e) {
+            // 创建formData对象
+            var formData = new FormData();
+            // 添加字段和值
+            formData.append('file', e);
+            $.ajax({
+                url: 'http://sanjiang.heifeng.xin/api/common/upload',
+                type: 'post',
+                cache: false,
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (res) {
+                    let src = res.data
+                    // 文件名
+                    let filename = e.name
+                    $('.remind').addClass('hide');
+                    $('.flie-name').removeClass('hide');
+                    $('.flie-name .filesname').text(filename);
+                    // 缩略图
+                    $('.line-2 .prompt').addClass('hide');
+                    $('.line-2 .upimg').removeClass('hide');
+                    $('.line-2 .upimg').attr('src', src);
+                },
+                Fail: function (res) {
+
+                }
+            })
+        };
+
+        // 提交申请
+        $('.sub').on('click', function () {
+            // 获取token
+            let usertoken = localData('get', 'userLoginInfo').token;
+            // console.log(usertoken);
+            if (usertoken) {
+                // 获取数据
+                var mid = $('#module').attr('data-id');
+                console.log('一级ID:', mid)
+                var sid = $('#merchants').attr('data-id');
+                console.log('二级ID:', sid)
+                var kid = $('#type').attr('data-id');
+                console.log('三级ID:', kid);
+                var sname = $('#getsname').val();
+                console.log(sname)
+                var cid = $('#city').attr('data-cid');
+                console.log(cid)
+                var aid = $('#area').attr('data-aid');
+                console.log(aid)
+                var address = $('.specific').val();
+                console.log(address)
+                let name = $('.getname').val();
+                console.log(name)
+                let phone = $('.getPhone').val();
+                console.log(phone)
+                let code = $('.putcode').val();
+                console.log(code)
+                let len = code.length
+                console.log(len)
+                let img = $('.upimg').attr('src');
+                console.log(img)
+                // 判断
+                // 因为三级联动中数据，会因为模板id改变，而导致下面的最后一集可能会，没有必填数据，所以三级联动的部分是不做限制的
+                // 所以只需要判断，商家名称，入驻地址，城市，区域，详细地址，联系人姓名，联系人电话，联系人电话号码的合法性，验证码，营业执照
+                if (mid == '') {
+                    alert('请选择你的入驻模块！');
+                } else if (sid == '') {
+                    alert('请选择你的入驻商家！');
+                } else if (sname == "") {
+                    alert('请输入您的商家名称!');
+                } else if (cid == "") {
+                    alert('请选择入驻的城市！');
+                } else if (aid == "") {
+                    alert('请选择入驻的区域！');
+                } else if (address == "") {
+                    alert('请输入详细地址！');
+                } else if (name == "") {
+                    alert('请输入联系人姓名！');
+                } else if (phone == "") {
+                    alert('请输入手机号码！');
+                } else if (!(/^1[34578]\d{9}$/.test(phone))) {
+                    alert('手机号码有误，请重新输入');
+                    return
+                } else if (code == "") {
+                    alert('请输入验证码！');
+                } else if (!(/^[0-9]{6}$/.test(code))) {
+                    alert('您的验证码有误！请重新输入')
+                } else if (len != 6) {
+                    alert('您的验证码有误！请重新输入')
+                }
+                else if (img == "") {
+                    alert('请上传营业执照！');
+                } else {
+                    let param = {
+                        mobile: phone,
+                        code: code,
+                        mod_id: mid,
+                        sc_id: sid,
+                        attr_id: kid,
+                        city_id: cid,
+                        area_id: aid,
+                        address: address,
+                        link_name: name,
+                        prove: img,
+                        store_name: sname
+                    }
+                    console.log(param)
+                    ajax_post('/api/store/apply', param, function (r) {
+                        console.log(r)
+                        if (r.status == 200) {
+                            alert('申请提交成功！');
+                            window.location.href = "merchants_type.html";
+                        } else {
+                            alert(r.msg);
+                        }
+                    })
+                }
+
+            } else {
+                alert('您还未登录，请先登录!');
+                window.location.href = "login.html";
+            }
+        })
+
+        // 1.返回顶部功能
+        $('.return-icon').on('click', function () {
+            var T = $(window).scrollTop();
+            var t = setInterval(function () {
+                if (T < 0) {
+                    clearInterval(t);
+                } else {
+                    T -= 50;
+                    $(window).scrollTop(T);
+                }
+            }, 20);
+        });
+
+        // 2.编辑
+
+        // 3.订单入口
+
+
+    });
+
+</script>
+
+</html>

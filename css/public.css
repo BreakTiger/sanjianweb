@@ -1,0 +1,174 @@
+/*######通用提示消息和弹窗#####*/
+
+/*提示信息样式*/
+.ajaxtiptext{
+    position:fixed;
+    top:50%;
+    left:50%;
+    padding:0.1rem;
+    text-align: center;
+    color: #fff;
+    letter-spacing:0.005rem;
+    background: rgba(0,0,0,0.5);
+    border-radius:0.05rem;
+    animation: ajaxani 0.5s forwards;
+    font-size:0.16rem;
+    font-family:A03-;
+    z-index:10000;
+}
+/*alert弹窗样式*/
+.alertBox{
+    width:100%;
+    height:100%;
+    position: fixed;
+    top:0;
+    left:0;
+    z-index:10000;
+    background:rgba(0,0,0,0.3);
+
+}
+.alertBox .net{
+    width: 2.6rem;
+    height:auto;
+    border-radius: 0.05rem;
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0 0 0.04rem #666;
+    -webkit-box-shadow: 0 0 0.04rem #666;
+    animation: scaleAlertBox 0.3s;
+    -webkit-animation: scaleAlertBox 0.3s;
+    position:fixed;
+    top:40%;
+    left:40%;
+    margin:auto;
+
+}
+@keyframes scaleAlertBox{
+    from { transform:scale(0); -webkit-transform:scale(0); }
+    to { transform:scale(1); -webkit-transform:scale(1); }
+}
+@-webkit-keyframes scaleAlertBox{
+    from { transform:scale(0); -webkit-transform:scale(0); }
+    to { transform:scale(1); -webkit-transform:scale(1); }
+}
+.alertBox .top{
+    font-size:0.16rem;
+    color:#333;
+    line-height:0.16rem;
+    height:0.42rem;
+    background:#fff;
+    border-bottom: 0.01rem solid #dcdddd;
+}
+.alertBox .txt{
+    font-size:0.16rem;
+    color:#333;
+    line-height:0.22rem;
+    min-height:0.66rem;
+    padding: 0.1rem 0.16rem;
+    text-align:justify;
+    word-break: break-all;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.alertBox .foot{
+    border-top: 0.01rem solid #dcdddd;
+}
+.alertBox .foot .btn{
+    line-height: 0.41rem;
+    font-size: 0.15rem;
+    padding:0 0.12rem;
+    color:#ed4948;
+    background:#fff;
+    text-align: center; width: 100%;
+    box-sizing: border-box;
+    height: 0.41rem;
+    cursor: pointer;
+}
+.alertBox .foot .btn:first-child{
+    color:#999;
+    border-right:1px solid #dcdddd;
+}
+.alertBox[type="info"] .foot .btn:last-child{ color: #999;}
+.alertBox[type="success"] .foot .btn:last-child{ color: #09bb07; }
+.alertBox[type="fail"] .foot .btn:last-child{ color: #ed4948; }
+.alertBox.closeAlert{ background: transparent; }
+.alertBox.closeAlert .net{
+    animation: closeAlertBox 0.15s;
+    -webkit-animation: closeAlertBox 0.15s;
+    transform:scale(0);
+    -webkit-transform:scale(0);
+}
+@keyframes closeAlertBox{
+    from { transform:scale(1); -webkit-transform:scale(1); }
+    to { transform:scale(0); -webkit-transform:scale(0); }
+}
+@-webkit-keyframes closeAlertBox{
+    from { transform:scale(1); -webkit-transform:scale(1); }
+    to { transform:scale(0); -webkit-transform:scale(0); }
+}
+
+/*分页器公共样式*/
+.page_div {
+    padding:0.8rem 0;
+    display:flex;
+    justify-content:center;
+    background:#F7F7F7;
+    color: #626262;
+}
+.page_div_one{
+    background:#FFFFFF !important;
+}
+.page_div_two{
+    background:#F3F5F9 !important;
+}
+.page_div button {
+    display: inline-block;
+    min-width: 0.33rem;
+    height: 0.33rem;
+    cursor: pointer;
+    font-size: 0.13rem;
+    line-height: 0.28rem;
+    background:#FFFFFF;
+    border: 0.01rem solid #D9D9D9;
+    text-align: center;
+    margin:0 0.07rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius:0.04rem;
+}
+#firstPage, #lastPage, #nextPage, #prePage {
+    color: #626262;
+    border: 0.01rem solid #D9D9D9;
+    padding-left: 0.15rem;
+    padding-right: 0.11rem;
+}
+.page_div .current {
+    background-color: #ECECEC;
+    border-color: #D9D9D9;
+    color: #626262
+}
+.totalPages {
+    margin: 0 0.10rem;
+}
+.totalPages span, .totalSize span {
+    color: #0073A9;
+    margin: 0 0.05rem;
+}
+/*button禁用*/
+.page_div button:disabled {
+    opacity: 0.5;
+    cursor: no-drop
+}
+
+
+
+
+
+
+
+
+
+
+

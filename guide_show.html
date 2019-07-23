@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>旅游-路线详情</title>
+    <script src="./js/rem.js"></script>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./css/icon.css">
+    <link rel="stylesheet" href="./css/travelproductlist.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <!--css样式区域-->
+    <style>
+        .linebottom {
+            position: relative;
+            z-index: 0;
+        }
+        .linebottom::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 0.02rem;
+            border-bottom: 0.04rem solid #0070D3;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-transform-origin: left top;
+            transform-origin: left top;
+            width: 200%;
+            height: 200%;
+            -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+            margin-top: 0.16rem;
+        }
+        .linebottom div,.linebottom span, .linebottom a .linebottom li {
+            position: relative;
+        }
+
+        /*主体内容start*/
+        .contentbox {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .left-content {
+            width: 11.68rem;
+            margin-right: 0.24rem;
+        }
+        .right-content {
+            width: 4.88rem;
+        }
+        .reservation .reservationdate {
+            background: rgba(255, 255, 255, 1);
+            border: 0.01rem solid rgba(239, 239, 239, 1);
+            box-shadow: 0px 0.02rem 0.15rem 0.01rem rgba(46, 46, 46, 0.06);
+            border-radius: 0.04rem;
+            -webkit-border-radius: 0.04rem;
+            -moz-border-radius: 0.04rem;
+            -ms-border-radius: 0.04rem;
+        }
+        .reservation .reservationdate .title {
+            width: 2rem;
+            border-right: 0.01rem solid #EFEFEF;
+            box-sizing: border-box;
+            padding: 0.3rem 0.52rem 0.3rem 0.4rem;
+        }
+        .reservation .reservationdate .guidelist {
+            display: flex;
+            align-items: center;
+            padding-left: 0.54rem;
+        }
+        .reservation .reservationdate .guidelist li {
+            margin-right: 0.27rem;
+        }
+        .reservation .reservationdate .guidelist li a {
+            font-size: 0.18rem;
+            font-family: A02-;
+            font-weight: 400;
+            color: rgba(112, 112, 112, 1);
+        }
+        .item {
+            background: rgba(255, 245, 230, 1);
+            border-radius: 0.16rem;
+            padding: 0.07rem 0.16rem;
+            color: #FF7303 !important;
+        }
+
+        /*预订介绍*/
+        .reservation .reservationdetail .introduce {
+            width: 100%;
+            border-radius: 0.04rem;
+            margin-top: 0.24rem;
+        }
+        .reservation .reservationdetail .cardlist {
+            background: #F7F7F7;
+            box-shadow:0 0.02rem 0.11rem 0 rgba(46,46,46,0.06);
+            border-radius:0.02rem;
+            padding: 0.3rem 0.4rem;
+        }
+        .introduce .cardlist .icard {
+            display: flex;
+        }
+        .introduce .cardlist .ilist {
+            display: none;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 0.04rem;
+            margin-top: 0.2rem;
+        }
+        .introduce .cardlist .icard .leftpic{
+            border-radius:0.08rem;
+        }
+        .introduce .cardlist .icard .leftpic a img {
+            width: 3.84rem;
+            height: 2.14rem;
+            border-radius:0.08rem;
+        }
+        .introduce .cardlist .icard .mainitems {
+            margin: 0.05rem 0 0 0.26rem;
+            width:4.82rem;
+            display: flex;
+            flex-direction: column;
+            justify-content:space-between;
+            font-size:0.16rem;
+            height:2.12rem;
+            position:relative;
+        }
+        .introduce .cardlist .icard .mainitems h3 {
+            font-size: 0.22rem;
+            font-family: NotoSansHans-Medium;
+            color: rgba(22, 22, 22, 1);
+            line-height: 0.22rem;
+            padding-bottom: 0.18rem;
+            line-height: 0.28rem;
+            cursor:pointer;
+        }
+        .introduce .cardlist .icard .mainitems .itemlist{
+            position:absolute;
+            left:0;
+            bottom:0.4rem;
+
+        }
+        .introduce .cardlist .icard .itemtext {
+            font-family: NotoSansHans-Regular;
+            font-weight: 400;
+            color: rgba(107, 107, 107, 1);
+            font-size:0.16rem;
+            position:absolute;
+            top:0.44rem;
+            left:0;
+        }
+        .introduce .cardlist .icard .itemdate {
+            display: flex;
+            align-items: center;
+            padding-bottom: 0.08rem;
+
+        }
+        .introduce .cardlist .icard .itemdate p:last-child {
+            width: 1.46rem;
+            height: 0.28rem;
+            background: rgba(251, 251, 251, 1);
+            border: 0.01rem solid rgba(221, 221, 221, 1);
+            border-radius: 0.04rem;
+            display: flex;
+            align-items: center;
+            position: relative;
+            font-size: 0.14rem;
+            font-family: A02-;
+            font-weight: 400;
+            color: rgba(51, 51, 51, 1);
+        }
+        .introduce .cardlist .icard .itemdate .date {
+            width:100%;
+            padding-left: 0.1rem;
+
+        }
+        .introduce .cardlist .icard .itemdate .day {
+            position: absolute;
+            top:0.04rem;
+            left: 1.06rem;
+        }
+        .introduce .cardlist .icard .itemdate .date-icon{
+            position:absolute;
+            top:0.05rem;
+            right:0.12rem;
+        }
+        .introduce .cardlist .icard .itemcount {
+            display: flex;
+            align-items: center;
+            position:absolute;
+            left:0;
+            bottom:0;
+        }
+        .introduce .cardlist .icard .itemcount .account {
+            display: flex;
+            align-items: center;
+            width: 0.8rem;
+            height: 0.26rem;
+            background: rgba(251, 251, 251, 1);
+            border: 0.01rem solid rgba(221, 221, 221, 1);
+            border-radius: 0.04rem;
+        }
+        .introduce .cardlist .icard .itemcount .account span {
+            display: block;
+            width: 0.24rem;
+            text-align: center;
+            height: 0.26rem;
+            color: #707070;
+            cursor:pointer;
+
+        }
+        .introduce .cardlist .icard .itemcount .account input {
+            width: 0.32rem;
+            height: 0.26rem;
+            text-align: center;
+            font-size: 0.14rem;
+            font-family: ArialMT;
+            font-weight: 400;
+            color: rgba(51, 51, 51, 1);
+            border: 0.01rem solid rgba(221, 221, 221, 1);
+            box-sizing: border-box;
+            border-bottom: none;
+            border-top: none;
+        }
+        .introduce .cardlist .icard .itemlist {
+            display: flex;
+            align-items: center;
+        }
+        .introduce .cardlist .icard .itemlist .residue {
+            height: 0.3rem;
+            font-size: 0.14rem;
+            margin-left: 0.16rem;
+        }
+        .introduce .cardlist .ilist .linav {
+            display: flex;
+            align-items: center;
+            padding-top: 0.16rem;
+            padding-left: 0.2rem;
+        }
+        .introduce .cardlist .ilist .linav li {
+            margin-right: 0.4rem;
+            font-size: 0.18rem;
+            font-family: NotoSansHans-Medium;
+            color: rgba(112, 112, 112, 1);
+            line-height: 0.22rem;
+            cursor: pointer;
+        }
+        .introduce .cardlist .ilist .li {
+            padding: 0.24rem 0 0.28rem 0.2rem;
+            font-size: 0.16rem;
+            font-family: NotoSansHans-Medium;
+            color: rgba(112, 112, 112, 1);
+            line-height: 0.24rem;
+        }
+        .introduce .cardlist .ilist .litwo,.introduce .cardlist .ilist .lithree{
+            display:none;
+        }
+        .card {
+            box-shadow: 0 0.02rem 0.21rem 0.01rem rgba(46, 46, 46, 0.06);
+        }
+        .ititle {
+            font-size: 0.16rem;
+            font-family: NotoSansHans-Regular;
+            font-weight: 400;
+            color: rgba(107, 107, 107, 1);
+            line-height: 0.22rem;
+        }
+        .rightitems p {
+            text-align: right;
+        }
+        .rightitems .p1 {
+            font-size: 0.16rem;
+            font-family: NotoSansHans-Regular;
+            font-weight: 400;
+            color: rgba(170, 170, 170, 1);
+            line-height: 0.22rem;
+            padding-bottom: 0.67rem;
+        }
+        .rightitems .p2 {
+            padding-bottom: 0.16rem;
+        }
+        .rightitems .p3 a {
+            display: block;
+            width: 1.94rem !important;
+            height: 0.46rem;
+            background: rgba(255, 115, 3, 1);
+            border-radius: 0.08rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.18rem;
+            font-family: NotoSansHans-Medium;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 1);
+            margin-bottom: 0.21rem;
+        }
+        .rightitems .p4 {
+            font-size: 0.16rem;
+            font-family: NotoSansHans-Medium;
+            font-weight: 500;
+            color: rgba(112, 112, 112, 1);
+            line-height: 0.22rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            cursor: pointer;
+        }
+        .rightitems .p4 .down-icon {
+            display: inline-block;
+            width: 0.09rem;
+            height: 0.05rem;
+            background: url("images/down_icon.png") no-repeat center / 0.09rem;
+            margin-left: 0.07rem;
+        }
+        .rightitems .p4 .top-icon {
+            display: inline-block;
+            width: 0.09rem;
+            height: 0.05rem;
+            background: url("images/top_icon.png") no-repeat center / 0.09rem;
+            margin-left: 0.07rem;
+        }
+        /*主体内容end*/
+    </style>
+</head>
+
+<!--html结构区域 -->
+<body>
+    <div id="containers">
+        <header id="header"></header>
+        <section>
+            <div id="box">
+                <!--广告轮播图-->
+                <div class="swiperbanner">
+                    <div class="swiper-container">
+                        <!--包裹图片的父级元素 -->
+                        <div class="swiper-wrapper"></div>
+                    </div>
+                </div>
+                <!--主体内容-->
+                <div class="content">
+                    <!--广告图详情-->
+                    <div class="advertshow">
+                        <div class="detail-box"></div>
+                    </div>
+                    <!--内容介绍-->
+                    <div class="contentbox">
+                        <div class="left-content">
+                            <!--路线详情-->
+                            <div class="hotelbox">
+                                <!--预定-->
+                                <div class="reservation">
+                                    <!--旅游路线-->
+                                    <div class="reservationdate flex fl-align">
+                                        <h3 class="fz-26 c-16 title">旅游路线</h3>
+                                        <ul class="guidelist">
+                                            <li data-id=""><a href="javascript:;" class="item">全部</a></li>
+                                            <li data-id="10"><a href="javascript:;">亲子游路线套餐</a></li>
+                                            <li data-id="11"><a href="javascript:;">闺蜜游路线套餐</a></li>
+                                            <li data-id="12"><a href="javascript:;">蜜月游路线套餐</a></li>
+                                        </ul>
+                                    </div>
+                                    <!--预订介绍-->
+                                    <div class="reservationdetail">
+                                        <div class="introduce fz-18"></div>
+                                        <div id="page1" class="page_div"></div>
+                                    </div>
+                                </div>
+                                <!--评论列表-->
+                                <div class="comments">
+                                    <div class="comment">
+                                        <h3>评价列表</h3>
+                                        <div class="list fz-18">
+                                            <ul></ul>
+                                        </div>
+                                    </div>
+                                    <!-- 列表 -->
+                                    <div class="list clist"></div>
+                                    <!-- 分页器 -->
+                                    <div id="page2" class="page_div"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right-content f-w5">
+                            <!-- 相册 -->
+                            <div class="merchants">
+                                <div class="merchantsbox">
+                                    <div class="titles">
+                                        <span class="fz-26 c-16 f-w5">商家相册</span>
+                                        <span class="fz-16 c-6a btn-img">点击预览大图</span>
+                                    </div>
+                                    <div class="pics">
+                                        <div class="swiper-container">
+                                            <div class="swiper-wrapper"></div>
+                                        </div>
+                                    </div>
+                                    <div class="pro">
+                                        <div class="probtn"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--酒店介绍，酒店设施-->
+                            <div class="facilities">
+                                <div class="facilibox"></div>
+                                <div class="fac-three">
+                                    <div class="map">
+                                        <a href="javascript:;">
+                                            <img src="resources/map.png" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--店铺-->
+                            <div class="storebox"></div>
+                        </div>
+                    </div>
+                    <!--右侧返回顶部 编辑 订单入口-->
+                    <div class="tabs">
+                        <a href="javascript:;" class="tab-ico1"><span class="return-icon"></span></a>
+                        <a href="javascript:;" class="tab-ico3">
+                            <span>
+                                   <span class="order-text">意见</span>
+                                   <span class="order-text">反馈</span>
+                            </span>
+                        </a>
+                        <a href="javascript:;" class="tab-ico2"><span class="order-icon"></span></a>
+                    </div>
+                </div>
+            </div>
+            <!--相册弹窗-->
+            <div id="showModel">
+                <div class="model-box">
+                    <div class="close-btn"></div>
+                    <div class="model-list">
+                        <div class="model-img">
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="left-btn"></div>
+                    <div class="right-btn"></div>
+                </div>
+            </div>
+        </section>
+        <footer id="footer"></footer>
+    </div>
+</body>
+<!-- js功能区域 -->
+<script src="./js/jquery.min.js"></script>
+<script src="./js/public.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/pageMe.js"></script>
+<script src="./js/swiper.min.js"></script>
+<script src="./js/My97DatePicker/WdatePicker.js"></script>
+<script text="type/javascript">
+
+    $(function () {
+        localData('remove','guidedetail');
+        /*获取所需参数*/
+        var city_id=localData('get','cityinfo').city_id || 6;
+        var store_id=GetQueryString('store_id');
+
+        /*调用轮播图函数，酒店 sc_id=10*/
+        var param1={sc_id:10,city_id:city_id};
+        getBanner(param1);
+
+        /*获取导游列表数据*/
+        var params={page:'',row:6,store_id:store_id};
+        gettourList(params);
+        $('.guidelist').on('click','li',function () {
+            $('.reservationdetail .introduce').html('');
+            var type_id=$(this).data('id');
+            var param2={page:'',row:6,type_id:type_id,store_id:store_id};
+            gettourList(param2);
+        });
+        function gettourList(params){
+        $('.reservationdetail .introduce').html('');
+            ajax_post('/api/goods/tourList',params,function(r){
+                callBack(r,{
+                    success:function(res){
+                        var Array=res.data;
+                        if(Array.length>0){
+                            $('#page1').show();
+                            var guidehtml='';
+                            Array.forEach(function(item,index){
+                                var goods_id=item.id;
+                                guidehtml+='<div class="cardlist" data-gid="'+item.id+'">'+
+                                        '<div class="icard">'+
+                                            '<div class="leftpic">'+
+                                                '<a href="javascript:;"><img src="'+item.img+'"></a>'+
+                                            '</div>'+'<div class="mainitems">'+
+                                                '<h3 class="clamp1" title="'+item.name+'">'+item.name+'</h3>'+
+                                                '<p class="itemtext clamp2">'+item.brief+'</p>'+
+                                                '<div class="itemlist">'+
+                                                    '<div class="itemdate">'+
+                                                        '<p class="ititle">出发日期：</p>'+
+                                                        '<p><input type="text" value="'+getDateStr(0)+'" readonly="readonly" class="date date'+item.id+'"><span class="day"></span><span class="date-icon"></span>'+
+                                                        '</p>'+
+                                                    '</div>'+
+                                                    '<div class="c-6b f-w4 residue">剩余<span>'+item.inventory+'</span></div>'+
+                                                '</div>'+
+                                                '<div class="itemcount">'+
+                                                    '<p class="ititle">购买数量：</p>'+
+                                                    '<p class="account">'+
+                                                        '<span onclick="reduce(this)">-</span>'+
+                                                        '<input type="text" value="1" readonly="readonly">'+
+                                                        '<span onclick="add(this)">+</span>'+
+                                                    '</p>'+
+                                                '</div>'+
+                                            '</div>'+
+                                            '<div class="rightitems">'+
+                                                '<p class="p1">已售<span>'+item.order_count+'</span></p>'+
+                                                '<p class="p2">'+
+                                                    '<span class="fz-20 c-e5">¥</span>'+
+                                                    '<span class="fz-26 c-e5 singleprice">'+item.price+'</span>'+
+                                                    '<span class="fz-16 c-6b">&nbsp;起/人</span>'+
+                                                '</p>'+
+                                                '<p class="p3">'+
+                                                    '<a href="guide_order.html?goods_id='+item.id+'">立即购买</a>'+
+                                                '</p>'+
+                                                '<p class="p4">'+
+                                                    '<span>购买须知</span><span class="down-icon"></span>'+
+                                                '</p>'+
+                                            '</div>'+
+                                        '</div>'+
+                                            '<div class="ilist">'+
+                                                '<ul class="linav">'+
+                                                    '<li class="linebottom" onclick="changeLi(this,0)">购买须知</li>'+
+                                                    '<li onclick="changeLi(this,1)">使用说明</li>'+
+                                                    '<li onclick="changeLi(this,2)">套餐介绍</li>'+
+                                                '</ul>'+
+                                                '<div class="li lione">'+item.notice+'</div>'+
+                                                '<div class="li litwo">'+item.explain+'</div>'+
+                                                '<div class="li lithree">'+item.content+'</div>'+
+                                            '</div>'+
+                                        '</div>';
+                            });
+                            $('.reservationdetail .introduce').append(guidehtml);
+                            //获取库存
+                            $('.reservationdetail .introduce .cardlist').each(function(key,elem){
+                                //出发时间
+                                $(document).on("click",".date" ,function(e){
+                                    var goods_id=$(this).parents('.cardlist').data('gid');
+                                    WdatePicker({
+                                        el: e.target,
+                                        minDate:getDateStr(0),
+                                        dateFmt:'yyyy-MM-dd',
+                                        isShowClear:false,
+                                        readOnly:true,
+                                        errDealMode:1,
+                                        onpicked:doData
+                                    });
+                                });
+                                function doData(item){
+                                    var goods_id=$($(item)[0].el).parents('.cardlist').data('gid');
+                                    $($(item)[0].el).parents('.itemlist').siblings('.itemcount').find('input').val(1);
+                                    var y=item.cal.date.y;
+                                    var m=item.cal.date.M;
+                                    if(m<10){
+                                        m='0'+m;
+                                    }
+                                    var d=item.cal.date.d;
+                                    if(d<10){
+                                        d='0'+d;
+                                    }
+                                    var date=y+'-'+m+'-'+d;
+                                    ajax_post('/api/spec/tourFloat',{goods_id:goods_id,date:date},function(r){
+                                        callBack(r,{
+                                            success:function(data){
+                                                var count=  $($(item)[0].el).parents('.itemlist').siblings('.itemcount').find('input').val();
+                                                $($(item)[0].el).parents('.itemdate').siblings('.residue').find('span').html(data.inventory);
+                                                $($(item)[0].el).parents('.mainitems').siblings('.rightitems').find('.singleprice').html(data.price);
+                                            }
+                                        })
+                                    })
+                                }
+                                $(elem).on('click','.p3',function(){
+                                    var date=$(this).parents('.rightitems').siblings('.mainitems').find('.date').val();
+                                    var price=$(this).siblings('.p2').find('span').eq(1).text();
+                                    var inventory=$(this).parents('.rightitems').siblings('.mainitems').find('.residue').find('span').text();
+                                    var count=$(this).parents('.rightitems').siblings('.mainitems').find('.itemcount input').val();
+                                    localData('set','guidedetail',{
+                                        'date':date,
+                                        'price':price,
+                                        'inventory':inventory,
+                                        'count':count
+                                    })
+                                })
+                            })
+                            //分页功能
+                            var totalPages = Math.ceil(res.total / res.per_page);//计算总页数
+                            $("#page1").paging({
+                                pageNum:res.current_page, // 当前页面
+                                totalNum:totalPages, // 总页码
+                                totalList: res.total, // 记录总数量
+                                callback: function (page) { //回调函数
+                                    var param={page:page,row:6,store_id:store_id};
+                                    gettourList(param);
+                                }
+                            });
+                        }else{
+                            $("#page1").hide();
+                        }
+                    }
+                })
+            });
+        }
+
+        /*获取商家相册数据*/
+        album(store_id);
+
+        /*获取店铺列表*/
+        getDetailShopList(10,store_id,city_id);
+
+        /*获取评论列表*/
+        var param2={store_id:store_id,row:4};
+        gethotelComents(param2,1);
+        /*切换评价等级中的列表*/
+        $('.comment .list').on('click', '.li', function () {
+            $(this).addClass('c-active').siblings().removeClass('c-active');
+            $(this).find('p:first').addClass('lineBottom');
+            $(this).siblings().find('p:first').removeClass('lineBottom');
+            var level=$(this).data('level');
+            var param3={store_id:store_id,level:level,row:4};
+            gethotelComents(param3);
+        })
+
+        /*底部线条切换*/
+        $('.list>ul').on('click', '.li', function () {
+            $(this).find('p:first').addClass('lineBottom');
+            $(this).addClass('c-active');
+            $(this).siblings().find('p:first').removeClass('lineBottom');
+            $(this).siblings().removeClass('c-active');
+        })
+        
+        /*路线切换*/
+        $('.guidelist').on('click', 'li', function () {
+            $(this).find('a').addClass('item');
+            $(this).siblings().find('a').removeClass('item');
+        })
+
+        /*购买须知展示*/
+        $('.introduce').on('click', '.p4', function () {
+            $(this).parents('.icard').siblings().toggle();
+            var display = $(this).parents('.icard').siblings().css('display');
+            if (display == 'block') {
+                $(this).find('span').eq(1).removeClass('down-icon').addClass('top-icon');
+            } else {
+                $(this).find('span').eq(1).addClass('down-icon').removeClass('top-icon');
+            }
+        })
+
+        /*返回顶部功能*/
+        $('.return-icon').on('click', function () {
+            var T = $(window).scrollTop();
+            var t = setInterval(function () {
+                if (T < 0) {
+                    clearInterval(t);
+                } else {
+                    T -= 50;
+                    $(window).scrollTop(T);
+                }
+            }, 20);
+        });
+
+    })
+
+    //购买须知内容切换
+    function changeLi(item,index) {
+        $(item).addClass('linebottom').siblings().removeClass('linebottom');
+        if(index==0){
+            $(item).parent().parent().find('.lione').show();
+            $(item).parents('.ilist').find('.litwo').hide();
+            $(item).parents('.ilist').find('.lithree').hide()
+        }else if(index==1){
+            $(item).parent().parent().find('.lione').hide();
+            $(item).parents('.ilist').find('.litwo').show();
+            $(item).parents('.ilist').find('.lithree').hide()
+        }else if(index==2){
+            $(item).parent().parent().find('.lione').hide();
+            $(item).parents('.ilist').find('.litwo').hide();
+            $(item).parents('.ilist').find('.lithree').show();
+        }
+    }
+
+    //购买数量
+    function reduce(item){
+       var buycount=parseInt($(item).next().val());
+       if(buycount>1){
+           buycount--;
+           $(item).next().val(buycount);
+       }else{
+           $(item).next().val(1);
+       }
+    }
+    function add(item){
+        var buycount=parseInt($(item).prev().val());
+        var totalcount=parseInt($(item).parents('.itemcount').siblings('.itemlist').find('.residue span').text());
+        if(totalcount<=1){
+            $(item).attr('disabled','true');
+        }else{
+            $(item).removeAttr('disabled');
+        }
+        if(buycount<totalcount){
+            buycount++;
+            $(item).prev().val(buycount);
+        }else{
+            alert('已达到最多购买数量');
+            return;
+        }
+    }
+
+</script>
+
+</html>

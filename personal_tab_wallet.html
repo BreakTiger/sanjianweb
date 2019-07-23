@@ -1,0 +1,956 @@
+<style>
+    .wallet .list-page .title {
+        display: inline-block;
+        margin-top: 0.24rem;
+        margin-left: 0.6rem;
+        margin-bottom: 0.23rem;
+    }
+
+    .wallet .list-page .show {
+        background: #ffffff;
+        padding: 0.45rem 0.8rem 0.42rem 0.8rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .wallet .list-page .show .balance>p {
+        margin-bottom: 0.16rem;
+    }
+
+    .two-Btn div {
+        width: 1.2rem;
+        text-align: center;
+        padding-top: 0.14rem;
+        padding-bottom: 0.13rem;
+        border-radius: 0.08rem;
+        font-size: 0.2rem;
+        cursor: pointer;
+    }
+
+    .withdrawals {
+        background: rgba(255, 255, 255, 1);
+        border: 0.01rem solid rgba(229, 229, 229, 1);
+        color: #666666;
+    }
+
+    .top-up {
+        color: #ffffff;
+        background: #FF7303;
+        margin-left: 0.6rem;
+        margin-right: 0.8rem;
+    }
+
+    .three-switch ul li {
+        width: 4.1rem;
+    }
+
+    .three-switch ul li div {
+        width: 100%;
+        background: #ffffff;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .three-switch ul li .n-select {
+        padding-top: 0.2rem;
+        padding-bottom: 0.18rem;
+        margin-bottom: 0.1rem;
+        font-size: 0.24rem;
+        color: #999999;
+        font-weight: 400;
+    }
+
+    .three-switch ul li .select {
+        font-size: 0.24rem;
+        color: #333333;
+        font-weight: 400;
+        padding-top: 0.24rem;
+        padding-bottom: 0.23rem;
+    }
+
+    .switch-tab {
+        width: 12.52rem;
+        height: 6.96rem;
+        background: rgba(255, 255, 255, 1);
+        margin-top: -0.01rem;
+        border: 1px solid white;
+    }
+
+    .switch-tab .swtich-content {
+        width: 11.52rem;
+        margin-top: 0.19rem;
+        background: rgba(243, 245, 247, 1);
+        margin-bottom: 0.4rem;
+    }
+
+    .switch-tab .swtich-content .list-one,
+    .switch-tab .swtich-content .list-two,
+    .switch-tab .swtich-content .list-three {
+        padding: 0.1rem;
+    }
+
+    .switch-tab .swtich-content .list-one .list-header {
+        margin-top: 0.2rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .switch-tab .swtich-content .list-one .list-header ul li {
+        font-size: 0.2rem;
+        color: #666666;
+    }
+
+    .switch-tab .swtich-content .list-one .list-header ul li:nth-child(1) {
+        margin-left: 0.52rem;
+    }
+
+    .switch-tab .swtich-content .list-one .list-header ul li:nth-child(2) {
+        margin-left: 2.1rem;
+    }
+
+    .switch-tab .swtich-content .list-one .list-header ul li:nth-child(3) {
+        margin-left: 2.35rem;
+    }
+
+    .switch-tab .swtich-content .list-one .list-header ul li:nth-child(4) {
+        margin-left: 3.25rem;
+    }
+
+    .switch-tab .swtich-content .list-one .record-list {
+        width: 11.32rem;
+    }
+
+    .switch-tab .swtich-content .list-one .record-list .list-item {
+        background: #ffffff;
+        margin-bottom: 0.04rem;
+        padding-top: 0.28rem;
+        padding-bottom: 0.28rem;
+        padding-left: 0.15rem;
+        padding-right: 0.15rem;
+    }
+
+    .switch-tab .swtich-content .list-one .record-list .list-item>span:first-child {
+        text-align: center;
+        width: 1.6rem;
+    }
+
+    .switch-tab .swtich-content .list-two .list-header {
+        margin-top: 0.2rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .switch-tab .swtich-content .list-two .list-header ul li {
+        font-size: 0.2rem;
+        color: #666666;
+    }
+
+    .switch-tab .swtich-content .list-two .list-header ul li:nth-child(1) {
+        margin-left: 0.69rem;
+    }
+
+    .switch-tab .swtich-content .list-two .list-header ul li:nth-child(2) {
+        margin-left: 0.97rem;
+    }
+
+    .switch-tab .swtich-content .list-two .list-header ul li:nth-child(3) {
+        margin-left: 0.78rem;
+    }
+
+    .switch-tab .swtich-content .list-two .list-header ul li:nth-child(4) {
+        margin-left: 0.58rem;
+    }
+
+    .switch-tab .swtich-content .list-two .list-header ul li:nth-child(5) {
+        margin-left: 0.63rem;
+    }
+
+    .switch-tab .swtich-content .list-two .list-header ul li:nth-child(6) {
+        margin-left: 1.01rem;
+    }
+
+    .switch-tab .swtich-content .list-two .record-list {
+        width: 11.32rem;
+    }
+
+    .switch-tab .swtich-content .list-two .record-list .list-item {
+        background: #ffffff;
+        padding-top: 0.18rem;
+        padding-bottom: 0.19rem;
+        margin-bottom: 0.04rem;
+    }
+
+    .switch-tab .swtich-content .list-two .record-list .list-item>div:nth-child(1) {
+        width: 1.53rem;
+        margin-left: 0.31rem;
+    }
+
+    .switch-tab .swtich-content .list-two .record-list .list-item>div:nth-child(1) span:first-child {
+        margin-bottom: 0.07rem;
+    }
+
+    .switch-tab .swtich-content .list-two .record-list .list-item>span:nth-child(2) {
+        display: block;
+        width: 1rem;
+        text-align: center;
+        margin-left: 0.65rem;
+    }
+
+    .switch-tab .swtich-content .list-two .record-list .list-item>span:nth-child(3) {
+        display: block;
+        width: 0.34rem;
+        text-align: center;
+        margin-left: 1.15rem;
+    }
+
+    .switch-tab .swtich-content .list-two .record-list .list-item>span:nth-child(4) {
+        display: block;
+        width: 1rem;
+        text-align: center;
+        margin-left: 0.97rem;
+    }
+
+    .switch-tab .swtich-content .list-two .record-list .list-item>span:nth-child(5) {
+        display: block;
+        width: 0.9rem;
+        text-align: center;
+        margin-left: 0.66rem;
+    }
+
+    .switch-tab .swtich-content .list-two .record-list .list-item>span:nth-child(6) {
+        display: block;
+        width: 1.5rem;
+        text-align: center;
+        margin-left: 0.65rem;
+    }
+
+    .switch-tab .swtich-content .list-three .list-header {
+        margin-top: 0.2rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .switch-tab .swtich-content .list-three .list-header ul li {
+        font-size: 0.2rem;
+        color: #666666;
+    }
+
+    .switch-tab .swtich-content .list-three .list-header ul li:nth-child(1) {
+        margin-left: 0.69rem;
+    }
+
+    .switch-tab .swtich-content .list-three .list-header ul li:nth-child(2) {
+        margin-left: 2.15rem;
+    }
+
+    .switch-tab .swtich-content .list-three .list-header ul li:nth-child(3) {
+        margin-left: 1.99rem;
+    }
+
+    .switch-tab .swtich-content .list-three .list-header ul li:nth-child(4) {
+        margin-left: 2.19rem;
+    }
+
+    .switch-tab .swtich-content .list-three .record-list {
+        width: 11.32rem;
+    }
+
+    .switch-tab .swtich-content .list-three .record-list .list-item {
+        background: #ffffff;
+        margin-bottom: 0.04rem;
+        padding-top: 0.18rem;
+        padding-bottom: 0.19rem;
+    }
+
+    .switch-tab .swtich-content .list-three .record-list .list-item>div:nth-child(1) {
+        width: 1.52rem;
+        margin-left: 0.35rem;
+    }
+
+    .switch-tab .swtich-content .list-three .record-list .list-item>div:nth-child(1) span:first-child {
+        margin-bottom: 0.07rem;
+    }
+
+    .switch-tab .swtich-content .list-three .record-list .list-item>span:nth-child(2) {
+        display: block;
+        width: 1.5rem;
+        text-align: center;
+        margin-left: 1.62rem;
+    }
+
+    .switch-tab .swtich-content .list-three .record-list .list-item>span:nth-child(3) {
+        display: block;
+        width: 1rem;
+        text-align: center;
+        margin-left: 1.94rem;
+    }
+
+    .switch-tab .swtich-content .list-three .record-list .list-item>span:nth-child(4) {
+        display: block;
+        width: 1.7rem;
+        text-align: center;
+        margin-left: 1.64rem;
+    }
+
+    .switch-tab .no-data {
+        width: 2.55rem;
+        height: 3.66rem;
+        margin-top: 1.4rem;
+    }
+
+    /* 分页器 */
+    .page_div {
+        background: #ffffff !important;
+        padding: 0rem !important;
+    }
+
+    /* 钱包充值 */
+    .right-box .wallet .recharge .header-line {
+        background: #ffffff;
+        padding-top: 0.31rem;
+        padding-bottom: 0.25rem;
+        margin-bottom: 0.61rem;
+    }
+
+    .right-box .wallet .recharge .header-line .back-wallet {
+        margin-left: 0.4rem;
+        margin-right: 4.26rem;
+        cursor: pointer;
+    }
+
+    .left-icon {
+        display: block;
+        width: 0.06rem;
+        height: 0.1rem;
+        background: url('images/back.png') no-repeat center/0.06rem;
+        margin-right: 0.07rem;
+    }
+
+    .right-box .wallet .recharge .recharge-content>span {
+        margin-bottom: 0.27rem;
+    }
+
+    .right-box .wallet .recharge .recharge-content>p:nth-child(2) {
+        margin-bottom: 0.81rem;
+    }
+
+    .right-box .wallet .recharge .recharge-content .recharge-line {
+        margin-bottom: 0.4rem;
+    }
+
+    .right-box .wallet .recharge .recharge-content .recharge-line>span {
+        margin-right: 0.28rem;
+    }
+
+    .right-box .wallet .recharge .recharge-content .recharge-line .recharge-input {
+        width: 4rem;
+        height: 0.46rem;
+        background: rgba(255, 255, 255, 1);
+        border-radius: 0.08rem;
+    }
+
+    .right-box .wallet .recharge .recharge-content .recharge-line .recharge-input>span {
+        margin-left: 0.23rem;
+        margin-right: 0.02rem;
+    }
+
+    .right-box .wallet .recharge .recharge-content .recharge-line .recharge-input input {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+
+    .right-box .wallet .recharge .recharge-content .recharge-way {
+        margin-bottom: 1rem;
+    }
+
+    .right-box .wallet .recharge .recharge-content .recharge-way>span {
+        margin-right: 0.28rem;
+        margin-left: 0.68rem;
+    }
+
+    .right-box .wallet .recharge .recharge-content .recharge-way div {
+        width: 2.20rem;
+        height: 0.78rem;
+        background: rgba(255, 255, 255, 1);
+        border: 0.02rem solid #ffffff;
+        border-radius: 0.08rem;
+        cursor: pointer;
+    }
+
+    .right-box .wallet .recharge .recharge-content .recharge-way .wx {
+        margin-right: 0.22rem;
+    }
+
+    .wx-icon {
+        display: block;
+        width: 0.46rem;
+        height: 0.46rem;
+        background: url('images/wxpay.png') no-repeat center/0.46rem;
+        margin-left: 0.25rem;
+        margin-right: 0.24rem;
+    }
+
+    .zfb-ifon {
+        display: block;
+        width: 0.46rem;
+        height: 0.46rem;
+        background: url('images/Alipay.png') no-repeat center/0.46rem;
+        margin-left: 0.25rem;
+        margin-right: 0.24rem;
+    }
+
+    .choosePay {
+        border: 0.02rem solid rgba(195, 216, 242, 1) !important;
+    }
+
+    .recharge-btn {
+        width: 1.20rem;
+        background: rgba(255, 115, 3, 1);
+        border-radius: 0.08rem;
+        text-align: center;
+        cursor: pointer;
+        padding-top: 0.14rem;
+        padding-bottom: 0.13rem;
+    }
+
+    .right-box .wallet .recharge .recharge-results img {
+        width: 2.73rem;
+        height: 2.73rem;
+        margin-bottom: 0.42rem;
+    }
+
+    .right-box .wallet .recharge .recharge-results p:nth-child(2) {
+        margin-bottom: 0.12rem;
+    }
+
+    .right-box .wallet .recharge .recharge-results p:nth-child(3) {
+        margin-bottom: 0.8rem;
+    }
+
+    .record-btn {
+        width: 1.60rem;
+        background: rgba(255, 115, 3, 1);
+        border-radius: 0.08rem;
+        text-align: center;
+        padding-top: 0.14rem;
+        padding-bottom: 0.13rem;
+        cursor: pointer;
+    }
+
+    /* 余额提现 */
+    .deposit .header-line {
+        background: #ffffff;
+        padding-top: 0.31rem;
+        padding-bottom: 0.25rem;
+        margin-bottom: 0.61rem;
+    }
+
+    .deposit .header-line .back-wallet {
+        margin-left: 0.4rem;
+        margin-right: 4.26rem;
+        cursor: pointer;
+    }
+
+    .deposit .deposit-content>span:first-child {
+        margin-bottom: 0.27rem;
+    }
+
+    .deposit .deposit-content>p {
+        margin-bottom: 0.81rem;
+    }
+
+    .deposit .deposit-content .amount>span {
+        margin-right: 0.29rem;
+    }
+
+    .deposit .deposit-content .amount .amount-box {
+        width: 4rem;
+        background: rgba(255, 255, 255, 1);
+        border-radius: 0.08rem;
+    }
+
+    .deposit .deposit-content .amount .amount-box>div {
+        padding: 0.19rem;
+    }
+
+    .amount-input {
+        padding-bottom: 0.17rem;
+        border-bottom: 0.01rem solid #F3F5F7;
+        margin-bottom: 0.17rem;
+    }
+
+    .amount-input input {
+        width: 2.57rem;
+        height: 0.3rem;
+        cursor: pointer;
+    }
+
+    .amount-input>span:nth-child(3) {
+        cursor: pointer;
+    }
+
+    .deposit-content .prompt {
+        margin-left: -0.9rem;
+        margin-top: 0.12rem;
+        margin-bottom: 0.24rem;
+    }
+
+    .account,
+    .account-name,
+    .blankinfo {
+        margin-bottom: 0.22rem;
+    }
+
+    .blank {
+        margin-bottom: 0.8rem;
+    }
+
+    .account input,
+    .account-name input,
+    .blankinfo input,
+    .blank input {
+        width: 4rem;
+        height: 0.46rem;
+        background: rgba(255, 255, 255, 1);
+        border-radius: 0.08rem;
+        margin-left: 0.28rem;
+        text-indent: 0.21rem;
+    }
+
+    .account>span {
+        margin-left: 0.42rem;
+    }
+
+    .account-name>span {
+        margin-left: 0.21rem;
+    }
+
+    .blankinfo>span {
+        margin-left: -0.23rem;
+    }
+
+    .blank>span {
+        margin-left: 0.43rem;
+    }
+
+    .deposit-btn {
+        width: 1.2rem;
+        text-align: center;
+        background: rgba(255, 115, 3, 1);
+        border-radius: 0.08rem;
+        padding-top: 0.14rem;
+        padding-bottom: 0.13rem;
+        cursor: pointer;
+    }
+
+    .deposit-result img {
+        width: 2.73rem;
+        height: 2.73rem;
+        margin-bottom: 0.41rem;
+    }
+
+    .deposit-result>p:nth-child(2) {
+        margin-bottom: 0.12rem;
+    }
+
+    .deposit-result>p:nth-child(3) {
+        margin-bottom: 0.32rem;
+    }
+
+    .deposit-show {
+        width: 5.16rem;
+        background: rgba(255, 255, 255, 1);
+        border-radius: 0.08px;
+    }
+
+    .deposit-show>div {
+        padding: 0.16rem;
+    }
+
+    .deposit-show>div .line-one,
+    .deposit-show>div .line-two {
+        padding-bottom: 0.19rem;
+        border-bottom: 0.01rem solid #F3F5F7;
+        margin-bottom: 0.2rem;
+    }
+
+    .deposit-show>div .line-two {
+        margin-bottom: 0.36rem;
+    }
+
+    .record-btn {
+        width: 1.6rem;
+        text-align: center;
+        background: rgba(255, 115, 3, 1);
+        border-radius: 0.08rem;
+        padding-top: 0.14rem;
+        padding-bottom: 0.13rem;
+        cursor: pointer;
+        margin-left: 1.6rem;
+        margin-bottom: 0.2rem;
+    }
+</style>
+
+<div class="wallet">
+    <div class="list-page">
+        <span class="title">我的钱包</span>
+        <div class="show flex fl-align fl-jsb">
+            <div class="balance">
+                <p>
+                    <span class="c-e5 fz-30 f-wb">￥</span>
+                    <span class="money c-e5 fz-48 f-wb">82892.00</span>
+                </p>
+                <span class="fz-18 c-99 f-w4">钱包余额</span>
+            </div>
+            <div class="two-Btn flex fl-align">
+                <div class="withdrawals">提现</div>
+                <div class="top-up">充值</div>
+            </div>
+
+        </div>
+        <div class="three-switch">
+            <ul class="flex fl-align fl-jsb">
+                <li>
+                    <div class="select">交易记录</div>
+                    <div class="n-select hide">交易记录</div>
+                </li>
+                <li>
+                    <div class="select hide">提现记录</div>
+                    <div class="n-select">提现记录</div>
+                </li>
+                <li>
+                    <div class="selecte hide">充值记录</div>
+                    <div class="n-select">充值记录</div>
+                </li>
+            </ul>
+        </div>
+        <div class="switch-tab flex col fl-align">
+            <div class="swtich-content">
+                <div class="list-one ">
+                    <div class="list-header">
+                        <ul class="flex fl-align ">
+                            <li>交易详情</li>
+                            <li>金额(元)</li>
+                            <li>编号</li>
+                            <li>日期</li>
+                        </ul>
+                    </div>
+                    <div class="record-list">
+                        <div class="list-item flex fl-align fl-jsb">
+                            <span class="fz-20 c-333 f-w4">钱包充值</span>
+                            <span class="fz-20 c-2f">+ 100.00</span>
+                            <span class="fz-20 c-333 f-w4">充值单号：201906146677</span>
+                            <span class="fz-20 c-88 f-w4">2019/06/14 12:58</span>
+                        </div>
+                        <div class="list-item flex fl-align fl-jsb">
+                            <span class="fz-20 c-333 f-w4">商品订单消费支出</span>
+                            <span class="fz-20 c-1f">- 100.00</span>
+                            <span class="fz-20 c-333 f-w4">充值单号：201906146677</span>
+                            <span class="fz-20 c-88 f-w4">2019/06/14 12:58</span>
+                        </div>
+                        <div class="list-item flex fl-align fl-jsb">
+                            <span class="fz-20 c-333 f-w4">钱包充值</span>
+                            <span class="fz-20 c-2f">+ 100.00</span>
+                            <span class="fz-20 c-333 f-w4">充值单号：201906146677</span>
+                            <span class="fz-20 c-88 f-w4">2019/06/14 12:58</span>
+                        </div>
+                        <div class="list-item flex fl-align fl-jsb">
+                            <span class="fz-20 c-333 f-w4">商品订单消费支出</span>
+                            <span class="fz-20 c-1f">- 100.00</span>
+                            <span class="fz-20 c-333 f-w4">充值单号：201906146677</span>
+                            <span class="fz-20 c-88 f-w4">2019/06/14 12:58</span>
+                        </div>
+                        <div class="list-item flex fl-align fl-jsb">
+                            <span class="fz-20 c-333 f-w4">钱包充值</span>
+                            <span class="fz-20 c-2f">+ 100.00</span>
+                            <span class="fz-20 c-333 f-w4">充值单号：201906146677</span>
+                            <span class="fz-20 c-88 f-w4">2019/06/14 12:58</span>
+                        </div>
+                        <div class="list-item flex fl-align fl-jsb">
+                            <span class="fz-20 c-333 f-w4">商品订单消费支出</span>
+                            <span class="fz-20 c-1f">- 100.00</span>
+                            <span class="fz-20 c-333 f-w4">充值单号：201906146677</span>
+                            <span class="fz-20 c-88 f-w4">2019/06/14 12:58</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-two hide">
+                    <div class="list-header">
+                        <ul class="flex fl-align">
+                            <li>到账账户</li>
+                            <li>提现金额(元)</li>
+                            <li>手续费(元)</li>
+                            <li>实际到账(元)</li>
+                            <li>提现状态</li>
+                            <li>提现时间</li>
+                        </ul>
+                    </div>
+                    <div class="record-list">
+                        <div class="list-item flex fl-align">
+                            <div class="flex col fl-align">
+                                <span class="fz-20 c-333">支付宝</span>
+                                <span class="fz-16 c-99">757***@qq.com</span>
+                            </div>
+                            <span>+ 1000.00</span>
+                            <span>2.00</span>
+                            <span>998.00</span>
+                            <span>提现中</span>
+                            <span>2019/06/14 12:58</span>
+                        </div>
+                        <div class="list-item flex fl-align">
+                            <div class="flex col fl-align">
+                                <span class="fz-20 c-333">支付宝</span>
+                                <span class="fz-16 c-99">757***@qq.com</span>
+                            </div>
+                            <span class="fz-20 c-333">+ 1000.00</span>
+                            <span class="fz-20 c-333">2.00</span>
+                            <span class="fz-20 c-333">998.00</span>
+                            <span class="fz-20 c-333">提现中</span>
+                            <span class="fz-20 c-333">2019/06/14 12:58</span>
+                        </div>
+                        <div class="list-item flex fl-align">
+                            <div class="flex col fl-align">
+                                <span class="fz-20 c-333">支付宝</span>
+                                <span class="fz-16 c-99">757***@qq.com</span>
+                            </div>
+                            <span class="fz-20 c-333">+ 1000.00</span>
+                            <span class="fz-20 c-333">2.00</span>
+                            <span class="fz-20 c-333">998.00</span>
+                            <span class="fz-20 c-333">提现中</span>
+                            <span class="fz-20 c-333">2019/06/14 12:58</span>
+                        </div>
+                        <div class="list-item flex fl-align">
+                            <div class="flex col fl-align">
+                                <span class="fz-20 c-333">支付宝</span>
+                                <span class="fz-16 c-99">757***@qq.com</span>
+                            </div>
+                            <span class="fz-20 c-333">+ 1000.00</span>
+                            <span class="fz-20 c-333">2.00</span>
+                            <span class="fz-20 c-333">998.00</span>
+                            <span class="fz-20 c-333">提现中</span>
+                            <span class="fz-20 c-333">2019/06/14 12:58</span>
+                        </div>
+                        <div class="list-item flex fl-align">
+                            <div class="flex col fl-align">
+                                <span class="fz-20 c-333">支付宝</span>
+                                <span class="fz-16 c-99">757***@qq.com</span>
+                            </div>
+                            <span class="fz-20 c-333">+ 1000.00</span>
+                            <span class="fz-20 c-333">2.00</span>
+                            <span class="fz-20 c-333">998.00</span>
+                            <span class="fz-20 c-333">提现中</span>
+                            <span class="fz-20 c-333">2019/06/14 12:58</span>
+                        </div>
+                        <div class="list-item flex fl-align">
+                            <div class="flex col fl-align">
+                                <span class="fz-20 c-333">招商银行</span>
+                                <span class="fz-16 c-99 hide"></span>
+                            </div>
+                            <span class="fz-20 c-333">+ 1000.00</span>
+                            <span class="fz-20 c-333">2.00</span>
+                            <span class="fz-20 c-333">998.00</span>
+                            <span class="fz-20 c-333">提现中</span>
+                            <span class="fz-20 c-333">2019/06/14 12:58</span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="list-three hide">
+                    <div class="list-header">
+                        <ul class="flex fl-align">
+                            <li>充值来源</li>
+                            <li>充值金额（元）</li>
+                            <li>充值状态</li>
+                            <li>充值时间</li>
+                        </ul>
+                    </div>
+                    <div class="record-list">
+                        <div class="list-item flex fl-align">
+                            <div class="flex col fl-align">
+                                <span class="fz-20 c-333">支付宝</span>
+                                <span class="fz-16 c-99">757***@qq.com</span>
+                            </div>
+                            <span class="fz-20 c-333">+ 1000.00</span>
+                            <span class="fz-20 c-333">充值成功</span>
+                            <span class="fz-20 c-333">2019/06/14 12:58</span>
+                        </div>
+                        <div class="list-item flex fl-align">
+                            <div class="flex col fl-align">
+                                <span class="fz-20 c-333">支付宝</span>
+                                <span class="fz-16 c-99">757***@qq.com</span>
+                            </div>
+                            <span class="fz-20 c-333">+ 1000.00</span>
+                            <span class="fz-20 c-333">充值成功</span>
+                            <span class="fz-20 c-333">2019/06/14 12:58</span>
+                        </div>
+                        <div class="list-item flex fl-align">
+                            <div class="flex col fl-align">
+                                <span class="fz-20 c-333">支付宝</span>
+                                <span class="fz-16 c-99">757***@qq.com</span>
+                            </div>
+                            <span class="fz-20 c-333">+ 1000.00</span>
+                            <span class="fz-20 c-333">充值成功</span>
+                            <span class="fz-20 c-333">2019/06/14 12:58</span>
+                        </div>
+                        <div class="list-item flex fl-align">
+                            <div class="flex col fl-align">
+                                <span class="fz-20 c-333">支付宝</span>
+                                <span class="fz-16 c-99">757***@qq.com</span>
+                            </div>
+                            <span class="fz-20 c-333">+ 1000.00</span>
+                            <span class="fz-20 c-333">充值成功</span>
+                            <span class="fz-20 c-333">2019/06/14 12:58</span>
+                        </div>
+                        <div class="list-item flex fl-align">
+                            <div class="flex col fl-align">
+                                <span class="fz-20 c-333">支付宝</span>
+                                <span class="fz-16 c-99">757***@qq.com</span>
+                            </div>
+                            <span class="fz-20 c-333">+ 1000.00</span>
+                            <span class="fz-20 c-333">充值成功</span>
+                            <span class="fz-20 c-333">2019/06/14 12:58</span>
+                        </div>
+                        <div class="list-item flex fl-align">
+                            <div class="flex col fl-align">
+                                <span class="fz-20 c-333">招商银行</span>
+                                <span class="fz-16 c-99 hide">757***@qq.com</span>
+                            </div>
+                            <span class="fz-20 c-333">+ 1000.00</span>
+                            <span class="fz-20 c-333">充值成功</span>
+                            <span class="fz-20 c-333">2019/06/14 12:58</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 分页器 -->
+            <div id="list-pages" class="page_div"></div>
+            <!-- 无数据 -->
+            <img src="images/no-data.png" class="no-data hide" alt="">
+        </div>
+    </div>
+    <!-- 钱包充值 -->
+    <div class="recharge hide">
+        <div class="header-line flex fl-align">
+            <div class="back-wallet flex fl-align">
+                <span class="left-icon"></span>
+                <span class="fz-16 c-666">返回我的钱包</span>
+            </div>
+            <h4 class="fz-26 c-333">钱包充值</h4>
+        </div>
+        <div class="recharge-content flex fl-align col hide">
+            <span class="fz-22 c-99">当前余额</span>
+            <p>
+                <span class="c-e5 fz-30 f-wb">￥</span>
+                <span class="c-e5 fz-48 f-wb">82892.00</span>
+            </p>
+            <!-- 充值 -->
+            <div class="recharge-line flex fl-align">
+                <span class="fz-22 c-99">充值金额</span>
+                <div class="recharge-input flex fl-align">
+                    <span class="fz-18 c-333">￥</span>
+                    <input type="text" id="getrecharge" placeholder="请输入充值金额">
+                </div>
+            </div>
+            <!-- 充值方式 -->
+            <div class="recharge-way flex fl-align">
+                <span class="fz-22 c-99">充值方式</span>
+                <div class="wx flex fl-align choosePay">
+                    <span class="wx-icon"></span>
+                    <span class="fz-20 c-333">微信充值</span>
+                </div>
+                <div class="zfb flex fl-align">
+                    <span class="zfb-ifon"></span>
+                    <span class="fz-20 c-333">支付宝充值</span>
+                </div>
+            </div>
+            <div class="recharge-btn fz-20 c-fff">确认充值</div>
+        </div>
+        <div class="recharge-results flex fl-align col">
+            <img src="images/recharge.png">
+            <p class="c-active fz-26">恭喜您成功充值￥1000.00</p>
+            <p class="c-active fz-16">充值时间 2019/06/15 13:50</p>
+            <div class="record-btn fz-20 c-fff">查看充值记录</div>
+        </div>
+    </div>
+    <!-- 余额提现 -->
+    <div class="deposit hide">
+        <div class="header-line flex fl-align">
+            <div class="back-wallet flex fl-align">
+                <span class="left-icon"></span>
+                <span class="fz-16 c-666">返回我的钱包</span>
+            </div>
+            <h4 class="fz-26 c-333">钱包提现</h4>
+        </div>
+        <div class="deposit-content flex col fl-align hide">
+            <span class="fz-22 c-99">可提现金额</span>
+            <p>
+                <span class="c-e5 fz-30 f-wb">￥</span>
+                <span class="c-e5 fz-48 f-wb">82892.00</span>
+            </p>
+            <div class="amount flex fl-align">
+                <span class="fz-22 c-99">提现金额</span>
+                <div class="amount-box">
+                    <div>
+                        <div class="amount-input flex fl-align">
+                            <span class="fz-28 c-333">￥</span>
+                            <input type="text" id="getamount" placeholder="最低100元起提">
+                            <span class="fz-16 c-hover">全部提现</span>
+                        </div>
+                        <div class="calculate flex fl-align fl-jsb">
+                            <span class="fz-16 c-6a">手续费：0.00</span>
+                            <span class="fz-16 c-6a">实际到账：0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <span class="prompt fz-16 c-6a">*钱包提现手续费为0.2%</span>
+            <div class="account flex fl-align">
+                <span class="fz-22 c-99">账户</span>
+                <input type="text" id="getaccount">
+            </div>
+            <div class="account-name flex fl-align">
+                <span class="fz-22 c-99">账户名</span>
+                <input type="text" id="getAccount-name">
+            </div>
+            <div class="blankinfo flex fl-align">
+                <span class="fz-22 c-99">开户行信息</span>
+                <input type="text" id="getblankinfo">
+            </div>
+            <div class="blank flex fl-align">
+                <span class="fz-22 c-99">银行</span>
+                <input type="text" id="getblank">
+            </div>
+            <div class="deposit-btn fz-20 c-fff">确定提现</div>
+        </div>
+        <div class="deposit-result flex col fl-align">
+            <img src="images/recharge.png">
+            <p class="c-active fz-26 f-w5">提现申请已提交</p>
+            <p class="c-active fz-16">1-3个工作日到账</p>
+            <div class="deposit-show">
+                <div>
+                    <div class="line-one flex fl-align fl-jsb">
+                        <span class="fz-20 c-666">到账账户</span>
+                        <span class="fz-20 c-666">中国建设银行****4327</span>
+                    </div>
+                    <div class="line-two flex fl-align fl-jsb">
+                        <span class="fz-20 c-666">提现金额</span>
+                        <span class="fz-20 c-666">￥1000.00</span>
+                    </div>
+                    <div class="record-btn fz-20 c-fff">查看提现记录</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $("#list-pages").paging({
+            pageNum: 1, // 当前页面
+            totalNum: 14, // 总页码
+            totalList: 6, // 记录总数量
+            callback: function (num) { //回调函数
+                // console.log(num);
+                // showList(type_id, num, 16)
+            }
+        });
+    })
+</script>

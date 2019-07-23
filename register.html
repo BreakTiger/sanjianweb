@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+    <script src="./js/rem.js"></script>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        #containers{
+            width:100%;
+            overflow:hidden;
+            position:relative;
+        }
+        /* 整体-背景图 */
+        #bodyPage {
+            width: 100%;
+            min-height: 100%;
+            height: auto !important;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index:1;
+        }
+
+        img.bg {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            z-index:2;
+            display: none;
+        }
+
+        /* 头部 */
+        #registerheader {
+            position: relative;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+        #login-header {
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* 第一行 */
+        #login-header .first {
+            padding-top: 0.23rem;
+            padding-bottom: 0.14rem;
+            border-bottom: 0.01rem solid rgba(255, 255, 255, 0.2);
+        }
+
+        #login-header .first .first-line-box {
+            width: 18rem;
+            max-width: 18rem;
+            margin: 0 auto;
+        }
+
+        /* logo */
+        #login-header .first .first-line-box .logo a img {
+            width: 1.89rem;
+            height: 0.59rem;
+        }
+
+        /* logo右侧导航 */
+        #login-header .first .first-line-box .right-nav ul li {
+            padding: 0 0.48rem;
+        }
+
+        #login-header .first .first-line-box .right-nav ul li a {
+            font-size: 0.18rem;
+            color: #FFFFFF;
+            z-index:999;
+        }
+
+        #login-header .first .first-line-box .right-nav ul li span {
+            font-size: 0.18rem;
+            color: #FFFFFF;
+        }
+
+        /* 第二行 */
+        #login-header .second {
+            padding-top: 0.19rem;
+            padding-bottom: 0.17rem;
+            color: #EBEBEB;
+            font-size: 0.2rem;
+        }
+
+        #login-header .second>ul {
+            width: 18rem;
+            max-width: 18rem;
+            margin: auto;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        #login-header .second>ul li {
+            padding-right: 0.95rem;
+        }
+
+        #login-header .second>ul li:last-child {
+            padding-right: 0.47rem;
+        }
+
+        #login-header .second>ul li a {
+            font-size: 0.2rem;
+            color: #EBEBEB;
+        }
+
+        /* 主体内容start*/
+        #box {
+            position: relative;
+            width: 14.77rem;
+            margin: auto;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            z-index: 101;
+        }
+
+        #box .word-logo {
+            width: 5.55rem;
+            height: 4.79rem;
+            padding: 0.34rem 0 1.63rem 0;
+        }
+
+        #box .word-logo img {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 注册容器 */
+        #box .registered-box {
+            width: 3.56rem;
+            background: rgba(248, 251, 255, 1);
+            box-shadow: 0 0.02rem 0.16rem 0 rgba(0, 8, 29, 0.49);
+            border-radius: 0.08rem;
+            position: absolute;
+            top: 0.34rem;
+            right: 0px;
+        }
+
+        .registered-box .title {
+            width: 3rem;
+            padding-bottom: 0.17rem;
+            text-align: center;
+            border-bottom: 0.04rem solid #FF7303;
+            margin-top: 0.36rem;
+            border-radius:0.02rem;
+        }
+
+        .registered-box .title>span {
+            font-weight: 500;
+            color: #161616;
+            font-size: 0.2rem
+        }
+
+        .registered-box .inputBox {
+            width: 2.98rem;
+            background: rgba(255, 255, 255, 1);
+            border: 1px solid rgba(239, 239, 239, 1);
+            border-radius: 0.08rem;
+            margin-top: 0.26rem;
+            margin-bottom: 0.16rem;
+        }
+
+        .registered-box .inputBox .usericon {
+            display: block;
+            width: 0.22rem !important;
+            height: 0.22rem;
+            background: url('images/rmobile.png') no-repeat center / 0.22rem;
+            margin:0.13rem;
+        }
+        .registered-box .inputBox .username{
+            width:2.52rem;
+        }
+        .registered-box .inputBox .username::placeholder {
+            font-size: 0.16rem;
+            color: #939393;
+        }
+
+        /* 获取动态码 */
+
+        .registered-box .getCode {
+            width: 2.98rem;
+            height: 0.48rem;
+            margin-bottom: 0.16rem;
+        }
+
+
+        .registered-box .getCode .Code {
+            width:1.95rem;
+            background: rgba(255, 255, 255, 1);
+            border: 0.01rem solid rgba(239, 239, 239, 1);
+            border-radius: 0.08rem;
+            margin-right: 0.1rem;
+            display:flex;
+            box-sizing:border-box;
+        }
+
+        .registered-box .getCode .Code .keyCode {
+            display: block;
+            width:0.22rem;
+            height:0.22rem;
+            background: url('images/key.png') no-repeat center/ 0.2rem;
+            margin:0.13rem;
+        }
+
+        .registered-box .getCode .Code input {
+            width:1.46rem;
+        }
+
+        .registered-box .getCode .codebtn{
+            color: #FF7303;
+            cursor:pointer;
+            text-align:center;
+            width:0.8rem;
+        }
+        .registered-box .inputBox:nth-child(4) {
+            margin-top: 0px;
+            margin-bottom: 0.26rem;
+        }
+
+        .registered-box .inputBox:nth-child(4) .lockIcon {
+            display: block;
+            width: 0.22rem;
+            height: 0.22rem;
+            background: url('images/lock.png')no-repeat center/ 0.20rem;
+            margin:0.13rem;
+        }
+
+        .registered-box .inputBox:nth-child(4) .password {
+            width: 2.04rem;
+        }
+
+        .unlook {
+            display: block;
+            width: 0.22rem;
+            height: 0.22rem;
+            background: url('images/unlook.png')no-repeat center/ 0.22rem;
+            margin:0.12rem;
+        }
+        .showicon{
+            width: 0.2rem;
+            height: 0.12rem;
+            display: block;
+            background: url('images/show.png') no-repeat center / 0.2rem;
+            margin: 0.12rem;
+        }
+
+        .registered-box .registered {
+            width: 2.98rem;
+            height: 0.48rem;
+            background: linear-gradient(90deg, rgba(255, 134, 0, 1) 0%, rgba(255, 165, 0, 1) 96%);
+            box-shadow: 0 0.03rem 0.09rem 0 rgba(255, 134, 0, 0.24);
+            border-radius: 0.08rem;
+            margin-bottom: 0.26rem;
+            text-align: center;
+            font-size: 0.2rem;
+            color: #ffffff;
+            line-height: 0.48rem;
+            cursor:pointer;
+        }
+
+        .registered-box .landing{
+            padding-bottom: 0.32rem;
+        }
+
+        .registered-box .landing span {
+            font-size: 0.14rem;
+            color: #141414;
+        }
+
+        .registered-box .landing a{
+            color: #FF7303;
+            font-weight:500;
+        }
+        /* 主体内容end */
+        #registerfooter{
+            width:100%;
+            z-index:100;
+            position:absolute;
+            bottom:0;
+            left:0;
+        }
+    </style>
+</head>
+
+
+<!--html结构区域-->
+
+<body>
+    <div id="containers">
+        <!--背景图-->
+        <div id="bodyPage">
+            <img src="resources/bak1.png" class="bg">
+            <img src="resources/bak2.png" class="bg">
+        </div>
+        <!-- 头部 -->
+        <header id="registerheader">
+            <div id="login-header">
+                <!-- 第一行 -->
+                <div class="first">
+
+                    <div class="first-line-box flex fl-jsb">
+
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="images/logo.png" alt="">
+                            </a>
+                        </div>
+
+                        <div class="right-nav flex fl-align">
+                            <ul class="flex">
+                                <li class="lineright">
+                                    <a href="javascript:;">联系我们</a>
+                                </li>
+                                <li class="lineright">
+                                    <a href="merchants.html">入驻平台</a>
+                                </li>
+                                <li class="lineright">
+                                    <a href="javascript:;">商家中心</a>
+                                </li>
+                                <li>
+                                    <a href="login.html">登录</a>
+                                    <span>/</span>
+                                    <a href="register.html">注册</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--第二行-->
+                <div class="second">
+                    <ul>
+                        <li>
+                            <a href="index.html">首页</a>
+                        </li>
+                        <li>
+                            <a href="travelindex.html">侗网·旅游</a>
+                        </li>
+                        <li>
+                            <a href="electricityindex.html">侗网·电商</a>
+                        </li>
+                        <li>
+                            <a href="educationindex.html">侗网·教育</a>
+                        </li>
+                        <li>
+                            <a href="realindex.html">侗网·房产</a>
+                        </li>
+                        <li>
+                            <a href="carindex.html">侗网·汽车</a>
+                        </li>
+                        <li>
+                            <a href="informationindex.html">侗网·信息</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <!-- 主体部分 -->
+        <section>
+            <div id="box">
+                <!--文字提示 -->
+                <div class="word-logo">
+                    <img src="images/word1.png">
+                </div>
+                <!--注册框-->
+                <div class="registered-box flex col fl-align">
+
+                    <div class="title">
+                        <span>手机注册</span>
+                    </div>
+
+                    <!--用户名 -->
+                    <div class="inputBox flex fl-align">
+                        <span class="usericon"></span>
+                        <input type="text" class="username" name="username" placeholder="请输入常用的手机号">
+                    </div>
+
+                    <!-- 获取动态码 -->
+                    <div class="getCode flex fl-align">
+                        <div class="Code flex">
+                            <span class="keyCode"></span>
+                            <input type="text" class="Dynamic-input" name="Dynamic" placeholder="请输6位动态密码"
+                                   minlength="6" maxlength="6">
+                        </div>
+                        <span class="codebtn font" do-send="true">获取动态码</span>
+                    </div>
+
+                    <!-- 密码 -->
+                    <div class="inputBox flex fl-align fl-jsb">
+                        <span class="lockIcon"></span>
+                        <input type="password" class="password" name="" placeholder="密码(6-16位字母/数字/符号)" />
+                        <span class="unlook control"></span>
+                    </div>
+
+                    <div class="registered">注册</div>
+
+                    <!--是否已有账号 -->
+                    <div class="landing">
+                        <span>已有账号？</span>
+                        <a href="login.html">登录</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--底部 -->
+        <footer id="registerfooter">
+            <div id="footer-content" style="background:rgba(72,72,72,0.5);">
+                <!-- 第一行 -->
+                <div class="first">
+                    <div class="line-box flex row fl-jsb">
+                        <div class="line-item">
+                            <div class="phone flex row fl-align">
+                                <span></span>
+                                <div class="word">
+                                    <p>24小时服务热线:</p>
+                                    <p>020-888888</p>
+                                </div>
+                            </div>
+                            <div class="adv flex row fl-align">
+                                <span></span>
+                                <div class="word">
+                                    <p>意见反馈</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="line-item">
+                            <ul>
+                                <li>
+                                    <a href="javascript:;">关于三江侗网</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">常见问题</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">免责声明</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">站务QQ</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">联系我们</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="line-item">
+                            <ul>
+                                <li>
+                                    <a href="javascript:;">商务合作</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">商家入驻</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">网站联盟</a>
+                                </li>
+                                <li class="report">
+                                    <a href="javascript:;">互联网有害信息举报</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="line-item">
+                            <ul>
+                                <li>
+                                    <a href="javascript:;">友情链接</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">友情链接</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">友情链接</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">友情链接</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">友情链接</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="line-item code">
+                            <span class="t">平台公众号</span>
+                            <span class="wx1"></span>
+                        </div>
+                        <div class="line-item code">
+                            <span class="t">招商经理</span>
+                            <span class="wx2"></span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 第二行 -->
+                <div class="second">
+                    <div class="line-box">
+                        <span>版权申明 | 粤ICP备16660061号&copy;Shangjiang.com 版权所有</span>
+                        <span>技术支持：广州黑蜂科技有限公司</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+<!-- js功能区域 -->
+<script src="./js/jquery.min.js"></script>
+<script src="./js/public.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/fullplay.js"></script>
+<script text="type/javascript">
+    $(function () {
+        var h=$('#bodyPage').height();
+        $('#containers').height(h);
+        /*全背景轮播*/
+        $("#bodyPage").fullImages({
+            ImgWidth: 1920,
+            ImgHeight: 980,
+            autoplay: 3500,
+            fadeTime: 1500
+        });
+        /*注册密码是否可见*/
+        $('.control').click(function(){
+            var type=$('input[type="password"]').prop('type');
+            if(type=='password'){
+                $('.password').prop('type','text');
+                $(this).addClass('showicon').removeClass('unlook');
+            }else{
+                $('.password').prop('type','password');
+                $(this).addClass('unlook').removeClass('showicon');
+            }
+        });
+        /*获取动态验证码*/
+        $('.codebtn').click(function(){
+            var mobile=$('.username').val();
+            var dosend=$('.codebtn').attr('do-send');
+            if(!checkPhone(mobile)){
+                return;
+            }else{
+                if(dosend=='true'){
+                    var params={mobile:mobile, length:6};
+                    ajax_post('/api/common/sendCode',params,function(r){
+                        if(r.status==200){
+                            callBack(r,{
+                                success: function(data){
+                                    ajaxTip('发送成功');
+                                    countdown(60);
+                                },
+                                fail:function(dara){
+                                    alert(data.msg);
+                                    return;
+                                }
+                            })
+
+                        }
+                    })
+                }else{
+                    return;
+                }
+            }
+        });
+        /*注册账号*/
+        $('.registered').click(function(){
+            var mobile=$('.username').val(),code=$('.Dynamic-input').val(),password=$('.password').val();
+            if(!checkPhone(mobile)){
+                return;
+            }else if(!checkCode(code)){
+                return;
+            }else if(!checkPass(password)){
+                return;
+            }
+            var params={mobile:mobile,code:code,password:password};
+            ajax_post('/api/user/register',params,function(r){
+                if(r.status==200){
+                    callBack(r,{
+                        success: function(data){
+                            ajaxTip('注册成功');
+                            setTimeout(function(){
+                                 window.location.href='login.html';
+                            },1000);
+                        },
+                    })
+                }else{
+                    ajaxTip(r.msg);
+                    return;
+                }
+            })
+        });
+
+    })
+</script>
+</html>

@@ -1,0 +1,370 @@
+/*旅游板块商家列表公用样式* create：2019/7/17  author:wen*/
+
+/*内容区域*/
+.content {
+    width: 16.8rem;
+    max-width: 16.8rem;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.left-content {
+    width: 11.68rem;
+    border-radius: 0.04rem;
+    font-size: 0.18rem;
+}
+/*广告轮播图*/
+.swiperbanner .swiper-container {
+    width: 100%;
+    height: 3.24rem;
+}
+
+.swiperbanner .swiper-container .swiper-wrapper .swiper-slide a img {
+    width: 100%;
+    height: 3.24rem;
+    margin-top:-0.04rem;
+
+}
+/* 选择导航 */
+.left-content .left-nav {
+    width: 100%;
+    padding:0.36rem 0 0.4rem 0;
+    border: 0.01rem solid rgba(239, 239, 239, 1);
+    border-radius: 0.04rem;
+    margin:0.1rem 0  0.24rem 0;
+}
+.left-nav .nav {
+    display: flex;
+    align-items: center;
+    margin-left: 0.26rem;
+    position: relative;
+}
+.left-nav .nav p {
+    font-size: 0.18rem;
+    font-family: A02-;
+    font-weight: 400;
+    color: #ABABAB;
+}
+.left-nav .nav ul {
+    display: flex;
+    position: absolute;
+    left: 1.49rem;
+    font-size: 0.18rem;
+    font-family: A03-;
+    font-weight: 500;
+    color: rgba(112, 112, 112, 1);
+}
+.left-nav .nav ul li {
+    margin-right: 0.44rem;
+    cursor: pointer;
+}
+.left-nav .nav-one {
+    margin-bottom: 0.27rem;
+}
+.left-nav .nav-two {
+    margin-bottom: 0.27rem;
+}
+.left-nav .nav-four ul li button {
+    width: 1.01rem;
+    height: 0.3rem;
+    border-radius: 0.04rem;
+    font-weight: 500;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+.left-nav  .item {
+    background: rgba(210, 210, 210, 1);
+}
+.left-nav  .b-active {
+    background-color: #0062B8;
+}
+
+/*商家列表--左侧内容卡片 */
+.left-main {
+    margin:0.25rem 0 0.2rem 0;
+}
+.left-main ul li {
+    height: 2.6rem;
+    background: #F9F9F9;
+    margin-bottom: 0.2rem;
+}
+.left-main ul li:hover {
+    background: #FFFFFF;
+    box-shadow: 0 0.02rem 0.36rem 0.02rem rgba(46, 46, 46, 0.12);
+    border-radius: 0.04rem;
+}
+.left-main ul li .c-card {
+    padding: 0.23rem 0.53rem 0.23rem 0.40rem;
+    display: flex;
+    cursor: pointer;
+}
+.left-main ul li .c-img {
+    position: relative;
+    margin-right: 0.30rem;
+}
+.left-main ul li .c-img img {
+    width: 3.84rem;
+    height: 2.14rem;
+    z-index: 99;
+}
+.left-main ul li .c-box {
+    width: 100%;
+    height: 2.14rem;
+}
+.left-main ul li .c-box .description {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.left-main ul li .c-box .description .row1 {
+    display: flex;
+    align-items: center;
+}
+.left-main ul li .c-box .description .nav-icon {
+    display: block;
+    width: 0.95rem;
+    height: 0.31rem;
+    background: url("../images/nav-right.png") no-repeat center / 0.95rem;
+    margin-right: 0.15rem;
+    font-size: 0.18rem;
+    color: rgba(254, 254, 254, 1);
+}
+.left-main ul li .c-box .description .nav-icon span {
+    display: inline-block;
+    padding: 0.06rem 0 0.07rem 0.1rem;
+}
+.left-main ul li .c-box .dtext {
+    padding: 0.24rem 0 0.33rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.left-main ul li .c-box .dtext .row2 {
+    display: flex;
+}
+.left-main ul li .c-box .dtext .row2 a:first-child {
+    margin-right: 0.16rem;
+}
+.left-main ul li .c-box .dtext .row2 a {
+    display: block;
+    width: 1.1rem;
+    height: 0.28rem;
+    background: rgba(239, 239, 239, 1);
+    border-radius: 0.14rem;
+    color: #AAAAAA;
+    font-size: 0.16rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.left-main ul li .c-box .dprice .price {
+    font-family: Arial-BoldMT;
+    font-weight: bold;
+    color: rgba(229, 54, 75, 1);
+}
+.left-main ul li .c-box .dtelphone {
+    padding: 0.16rem 0;
+}
+
+/*商家列表--右侧店铺列表 */
+.right-content{
+    margin-bottom:0.09rem;
+}
+.right-content .right-card {
+    width: 4.87rem;
+    background: rgba(249, 249, 249, 1);
+    border-radius: 0.04rem;
+    margin: 0.1rem 0 0.16rem 0;
+}
+.right-content .right-card .rcard-box {
+    padding: 0.3rem 0.24rem;
+}
+.right-content .right-card .rcard-box .rcard1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.12rem;
+}
+.right-content .right-card .rcard-box .rcard1 div:first-child {
+    display: flex;
+    align-items: center;
+}
+.right-content .right-card .rcard-box .rcard1 div:last-child a {
+    display: block;
+    width: 1rem;
+    height: 0.3rem;
+    background: #FF7303;
+    border-radius: 0.04rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.16rem;
+}
+.right-content .right-card .rcard-box .rcard1 span {
+    display: block;
+}
+.right-content .right-card .rcard-box .rcard1 .hotelicon1 {
+    width: 0.60rem;
+    height: 0.60rem;
+    margin-right: 0.2rem;
+}
+.right-content .right-card .rcard-box .rcard1 .hotelicon1 img{
+    width:100%;
+    height:100%;
+    border-radius:0.04rem;
+    -webkit-border-radius:0.04rem;
+}
+.right-content .rcard2 a img {
+    width: 4.4rem;
+    height: 2.8rem;
+}
+
+/*底部图片切换*/
+.foot {
+    width: 100%;
+    height:4rem;
+    background: url("../resources/footerbg.png") no-repeat center / 100%;
+}
+
+.foot .f-box {
+    width: 16.80rem;
+    max-width: 16.80rem;
+    margin: auto;
+    position: relative;
+}
+
+.foot .f-box .f-text {
+    text-align: center;
+}
+.foot .f-box .f-text p:first-child {
+    padding: 0.57rem 0 0.10rem 0;
+    font-size: 0.30rem;
+    font-family: NotoSansHans-Regular;
+    font-weight: 400;
+    color: rgba(22, 22, 22, 1);
+}
+.foot .f-box .f-text p:last-child {
+    font-size: 0.13rem;
+    font-family: NotoSansHans-DemiLight;
+    font-weight: normal;
+    color: rgba(98, 98, 98, 1);
+    padding-bottom: 0.45rem;
+}
+.section-inner{
+    position:relative;
+    width:16.8rem;
+    height:1.92rem;
+    overflow:hidden;
+    z-index:9;
+    margin:auto;
+}
+.section-inner .swiper-container{
+    width:15.6rem;
+    height:1.92rem;
+}
+.section-inner  .button-prev{
+    display: block;
+    width: 0.25rem;
+    height: 0.41rem;
+    background: url("../images/f-left.png") no-repeat center / 0.25rem;
+    position:absolute;
+    top:0.75rem;
+    left:0.32rem;
+    cursor:pointer;
+    outline:0;
+}
+.section-inner  .button-next{
+    display: block;
+    width: 0.25rem;
+    height: 0.41rem;
+    background: url("../images/f-right.png") no-repeat center / 0.25rem;
+    position:absolute;
+    top:0.75rem;
+    right:0;
+    cursor:pointer;
+    outline:0;
+}
+.section-inner .swiper-container .swiper-wrapper .swiper-slide{
+    width:2.8rem !important;
+    height:1.92rem !important;
+    border-radius:0.04rem;
+    -webkit-border-radius:0.04rem;
+    margin-left:0.32rem;
+}
+.section-inner .swiper-container .swiper-wrapper .swiper-slide a{
+    width:100%;
+    height:100%;
+    display: block;
+    float: left;
+    position: relative;
+    background-color: #fff;
+}
+.section-inner .swiper-container .swiper-wrapper .swiper-slide a img{
+    width:100%;
+    height:100%;
+}
+
+/*右侧返回顶部 编辑 订单入口*/
+.tabs {
+    width: 0.6rem;
+    height: 1.8rem;
+    background: rgba(255, 255, 255, 1);
+    border: 0.01rem solid rgba(217, 217, 217, 1);
+    position: absolute;
+    right:-0.7rem;
+    bottom:0.25rem;
+}
+
+.tabs a {
+    height: 0.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.tabs a:first-child {
+    border-bottom: 0.01rem solid #D9D9D9;
+}
+.tabs a:last-child {
+    background: rgba(217, 217, 217, 1);
+    font-size: 0.2rem;
+    font-family: NotoSansHans-Medium;
+    font-weight: 500;
+    color: rgba(254, 254, 254, 1);
+    line-height: 0.22rem;
+    text-align: center;
+    padding: 0 0.1rem;
+}
+.tab-ico3{
+    background:rgba(217,217,217,1);
+    height:0.6rem;
+}
+.tab-ico3 p{
+    padding:0.1rem;
+    cursor:pointer;
+}
+.tab-ico3  p span{
+    display:block;
+    text-align:center;
+    font-size:0.2rem;
+    font-family:NotoSansHans-Medium;
+    font-weight:500;
+    color:rgba(254,254,254,1);
+    line-height:0.22rem;
+
+}
+/*数据不存在时样式*/
+.other{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:1rem 0;
+    color:rgba(112, 112, 112, 1);
+}
+
+
+
+

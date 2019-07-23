@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>汽车-频道</title>
+    <script src="./js/rem.js"></script>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <!--css样式区域-->
+    <style>
+        /*广告轮播*/
+        .swiper-container {
+            width: 100%;
+            height:3.24rem;
+        }
+        .swiper-container .swiper-wrapper .swiper-slide a img {
+            width: 100%;
+            height:3.25rem;
+            margin-top:-0.05rem;
+        }
+        .main{
+            width:16.8rem;
+            max-width:16.8rem;
+            margin:auto;
+        }
+        .main .toppic{
+            margin-top:0.18rem;
+        }
+        .main .toppic a img{
+            width:16.8rem;
+            height:1rem;
+        }
+        .main .titles .title{
+            margin:0.24rem 0;
+        }
+        .main .titles .title .channel-one{
+            display:block;
+            width:0.32rem;
+            height:0.26rem;
+            background:url("images/channel2.png") no-repeat center / 0.32rem;
+            margin-right:0.05rem;
+        }
+        .main .titles .title .channel-two{
+            display:block;
+            width:0.32rem;
+            height:0.26rem;
+            background:url("images/channel1.png") no-repeat center / 0.32rem;
+            margin-right:0.05rem;
+        }
+        /*热点资讯*/
+        .main .topcontent .top-list ul{
+            display:flex;
+            flex-wrap: wrap;
+        }
+        .main .topcontent .top-list ul .li-item{
+            width:5.4rem;
+            background:#F9F9F9;
+            border-radius:0.08rem;
+            margin-bottom:0.2rem;
+            margin-right:0.2rem;
+        }
+        .main .topcontent .top-list ul .item,.main .bottomcontent .bottom-list ul .item{
+            background:#FFFFFF;
+            box-shadow:0 0.02rem 0.17rem 0.01rem rgba(0,112,211,0.14);
+        }
+        .main .topcontent .top-list ul .li-item .li-top{
+            padding:0.25rem 0 0.25rem 0.2rem;
+        }
+        .main .topcontent .top-list ul .li-item .li-top .square{
+            width:0.18rem;
+            height:0.18rem;
+            background:#0070D3;
+            border-radius:0.04rem;
+            margin-right:0.15rem;
+        }
+        .main .topcontent .top-list ul .li-item .li-center{
+            padding:0 0.32rem 0.27rem 0.52rem;
+        }
+        /*行业新闻*/
+        .bottomcontent .bottom-list ul{
+            display:flex;
+            justify-content:space-between;
+            flex-wrap: wrap;
+        }
+        .bottomcontent .bottom-list .li-elem{
+            width:8rem;
+            background:#FFFFFF;
+            margin-bottom:0.2rem;
+        }
+        .bottomcontent .bottom-list .li-elem:hover{
+            background:#FFFFFF;
+            box-shadow:0 0.02rem 0.17rem 0.01rem rgba(0,112,211,0.14);
+        }
+        .bottomcontent .bottom-list .li-elem .elem-title{
+            padding:0.16rem 0.4rem 0.24rem 0.18rem;
+        }
+        .bottomcontent .bottom-list .li-elem  .elem-text{
+            padding:0 0.4rem 0.24rem 0.18rem;
+            position:relative;
+        }
+        .bottomcontent .bottom-list .li-elem  .elem-text span{
+            cursor:pointer;
+        }
+        .bottomcontent .bottom-list .li-elem  .elem-text span:last-child{
+            position:absolute;
+            bottom:0.24rem;
+            right:0.4rem;
+        }
+
+    </style>
+</head>
+<body>
+<!--html结构区域-->
+<div id="containers">
+    <header id="header"></header>
+    <section>
+        <div id="box">
+            <!--广告轮播图-->
+            <div class="swiperbanner">
+                <div class="swiper-container">
+                    <!--包裹图片的父级元素 -->
+                    <div class="swiper-wrapper"></div>
+                </div>
+            </div>
+            <div class="main">
+                 <div class="toppic">
+                     <a href="javascript:;"><img src="resources/channel-top.png" alt=""></a>
+                 </div>
+                 <div class="topcontent titles fw-m f-w5">
+                     <div class="title flex fl-align">
+                         <span class="channel-one"></span>
+                         <p>
+                             <span class="c-333 fz-26">热点资讯</span>
+                             <span class="c-99">/</span>
+                             <span class="c-99">HOT SPOT INFORMATION</span>
+                         </p>
+                     </div>
+                     <div class="top-list">
+                         <ul class="hotlist"></ul>
+                     </div>
+                 </div>
+                 <div class="bottomcontent titles  fw-m f-w5">
+                     <div class="title flex fl-align">
+                         <span class="channel-two"></span>
+                         <p>
+                             <span class="c-333 fz-26">行业新闻</span>
+                             <span class="c-99">/</span>
+                             <span class="c-99">INDUSTRY NEWS</span>
+                         </p>
+                     </div>
+                     <div class="bottom-list">
+                         <ul class="industrylist"></ul>
+                     </div>
+                 </div>
+            </div>
+            <!-- 分页器 -->
+            <div id="pagelist2" class="page_div page_div_one"></div>
+        </div>
+    </section>
+    <div id="footer"></div>
+</div>
+</body>
+<!-- js功能区域 -->
+<script src="./js/jquery.min.js"></script>
+<script src="./js/public.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/pageMe.js"></script>
+<script src="./js/swiper.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        //获取所需参数
+        var city_id=localData('get','cityinfo').city_id || 6;
+        var sc_id=GetQueryString('sc_id');
+
+        /*调用轮播图函数 汽车频道 sc_id=12*/
+        var params={sc_id:sc_id,city_id:city_id};
+        getBanner(params);
+
+        //热点资讯
+        function getHotInformation() {
+            var param1 = {sc_id: sc_id, city_id: city_id, is_recommend:1,row:6};
+            ajax_post('/api/storeArticle/carShowList', param1, function (r) {
+                callBack(r, {
+                    success: function (data) {
+                        var hothtml = '';
+                        data.data.forEach(function (item, index) {
+                            hothtml += '<li class="li-item" data-aid="' + item.article_id + '" onclick="dolink('+item.article_id+')">' +
+                                '<div class="li-top flex fl-align">' +
+                                '<div class="square"></div>' +
+                                '<div class="clamp1 fz-22 c-333">' + item.title + '</div>' +
+                                '</div>' +
+                                '<div class="li-center clamp2 fz-18 c-666">' + item.content + '</div>' +
+                                '</li>';
+                        });
+                        $('.hotlist').append(hothtml);
+                        /*热点资讯*/
+                        $('.top-list ul .li-item').hover(
+                            function () {
+                                $(this).addClass('item').siblings().removeClass('item');
+                            },
+                            function () {
+                                $(this).removeClass('item');
+                            }
+                        )
+                    }
+                })
+            })
+        }
+        getHotInformation();
+        //行业新闻
+        function getIndustryInformation(){
+            var param2={sc_id:sc_id, city_id:city_id,is_recommend:0,row:12};
+            ajax_post('/api/storeArticle/carShowList',param2,function (r) {
+                callBack(r,{
+                    success:function(data){
+                        var industryhtml='';
+                        data.data.forEach(function(item,index){
+                            industryhtml+='<li class="li-elem" data-id="'+item.article_id+'">'+
+                                '<div class="elem-title flex fl-jsb fl-align">'+
+                                '<p class="clamp1 fz-22 c-333">'+item.title+'</p>'+
+                                '<p class="fz-18 c-99">'+item.create_time+'</p>'+
+                                '</div>'+
+                                '<div class="clamp2 elem-text fz-18 c-666">'+
+                                '<span>'+item.content+'</span>'+
+                                '<span class="c-hover" onclick="dolink('+item.article_id+')">[详细]</span>'+
+                                '</div>'+
+                                '</li>';
+                        });
+                        $('.industrylist').append(industryhtml);
+                        //分页器
+                        var totalPages = Math.ceil(data.total / data.per_page);//计算总页数
+                        $("#pagelist2").paging({
+                            pageNum: data.current_page, // 当前页面
+                            totalNum:totalPages, // 总页码
+                            totalList: data.total, // 记录总数量
+                            callback: function (num) { //回调函数
+                                var param3={sc_id:sc_id, city_id:city_id,is_recommend:0,row:12,page:num};
+                                getIndustryInformation(param3);
+                            }
+                        });
+                    }
+                })
+            })
+        }
+        getIndustryInformation();
+    })
+    function dolink(article_id){
+        window.location.href='channel_show.html?article_id='+article_id;
+    }
+
+</script>
+</html>

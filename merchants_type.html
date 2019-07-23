@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>商家入驻-入驻状态</title>
+    <script src="./js/rem.js"></script>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <style>
+        #box {
+            width: 100%;
+            height: auto;
+        }
+
+        /* 轮播图 */
+        #box .swiper-container {
+            width: 100%;
+            height: 3.24rem;
+            margin-top: -0.02rem;
+        }
+
+        #box .swiper-container .swiper-wrapper .swiper-slide a img {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 内容 */
+        .content-list {
+            width: 11.20rem;
+            margin: auto;
+            margin-top: 0.63rem;
+        }
+
+        .content-list .list-item-one {
+            width: 100%;
+            height: 3.04rem;
+            background: url('images/midway.png') no-repeat center/100%;
+            margin-bottom: 0.28rem;
+            position: relative;
+        }
+
+        .content-list .list-item-two {
+            width: 100%;
+            height: 3.78rem;
+            background: url('images/fail.png') no-repeat center/100%;
+            margin-bottom: 0.28rem;
+            position: relative;
+        }
+
+        .list-item-two .info-box {
+            width: 5rem;
+            height: 10px;
+            position: absolute;
+            top: 0.7rem;
+            left: 0.68rem;
+        }
+
+        .list-item-two .info-box .backBtn {
+            width: 2.4rem;
+            height: 0.45rem;
+            line-height: 0.45rem;
+            background: #ffffff;
+            font-size: 0.22rem;
+            color: #E65133;
+            text-align: center;
+            border-radius: 0.08rem;
+            margin-top: 0.2rem;
+            cursor: pointer;
+        }
+
+
+
+        .content-list .list-item-three {
+            width: 100%;
+            height: 3.04rem;
+            background: url('images/success.png') no-repeat center/100%;
+            position: relative;
+        }
+
+        .info-box {
+            width: 5rem;
+            height: 10px;
+            position: absolute;
+            top: 0.43rem;
+            left: 0.68rem;
+        }
+
+        .info-box>p:first-child {
+            margin-bottom: 0.59rem;
+            cursor: pointer;
+        }
+
+        .info-box>p:first-child .backicon {
+            display: block;
+            width: 0.18rem;
+            height: 0.18rem;
+            background: url('images/black.png') no-repeat center/0.18rem;
+            margin-right: 0.08rem;
+        }
+
+        .info-box>p:nth-child(2) {
+            margin-bottom: 0.28rem;
+        }
+
+        .into {
+            width: 1.71rem;
+            height: 0.45rem;
+            line-height: 0.45rem;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 0.08rem;
+            font-family: A03-;
+            color: rgba(48, 111, 25, 1);
+            text-align: center;
+        }
+
+        #footer {
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id="containers">
+        <header id="header"></header>
+        <section>
+            <div id="box">
+                <!-- 轮播图 -->
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="javascript:;">
+                                <img src="resources/in_banner.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 内容 -->
+                <div class="content-list">
+
+                    <div class="list-item-one hide">
+                        <div class="info-box fz-20 f-w4 c-fff">
+                            <p class="flex fl-align bk">
+                                <span class="backicon"></span>
+                                <span>返回首页</span>
+                            </p>
+                            <p class="fz-32 f-w5">提交成功，请等待管理员审核！</p>
+                            <p>预计1个工作日内审核完毕</p>
+                            <p>审核结果会短信通知到您的入驻联系电话上</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="list-item-two hide">
+                        <div class="info-box fz-20 c-fff f-w4">
+                            <p class="flex fl-align bk">
+                                <span class="backicon"></span>
+                                <span>返回首页</span>
+                            </p>
+                            <p class="fz-32 f-w5">抱歉，您的商户入驻审核未通过!</p>
+                            <div class="flex row ">
+                                <span>驳回原因：</span>
+                                <div class="reason">
+                                    <!-- <p>1.联系电话未能联系到本人；</p>
+                                    <p>2.上传的资质照片不够清晰。</p> -->
+                                </div>
+                            </div>
+                            <div class="backBtn" onclick="window.location.href='merchants.html'">
+                                返回修改入驻信息
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="list-item-three hide">
+                        <div class="info-box fz-20 c-fff f-w4">
+                            <p class="flex fl-align bk">
+                                <span class="backicon"></span>
+                                <span>返回首页</span>
+                            </p>
+                            <p class="fz-32 f-w5">恭喜，您的商户入驻成功!</p>
+                            <div class="into fz-22 f-w5">进入商家端</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <footer id="footer"></footer>
+    </div>
+</body>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/public.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/swiper.min.js"></script>
+<script text="type/javascript">
+    $(function () {
+        // 获取token
+        let usertoken = localData('get', 'userLoginInfo').token;
+        console.log('token:', usertoken);
+
+        // 判断是否登陆
+        if (usertoken) { //存在
+            // 查询入驻状态
+            ajax_post('/api/store/applyQuery', {}, function (r) {
+                // console.log(r);
+                callBack(r, {
+                    success: function (data) {
+                        console.log(data);
+                        
+                        let status = data.status
+                        console.log(status);
+                        if (status == 0) {
+                            $('.list-item-one').removeClass('hide');
+                        } else if (status == 1) {
+                            $('.list-item-three').removeClass('hide');
+                        } else if (status == 2) {
+                            let info = data.review_msg
+                            console.log(info)
+                            $('.reason').html(info);
+                            $('.list-item-two').removeClass('hide');
+                        } else if (status == 3) {
+                            window.location.href = "merchants.html";
+                        }
+                    }
+                })
+            })
+        } else { //不存在
+            alert('您还未登录，请先登录！');
+            window.location.href = "login.html";
+        }
+
+        // 返回首页
+        $('.bk').on('click', function () {
+            window.location.href = "index.html";
+        })
+
+        // 进入商家端
+        $('.into').on('click', function () {
+            window.location.href="http://sanjiang.heifeng.xin/bis/Admin/login.html";
+        })
+
+
+
+    });
+</script>
+
+</html>

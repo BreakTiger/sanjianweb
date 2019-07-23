@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>旅游模块-首页</title>
+    <script src="./js/rem.js"></script>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./css/icon.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <style>
+        .banner {
+            width: 100%;
+            height: 5.1rem;
+            position: relative;
+            margin-bottom:0.66rem;
+        }
+        /* 轮播图 */
+        .swiper-container {
+            width: 100%;
+        }
+
+        .swiper-container .swiper-wrapper .swiper-slide {
+            width: 100%;
+            height: 5.1rem;
+        }
+        .swiper-container .swiper-wrapper .swiper-slide>a>img {
+            width: 100%;
+            height: 100%;
+            margin-top: -0.01rem;
+        }
+        /* 下边线 */
+        .lbottom1 {
+            position: relative;
+            z-index: 0;
+        }
+        .lbottom1 ::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-bottom: 0.04rem solid #0070D3;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 1rem;
+            height: 200%;
+            -webkit-transform: scale(0.5);
+            -moz-transform: scale(0.5);
+            -ms-transform: scale(0.5);
+            transform: scale(0.5);
+            -webkit-transform-origin: left top;
+            -moz-transform-origin: left top;
+            -ms-transform-origin: left top;
+            transform-origin: left top;
+            margin: 0.17rem 0 0 0.08rem;
+
+        }
+        .lbottom1 div, .lbottom1 span, .lbottom1 a, .lbottom1 li {
+            position: relative;
+        }
+
+        /* 信息框 */
+        .banner-box {
+            width: 4.63rem;
+            height: 5.07rem;
+            background: url('resources/bg.png') no-repeat center/4.63rem;
+            position: absolute;
+            top: 0rem;
+            left: 0.59rem;
+            z-index: 100;
+        }
+        .b-content {
+            width:2.8rem;
+            z-index: 120;
+            cursor:pointer;
+            padding:0 0.3rem;
+            margin: 0.46rem auto 0.93rem;
+        }
+        .b-form {
+            margin-top: 0.41rem;
+        }
+        .b-form>form .item-hotel{
+
+        }
+        .b-form>form .item-hotel .itembox div{
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.14rem;
+        }
+
+        .b-form form .item-hotel .itembox div p:first-child {
+            width:0.7rem;
+            margin-right: 0.12rem;
+            font-size:0.18rem;
+            font-family:A02-;
+            font-weight:400;
+            color:#3F3F3F;
+            white-space:nowrap;
+        }
+
+        .b-form>form .itembox div .m-text {
+            width: 1.96rem;
+            height: 0.36rem;
+            border: 0.01rem solid #EFEFEF;
+            border-radius: 0.02rem;
+            display: flex;
+            align-items: center;
+            box-sizing:border-box;
+        }
+
+
+        .b-form>form .item-hotel .itembox div .m-text>input {
+            width: 1.67rem;
+            height: 100%;
+            text-indent: 0.08rem;
+            cursor: pointer;
+        }
+        .item-hotel .search{
+            width: 2.80rem;
+            height: 0.40rem;
+            background: linear-gradient(90deg, rgba(255, 134, 0, 1) 0%, rgba(255, 165, 0, 1) 96%);
+            border: 0.01rem solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0.03rem 0.09rem 0 rgba(255, 134, 0, 0.24);
+            border-radius: 0.02rem;
+            font-size: 0.2rem;
+            color:#FFFFFF;
+        }
+        #itembox1 .search{
+            margin-top:0.08rem;
+        }
+        #itembox2 .search,#itembox3 .search{
+            margin-top: 1.22rem;
+        }
+        /*楼层结构*/
+        .main{
+            width:16.8rem;
+            max-width:16.8rem;
+            margin:0 auto;
+        }
+        .main .floor .floor-nav{
+            border-bottom:0.02rem solid #ECEEF4;
+        }
+        .main .floor .floor-nav h1{
+            padding-bottom:0.14rem;
+        }
+        .main .floor .floor-nav .more{
+            display:flex;
+            align-items:center;
+        }
+        .main .floor .floor-nav .more span:first-child{
+            margin-right:0.12rem;
+        }
+        .main .floor .floor-nav a span{
+            display:block;
+        }
+        .main .floor .floor-img{
+            width:100%;
+            margin:0.44rem 0;
+        }
+        .main .floor .floor-img li img{
+            width:100%;
+            height:1.2rem;
+        }
+        /*酒店*/
+        .main .floor .floor-box{
+            margin-top:0.36rem;
+        }
+        .main .floor  .leftul{
+            width:12.58rem;
+
+        }
+        .main .floor  .leftul li{
+            width:4.06rem;
+            background:#FCFCFC;
+            margin-right:0.2rem;
+        }
+        .main .floor  .leftul li.elem{
+            box-shadow:0 0.02rem 0.25rem 0.02rem rgba(60,79,90,0.15);
+        }
+        .main .floor  .leftul .li-item{
+            padding:0.12rem 0.12rem 0 0.12rem;
+        }
+
+        .main .floor .leftul .li-item .pic{
+            width:3.82rem;
+            height:2.12rem;
+            border-radius:0.04rem;
+            -webkit-border-radius:0.04rem;
+            position:relative;
+        }
+        .floorbox .recommended-icon{
+            position:absolute;
+            top:0;
+            left:0;
+            width:0.58rem;
+            height:0.58rem;
+            background:url("images/recommended.png") no-repeat center / 0.58rem;
+        }
+        .main .floor  .leftul .li-item .pic img{
+            width:100%;
+            height:100%;
+        }
+        .main .floor  .leftul .li-item .titles{
+            padding:0.25rem 0 0.15rem 0;
+            border-bottom:0.01rem solid #F2F2F2;
+            margin:0 0.07rem;
+
+        }
+        .main .floor .leftul .li-item .titles .tname{
+            font-size:0.26rem;
+        }
+        .main .floor  .leftul .li-item .titles .score{
+            font-size:0.22rem;
+            font-family:NotoSansHans-Regular;
+            font-weight:400;
+            color:#FF780B;
+        }
+        .main .floor  .leftul .li-item .apartments{
+            padding:0.12rem 0;
+            border-bottom:0.01rem solid #F2F2F2;
+            box-sizing:border-box;
+            margin:0 0.07rem;
+        }
+        .main .floor .leftul .li-item .apartments .pbtn{
+            display:inline-block;
+            white-space:nowrap;
+            padding:0.04rem 0.12rem;
+            background:#EFEFEF;
+            border-radius:0.12rem;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            margin-left:0.12rem;
+        }
+        .main .floor  .leftul .li-item .address{
+            padding:0.29rem 0 0.48rem 0;
+            font-size:0.18rem;
+            margin: 0 0.07rem;
+        }
+        .main .floor  .leftul .li-item .address p:first-child{
+            padding-bottom:0.13rem;
+        }
+        .main .floor  .leftimg{
+            width:3.8rem;
+            height:4.54rem;
+            border-radius:0.04rem;
+            -webkit-border-radius:0.04rem;
+            margin-top:0.12rem;
+        }
+        .main .floor .floor-box .leftimg img{
+            width:100%;
+            height:100%;
+        }
+        /*景区*/
+        .booking{
+            padding:0.28rem 0.07rem;
+        }
+        .booking .price1{
+            font-size:0.22rem;
+            font-family:Arial-BoldMT;
+            font-weight:bold;
+            color:#E5364B;
+        }
+        .booking .price2{
+            font-size:0.36rem;
+            font-family:ArialMT;
+            font-weight:400;
+            color:#E5364B;
+            margin:0 0.05rem;
+        }
+        .booking .price3{
+            font-size:0.22rem;
+            font-size:22px;
+            font-family:A02-;
+            font-weight:400;
+            color:#333333;
+        }
+        .bookbtn{
+            width:1.2rem;
+            height:0.40rem;
+            background:#FF7303;
+            border-radius:0.08rem;
+            font-size:0.2rem;
+            font-family:NotoSansHans-Regular;
+            font-weight:400;
+            color:#FFFFFF;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+        .ttext{
+            padding-top:0.10rem;
+            font-size:0.2rem;
+            font-family:A02-;
+            font-weight:400;
+            color:rgba(170,170,170,1);
+        }
+        /*三江特产*/
+        .specialty .floor-img li{
+            margin-bottom:0.2rem;
+        }
+        .speclist{
+            margin-top:0.48rem;
+        }
+        .speclist .leftpic{
+            width:3.8rem;
+            height:7.07rem;
+            border-radius:0.04rem;
+            -webkit-border-radius:0.04rem;
+            margin-right:0.3rem;
+        }
+        .speclist .leftpic img{
+            width:100%;
+            height:100%;
+        }
+        .speclist .slist{
+            display:flex;
+            justify-content:space-between;
+            flex-wrap: wrap;
+            width:12.5rem;
+        }
+        .speclist .slist li{
+            width:2.34rem;
+            height:3.5rem;
+        }
+        .speclist .slist .li-elem{
+            padding:0 0.12rem;
+        }
+        .speclist .slist .li-elem img{
+            width:2.1rem;
+            height:2.1rem;
+            border-radius:0.04rem;
+            -webkit-border-radius:0.04rem;
+        }
+        .eprice{
+            padding:0.24rem 0 0.15rem 0;
+            border-bottom:0.01rem solid #F2F2F2;
+        }
+        .eprice p:first-child{
+            font-size:0.16rem;
+            font-family:Arial-BoldMT;
+            font-weight:bold;
+            color:rgba(229,54,75,1);
+        }
+        .etext{
+            padding:0.15rem 0;
+        }
+
+        /*各种下拉框样式*/
+        .arealist,.hotellevel{
+            position:relative;
+        }
+
+        .b-form>form .item-hotel .itembox .areaModel{
+            position:absolute;
+            top:0.44rem;
+            left:0.83rem;
+            width:1.96rem;
+            background:rgba(251,251,251,1);
+            border:0.01rem solid rgba(239,239,239,1);
+            box-shadow:0 0.02rem 0.08rem 0 rgba(46,46,46,0.1);
+            border-radius:0.02rem;
+
+        }
+        .b-form>form .item-hotel .itembox .areaModel1, .b-form>form .item-hotel .itembox .areaModel2{
+            display:none;
+            z-index:10000;
+        }
+        .areaModel ul{
+            padding:0.12rem 0 0.2rem 0.12rem;
+            font-size:0.14rem;
+            font-weight:500;
+            color:#4A4A4A;
+            line-height:0.22rem;
+        }
+         .areaModel ul li{
+            width:1.72rem;
+            border-radius:0.04rem;
+            margin-bottom:0.08rem;
+        }
+        .areaModel ul li.bhover{
+            background:#0070D3;
+            color:#FFFFFF;
+        }
+        .areaModel ul li span{
+            padding:0.06rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="containers">
+        <header id="header"></header>
+        <section>
+            <div id="box">
+                <!--广告轮播 信息框-->
+                <div class="banner">
+                    <!--广告轮播图-->
+                    <div class="swiperbanner">
+                        <div class="swiper-container">
+                            <!--包裹图片的父级元素 -->
+                            <div class="swiper-wrapper"></div>
+                        </div>
+                    </div>
+                    <!-- 信息框 -->
+                    <div class="banner-box">
+                        <div class="b-content">
+                            <div class="b-nav">
+                                <ul class="flex fl-align fl-jsb">
+                                    <li class="lbottom1" data-target="#itembox1">
+                                        <span>酒店民宿</span>
+                                    </li>
+                                    <li data-target="#itembox2">
+                                        <span>景点门票</span>
+                                    </li>
+                                    <li data-target="#itembox3">
+                                        <span>餐饮美食</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- 表单内容 -->
+                            <div class="b-form">
+                                <form action="">
+                                    <div class="item-hotel fz-18 c-3f">
+                                        <!--酒店-->
+                                        <div id="itembox1" class="itembox" >
+                                            <div>
+                                                <p>入住日期</p>
+                                                <p class="m-text">
+                                                    <input type="text" value="" readonly="readonly" id="startDate" class="nowdate"  onClick="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'%y-%M-%d',maxDate:'#F{$dp.$D(\'endDate\',{d:-1});}',doubleCalendar:true,isShowClear:false,readOnly:true,errDealMode:1})">
+                                                    <span class="date-icon"></span>
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <p>退房日期</p>
+                                                <p class="m-text">
+                                                    <input type="text" value="" readonly="readonly" id="endDate"  onClick="WdatePicker({minDate:'#F{$dp.$D(\'startDate\',{d:1});}',dateFmt:'yyyy-MM-dd',doubleCalendar:true,isShowClear:false,readOnly:true,errDealMode:1})" >
+                                                    <span class="date-icon"></span>
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <p>房间数</p>
+                                                <p class="m-text">
+                                                    <input type="text" placeholder="1间" readonly="readonly">
+                                                    <span class="down-icon"></span>
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <p>住客数</p>
+                                                <p class="m-text">
+                                                    <input type="text" placeholder="1成人" readonly="readonly">
+                                                    <span class="down-icon"></span>
+                                                </p>
+                                            </div>
+                                            <div class="hotellevel divlist">
+                                                <p>酒店级别</p>
+                                                <p class="m-text">
+                                                    <input type="text" placeholder="不限" readonly="readonly">
+                                                    <span class="down-icon"></span>
+                                                </p>
+                                                <div class="areaModel areaModel1">
+                                                    <ul>
+                                                        <li class="bhover"><span>不限</span></li>
+                                                        <li><span>五星级/豪华</span></li>
+                                                        <li><span>四星级/高档</span></li>
+                                                        <li><span>三星级/舒适</span></li>
+                                                        <li><span>二星级以下/经济</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="arealist divlist">
+                                                <p>区域选择</p>
+                                                <p class="m-text">
+                                                    <input type="text" placeholder="不限" readonly="readonly">
+                                                    <span class="down-icon"></span>
+                                                </p>
+                                                <!--区域弹窗-->
+                                                <div class="areaModel areaModel2">
+                                                    <ul>
+                                                        <li class="bhover"><span>不限</span></li>
+                                                        <li><span>城中区</span></li>
+                                                        <li><span>鱼峰区</span></li>
+                                                        <li><span>柳北区</span></li>
+                                                        <li><span>柳南区</span></li>
+                                                        <li><span>柳江县</span></li>
+                                                        <li><span>柳城县</span></li>
+                                                        <li><span>鹿寨县</span></li>
+                                                        <li><span>融安县</span></li>
+                                                        <li><span>融水苗族自治县</span></li>
+                                                        <li><span>三江侗族自治县</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <button class="search">搜索</button>
+                                        </div>
+                                        <!--景区-->
+                                        <div id="itembox2" class="itembox hide">
+                                            <div>
+                                                <p>出游日期</p>
+                                                <p class="m-text">
+                                                    <input type="text" value="" readonly="readonly" id="useDate" class="nowdate"  onClick="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'%y-%M-%d',isShowClear:false,readOnly:true,errDealMode:1})" >
+                                                    <span class="date-icon"></span>
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <p>出游人数</p>
+                                                <p class="m-text">
+                                                    <input type="text" placeholder="1成人" readonly="readonly">
+                                                    <span class="down-icon"></span>
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <p>门票类型</p>
+                                                <p class="m-text">
+                                                    <input type="text" placeholder="不限" readonly="readonly">
+                                                    <span class="down-icon"></span>
+                                                </p>
+                                            </div>
+                                            <div class="arealist divlist">
+                                                <p>区域选择</p>
+                                                <p class="m-text">
+                                                    <input type="text" placeholder="不限" readonly="readonly">
+                                                    <span class="down-icon"></span>
+                                                </p>
+                                                <!--区域弹窗-->
+                                                <div class="areaModel areaModel2">
+                                                    <ul>
+                                                        <li class="bhover"><span>不限</span></li>
+                                                        <li><span>城中区</span></li>
+                                                        <li><span>鱼峰区</span></li>
+                                                        <li><span>柳北区</span></li>
+                                                        <li><span>柳南区</span></li>
+                                                        <li><span>柳江县</span></li>
+                                                        <li><span>柳城县</span></li>
+                                                        <li><span>鹿寨县</span></li>
+                                                        <li><span>融安县</span></li>
+                                                        <li><span>融水苗族自治县</span></li>
+                                                        <li><span>三江侗族自治县</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <button class="search">搜索</button>
+                                        </div>
+                                        <!--餐饮美食-->
+                                        <div id="itembox3" class="itembox hide">
+                                            <div>
+                                                <p>用餐日期</p>
+                                                <p class="m-text">
+                                                    <input type="text" value="" readonly="readonly" id="eatDate" class="nowdate" onClick="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'%y-%M-%d',isShowClear:false,readOnly:true,errDealMode:1})">
+                                                    <span class="date-icon"></span>
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <p>用餐人数</p>
+                                                <p class="m-text">
+                                                    <input type="text" placeholder="1成人" readonly="readonly">
+                                                    <span class="down-icon"></span>
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <p>餐饮类型</p>
+                                                <p class="m-text">
+                                                    <input type="text" placeholder="不限" readonly="readonly">
+                                                    <span class="down-icon"></span>
+                                                </p>
+                                            </div>
+                                            <div class="arealist divlist">
+                                                <p>区域选择</p>
+                                                <p class="m-text">
+                                                    <input type="text" placeholder="不限" readonly="readonly">
+                                                    <span class="down-icon"></span>
+                                                </p>
+                                                <!--区域弹窗-->
+                                                <div class="areaModel areaModel2">
+                                                    <ul>
+                                                        <li class="bhover"><span>不限</span></li>
+                                                        <li><span>城中区</span></li>
+                                                        <li><span>鱼峰区</span></li>
+                                                        <li><span>柳北区</span></li>
+                                                        <li><span>柳南区</span></li>
+                                                        <li><span>柳江县</span></li>
+                                                        <li><span>柳城县</span></li>
+                                                        <li><span>鹿寨县</span></li>
+                                                        <li><span>融安县</span></li>
+                                                        <li><span>融水苗族自治县</span></li>
+                                                        <li><span>三江侗族自治县</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <button class="search">搜索</button>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--主体内容-->
+                <div class="main">
+                    <div class="floorbox">
+                         <!--酒店/公寓/客栈-->
+                         <div class="floor" data-val="7">
+                             <div class="floor-nav flex fl-jsb fl-align">
+                                  <h1 class="fz-32">酒店/公寓/客栈</h1>
+                                  <a href="travel_hotel.html?sc_id=7" class="more">
+                                      <span class="fz-18 c-hover">查看更多</span>
+                                      <span class="arrow-icon"></span>
+                                  </a>
+                             </div>
+                             <div class="floor-box flex fl-jsb">
+                                 <ul class="leftul hotelul flex"></ul>
+                                 <div class="leftimg">
+                                     <img src="resources/ta2.png" alt="">
+                                 </div>
+                             </div>
+                             <ul  class="floor-img">
+                                 <li>
+                                     <img src="resources/ad_2.png" alt="">
+                                 </li>
+                             </ul>
+                         </div>
+                         <!--风景景区-->
+                         <div class="floor" data-val="8">
+                            <div class="floor-nav flex fl-jsb fl-align">
+                                <h1 class="fz-32">景点门票</h1>
+                                <a href="travel_scenic.html?sc_id=8" class="more">
+                                    <span class="fz-18 c-hover">查看更多</span>
+                                    <span class="arrow-icon"></span>
+                                </a>
+                            </div>
+                            <div class="floor-box flex fl-jsb">
+                                <ul class="leftul scenicul flex"></ul>
+                                <div class="leftimg">
+                                    <img src="resources/advert10.png" alt="">
+                                </div>
+                            </div>
+                            <ul  class="floor-img">
+                                <li>
+                                    <img src="resources/ad_2.png" alt="">
+                                </li>
+                            </ul>
+                        </div>
+                         <!--旅游路线-->
+                         <div class="floor" data-val="10">
+                            <div class="floor-nav flex fl-jsb fl-align">
+                                <h1 class="fz-32">旅游路线</h1>
+                                <a href="travel_guide.html?sc_id=10" class="more">
+                                    <span class="fz-18 c-hover">查看更多</span>
+                                    <span class="arrow-icon"></span>
+                                </a>
+                            </div>
+                            <div class="floor-box flex fl-jsb">
+                                <ul class="leftul guideul flex"></ul>
+                                <div class="leftimg">
+                                    <img src="resources/advert10.png" alt="">
+                                </div>
+                            </div>
+                            <ul  class="floor-img">
+                                <li>
+                                    <img src="resources/ad_1.png" alt="">
+                                </li>
+                            </ul>
+                        </div>
+                         <!--吃在三江-->
+                         <div class="floor" data-val="9">
+                            <div class="floor-nav flex fl-jsb fl-align">
+                                <h1 class="fz-32">吃在三江</h1>
+                                <a href="travel_food.html?sc_id=9" class="more">
+                                    <span class="fz-18 c-hover">查看更多</span>
+                                    <span class="arrow-icon"></span>
+                                </a>
+                            </div>
+                            <div class="floor-box flex fl-jsb">
+                                <ul class="leftul foodul flex"></ul>
+                                <div class="leftimg">
+                                    <img src="resources/advert10.png" alt="">
+                                </div>
+                            </div>
+                            <ul  class="floor-img">
+                                <li>
+                                    <img src="resources/ad_1.png" alt="">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--三江特产-->
+                    <div class="floor specialty">
+                        <div class="floor-nav flex fl-jsb fl-align">
+                            <h1 class="fz-32">三江特产</h1>
+                            <a href="travel_hotel.html?sc_id=7" class="more">
+                                <span class="fz-18 c-hover">查看更多</span>
+                                <span class="arrow-icon"></span>
+                            </a>
+                        </div>
+                        <div class="speclist flex">
+                            <div class="leftpic">
+                                <img src="resources/advert11.png" alt="">
+                            </div>
+                            <ul class="slist">
+                                <li>
+                                    <div class="li-elem">
+                                        <img src="resources/fruit1.png" alt="">
+                                        <div class="eprice flex fl-jsb fl-align">
+                                            <p><span>¥</span><span class="fz-22">34.90</span></p>
+                                            <p class="fz-14 c-6b">1066人付款</p>
+                                        </div>
+                                        <p class="clamp2 etext c-333">新鲜果蔬，大自然的馈赠，数量有限，售完即止</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="li-elem">
+                                        <img src="resources/fruit2.png" alt="">
+                                        <div class="eprice flex fl-jsb fl-align">
+                                            <p><span>¥</span><span class="fz-22">34.90</span></p>
+                                            <p class="fz-14 c-6b">1066人付款</p>
+                                        </div>
+                                        <p class="clamp2 etext c-333">新鲜果蔬，大自然的馈赠，数量有限，售完即止</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="li-elem">
+                                        <img src="resources/fruit3.png" alt="">
+                                        <div class="eprice flex fl-jsb fl-align">
+                                            <p><span>¥</span><span class="fz-22">34.90</span></p>
+                                            <p class="fz-14 c-6b">1066人付款</p>
+                                        </div>
+                                        <p class="clamp2 etext c-333">新鲜果蔬，大自然的馈赠，数量有限，售完即止</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="li-elem">
+                                        <img src="resources/manual1.png" alt="">
+                                        <div class="eprice flex fl-jsb fl-align">
+                                            <p><span>¥</span><span class="fz-22">34.90</span></p>
+                                            <p class="fz-14 c-6b">1066人付款</p>
+                                        </div>
+                                        <p class="clamp2 etext c-333">新鲜果蔬，大自然的馈赠，数量有限，售完即止</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="li-elem">
+                                        <img src="resources/manual2.png" alt="">
+                                        <div class="eprice flex fl-jsb fl-align">
+                                            <p><span>¥</span><span class="fz-22">34.90</span></p>
+                                            <p class="fz-14 c-6b">1066人付款</p>
+                                        </div>
+                                        <p class="clamp2 etext c-333">新鲜果蔬，大自然的馈赠，数量有限，售完即止</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="li-elem">
+                                        <img src="resources/fruit1.png" alt="">
+                                        <div class="eprice flex fl-jsb fl-align">
+                                            <p><span>¥</span><span class="fz-22">34.90</span></p>
+                                            <p class="fz-14 c-6b">1066人付款</p>
+                                        </div>
+                                        <p class="clamp2 etext c-333">新鲜果蔬，大自然的馈赠，数量有限，售完即止</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="li-elem">
+                                        <img src="resources/fruit2.png" alt="">
+                                        <div class="eprice flex fl-jsb fl-align">
+                                            <p><span>¥</span><span class="fz-22">34.90</span></p>
+                                            <p class="fz-14 c-6b">1066人付款</p>
+                                        </div>
+                                        <p class="clamp2 etext c-333">新鲜果蔬，大自然的馈赠，数量有限，售完即止</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="li-elem">
+                                        <img src="resources/fruit3.png" alt="">
+                                        <div class="eprice flex fl-jsb fl-align">
+                                            <p><span>¥</span><span class="fz-22">34.90</span></p>
+                                            <p class="fz-14 c-6b">1066人付款</p>
+                                        </div>
+                                        <p class="clamp2 etext c-333">新鲜果蔬，大自然的馈赠，数量有限，售完即止</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="li-elem">
+                                        <img src="resources/manual1.png" alt="">
+                                        <div class="eprice flex fl-jsb fl-align">
+                                            <p><span>¥</span><span class="fz-22">34.90</span></p>
+                                            <p class="fz-14 c-6b">1066人付款</p>
+                                        </div>
+                                        <p class="clamp2 etext c-333">新鲜果蔬，大自然的馈赠，数量有限，售完即止</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="li-elem">
+                                        <img src="resources/manual2.png" alt="">
+                                        <div class="eprice flex fl-jsb fl-align">
+                                            <p><span>¥</span><span class="fz-22">34.90</span></p>
+                                            <p class="fz-14 c-6b">1066人付款</p>
+                                        </div>
+                                        <p class="clamp2 etext c-333">新鲜果蔬，大自然的馈赠，数量有限，售完即止</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                         <ul class="floor-img">
+                            <li>
+                                <img src="resources/ad_1.png" alt="">
+                            </li>
+                            <li>
+                                <img src="resources/ad_2.png" alt="">
+                            </li>
+                            <li>
+                                <img src="resources/ad_3.png" alt="">
+                            </li>
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+        <footer id="footer"></footer>
+    </div>
+</body>
+<!-- js功能区域 -->
+<script src="./js/jquery.min.js"></script>
+<script src="./js/public.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/swiper.min.js"></script>
+<script src="./js/My97DatePicker/WdatePicker.js"></script>
+<script text="type/javascript">
+    $(function () {
+        var city_id=localData('get','cityinfo').city_id || 6;
+
+        /*调用轮播图函数 旅游板块首页 sc_id=2*/
+        var param={sc_id:2,city_id:city_id};
+        getBanner(param);
+
+        /*获取楼层结构的内容*/
+        $('.floorbox .floor').each(function(index,item){
+            var sc_id=$(item).data('val');
+            var param={keyword:'',area_id:city_id,sc_id:sc_id,row:3};
+            getAllList(param);
+        })
+        function getAllList(params){
+            ajax_post('/api/store/commonList',params,function(r){
+                callBack(r,{
+                    success:function(res){
+                      var arr=res.data;
+                      arr.forEach(function(item,index){
+                          if(item.sc_id==7){  //酒店
+                              var hotelhtml='<li data-id="'+item.store_id+'" onclick="dolinkone('+item.store_id+')">'+
+                                         '<div class="li-item">'+
+                                             '<div class="pic">'+
+                                                 '<img src="'+item.store_cover+'" alt="">'+
+                                                 '<span class="'+(item.store_recommend==0?'':'recommended-icon')+'"></span>'+
+                                             '</div>'+
+                                             '<div class="titles flex fl-jsb">'+
+                                                 '<span class="tname">'+item.store_name+'</span>'+
+                                                 '<span class="score">'+item.score+'.0分</span>'+
+                                             '</div>'+
+                                             '<div class="apartments flex fl-jsb fl-align fw-r">'+
+                                                 '<p class="c-6b">'+item.attr_name+'</p>'+
+                                                 '<p class="c-90 flex">'+
+                                                     '<span class="pbtn">'+item.sales_count+'人住过</span>'+
+                                                     '<span class="pbtn">'+item.comment_count+'条评价</span>'+
+                                                 '</p>'+
+                                             '</div>'+
+                                             '<div class="address c-6b">'+
+                                                 '<p>联系电话：<span class="c-hover">'+item.store_phone+'</span></p>'+
+                                                 '<p>地址：<span>'+item.store_address+'</span></p>'+
+                                             '</div>'+
+                                         '</div>'+
+                                     '</li>';
+                              $('.hotelul').append(hotelhtml);
+                          }else if(item.sc_id==8){ //景区
+                              var scenichtml='<li data-id="'+item.store_id+'">'+
+                                         '<div class="li-item">'+
+                                             '<div class="pic">'+
+                                                 '<img src="'+item.store_cover+'" alt="">'+
+                                                 '<span class="'+(item.store_recommend==0?'':'recommended-icon')+'"></span>'+
+                                             '</div>'+
+                                             '<div class="titles">'+
+                                                 '<p class="tname">'+item.store_name+'</p>'+
+                                                 '<p class="ttext">拥有丰富的海洋岫岩资源</p>'+
+                                             '</div>'+
+                                             '<div class="apartments flex fl-jsb fl-align fw-r">'+
+                                                 '<p class="c-6b">'+item.attr_name+'</p>'+
+                                                 '<p class="c-90 flex">'+
+                                                     '<span class="pbtn">'+item.sales_count+'人住过</span>'+
+                                                     '<span class="pbtn">'+item.comment_count+'条评价</span>'+
+                                                 '</p>'+
+                                             '</div>'+
+                                             '<div class="booking c-6b flex fl-jsb">'+
+                                                  '<p>'+
+                                                      '<span class="price1">¥</span>'+
+                                                      '<span class="price2">'+item.min_consume+'</span>'+
+                                                      '<span class="price3">起</span>'+
+                                                  '</p>'+
+                                                  '<a href="scenic_show.html?store_id='+item.store_id+'" class="bookbtn">立即预定</a>'+
+                                             '</div>'+
+                                         '</div>'+
+                                     '</li>';
+                              $('.scenicul').append(scenichtml);
+                          }else if(item.sc_id==9){//美食
+                              var foodhtml='<li data-id="'+item.store_id+'" onclick="dolinktwo('+item.store_id+')">'+
+                                         '<div class="li-item">'+
+                                             '<div class="pic">'+
+                                                 '<img src="'+item.store_cover+'" alt="">'+
+                                                 '<span class="'+(item.store_recommend==0?'':'recommended-icon')+'"></span>'+
+                                             '</div>'+
+                                             '<div class="titles flex fl-jsb">'+
+                                                 '<span class="tname">'+item.store_name+'</span>'+
+                                                 '<span class="score">'+item.score+'.0分</span>'+
+                                             '</div>'+
+                                             '<div class="apartments flex fl-jsb fl-align fw-r">'+
+                                                 '<p class="c-6b">'+item.attr_name+'</p>'+
+                                                 '<p class="c-90 flex">'+
+                                                     '<span class="pbtn">'+item.sales_count+'人住过</span>'+
+                                                     '<span class="pbtn">'+item.comment_count+'条评价</span>'+
+                                                 '</p>'+
+                                             '</div>'+
+                                             '<div class="address c-6b">'+
+                                                 '<p>联系电话：<span class="c-hover">'+item.store_phone+'</span></p>'+
+                                                 '<p>地址：<span>'+item.store_address+'</span></p>'+
+                                             '</div>'+
+                                         '</div>'+
+                                     '</li>';
+                              $('.foodul').append(foodhtml);
+                          }else if(item.sc_id==10){//路线
+                              var guidehtml='<li data-id="'+item.store_id+'">'+
+                                         '<div class="li-item">'+
+                                             '<div class="pic">'+
+                                                 '<img src="'+item.store_cover+'" alt="">'+
+                                                 '<span class="'+(item.store_recommend==0?'':'recommended-icon')+'"></span>'+
+                                             '</div>'+
+                                             '<div class="titles">'+
+                                                 '<p class="tname">'+item.store_name+'</p>'+
+                                             '</div>'+
+                                             '<div class="apartments flex fl-jsb fl-align fw-r">'+
+                                                 '<p class="c-6b">'+item.attr_name+'</p>'+
+                                                 '<p class="c-90 flex">'+
+                                                     '<span class="pbtn">'+item.sales_count+'人住过</span>'+
+                                                     '<span class="pbtn">'+item.comment_count+'条评价</span>'+
+                                                 '</p>'+
+                                             '</div>'+
+                                             '<div class="booking c-6b flex fl-jsb">'+
+                                                  '<p>'+
+                                                      '<span class="price1">¥</span>'+
+                                                      '<span class="price2">'+item.min_consume+'</span>'+
+                                                      '<span class="price3">起</span>'+
+                                                  '</p>'+
+                                                  '<a href="guide_show.html?store_id='+item.store_id+'" class="bookbtn">立即预定</a>'+
+                                             '</div>'+
+                                         '</div>'+
+                                     '</li>';
+                              $('.guideul').append(guidehtml);
+                          }
+                      });
+                      /*悬停动效*/
+                      $('.leftul li').hover(
+                        function(){
+                            $(this).addClass('elem').siblings().removeClass('elem');
+                        },
+                        function(){
+                            $(this).removeClass('elem');
+                        }
+                      );
+                    }
+
+                })
+            })
+        }
+
+        /*###信息框中功能####*/
+        $('.nowdate').val(getDateStr(0));
+        $('#endDate').val(getDateStr(1));
+        //
+        $('.b-nav ul').on('click', 'li[data-target]', function () {
+            $(this).addClass('lbottom1').siblings().removeClass('lbottom1');
+            $($(this).data('target')).removeClass('hide').siblings().addClass('hide');
+        });
+        //酒店级别弹窗
+        $('.hotellevel .m-text').click(function(){
+            var that=$(this);
+            $('.areaModel1').slideToggle();
+            $(this).find('span').toggleClass('top-icon');
+            //子元素悬停切换
+            $('.areaModel1 ul li').hover(
+                function(){
+                    $(this).addClass('bhover').siblings().removeClass('bhover');
+                },
+                function(){}
+            );
+            $(this).siblings('.areaModel1').find('ul').on('click','li',function(){
+                that.find('input').val($(this).text());
+                that.find('span').removeClass('top-icon').addClass('down-icon');
+                $(this).parents('.areaModel1').slideUp();
+                $(this).addClass('bhover');
+            })
+        });
+        //区域弹窗
+        $('.arealist .m-text').click(function(){
+            var that=$(this);
+            $('.areaModel2').slideToggle();
+            $(this).find('span').toggleClass('top-icon');
+            //子元素悬停切换
+            $('.areaModel2 ul li').hover(
+                function(){
+                    $(this).addClass('bhover').siblings().removeClass('bhover');
+                },
+                function(){}
+            );
+            $(this).siblings('.areaModel2').find('ul').on('click','li',function(){
+                that.find('input').val($(this).text());
+                that.find('span').removeClass('top-icon').addClass('down-icon');
+                $(this).parents('.areaModel2').slideUp();
+                $(this).addClass('bhover');
+            })
+
+        });
+        //点击除弹窗内容以外关闭弹窗
+        $(document).mouseup(function(e) {
+            var  pop = $('.divlist');
+            if(!pop.is(e.target) && pop.has(e.target).length === 0) {
+                $('.areaModel1,.areaModel2').slideUp();
+                $('.hotellevel .m-text span,.arealist  .m-text span').removeClass('top-icon').addClass('down-icon');
+            }
+        });
+    })
+    //链接跳转，在getAllList函数调用
+    function dolinkone(store_id){
+        window.location.href='hotel_show.html?store_id='+store_id;
+    }
+    function dolinktwo(store_id){
+        window.location.href='food_show.html?store_id='+store_id;
+    }
+</script>
+
+</html>

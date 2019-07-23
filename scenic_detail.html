@@ -1,0 +1,951 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>汽车-洗车详情</title>
+    <script src="./js/rem.js"></script>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <!--css样式区域-->
+    <style>
+        /*广告轮播*/
+        .swiper-container {
+            width: 100%;
+        }
+        .swiper-container .swiper-wrapper .swiper-slide a img {
+            width: 100%;
+            height:3.25rem;
+            margin-top:-0.03rem;
+        }
+        .main{
+            width:16.8rem;
+            max-width:16.8rem;
+            margin:auto;
+            padding-bottom:0.8rem;
+        }
+        .main .topmain{
+            width:16.8rem;
+            background:#FFFFFF;
+            box-shadow:0 0.02rem 0.24rem 0 rgba(46,46,46,0.1);
+            border-radius:0.08rem;
+            margin-bottom:0.28rem;
+            position:relative;
+        }
+        /*头部左侧图片*/
+        .main .topmain .topbox{
+            padding:0.2rem 0 0.35rem 0.2rem;
+        }
+        .main .topmain .topbox .lefttop{
+            width:7rem;
+            margin-right:0.28rem;
+        }
+        .main .topmain .topbox .lefttop .gallery-top{
+            overflow:hidden;
+        }
+        .main .topmain .topbox .lefttop .gallery-top .swiper-wrapper .swiper-slide{
+            width:6.99rem;
+            height:3.87rem;
+            z-index: 1;
+        }
+        .gallery-thumbs{
+            padding-top:0.12rem;
+            overflow:hidden;
+        }
+        .gallery-thumbs .swiper-wrapper .swiper-slide{
+            width:2.2rem;
+            height:1.3rem;
+        }
+        .gallery-thumbs .swiper-slide {
+            height: 100%;
+            opacity: 0.6;
+        }
+        .gallery-thumbs .swiper-slide-thumb-active {
+            opacity: 1;
+        }
+
+        .main .topmain .topbox .lefttop .pic{
+            position:relative;
+        }
+
+        .main .topmain .topbox .lefttop .pic .icon{
+            display:block;
+            width:0.63rem;
+            height:1.21rem;
+            position:absolute;
+            z-index:99;
+        }
+        .main .topmain .topbox .lefttop .pic .icon1{
+            display:block;
+            width:0.15rem;
+            height:0.27rem;
+            position:absolute;
+            z-index:100;
+        }
+        .main .topmain .topbox .lefttop .pic .lefts .left-semicircle{
+            background:url("images/b-left.png") no-repeat center / 0.63rem;
+            top:1.25rem;
+            left:0;
+        }
+        .main .topmain .topbox .lefttop .pic .lefts .left-icon{
+            background:url("images/lefts.png") no-repeat center / 0.15rem;
+            top:1.72rem;
+            left:0.16rem;
+        }
+        .main .topmain .topbox .lefttop .pic .rights .right-semicircle{
+            background:url("images/b-right.png") no-repeat center / 0.63rem;
+            top:1.25rem;
+            right:0;
+        }
+        .main .topmain .topbox .lefttop .pic .rights .right-icon{
+            background:url("images/rights.png") no-repeat center / 0.15rem;
+            top:1.72rem;
+            right:0.16rem;
+        }
+        /*头部右侧内容*/
+        .righttop .introduce h3{
+            padding:0.1rem 0 0.35rem 0;
+
+        }
+        .righttop .introduce .price{
+            padding-bottom:0.3rem;
+        }
+        .righttop .introduce .price .ptxxt{
+            margin-right:0.26rem;
+        }
+        .righttop .introduce .price .iprice{
+            font-family:Arial-BoldMT;
+            font-weight:bold;
+            color:#E5364B;
+        }
+        .righttop .introduce .price .iprice .iline{
+            width:0.6rem;
+            height:0.01rem;
+            background:#E5364B;
+            margin:0 0.11rem 0 0.08rem;
+        }
+        .righttop .introduce .rtext{
+            width:6.54rem;
+            height:4.03rem;
+            background:#F6F6F6;
+        }
+        .righttop .introduce .rtext .row{
+            display:flex;
+            align-items:center;
+            padding:0 0 0.2rem 0.2rem;
+        }
+        .righttop .introduce .rtext .textlist{
+            padding-top:0.2rem;
+        }
+        .righttop .introduce .rtext .row ul{
+            display:flex;
+        }
+        .righttop .introduce .rtext .row ul li{
+            margin-right:0.25rem;
+            color:#6B6B6B;
+            font-size:0.16rem;
+            font-family:NotoSansHans-Medium;
+            font-weight:500;
+            cursor:pointer;
+        }
+        .righttop .introduce .rtext .row ul li.active{
+            background:rgba(255,255,255,1);
+            box-shadow:0 0.02rem 0.04rem 0 rgba(23,21,13,0.06);
+            border-radius:0.12rem;
+            color:#FF7303 !important;
+        }
+        .righttop .introduce .rtext .row ul li span{
+            display:inline-block;
+            padding:0.04rem 0.08rem;
+        }
+
+        .righttop .introduce .rtext .row p{
+            margin-right:0.42rem;
+            color:#838383;
+        }
+        .itemdate .i-date{
+            width:1.66rem;
+            height:0.28rem;
+            background:rgba(251,251,251,1);
+            border:0.01rem solid rgba(221,221,221,1);
+            border-radius:0.04rem;
+            position:relative;
+            cursor:pointer;
+
+        }
+        .itemdate .i-date .day{
+            position:absolute;
+            top:0.07rem;
+            left:1.05rem;
+            font-size:0.14rem;
+            font-family:A03-;
+            font-weight:500;
+            color:rgba(112,112,112,1);
+        }
+        .itemdate .i-date .date-icon{
+            width: 0.14rem;
+            height: 0.14rem;
+            background: url("images/date_icon.png") no-repeat center / 0.14rem;
+            position: absolute;
+            right: 0.12rem;
+        }
+        .itemdate .i-date input{
+            padding-left:0.1rem;
+            font-size:0.14rem;
+            font-family:A02-;
+            font-weight:400;
+            color:rgba(51,51,51,1);
+        }
+        .itemcount {
+            display: flex;
+            align-items: center;
+        }
+        .itemcount .account {
+            display: flex;
+            align-items: center;
+            width: 0.8rem;
+            height: 0.26rem;
+            background: rgba(251, 251, 251, 1);
+            border: 0.01rem solid rgba(221, 221, 221, 1);
+            border-radius: 0.04rem;
+        }
+        .itemcount .account span {
+            display: block;
+            width: 0.24rem;
+            text-align: center;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            height: 0.26rem;
+            color: #707070;
+            cursor:pointer;
+
+        }
+        .itemcount .account input {
+            width: 0.32rem;
+            height: 0.26rem;
+            text-align: center;
+            font-size: 0.14rem;
+            font-family: ArialMT;
+            font-weight: 400;
+            color: rgba(51, 51, 51, 1);
+            border: 0.01rem solid rgba(221, 221, 221, 1);
+            box-sizing: border-box;
+            border-bottom: none;
+            border-top: none;
+        }
+        .righttop .introduce .rtext .buybtn{
+            display:block;
+            width:2rem;
+            height:0.6rem;
+            background:#FF7303;
+            border-radius:0.08rem;
+            font-size:0.26rem;
+            font-family:NotoSansHans-Medium;
+            font-weight:500;
+            color:rgba(255,255,255,1);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            margin:0.72rem 0 0 0.28rem;
+        }
+        .righttop  .salesnum{
+            width:2.25rem;
+            height:0.6rem;
+            background:rgba(255,245,230,1);
+            border-radius:0.08rem;
+            position:absolute;
+            top: 0.77rem;
+            right: 0;
+        }
+        .righttop  .salesnum div{
+            text-align:center;
+        }
+        .righttop  .salesnum div:first-child{
+            margin: 0.1rem 0.4rem 0.1rem 0.5rem;
+        }
+
+        /*底部左侧内容*/
+        .bottommain .leftbottom{
+            width:11.68rem;
+            background:rgba(255,255,255,1);
+            border:0.01rem solid rgba(170, 170, 170, 0.3);
+            border-radius:0.04rem;
+        }
+        .bottommain .leftbottom .bottombox{
+            width:100%;
+            height:0.7rem;
+        }
+        .bottommain .leftbottom .bottombox ul li{
+            width:1.7rem;
+            height:0.7rem;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            border-bottom:0.01rem solid rgba(170, 170, 170, 0.3);
+            color:#707070;
+            cursor:pointer;
+        }
+        .bottommain .leftbottom .bottombox ul li:first-child{
+            border-right:0.01rem solid rgba(170, 170, 170, 0.3);
+        }
+        .bottommain .leftbottom .bottombox ul li.elem{
+            border-top:0.04rem solid #0070D3 !important;
+            border-bottom:none !important;
+            color:#161616 !important;
+        }
+        .bottommain .leftbottom .bottombox .line{
+            width:8.28rem;
+            height:0.7rem;
+            border-bottom:0.01rem solid rgba(170, 170, 170, 0.3);
+        }
+        .boxlist{
+             padding:0.45rem 0.3rem;
+             height:9.55rem;
+             max-height:9.55rem;
+             overflow-y:auto;
+
+        }
+        .boxlist::-webkit-scrollbar{
+            width:0;
+            height:0.1rem;
+            border:0.01rem solid #D2DEF6;
+        }
+        .boxlist::-webkit-scrollbar-thumb{
+
+            background:#5784DF;
+            border-radius:0.05rem;
+        }
+        .boxlist h3{
+            padding-bottom:0.16rem;
+        }
+        /*累计评价*/
+        #litwo{
+            display:none;
+            padding: 0.47rem 0.26rem 0.85rem 0.26rem;
+
+        }
+        #litwo ul .list-item .line-1 {
+            margin-bottom: 0.14rem;
+        }
+
+        #litwo ul  .list-item .line-1 .user>img {
+            width: 0.6rem;
+            height: 0.6rem;
+            border-radius: 50%;
+            margin-right: 0.2rem;
+        }
+
+        #litwo ul  .list-item .line-1 .username>p:first-child {
+            margin-bottom: 0.12rem;
+        }
+        #litwo ul  .list-item .line-2 {
+            margin-left: 0.8rem;
+            margin-bottom: 0.17rem;
+            line-height:0.26rem;
+        }
+
+        #litwo ul  .list-item .line-3 {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 0.11rem;
+            cursor:pointer;
+        }
+        #litwo ul  .list-item .line-4 {
+            margin-left: 0.8rem;
+            margin-bottom: 0.32rem;
+        }
+        #litwo ul  .list-item .line-4>ul>li {
+            width: 1.4rem;
+            height: 1.4rem;
+            margin-right: 0.08rem;
+            border-radius:0.04rem;
+            -webkit-border-radius:0.04rem;
+
+        }
+        #litwo ul  .list-item .line-4>ul>li>img {
+            width: 100%;
+            height: 100%;
+            border-radius:0.04rem;
+            -webkit-border-radius:0.04rem;
+            transition: all 1.5s linear;
+        }
+        #litwo ul  .list-item .line-4>ul>li>img:hover{
+            transform:translateY(-0.1rem);
+        }
+        .more{
+            display:none;
+            width:100%;
+            height:0.45rem;
+            color:#FF7303;
+            border-top:0.01rem solid rgba(170, 170, 170, 0.3);
+            text-align:center;
+            padding-top:0.35rem;
+            cursor:pointer;
+        }
+        .c-more .more-icon {
+            display: block;
+            width: 0.09rem;
+            height: 0.05rem;
+            background: url("images/down_icon1.png") no-repeat center / 0.09rem;
+            margin-left: 0.07rem;
+        }
+        .c-more .more-icon1{
+            display: block;
+            width: 0.09rem;
+            height: 0.05rem;
+            background: url("images/top_icon1.png") no-repeat center / 0.09rem;
+            margin-left: 0.07rem;
+        }
+
+        /*右侧店铺和店铺列表*/
+        .rightbottom{
+            width:4.88rem;
+        }
+        .listbox1 .shopcontent{
+            width:100%;
+            height:1.76rem;
+            background:#F7F7F7;
+            border-radius:0.04rem;
+            -webkit-border-radius:0.04rem;
+        }
+        .listbox1 .shopcontent .shop{
+            padding:0.24rem 0.2rem 0.32rem 0.2rem;
+            display:flex;
+        }
+        .listbox1 .shopcontent .shop .shoplogo{
+            width:1.2rem;
+            height:1.2rem;
+            border-radius:100%;
+            margin-right:0.15rem;
+        }
+        .listbox1 .shopcontent .shop .shoptext h3{
+            padding:0.14rem 0 0.24rem 0;
+            font-size:0.26rem;
+        }
+        .listbox1 .shopcontent .shop .shoptext .p1{
+            padding-bottom:0.16rem;
+            font-size:0.18rem;
+            font-weight:400;
+            color:#6B6B6B;
+        }
+        .listbox1 .shopcontent .shop .shoptext .p2{
+            font-size:0.14rem;
+            font-weight:400;
+            color:#707070;
+            white-space:nowrap;
+        }
+        .listbox1 .shopcontent .shop .shoptext .p2 span:first-child{
+            margin-right:0.25rem;
+        }
+        .goshop{
+            display:block;
+            width:1.2rem;
+            height:0.4rem;
+            background:#FF7303;
+            border-radius:0.04rem;
+            -webkit-border-radius:0.04rem;
+            font-size:0.2rem;
+            font-family:NotoSansHans-Medium;
+            font-weight:500;
+            color:#FFFFFF;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            margin:0.7rem 0 0 0.4rem;
+        }
+        .shoplist{
+            width:100%;
+            background:#F7F7F7;
+            border-radius:0.04rem;
+            margin-top:0.16rem;
+        }
+        .shoplist h3{
+            padding:0.3rem 0 0.27rem 0;
+            font-size:0.26rem;
+            font-family:NotoSansHans-Medium;
+            font-weight:500;
+            padding-left:0.25rem;
+        }
+        .shoplist  ul li{
+            padding-left:0.25rem;
+        }
+        .shoplist  ul li:hover{
+            background:#FFFFFF;
+        }
+        .shoplist  ul li .li-item{
+            padding:0.09rem 0;
+            display:flex;
+            border-radius:0.04rem;
+            -webkit-border-radius:0.04rem;
+
+        }
+        .shoplist  ul li .li-item img{
+            width:1.8rem;
+            height:1.8rem;
+            border-radius:0.04rem;
+            -webkit-border-radius:0.04rem;
+        }
+        .shoplist  ul li .li-item .litext{
+           margin:0 0.16rem;
+            width:2.53rem;
+        }
+        .shoplist  ul li .li-item .litext .li1{
+            font-size:0.22rem;
+            font-family:NotoSansHans-Medium;
+            font-weight:500;
+            color:rgba(51,51,51,1);
+            line-height:0.28rem;
+        }
+        .shoplist  ul li .li-item .litext .li2{
+            padding:0.2rem 0 0.6rem 0;
+            font-size:0.14rem;
+            font-family:NotoSansHans-Regular;
+            font-weight:400;
+            color:rgba(112,112,112,1);
+        }
+        .shoplist  ul li .li-item .litext .li3{
+            font-family:Arial-BoldMT;
+            font-weight:bold;
+            color:#E5364B;
+        }
+    </style>
+</head>
+<body>
+<!--html结构区域-->
+<div id="containers">
+    <header id="header"></header>
+    <section>
+        <div id="box">
+            <!--广告轮播图-->
+            <div class="swiperbanner">
+                <div class="swiper-container">
+                    <!--包裹图片的父级元素 -->
+                    <div class="swiper-wrapper"></div>
+                </div>
+            </div>
+            <div class="main">
+                <!--头部区域-->
+                <div class="topmain">
+                    <div class="topbox flex">
+                        <div class="lefttop">
+
+                            <div class="pic">
+                                <div class="gallery-top">
+                                    <div class="swiper-wrapper"></div>
+                                </div>
+                                <div class="lefts">
+                                    <span class="left-semicircle icon"></span>
+                                    <span class="left-icon icon1"></span>
+                                </div>
+                                <div class="rights">
+                                    <span class="right-semicircle icon"></span>
+                                    <span class="right-icon icon1"></span>
+                                </div>
+                            </div>
+                            <div class="swiper-container gallery-thumbs">
+                                <div class="swiper-wrapper"></div>
+                            </div>
+                        </div>
+                        <div class="righttop">
+                            <div class="introduce"></div>
+                            <div class="salesnum flex fl-align"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--底部区域-->
+                <div class="bottommain flex fl-jsb">
+                    <div class="leftbottom">
+                        <div class="bottombox flex">
+                            <ul class="flex fl-align">
+                                <li class="elem" data-target="#lione">商品详情</li>
+                                <li data-target="#litwo" class="lititle">累计评价&#40;<span>0</span>&#41;</li>
+                            </ul>
+                            <div class="line"></div>
+                        </div>
+                        <div class="boxlist">
+                            <div id="lione"></div>
+                            <div id="litwo"><ul class="litwoul"></ul></div>
+                        </div>
+                        <div class="more"><span>查看更多评论</span></div>
+                    </div>
+                    <div class="rightbottom">
+                        <!--商家列表-->
+                        <div class="listbox1">
+                            <div class="shopcontent">
+                                <div class="shop"></div>
+                            </div>
+                            <div class="shoplist">
+                                <h3>其他门票</h3>
+                                <ul></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="footer"></div>
+</div>
+</body>
+<!-- js功能区域 -->
+<script src="./js/jquery.min.js"></script>
+<script src="./js/public.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/swiper.min.js"></script>
+<script src="./js/jedate.js"></script>
+<script src="./js/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript">
+
+    $(function(){
+        //获取所需参数
+        var city_id=localData('get','cityinfo').city_id || 6;
+        var goods_id=GetQueryString("goods_id");
+
+        /*调用轮播图函数，景区sc_id=8*/
+        var param={sc_id:8,city_id:city_id};
+        getBanner(param);
+
+        /*获取景区详情*/
+        var params={sc_id:8,goods_id:goods_id};
+        var detailhtml='';
+        ajax_post('/api/goods/detail',params,function(r){
+            callBack(r,{
+                success:function(data){
+                    $('#lione').html(data.content);
+                    var arr1=data.images;
+                    var smallimghtml='';
+                    var bigimghtml='';
+                    arr1.forEach(function(item,index){
+                        //景区详情图片
+                        bigimghtml+='<div class="swiper-slide" style="background:url('+item+') no-repeat center / 6.99rem"></div>';
+                        smallimghtml+='<div class="swiper-slide" style="background:url('+item+') no-repeat center / 2.2rem "></div>';
+
+                    });
+                    //图片切换
+                    $('.lefttop .gallery-top .swiper-wrapper').append(bigimghtml);
+                    $('.lefttop .gallery-thumbs .swiper-wrapper').append(smallimghtml);
+                    var galleryThumbs = new Swiper('.lefttop .gallery-thumbs', {
+                        spaceBetween: 10,
+                        slidesPerView: 3,
+                        freeMode: true,
+                        loopedSlides: 3,
+                        watchSlidesVisibility: true,
+                        watchSlidesProgress: true,
+                    });
+                    var galleryTop = new Swiper('.lefttop .gallery-top', {
+                        spaceBetween: 10,
+                        loopedSlides: 3,
+                        navigation: {
+                            nextEl: '.rights',
+                            prevEl: '.lefts',
+                        },
+                        thumbs: {
+                            swiper: galleryThumbs,
+                        },
+                    });
+                    //获取门票 场次 类型
+                    var arr2=data.spec_list;
+                    var allhtml='';
+                    arr2.forEach(function(elem,key){
+                         var singlehtml='';
+                         var singlearr=elem.level;
+                         singlearr.forEach(function(obj,i){
+                             singlehtml+='<li data-val="'+obj.id+'"><span>'+obj.name+'</span></li>';
+                         })
+                         allhtml+='<div class="row" data-id="'+elem.id+'">'+
+                                        '<p>'+elem.name+'</p>'+
+                                        '<ul data-specid="" class="ul'+key+'">'+singlehtml+'</ul>'+
+                                   '</div>';
+                    });
+                    //订单内容详情
+                    detailhtml='<h3 class="fz-26 clamp1">'+data.name+'</h3>'+
+                                '<div class="price flex fl-align c-e5">'+
+                                    '<p class="c-6b ptxxt">价格</p>'+
+                                    '<div class="iprice flex fl-align">'+
+                                        '<p class="price1">'+
+                                            '<span class="fz-20">¥</span><span class="fz-28">'+data.min_price+'</span>'+
+                                        '</p>'+
+                                        '<p class="iline"></p>'+
+                                        '<p class="price2">'+
+                                            '<span class="fz-20">¥</span><span class="fz-28">'+data.max_price+'</span>'+
+                                        '</p>'+
+                                    '</div>'+
+                                '</div>'+
+                                '<div class="rtext" data-store="'+data.store_id+'">'+
+                                    '<div class="t-text">'+
+                                        '<div class="textlist">'+
+                                            allhtml+
+                                            '<div class="itemdate row">'+
+                                                '<p>日期</p>'+
+                                                '<div class="i-date flex fl-align">'+
+                                                    '<input type="text" value="'+getDateStr(1)+'" readonly="readonly"class="usetime" id="useDate"><span class="day"></span><span class="date-icon"></span>'+
+                                                '</div>'+
+                                            '</div>'+
+                                            '<div class="itemcount row">'+
+                                                '<p>数量</p>'+
+                                                '<p class="account">'+
+                                                    '<span class="reducenum">-</span>'+
+                                                    '<input type="text" value="1" readonly="readonly" class="gonum">'+
+                                                    '<span class="addnum">+</span>'+
+                                                '</p>'+
+                                                '<p class="inventory"><p>'+
+                                            '</div>'+
+                                        '</div>'+
+                                        '<a href="javascript:;" class="buybtn">立即购买</a>'+
+                                    '</div>'+
+                                '</div>';
+                    $('.righttop .introduce').append(detailhtml);
+                    //遍历门票，类型，场次并切换获取库存
+                    $('.textlist ul').each(function(key,item){
+                        $(item).on('click','li',function(){
+                               $(this).addClass('active').siblings().removeClass('active');
+                               var usedate=$('.usetime').val(); //使用日期
+                               var id=$(this).data('val');
+                               $(this).parent().attr('data-specid',id)
+                               var id0=$('.ul0').attr('data-specid');
+                               var id1=$('.ul1').attr('data-specid');
+                               var id2=$('.ul2').attr('data-specid');
+                               var arrs=[id0,id1,id2];
+                               var ids=bouncer(arrs);
+                               getInventory(ids,usedate);
+                        });
+                    });
+
+                    //使用时间
+                    $(document).on("click","#useDate" ,function(e){
+                        WdatePicker({
+                            el: e.target,
+                            minDate:getDateStr(1),
+                            dateFmt:'yyyy-MM-dd',
+                            isShowClear:false,
+                            readOnly:true,
+                            errDealMode:1,
+                            onpicked:doData
+                        });
+                    });
+                    function doData(){
+                        var id0=$('.ul0').attr('data-specid');
+                        var id1=$('.ul1').attr('data-specid');
+                        var id2=$('.ul2').attr('data-specid');
+                        var arrs=[id0,id1,id2];
+                        var ids=bouncer(arrs);
+                        getInventory(ids,usedate)
+                    }
+                    //购买数量的加减
+                    $('.reducenum').click(function(){
+                        var buycount=parseInt($(this).next().val());
+                        if(buycount>1){
+                            buycount--;
+                            $(this).next().val(buycount);
+                        }else{
+                            $(this).next().val(1);
+                        }
+                    })
+                    $('.addnum').click(function(){
+                        var buycount=parseInt($(this).prev().val());
+                        var totalcount=$('.icount').text();
+                        if(totalcount<=1 || totalcount==''){
+                            $(this).attr('disabled','true');
+                        }else{
+                            $(this).removeAttr('disabled');
+                        }
+                        if(buycount!='' && totalcount!=''){
+                            if(buycount<totalcount){
+                                buycount++;
+                                $(this).prev().val(buycount);
+                            }else{
+                                alert('已达到最多购买数量');
+                                return;
+                            }
+                        }
+                    })
+                    //获取景区库存函数
+                    function getInventory(ids,use_date){
+                        var html='';
+                          ajax_post('/api/spec/scenicByIds',{ids:ids,use_date:use_date,goods_id:goods_id},function(r){
+                              callBack(r,{
+                                  success:function(data){
+                                     html='<span>剩余</span><span class="c-e5 icount">'+data.inventory+'</span>'+
+                                            '<input type="hidden" class="tprice" value="'+data.price+'">';
+
+                                     $('.iprice .price1 span').eq(1).text(data.price);
+                                     $('.iprice .price1').siblings().hide();
+                                  }
+                              })
+                              $('.inventory').html(html);
+                          })
+                    }
+                    //保存选择的类型
+                    $('.buybtn').click(function(){
+                        var id0=$('.ul0').attr('data-specid');
+                        var id1=$('.ul1').attr('data-specid');
+                        var id2=$('.ul2').attr('data-specid');
+                        var arrs=[id0,id1,id2];
+                        var ids=bouncer(arrs);
+                         if(ids==''){
+                             alert('请选择门票套餐情况');
+                             return;
+                         }else{
+                             var specid=ids;
+                             var usedate=$('.usetime').val();
+                             var count=$('.gonum').val();
+                             var price=$('.price1 span:last').text();
+                             var inventory=$('.inventory span').eq(1).text();//剩余库存
+                             console.log(ids,usedate,count, price,inventory)
+                             localData('set','spec',{
+                                 'specid':ids,//门票。场次，类型
+                                 'count':count,//购买数量
+                                 'price':price,// 价格
+                                 'usedate':usedate,//使用日期
+                                 'inventory':inventory //剩余库存
+                             });
+                             window.location.href='scenic_order.html?goods_id='+goods_id;
+                         }
+                    });
+                    //获取销量和评价
+                    var counthtml='<div>'+
+                                    '<p class="c-hover fz-18">'+data.sales_count+'</p>'+
+                                    '<p class="fz-14 c-6b">销量</p>'+
+                                   '</div>'+
+                                    '<div>'+
+                                        '<p class="c-hover fz-18">'+data.comment_count+'</p>'+
+                                        '<p  class="fz-14 c-6b">评价</p>'+
+                                    '</div>';
+                    $('.salesnum').append(counthtml);
+                    //景区的
+                    var paramlist={store_id:data.store_id,row:3};
+                    getScenicComment(paramlist);
+
+                    //景区获取其它门票数据
+                    var otherparams={store_id:data.store_id,goods_id:goods_id,row:3};
+                    getScenicOtherList(otherparams);
+
+                    //点击查看更多评论
+                    var row=3
+                    $('.more span').click(function(){
+                        row=row+3;
+                        var morelist={store_id:data.store_id,row:row};
+                        getScenicComment(morelist);
+                    })
+                }
+            })
+        })
+        function getScenicComment(params){
+            $('#litwo .litwoul').html('');
+            ajax_post('/api/comment/ListByStore',params,function(r){
+                callBack(r,{
+                    success:function(data){
+                        $('.lititle span').html(data.list.total);
+                        var Array=data.list.data;
+                        var commnethtml='';
+                        Array.forEach(function(item,index){
+                            //评论中展示图片
+                            var imgarr=item.images;
+                            var imghtml='';
+                            function doimg(imgarr){
+                                for(var j=0;j<imgarr.length;j++){
+                                    imghtml+='<li><img src="'+imgarr[j]+'"></li>';
+                                }
+                            }
+                            doimg(imgarr);
+                            commnethtml+='<li class="list-item" data-id="'+item.comment_id+'">'+
+                                        '<div class="line-1 flex row fl-align fl-jsb">'+
+                                            '<div class="user flex fl-align">'+
+                                                '<img src="'+item.user.head_pic+'" alt="">'+
+                                                '<div class="username" data-uid="'+item.user_id+'">'+
+                                                    '<p class="fz-18 c-333 f-w5">'+item.user.nickname+'</p>'+
+                                                    '<p class="fz-14 c-90 f-w5">'+item.goods_name+'</p>'+
+                                                '</div>'+
+                                            '</div>'+
+                                            '<span class="fz-14 c-70 f-w5">'+filterDateTime(item.create_time)+'</span>'+
+                                        '</div>'+
+                                        '<div class="line-2">'+
+                                            '<p>'+item.content+'</p>'+
+                                        '</div>'+
+                                        '<div class="line-3 c-more">'+
+                                            '<span class="fz-16 c-active '+(item.images.length==0?'hide':'on')+'">'+(item.images.length==0?"":"展开")+'</span>'+
+                                            '<span class="more-icon '+(item.images.length==0?'hide':'on')+'"></span>'+
+                                        '</div>'+
+                                        '<div class="line-4">'+
+                                            '<ul class="flex">'+imghtml+'</ul>'+
+                                        '</div>'
+                                    '</li>';
+                        })
+                        $('#litwo .litwoul').append(commnethtml);
+                        //图片是否展开功能
+                        $('#litwo ul').on('click','.c-more',function(){
+                            $(this).siblings('.line-4').toggle();
+                            var display= $(this).siblings('.line-4').css('display');
+                            if(display=='block'){
+                                $(this).find('span:last').addClass('more-icon').removeClass('more-icon1');
+                            }else{
+                                $(this).find('span:last').addClass('more-icon1').removeClass('more-icon');
+                            }
+                        })
+                    }
+                })
+            })
+        }
+        function getScenicOtherList(params){
+            var store_id=params.store_id;
+            ajax_post('/api/goods/ScenicOtherList',params,function(r){
+                callBack(r,{
+                    success:function(data){
+                        var otherhtml='',storehtml='';
+                        var goodslist=data.goods_list;
+                        goodslist.forEach(function(item,index){
+                                otherhtml+='<li>'+
+                                                '<div class="li-item" data-id="'+item.id+'">'+
+                                                    '<img src="'+item.img+'" alt="">'+
+                                                    '<div class="litext">'+
+                                                        '<p class="li1">'+item.name+'</p>'+
+                                                        '<p class="li2"><span>'+item.sales_count+'</span>销量</p>'+
+                                                        '<p class="li3">'+
+                                                            '<span class="fz-20">¥</span>'+
+                                                            '<span class="fz-28">'+item.max_price+'</span>'+
+                                                        '</p>'+
+                                                    '</div>'+
+                                                '</div>'+
+                                            '</li>';
+                            })
+                        $('.shoplist ul').append(otherhtml);
+                        storehtml='<img src="'+data.store.store_logo+'" alt="" class="shoplogo">'+
+                            '<div class="shoptext">'+
+                            '<h3 class="fw-m">'+data.store.store_name+'</h3>'+
+                            '<p class="p1 fw-r">旅游类</p>'+
+                            '<p class="p2 fw-r"><span>'+data.store.goods_count+'件商品</span><span>'+data.store.sales_count+'销量</span></p>'+
+                        '</div>'+
+                        '<a href="scenic_show.html?store_id='+store_id+'" class="goshop">进店逛逛</a>';
+                        $('.shop').append(storehtml);
+                    }
+                })
+            })
+        }
+
+        /*切换div*/
+        $('.bottombox ul').on('click','li[data-target]',function(){
+            $(this).addClass('elem').siblings().removeClass('elem');
+            $($(this).data('target')).show().siblings().hide();
+            if($(this).data('target')=='#litwo'){
+                $('.more').show();
+            }else{
+                $('.more').hide();
+            }
+        })
+
+
+
+
+
+    })
+
+
+</script>
+</html>

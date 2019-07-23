@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>汽车板块-洗车服务</title>
+    <script src="./js/rem.js"></script>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <!--css样式区域-->
+    <style>
+        /*广告轮播*/
+        .swiper-container {
+            width: 100%;
+            height:3.25rem;
+        }
+        .swiper-container .swiper-wrapper .swiper-slide a img {
+            width: 100%;
+            height:3.25rem;
+            margin-top:-0.03rem;
+        }
+        .main{
+            width:16.8rem;
+            max-width:16.8rem;
+            margin:auto;
+        }
+        .main .leftmain{
+            width:11.6rem;
+        }
+        /*筛选条件*/
+        .main .leftmain .toplist{
+            width:11.6rem;
+            border:1px solid #EFEFEF;
+            border-radius:0.04rem;
+            border-top:none;
+            margin-bottom:0.24rem;
+        }
+        .main .leftmain .toplist p{
+            font-size:0.18rem;
+            font-family:A02-;
+            font-weight:400;
+            color:#ABABAB;
+            margin-right:0.58rem;
+        }
+        .main .leftmain .toplist ul li{
+            margin-right:0.44rem;
+            font-size:0.18rem;
+            font-family:A03-;
+            font-weight:500;
+            color:#707070;
+        }
+        .main .leftmain .toplist .arealist{
+            padding:0.37rem 0 0.28rem 0.26rem;
+
+        }
+        .main .leftmain .toplist .arealist ul{
+            cursor:pointer;
+        }
+        .main .leftmain .toplist .conditionlist{
+           padding:0 0 0.38rem 0.26rem;
+        }
+        .main .leftmain .toplist .conditionlist ul li a{
+            display:block;
+            width:1rem;
+            height:0.3rem;
+            background:#D2D2D2;
+            border-radius:0.04rem;
+            font-size:0.16rem;
+            font-weight:500;
+            color:#FFFFFF;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+        /*车列表*/
+        .main .leftmain .listbox{
+            margin:0 0.12rem;
+        }
+        .main .leftmain .listbox ul{
+            display:flex;
+            justify-content:space-between;
+            flex-wrap: wrap;
+        }
+        .main .leftmain .listbox ul li{
+            width:3.74rem;
+            position:relative;
+            margin-bottom:0.24rem;
+        }
+        .main .leftmain .listbox ul li.item{
+            background:rgba(255,255,255,1);
+            box-shadow:0 0.04rem 0.2rem 0 rgba(8,24,38,0.18);
+        }
+        .main .leftmain .listbox ul li .libox{
+            margin:0 0.1rem;
+        }
+        .main .leftmain .listbox ul li .libox .liimg{
+            padding-top:0.1rem;
+        }
+        .main .leftmain .listbox ul li .libox .liimg img{
+            width:3.5rem;
+            height:1.9rem;
+            border-radius:0.04rem;
+            -webkit-border-radius:0.04rem;
+        }
+        .main .leftmain .listbox ul li .libox .lititle{
+            padding:0.16rem 0 0.24rem 0;
+            border-bottom:1px solid #F2F2F2;
+        }
+        .main .leftmain .listbox ul li .libox .liprice{
+            padding:0.2rem 0 0.22rem 0;
+        }
+        .main .leftmain .listbox ul li .libox .liprice .salesnum{
+            width:0.95rem;
+            height:0.2rem;
+            background:#EFEFEF;
+            border-radius:0.12rem;
+            font-size:0.16rem;
+            font-family:NotoSansHans-Regular;
+            font-weight:400;
+            color:#AAAAAA;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            white-space:nowrap;
+        }
+        .main .leftmain .listbox ul li .lipic{
+            width:1.8rem;
+            height:0.32rem;
+            background:url("images/carservice.png") no-repeat center / 1.8rem;
+            position:absolute;
+            top:0.2rem;
+            left:0.05rem;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-family:NotoSansHans-Regular;
+            color:#FFFFFF;
+        }
+        /* 选择导航 */
+        .left-nav {
+            width: 100%;
+            padding:0.36rem 0 0.4rem 0;
+            border: 0.01rem solid rgba(239, 239, 239, 1);
+            border-radius: 0.04rem;
+            margin-bottom:0.24rem;
+        }
+        .left-nav .nav {
+            display: flex;
+            align-items: center;
+            margin-left: 0.26rem;
+            position: relative;
+        }
+        .left-nav .nav p {
+            font-size: 0.18rem;
+            font-family: A02-;
+            font-weight: 400;
+            color: #ABABAB;
+        }
+        .left-nav .nav ul {
+            display: flex;
+            position: absolute;
+            left: 1.49rem;
+            font-size: 0.18rem;
+            font-family: A03-;
+            font-weight: 500;
+            color: rgba(112, 112, 112, 1);
+        }
+        .left-nav .nav ul li {
+            margin-right: 0.44rem;
+            cursor: pointer;
+        }
+        .left-nav .nav-one {
+            margin-bottom: 0.27rem;
+        }
+        .left-nav .nav-two {
+            margin-bottom: 0.27rem;
+        }
+        .left-nav .nav-four ul li button {
+            width: 1.01rem;
+            height: 0.3rem;
+            border-radius: 0.04rem;
+            font-weight: 500;
+            color: #FFFFFF;
+            cursor: pointer;
+        }
+        .left-nav  .item {
+            background: rgba(210, 210, 210, 1);
+        }
+        .left-nav  .b-active {
+            background-color: #0062B8;
+        }
+        /*右侧列表*/
+        .rightmain{
+            width:4.8rem;
+            margin-bottom:0.24rem;
+            background:#F7F7F7;
+        }
+        .rightmain .listbox1 h3{
+            margin:0.28rem;
+        }
+        .rightmain .listbox1 ul li{
+           padding-bottom:0.14rem;
+        }
+        .rightmain .listbox1 ul li .elem{
+            background:#FFFFFF !important;
+        }
+        .rightmain .listbox1 .box1-list{
+            margin:0.1rem 0.28rem;
+        }
+        .rightmain .listbox1 .box1-list .rightlistpic a img{
+            width:1.8rem;
+            height:1.8rem;
+            margin-right:0.18rem;
+            border-radius:0.04rem;
+            -webkit-border-radius:0.04rem;
+        }
+        .rightmain .listbox1 .box1-list .rightlisttext{
+            width:2.25rem;
+        }
+        .rightmain .listbox1 .box1-list .rightlisttext .p1{
+            border-bottom:0.01rem solid #ECECEC;
+        }
+        .rightmain .listbox1 .box1-list .rightlisttext .p2{
+            padding:0.08rem 0;
+            color:#707070;
+        }
+        .rightmain .listbox1 .box1-list .rightlisttext .p3{
+            padding-bottom:0.08rem;
+            border-bottom:0.01rem solid #ECECEC;
+        }
+        .rightmain .listbox1 .box1-list .rightlisttext .p4{
+            padding-top:0.48rem;
+        }
+        .rightmain .listbox1 .box1-list .rightlisttext .ltext{
+            display:block;
+            padding:0.07rem 0 0.18rem 0;
+
+        }
+        .rightmain .love-icon{
+            display:block;
+            width:0.2rem;
+            height:0.18rem;
+            background:url("images/collect.png") no-repeat center / 0.2rem;
+            cursor:pointer;
+        }
+        .rightmain .liicon{
+            display:block;
+            width:0.15rem;
+            height:0.15rem;
+            margin-right:0.08rem;
+        }
+        .rightmain .licon1{
+            background:url("images/level1.png") no-repeat center / 0.15rem;
+        }
+        .rightmain .licon2{
+            background:url("images/level3.png") no-repeat center / 0.15rem;
+        }
+        .other{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            margin:1rem 0;
+            color:rgba(112, 112, 112, 1);
+        }
+
+
+    </style>
+</head>
+<body>
+<!--html结构区域-->
+<div id="containers">
+    <header id="header"></header>
+    <section>
+        <div id="box">
+                <!--广告轮播图-->
+                <div class="swiperbanner">
+                    <div class="swiper-container">
+                        <!--包裹图片的父级元素 -->
+                        <div class="swiper-wrapper"></div>
+                    </div>
+                </div>
+                <div class="main flex fl-jsb">
+                    <div class="leftmain left-content">
+                        <!-- 导航 -->
+                        <div class="left-nav">
+                            <div class="nav-one nav">
+                                <p>区域筛选</p>
+                                <ul  data-val=""></ul>
+                            </div>
+                            <div class="nav-four nav">
+                                <p>筛选条件</p>
+                                <ul data-val="1">
+                                    <li data-id="1">
+                                        <button class="item">综合排序</button>
+                                    </li>
+                                    <li data-id="2">
+                                        <button class="item">销量排序</button>
+                                    </li>
+                                    <li data-id="3">
+                                        <button class="item">价格排序</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="listbox flex fl-jsb">
+                            <ul></ul>
+                        </div>
+                        <!-- 分页器 -->
+                        <div id="pagelist2" class="page_div page_div_one"></div>
+                        <div class="other">暂无符合条件的查询</div>
+                    </div>
+                    <div class="rightmain">
+                        <div class="listbox1">
+                            <h3 class="fz-26 fw-m">推荐商家</h3>
+                            <ul>
+                                <li>
+                                    <div class="box1-list flex">
+                                        <div class="rightlistpic">
+                                            <a href="javascript:;"><img src="resources/service1.png" alt=""></a>
+                                        </div>
+                                        <div class="rightlisttext">
+                                            <p class="flex fl-jsb fl-align p1">
+                                                <span class="fz-22 c-333 fw-m ltext">锦湖洗车店</span>
+                                                <span class="love-icon"></span>
+                                            </p>
+                                            <p class="p2">200条评价</p>
+                                            <div class="flex p3">
+                                                <p class="flex fl-align">
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon2"></span>
+                                                </p>
+                                                <p class="c-hover">4分</p>
+                                            </div>
+                                            <p class="p4">
+                                                <span class="fz-20 f-wb c-e5">¥</span>
+                                                <span class="fz-26 f-wb c-e5">29.90</span>
+                                                <span class="c-70 fw-m">/起</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="box1-list flex">
+                                        <div class="rightlistpic">
+                                            <a href="javascript:;"><img src="resources/service1.png" alt=""></a>
+                                        </div>
+                                        <div class="rightlisttext">
+                                            <p class="flex fl-jsb fl-align p1">
+                                                <span class="fz-22 c-333 fw-m ltext">锦湖洗车店</span>
+                                                <span class="love-icon"></span>
+                                            </p>
+                                            <p class="p2">200条评价</p>
+                                            <div class="flex p3">
+                                                <p class="flex fl-align">
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon2"></span>
+                                                </p>
+                                                <p class="c-hover">4分</p>
+                                            </div>
+                                            <p class="p4">
+                                                <span class="fz-20 f-wb c-e5">¥</span>
+                                                <span class="fz-26 f-wb c-e5">29.90</span>
+                                                <span class="c-70 fw-m">/起</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="box1-list flex">
+                                        <div class="rightlistpic">
+                                            <a href="javascript:;"><img src="resources/service1.png" alt=""></a>
+                                        </div>
+                                        <div class="rightlisttext">
+                                            <p class="flex fl-jsb fl-align p1">
+                                                <span class="fz-22 c-333 fw-m ltext">锦湖洗车店</span>
+                                                <span class="love-icon"></span>
+                                            </p>
+                                            <p class="p2">200条评价</p>
+                                            <div class="flex p3">
+                                                <p class="flex fl-align">
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon2"></span>
+                                                </p>
+                                                <p class="c-hover">4分</p>
+                                            </div>
+                                            <p class="p4">
+                                                <span class="fz-20 f-wb c-e5">¥</span>
+                                                <span class="fz-26 f-wb c-e5">29.90</span>
+                                                <span class="c-70 fw-m">/起</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="box1-list flex">
+                                        <div class="rightlistpic">
+                                            <a href="javascript:;"><img src="resources/service1.png" alt=""></a>
+                                        </div>
+                                        <div class="rightlisttext">
+                                            <p class="flex fl-jsb fl-align p1">
+                                                <span class="fz-22 c-333 fw-m ltext">锦湖洗车店</span>
+                                                <span class="love-icon"></span>
+                                            </p>
+                                            <p class="p2">200条评价</p>
+                                            <div class="flex p3">
+                                                <p class="flex fl-align">
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon2"></span>
+                                                </p>
+                                                <p class="c-hover">4分</p>
+                                            </div>
+                                            <p class="p4">
+                                                <span class="fz-20 f-wb c-e5">¥</span>
+                                                <span class="fz-26 f-wb c-e5">29.90</span>
+                                                <span class="c-70 fw-m">/起</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="box1-list flex">
+                                        <div class="rightlistpic">
+                                            <a href="javascript:;"><img src="resources/service1.png" alt=""></a>
+                                        </div>
+                                        <div class="rightlisttext">
+                                            <p class="flex fl-jsb fl-align p1">
+                                                <span class="fz-22 c-333 fw-m ltext">锦湖洗车店</span>
+                                                <span class="love-icon"></span>
+                                            </p>
+                                            <p class="p2">200条评价</p>
+                                            <div class="flex p3">
+                                                <p class="flex fl-align">
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon2"></span>
+                                                </p>
+                                                <p class="c-hover">4分</p>
+                                            </div>
+                                            <p class="p4">
+                                                <span class="fz-20 f-wb c-e5">¥</span>
+                                                <span class="fz-26 f-wb c-e5">29.90</span>
+                                                <span class="c-70 fw-m">/起</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="box1-list flex">
+                                        <div class="rightlistpic">
+                                            <a href="javascript:;"><img src="resources/service1.png" alt=""></a>
+                                        </div>
+                                        <div class="rightlisttext">
+                                            <p class="flex fl-jsb fl-align p1">
+                                                <span class="fz-22 c-333 fw-m ltext">锦湖洗车店</span>
+                                                <span class="love-icon"></span>
+                                            </p>
+                                            <p class="p2">200条评价</p>
+                                            <div class="flex p3">
+                                                <p class="flex fl-align">
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon2"></span>
+                                                </p>
+                                                <p class="c-hover">4分</p>
+                                            </div>
+                                            <p class="p4">
+                                                <span class="fz-20 f-wb c-e5">¥</span>
+                                                <span class="fz-26 f-wb c-e5">29.90</span>
+                                                <span class="c-70 fw-m">/起</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="box1-list flex">
+                                        <div class="rightlistpic">
+                                            <a href="javascript:;"><img src="resources/service1.png" alt=""></a>
+                                        </div>
+                                        <div class="rightlisttext">
+                                            <p class="flex fl-jsb fl-align p1">
+                                                <span class="fz-22 c-333 fw-m ltext">锦湖洗车店</span>
+                                                <span class="love-icon"></span>
+                                            </p>
+                                            <p class="p2">200条评价</p>
+                                            <div class="flex p3">
+                                                <p class="flex fl-align">
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon2"></span>
+                                                </p>
+                                                <p class="c-hover">4分</p>
+                                            </div>
+                                            <p class="p4">
+                                                <span class="fz-20 f-wb c-e5">¥</span>
+                                                <span class="fz-26 f-wb c-e5">29.90</span>
+                                                <span class="c-70 fw-m">/起</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="box1-list flex">
+                                        <div class="rightlistpic">
+                                            <a href="javascript:;"><img src="resources/service1.png" alt=""></a>
+                                        </div>
+                                        <div class="rightlisttext">
+                                            <p class="flex fl-jsb fl-align p1">
+                                                <span class="fz-22 c-333 fw-m ltext">锦湖洗车店</span>
+                                                <span class="love-icon"></span>
+                                            </p>
+                                            <p class="p2">200条评价</p>
+                                            <div class="flex p3">
+                                                <p class="flex fl-align">
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon2"></span>
+                                                </p>
+                                                <p class="c-hover">4分</p>
+                                            </div>
+                                            <p class="p4">
+                                                <span class="fz-20 f-wb c-e5">¥</span>
+                                                <span class="fz-26 f-wb c-e5">29.90</span>
+                                                <span class="c-70 fw-m">/起</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </section>
+    <div id="footer"></div>
+</div>
+</body>
+<!-- js功能区域 -->
+<script src="./js/jquery.min.js"></script>
+<script src="./js/public.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/pageMe.js"></script>
+<script src="./js/swiper.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        //获取所需参数
+        var city_id=localData('get','cityinfo').city_id || 6;
+        var sc_id=GetQueryString('sc_id');
+
+        /*调用轮播图函数 洗车服务 sc_id=11*/
+        var params={sc_id:sc_id,city_id:city_id};
+        getBanner(params);
+
+        /*获取二级区域*/
+        getCity(city_id);
+
+
+        /*获取商品列表*/
+        function getProductList(params){
+            $('.listbox ul').html('');
+            ajax_post('/api/goods/carwashList',params,function(r){
+                callBack(r,{
+                    success:function(data){
+                        var allproducthtml='';
+                        var Array=data.data;
+                        if(Array.length>0){
+                            $('.other').hide();
+                            $('#pagelist2').show();
+                            Array.forEach(function(item,index){
+                                allproducthtml+='<li data-id="'+item.id+'" data-store="'+item.store_id+'" onclick="dolink('+item.store_id+')">'+
+                                    '<div class="libox">'+
+                                    '<div class="liimg"><img src="'+item.img+'"></div>'+
+                                    '<div class="lititle line c-333 fz-24">'+item.name+'</div>'+
+                                    '<div class="liprice flex fl-jsb fl-align">'+
+                                    '<p class="c-e5">'+
+                                    '<span class="fz-20 f-wb">¥</span>'+
+                                    '<span class="fz-32 f-w4">'+item.price+'</span>'+
+                                    '</p>'+
+                                    '<p class="salesnum">已售'+item.sales_count+'件</p>'+
+                                    '</div>'+
+                                    '</div>'+
+                                    '<div class="lipic '+(item.join_activity==0?'hide':'')+'"><span>新用户首单9.9元</span></div>'+
+                                    '</li>';
+                            })
+                            $('.listbox ul').append(allproducthtml);
+                            $('.listbox ul li').hover(
+                                function(){
+                                    $(this).addClass('item').siblings().removeClass('item');
+                                },
+                                function(){
+                                    $(this).removeClass('item');
+                                }
+                            )
+                            //分页功能
+                            var totalPages = Math.ceil(data.total / data.per_page);//计算总页数);
+                            $("#pagelist2").paging({
+                                pageNum:data.current_page, // 当前页面
+                                totalNum:totalPages, // 总页码
+                                totalList: data.total, // 记录总数量
+                                callback: function (page) { //回调函数
+                                    var city_id=localData('get','cityinfo').city_id;
+                                    var param1={area_id:city_id,id,page:num,row:12};
+                                    getProductList(param1);
+                                }
+                            });
+                        }else{
+                            $('#pagelist2').hide();
+                            $('.other').show();
+                        }
+
+                    }
+                })
+            });
+        }
+        getProductList();
+
+        //选择
+        $('.left-nav ul').each(function(index,item){
+            $(item).addClass('ul'+index);
+            $(item).on('click','li',function(){
+                var id=$(this).data('id');
+                $(this).parent().attr('data-val',id);
+                var area_id=$('.ul0').attr('data-val');
+                var by=$('.ul1').attr('data-val');
+                var param2={area_id:area_id,by:by,row:6};
+                getProductList(param2);
+            })
+        });
+        // 选择动效：
+        $('.nav').on('click', 'li', function () {
+            $(this).addClass('c-active').siblings().removeClass('c-active');
+        });
+        //筛选条件
+        $('.left-nav .nav-four>ul').on('click', 'li', function () {
+            $(this).find('button').toggleClass('b-active');
+            $(this).siblings().find('button').removeClass('b-active');
+        });
+
+        /*右侧列表切换变背景*/
+        $('.rightmain .listbox1 ul li').hover(
+            function(){
+                $(this).addClass('elem').siblings().removeClass('elem');
+            },
+            function(){
+                $(this).removeClass('elem');
+            },
+        )
+    })
+
+    function dolink(store_id){
+        window.location.href='service_show.html?store_id='+store_id;
+    }
+</script>
+</html>

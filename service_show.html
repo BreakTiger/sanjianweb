@@ -1,0 +1,942 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>汽车-洗车服务</title>
+    <script src="./js/rem.js"></script>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <!--css样式区域-->
+    <style>
+        /*广告轮播*/
+        .swiper-container {
+            width: 100%;
+        }
+        .swiper-container .swiper-wrapper .swiper-slide a img {
+            width: 100%;
+            height:3.25rem;
+            margin-top:-0.03rem;
+        }
+        .main{
+            width:16.8rem;
+            max-width:16.8rem;
+            margin:auto;
+            padding-bottom:0.8rem;
+        }
+        /*头部广告*/
+        .main .bg{
+            width:100%;
+            height:1.6rem;
+            margin-bottom:0.25rem;
+        }
+        .main .bg .topmain{
+            padding:0.2rem 0 0.2rem 0.1rem;
+
+        }
+        .main .bg .topmain img{
+            width:1.2rem;
+            height:1.2rem;
+            border-radius:0.04rem;
+            -webkit-border-radius:0.04rem;
+            margin-right:0.16rem;
+        }
+        .main .bg .toptext .ptitle{
+            margin-bottom: 0.16rem;
+        }
+        .main .bg .toptext .title-icon{
+            display:block;
+            width:0.95rem;
+            height:0.3rem;
+            font-size:0.18rem;
+            font-family:NotoSansHans-Medium;
+            font-weight:500;
+            color:rgba(254,254,254,1);
+            line-height:0.22rem;
+            background:url("images/nav-right.png") no-repeat center / 0.95rem;
+            margin-right:0.15rem;
+        }
+        .main .bg .toptext .title-icon span{
+            display:inline-block;
+            margin:0.05rem 0 0.05rem 0.1rem;
+        }
+        .main .bg .toptext .ptel{
+            margin-bottom:0.15rem;
+        }
+        .main .bg .topbtn{
+            margin-left:2.4rem;
+        }
+        .main .bg .topbtn a{
+            display:block;
+            width:1rem;
+            height:0.28rem;
+            background:rgba(239,239,239,1);
+            border-radius:0.14rem;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            margin-left:0.16rem;
+
+        }
+        .main .bg .topbtn a:first-child{
+            font-family:NotoSansHans-Regular;
+            font-weight:400;
+            color:rgba(170,170,170,1);
+        }
+        .main .bg .topbtn a:last-child{
+            font-family:NotoSansHans-Medium;
+            font-weight:500;
+        }
+
+        .main .bg .topbtn a .love-icon{
+            display:inline-block;
+            width:0.14rem;
+            height:0.14rem;
+            background:url("images/collect2.png") no-repeat center / 0.14rem;
+            margin-right:0.05rem;
+        }
+        /*左侧区域*/
+        .main .leftmain{
+            width:11.68rem;
+            border:0.01rem solid rgba(240,240,240,1);
+            border-radius:0.04rem;
+            -webkit-border-radius:0.04rem;
+
+        }
+        .main .rightmain{
+            width:4.88rem;
+        }
+        .main .leftmain h3{
+            font-size:0.26rem;
+            color:rgba(22,22,22,1);
+            padding:0.32rem 0 0.51rem 0.4rem;
+            border-bottom:0.01rem solid rgba(240,240,240,1);
+            background:rgba(247,247,247,1);
+        }
+        .main .leftmain ul li.item{
+            box-shadow:0px 0.02rem 0.17rem 0.01rem rgba(46,46,46,0.18);
+            border-radius:0.04rem;
+        }
+        .main .leftmain .productlist{
+            margin-bottom:0.3rem;
+            background:rgba(247,247,247,1);
+        }
+        .main .leftmain ul li .libox{
+            margin:0 0.4rem;
+            padding:0.35rem 0;
+            border-bottom:0.01rem solid rgba(240,240,240,1);
+            position:relative;
+        }
+        .main .leftmain ul li .libox .product-img{
+            width:3.82rem;
+            height:2.12rem;
+            border-radius:0.04rem;
+            -webkit-border-radius:0.04rem;
+            margin-right:0.3rem;
+        }
+        .main .leftmain ul li .libox .product-text .ptext{
+            padding:0.24rem 0 0.48rem 0;
+        }
+        .main .leftmain ul li .libox .product-text .ptext p{
+            margin-right:0.4rem;
+        }
+        .main .leftmain ul li .libox .product-btn{
+            padding-top:0.24rem;
+        }
+        .main .leftmain ul li .libox .product-btn a{
+            width:1.95rem;
+            height:0.45rem;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:rgba(255,115,3,1);
+            border-radius:0.08rem;
+            font-size:0.18rem;
+            font-family:NotoSansHans-Medium;
+            font-weight:500;
+            color:rgba(255,255,255,1);
+        }
+        .main .leftmain ul li .libox .pnum{
+            position:absolute;
+            top:0.15rem;
+            right:0;
+            width:1.1rem;
+            height:0.26rem;
+            background:rgba(255,255,255,1);
+            font-family:NotoSansHans-DemiLight;
+            font-weight:normal;
+            color:rgba(170,170,170,1);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+        /*评论列表*/
+        .comments {
+            background: #F7F7F7;
+            border-radius: 0.04rem;
+            margin-top: 0.12rem;
+            padding:0 0 0.8rem 0.4rem;
+        }
+        .comment {
+            display: flex;
+            align-items: center;
+
+        }
+
+        h3 {
+            font-size: 0.26rem;
+            font-family: NotoSansHans-Medium;
+            color: rgba(22, 22, 22, 1);
+        }
+
+        .comment h3 {
+            padding: 0.3rem 0 0.2rem 0;
+            margin-right: 1.34rem;
+        }
+
+        .comment .list ul {
+            display: flex;
+            align-items: center;
+            padding-top: 0.1rem;
+        }
+
+        .comment .list ul li {
+            display: flex;
+            align-items: center;
+            margin-right: 0.67rem;
+            cursor: pointer;
+        }
+
+        .comment .list ul li p:last-child {
+            font-size: 0.18rem;
+            font-family: A02-;
+            font-weight: 400;
+            color: rgba(170, 170, 170, 1);
+            padding-left: 0.09rem;
+        }
+
+        .c-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0.49rem;
+            margin-right: 0.45rem;
+        }
+
+        .c-info .user {
+            display: flex;
+            align-items: center;
+        }
+
+        .c-info .user .usericon {
+            display: block;
+            width: 0.6rem;
+            height: 0.6rem;
+            margin-right: 0.2rem;
+        }
+        .c-info .user .usericon img{
+            width:100%;
+            height:100%;
+            border-radius:50%;
+        }
+
+        .c-info .user .username p:last-child {
+            margin-top: 0.1rem;
+        }
+
+        .level {
+            margin-top: 0.12rem;
+        }
+
+        .level p:last-child {
+            display: flex;
+            align-items: center;
+            margin-top: 0.1rem;
+        }
+
+        .level .l-icon1 {
+            display: block;
+            width: 0.15rem;
+            height: 0.15rem;
+            background: url("images/level1.png") no-repeat center / 0.15rem;
+            margin-right: 0.08rem;
+        }
+
+        .level .l-icon2 {
+            display: block;
+            width: 0.15rem;
+            height: 0.15rem;
+            background: url("images/level2.png") no-repeat center / 0.15rem;
+            margin-right: 0.08rem;
+        }
+
+        .level .l-icon3 {
+            display: block;
+            width: 0.15rem;
+            height: 0.15rem;
+            background: url("images/level3.png") no-repeat center / 0.15rem;
+            margin-right: 0.08rem;
+        }
+
+        .c-text {
+            margin: 0.14rem 0.55rem 0.46rem 0.8rem;
+            color: rgba(112, 112, 112, 1);
+            line-height: 26px;
+        }
+
+        .c-more {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-right: 0.44rem;
+        }
+
+        .c-more .more-icon {
+            display: block;
+            width: 0.09rem;
+            height: 0.05rem;
+            background: url("images/down_icon1.png") no-repeat center / 0.09rem;
+            margin-left: 0.07rem;
+        }
+
+        .c-img {
+            margin-left: 0.8rem;
+            margin-right: 0.44rem;
+            border-bottom: 0.02rem solid #FFFFFF;
+
+        }
+
+        .c-img ul {
+            display: flex;
+            align-items: center;
+            padding-bottom: 0.32rem;
+
+        }
+
+        .c-img ul li {
+            width: 1.4rem;
+            height: 1.4rem;
+            margin-right: 0.08rem;
+        }
+
+        .c-img ul li img {
+            width: 100%;
+            height: 100%;
+        }
+        /*相册*/
+        .merchants {
+            width: 100%;
+            background: #F7F7F7;
+            border-radius: 0.04rem;
+            margin-bottom: 0.24rem;
+        }
+
+        .merchantsbox {
+            padding: 0 0.22rem 0.41rem 0.22rem;
+        }
+
+        .merchantsbox .titles {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.32rem 0 0.25rem 0;
+        }
+
+        .merchantsbox .pics ul {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .merchantsbox .pics ul li {
+            width: 1.4rem;
+            height: 1.4rem;
+            padding-bottom: 0.12rem;
+            position: relative;
+        }
+
+        .merchantsbox .pics ul li>img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .merchantsbox .pics ul li a .cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1.4rem;
+            height: 1.4rem;
+            background: #000000;
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .merchantsbox .pics ul li a .cover .coverIcon {
+            display: block;
+            width: 0.25rem;
+            height: 0.25rem;
+            background: url('images/amplification.png') no-repeat center/0.25rem;
+
+        }
+
+        .merchantsbox .pics ul li a .cover:hover {
+            opacity: 0.5;
+        }
+
+        .pro progress {
+            width: 100%;
+            height: 0.07rem;
+        }
+
+        /*酒店介绍，酒店设施*/
+        .facilities {
+            padding: 0.24rem;
+            background: #F7F7F7;
+            border-radius: 0.04rem;
+        }
+
+        .facilities .fac-one {
+            padding: 0.31rem 0 0.7rem 0;
+        }
+
+        .facilities .fac-one p {
+            font-size: 0.16rem;
+            font-family: NotoSansHans-Regular;
+            font-weight: 400;
+            color: rgba(107, 107, 107, 1);
+            line-height: 0.26rem;
+        }
+
+        .facilities .fac-one p {
+            padding-top: 0.24rem;
+        }
+
+        .facilities .fac-three {
+            padding-bottom: 0.35rem;
+        }
+
+        .facilities .fac-three .map {
+            width: 4.4rem;
+            height: 4.34rem;
+        }
+
+        .facilities .fac-three .map a img {
+            width: 100%;
+            height: 100%;
+        }
+        /*商家列表*/
+        .rightmain .listbox1 h3{
+            margin:0.28rem;
+        }
+        .rightmain .listbox1 ul li{
+            padding-bottom:0.14rem;
+        }
+        .rightmain .listbox1 ul li .elem{
+            background:#FFFFFF !important;
+        }
+        .rightmain .listbox1 .box1-list{
+            margin:0.1rem 0.28rem;
+        }
+        .rightmain .listbox1 .box1-list .rightlistpic a img{
+            width:1.8rem;
+            height:1.8rem;
+            margin-right:0.18rem;
+            border-radius:0.04rem;
+            -webkit-border-radius:0.04rem;
+        }
+        .rightmain .listbox1 .box1-list .rightlisttext{
+            width:2.25rem;
+        }
+        .rightmain .listbox1 .box1-list .rightlisttext .p1{
+            border-bottom:0.01rem solid #ECECEC;
+        }
+        .rightmain .listbox1 .box1-list .rightlisttext .p2{
+            padding:0.08rem 0;
+            color:#707070;
+        }
+        .rightmain .listbox1 .box1-list .rightlisttext .p3{
+            padding-bottom:0.08rem;
+            border-bottom:0.01rem solid #ECECEC;
+        }
+        .rightmain .listbox1 .box1-list .rightlisttext .p4{
+            padding-top:0.48rem;
+        }
+        .rightmain .listbox1 .box1-list .rightlisttext .ltext{
+            display:block;
+            padding:0.07rem 0 0.18rem 0;
+
+        }
+        .rightmain .love-icon{
+            display:block;
+            width:0.2rem;
+            height:0.18rem;
+            background:url("images/collect.png") no-repeat center / 0.2rem;
+            cursor:pointer;
+        }
+        .rightmain .liicon{
+            display:block;
+            width:0.15rem;
+            height:0.15rem;
+            margin-right:0.08rem;
+        }
+        .rightmain .licon1{
+            background:url("images/level1.png") no-repeat center / 0.15rem;
+        }
+        .rightmain .licon2{
+            background:url("images/level3.png") no-repeat center / 0.15rem;
+        }
+
+    </style>
+</head>
+<body>
+<!--html结构区域-->
+<div id="containers">
+    <header id="header"></header>
+    <section>
+        <div id="box">
+            <!--广告轮播图-->
+            <div class="swiperbanner">
+                <div class="swiper-container">
+                    <!--包裹图片的父级元素 -->
+                    <div class="swiper-wrapper"></div>
+                </div>
+            </div>
+            <div class="main">
+                <div class="flex fl-jsb">
+                    <!--左侧区域-->
+                    <div class="leftmain">
+                        <h3>商家服务</h3>
+                        <!--商品列表-->
+                        <div class="productlist">
+                            <ul></ul>
+                        </div>
+                        <!--评论列表-->
+                        <div class="comments">
+                            <div class="comment">
+                                <h3>评价列表</h3>
+                                <div class="list fz-18">
+                                    <ul>
+                                        <li class="li c-active">
+                                            <p class="lineBottom"><span>全部</span></p>
+                                            <p>&#40;<span>1089条评价</span>&#41;</p>
+                                        </li>
+                                        <li class="li">
+                                            <p><span>好评</span></p>
+                                            <p>&#40;<span>1000条评价</span>&#41;</p>
+                                        </li>
+                                        <li class="li">
+                                            <p><span>中评</span></p>
+                                            <p>&#40;<span>66条评价</span>&#41;</p>
+                                        </li>
+                                        <li class="li">
+                                            <p><span>差评</span></p>
+                                            <p>&#40;<span>23条评价</span>&#41;</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- 列表 -->
+                            <div class="list clist"></div>
+                            <!-- 分页器 -->
+                            <div id="pagelist2" class="page_div"></div>
+                        </div>
+                    </div>
+                    <!--右侧区域-->
+                    <div class="rightmain">
+                        <!-- 相册 -->
+                        <div class="merchants">
+                            <div class="merchantsbox">
+                                <div class="titles">
+                                    <span class="fz-26 c-16 f-w5">商家相册</span>
+                                    <span class="fz-16 c-6a">点击预览大图</span>
+                                </div>
+                                <div class="pics">
+                                    <ul>
+                                        <li>
+                                            <img src="resources/service-m1.png" alt="">
+                                            <a href="">
+                                                <div class="cover">
+                                                    <span class="coverIcon"></span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <img src="resources/service-m2.png" alt="">
+                                            <a href="">
+                                                <div class="cover">
+                                                    <span class="coverIcon"></span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <img src="resources/service-m3.png" alt="">
+                                            <a href="">
+                                                <div class="cover">
+                                                    <span class="coverIcon"></span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <img src="resources/service-m4.png" alt="">
+                                            <a href="">
+                                                <div class="cover">
+                                                    <span class="coverIcon"></span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <img src="resources/service-m5.png" alt="">
+                                            <a href="">
+                                                <div class="cover">
+                                                    <span class="coverIcon"></span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <img src="resources/service-m6.png" alt="">
+                                            <a href="">
+                                                <div class="cover">
+                                                    <span class="coverIcon"></span>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <div class="pro">
+                                    <progress value="0.5"></progress>
+                                </div>
+                            </div>
+                        </div>
+                        <!--酒店介绍，酒店设施-->
+                        <div class="facilities">
+                            <div class="fac-one">
+                                <h3>店铺介绍</h3>
+                                <p>
+                                    【锦湖洗车】一直秉承专业汽车美容VIP服务的理念, 通过
+                                    “完美效果、诚信心态、体贴服务”嬴得了广大车主及连
+                                    锁店面的赞誉，年度服务百万名车主及上百家连锁店面，
+                                    先后荣获“全国消费者信得过品牌”、“全国十大镀膜产
+                                    品”、“2013中国汽车后市场十大品牌”等美誉；已成为
+                                    国内专业汽车美容服务领域的知名品牌。
+                                </p>
+                            </div>
+                            <div class="fac-three">
+                                <div class="map">
+                                    <a href="javascript:;">
+                                        <img src="resources/map.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--商家列表-->
+                        <div class="listbox1">
+                            <h3 class="fz-26 fw-m">推荐商家</h3>
+                            <ul>
+                                <li>
+                                    <div class="box1-list flex">
+                                        <div class="rightlistpic">
+                                            <a href="javascript:;"><img src="resources/service1.png" alt=""></a>
+                                        </div>
+                                        <div class="rightlisttext">
+                                            <p class="flex fl-jsb fl-align p1">
+                                                <span class="fz-22 c-333 fw-m ltext">锦湖洗车店</span>
+                                                <span class="love-icon"></span>
+                                            </p>
+                                            <p class="p2">200条评价</p>
+                                            <div class="flex p3">
+                                                <p class="flex fl-align">
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon2"></span>
+                                                </p>
+                                                <p class="c-hover">4分</p>
+                                            </div>
+                                            <p class="p4">
+                                                <span class="fz-20 f-wb c-e5">¥</span>
+                                                <span class="fz-26 f-wb c-e5">29.90</span>
+                                                <span class="c-70 fw-m">/起</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="box1-list flex">
+                                        <div class="rightlistpic">
+                                            <a href="javascript:;"><img src="resources/service1.png" alt=""></a>
+                                        </div>
+                                        <div class="rightlisttext">
+                                            <p class="flex fl-jsb fl-align p1">
+                                                <span class="fz-22 c-333 fw-m ltext">锦湖洗车店</span>
+                                                <span class="love-icon"></span>
+                                            </p>
+                                            <p class="p2">200条评价</p>
+                                            <div class="flex p3">
+                                                <p class="flex fl-align">
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon1"></span>
+                                                    <span class="liicon licon2"></span>
+                                                </p>
+                                                <p class="c-hover">4分</p>
+                                            </div>
+                                            <p class="p4">
+                                                <span class="fz-20 f-wb c-e5">¥</span>
+                                                <span class="fz-26 f-wb c-e5">29.90</span>
+                                                <span class="c-70 fw-m">/起</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <div id="footer"></div>
+</div>
+</body>
+<!-- js功能区域 -->
+<script src="./js/jquery.min.js"></script>
+<script src="./js/public.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/pageMe.js"></script>
+<script src="./js/swiper.min.js"></script>
+<script type="text/javascript">
+   $(function(){
+       //获取所需参数
+       var city_id=localData('get','cityinfo').city_id || 6;
+       var store_id=GetQueryString('store_id');
+       /*调用轮播图函数 洗车服务 sc_id=11*/
+       var params={sc_id:11,city_id:city_id};
+       getBanner(params);
+
+       /*获取商家服务列表*/
+       function getStoreService(){
+           ajax_post('/api/goods/carwashList',{store_id:store_id,row:6},function(r){
+               callBack(r,{
+                   success:function(data){
+                       var servicelisthtml='';
+                       var Array=data.data;
+                       if(Array.length>0){
+                           Array.forEach(function(item,index){
+                               servicelisthtml+='<li data-id="'+item.id+'">'+
+                                   '<div class="libox flex">'+
+                                   '<img src="'+item.img+'" alt="" class="product-img">'+
+                                   '<div class="product-text">'+
+                                   '<p class="c-16 fw-m f-w5 fz-26">'+item.name+'</p>'+
+                                   '<div class="flex fl-align ptext c-6b">'+
+                                   '<p>车型：<span>'+item.apply_to+'</span></p>'+
+                                   '<p>服务：<span>'+item.brief+'</span></p>'+
+                                   '</div>'+
+                                   '<p class="price c-e5"><span class="fz-20">¥</span><span class="fz-26">'+item.price+'</span></p>'+
+                                   '<p class="product-btn"><a href="service_detail.html?goods_id='+item.id+'">立即预订</a></p>'+
+                                   '</div>'+
+                                   '<p class="pnum">已售'+item.sales_count+'+</p>'+
+                                   '</div>'+
+                                   '</li>';
+                           })
+                           $('.productlist ul').append(servicelisthtml);
+                       }
+
+                   }
+               })
+           })
+       }
+       getStoreService();
+
+       /*获取店铺，商家相册，店铺介绍*/
+       function getStoreAlbum(){
+           ajax_post('/api/store/detail',{store_id:store_id},function(r){
+               callBack(r,{
+                   success:function(data){
+                       console.log(data);
+                       var storehtml='<div class="bg" style="background:url('+data.store_banner+') no-repeat center / 100% ">' +
+                                        '<div class="topmain flex">'+
+                                           '<img src="'+data.store_logo+'" alt="">'+
+                                           '<div class="toptext">'+
+                                               '<p class="ptitle flex fl-align">'+
+                                                   '<span class="title-icon" data-aid="'+data.id+'"><span>'+data.area_name+'</span></span>'+
+                                                   '<span class="fz-26 c-fff fw-m">'+data.store_name+'</span>'+
+                                               '</p>'+
+                                               '<p class="ptel">'+
+                                                   '<span class="fz-18 c-fff fw-r">联系电话：</span>'+
+                                                   '<span class="fz-20 c-fff fw-m">'+data.store_phone+'</span>'+
+                                               '</p>'+
+                                               '<p class="paddress fz-18 c-fff fw-r">'+
+                                                   '<span>地址：</span>'+
+                                                   '<span>'+data.store_address+'</span>'+
+                                               '</p>'+
+                                           '</div>'+
+                                           '<div class="topbtn flex">'+
+                                               '<a href="javascript:;">'+data.sales_count+'条评价</a>'+
+                                               '<a href="javascript:;">'+
+                                                   '<span class="love-icon"></span>'+
+                                                   '<span>'+(data.is_collect==0?"收藏店铺":"已收藏")+'</span>'+
+                                               '</a>'+
+                                           '</div>'+
+                                        '</div>' +
+                                      '</div>';
+                       $('.main').prepend(storehtml);
+                   }
+               })
+           })
+       }
+       getStoreAlbum();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       /*商品列表切换*/
+       $('.productlist ul li').hover(
+           function(){
+               $(this).addClass('item').siblings().removeClass('item');
+           },
+           function(){
+               $(this).removeClass('item');
+           }
+       );
+       /*获取评论列表*/
+       var param1={store_id:2,page:1};
+       gethotelComents(param1,1);
+       /*切换评价等级中的列表*/
+       $('.comment .list').on('click', '.li', function () {
+           $(this).addClass('c-active').siblings().removeClass('c-active');
+           $(this).find('p:first').addClass('lineBottom');
+           $(this).siblings().find('p:first').removeClass('lineBottom');
+           var level=$(this).data('level');
+           var param2={store_id:2,page:'1',level:level};
+           gethotelComents(param2);
+       })
+       function  gethotelComents(commentparams,type){
+           $('.comments .clist').html('');
+           ajax_post('/api/comment/ListByStore',commentparams,function(r){
+               callBack(r,{
+                   success:function(res){
+                       var Array=res.list.data;
+                       var commenthtml='';
+                       Array.forEach((item,index)=>{
+                           var rank=item.rank;
+                           var html = '';
+                           //评论等级（星星）
+                           function dorank(rank){
+                               for (let i=0;i<rank;i++){
+                                   html+=`<span class="l-icon1"></span>`
+                               }
+                               if (rank!=5) {
+                                   for (let i=0;i<5 -rank;i++) {
+                                       html+=`<span class="l-icon3"></span>`
+                                   }
+                               }
+                           }
+                           dorank(rank);
+
+                           //评论中展示图片
+                           var imgarr=item.images;
+                           var imghtml='';
+                           function doimg(imgarr){
+                               for(var j=0;j<imgarr.length;j++){
+                                   imghtml+=`<li><img src="${imgarr[j]}"></li>`;
+                               }
+                           }
+                           doimg(imgarr);
+                           //渲染评论列表数据
+                           commenthtml+=`<div class="commentlist" data-cid="${item.comment_id}">
+                                            <div class="c-info">
+                                                <div class="user" data-uid="${item.user_id}">
+                                                    <div class="usericon">
+                                                         <img src="${item.user.head_pic}">
+                                                     </div>
+                                                    <div class="username">
+                                                        <p class="fz-18 c-333">${item.user.nickname}</p>
+                                                        <p class="fz-14 c-90" data-name="${item.goods_id}">${item.goods_name}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="level">
+                                                    <p class="fz-14 c-70">${filterDateTime(item.create_time)}</p>
+                                                    <p class="rank">${html}</p>
+                                                </div>
+                                            </div>
+                                            <div class="c-text clamp2">${item.content};</div>
+                                            <div class="c-more">
+                                                <span class="c-active">展开</span>
+                                                <span class="more-icon"></span>
+                                            </div>
+                                            <div class="c-img">
+                                                <ul>${imghtml}</ul>
+                                            </div>
+                                      </div>`
+
+                       })
+                       $('.comments .clist').append(commenthtml);
+                       //等级数量（好评，中评，差评）
+                       if(type==1){
+                           var levelhtml=`<li class="li c-active" data-level="">
+                                            <p class="lineBottom"><span>全部</span></p>
+                                            <p>&#40;<span>${res.list.total}条评价</span>&#41;</p>
+                                        </li>
+                                        <li class="li" data-level="1">
+                                            <p><span>好评</span></p>
+                                            <p>&#40;<span>${res.statistics.level_1}条评价</span>&#41;</p>
+                                        </li>
+                                        <li class="li" data-level="2">
+                                            <p><span>中评</span></p>
+                                            <p>&#40;<span>${res.statistics.level_2}条评价</span>&#41;</p>
+                                        </li>
+                                        <li class="li" data-level="3">
+                                            <p><span>差评</span></p>
+                                            <p>&#40;<span>${res.statistics.level_3}条评价</span>&#41;</p>
+                                        </li>`
+                           $('.comment .list ul').html(levelhtml);
+                       }
+                   }
+               })
+           });
+           //分页器
+           $("#pagelist2").paging({
+               pageNum: 1, // 当前页面
+               totalNum: 14, // 总页码
+               totalList: 300, // 记录总数量
+               callback: function (num) { //回调函数
+                   console.log('页码数：', num);
+               }
+           });
+       }
+
+   })
+</script>
+</html>

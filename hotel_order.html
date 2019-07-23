@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>旅游-确认下单</title>
+    <script src="./js/rem.js"></script>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./css/icon.css">
+
+    <!--css样式区域-->
+    <style>
+        #box {
+            width: 11.2rem;
+            height: auto;
+            margin: auto;
+            padding-bottom: 0.8rem;
+        }
+        /*下单流程*/
+        .promptorder ul {
+            display: flex;
+            justify-content: center;
+            margin: 0.6rem 0 0.64rem 0;
+        }
+        .promptorder ul li {
+            display: flex;
+            align-items: center;
+        }
+        .promptorder ul li .num {
+            display: block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .promptorder ul li .circle {
+            width: 0.34rem;
+            height: 0.34rem;
+            border-radius: 50%;
+            background: #525252;
+            font-size: 18px;
+            font-family: Arial-BoldMT;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 1);
+        }
+        .promptorder ul li .round {
+            width: 0.34rem;
+            height: 0.34rem;
+            border: 0.02rem solid #525252;
+            border-radius: 50%;
+            font-size: 18px;
+            font-family: ArialMT;
+            font-weight: 400;
+            color: rgba(54, 54, 54, 1);
+        }
+        .promptorder ul li .text {
+            font-size: 0.2rem;
+            font-family: NotoSansHans-Medium;
+            font-weight: 500;
+            color: rgba(54, 54, 54, 1);
+            margin-left: 0.12rem;
+        }
+        .promptorder ul li .line {
+            display: block;
+            width: 1.6rem;
+            height: 1px;
+            background: rgba(189, 189, 189, 1);
+            margin: 0 0.16rem;
+        }
+
+        /*确认订单*/
+        .main {
+            width: 100%;
+            background: linear-gradient(90deg, rgba(230, 233, 240, 1) 0%, rgba(238, 241, 245, 1) 100%);
+            box-shadow: 0.02rem 0.07rem 0.21rem 0 rgba(67, 66, 67, 0.21);
+            border-radius: 0.08rem;
+            position:relative;
+        }
+        .back-icon {
+            display: inline-block;
+            width: 0.05rem;
+            height: 0.09rem;
+            background: url("images/back.png") no-repeat center / 0.05rem;
+            margin-right: 0.09rem;
+        }
+        .confirmorder .orderbox {
+            padding: 0.28rem 0.35rem 0 0.35rem;
+        }
+        .confirmorder .orderbox .ordertitle{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 0.48rem;
+            cursor: pointer;
+
+        }
+        .confirmorder .orderbox .ordertitle h3{
+            padding-right:0.16rem;
+        }
+        .confirmorder .orderbox .ordertitle p {
+            display: flex;
+            align-items: center;
+        }
+        .confirmorder .orderbox .ordercontent {
+            display: flex;
+        }
+        .confirmorder .orderbox .ordercontent .contentimg {
+            width: 3.82rem;
+            height: 2.12rem;
+            padding-bottom: 0.28rem;
+            margin-right: 0.3rem;
+        }
+        .confirmorder .orderbox .ordercontent a img {
+            width: 100%;
+            height: 100%;
+        }
+        .confirmorder .orderbox .ordercontent .contentlist {
+            position: relative;
+        }
+        .contentlist .listcombined {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 0.12rem;
+        }
+        .contentlist .listprompt{
+            width: 2rem;
+            text-align: center;
+            padding: 0.05rem 0rem;
+            background: #FFFFFF;
+            margin-bottom: 0.16rem;
+            border-radius: 0.15rem;
+        }
+        .contentlist .listprice {
+            position: absolute;
+            top: -0.2rem;
+            right: 0;
+            font-family: Arial-BoldMT;
+            font-weight: bold;
+            color: rgba(229, 54, 75, 1);
+        }
+        .contentlist .listprice span:first-child {
+            font-size: 0.2rem;
+        }
+        .contentlist .listprice span:last-child {
+            font-size: 0.28rem;
+        }
+        .contentlist .listdate {
+            display: flex;
+            align-items: center;
+            cursor:pointer;
+        }
+        .contentlist .listdate .dates {
+            display: flex;
+            align-items: center;
+            margin-right: 0.44rem;
+        }
+        .contentlist .listdate .dates .d-text {
+            margin-right: 0.24rem;
+        }
+        .contentlist .listdate .dates .d-date {
+            width: 1.8rem;
+            height: 0.36rem;
+            background: rgba(248, 248, 248, 1);
+            border: 1px solid rgba(255, 255, 255, 1);
+            box-sizing: border-box;
+            border-radius: 0.02rem;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .contentlist .listdate .dates .day {
+            position: absolute;
+            top:0.1rem;
+            right: 0.42rem;
+        }
+        .contentlist .listdate .dates .d-date input {
+            padding-left: 0.1rem;
+        }
+        .contentlist .listdate .dates .d-date .date-icon{
+            position:absolute;
+            top:0.1rem;
+            right:0.16rem;
+        }
+        .contentlist .listdate .daynight {
+            padding-left: 0.12rem;
+        }
+        .contentlist .listhouse {
+            display: flex;
+            align-items: center;
+            padding: 0.14rem 0 0.16rem 0;
+        }
+        .contentlist .listhouse .h-count {
+            position: relative;
+            width: 1.8rem;
+            height: 0.36rem;
+            display: flex;
+            align-items: center;
+            background: rgba(248, 248, 248, 1);
+            border: 0.01rem solid rgba(255, 255, 255, 1);
+            box-sizing:border-box;
+            border-radius: 0.02rem;
+            margin: 0 0.39rem 0 0.09rem;
+            position:relative;
+            cursor:pointer;
+        }
+        .contentlist .listhouse .h-count  .countNum{
+            position:absolute;
+            left:0;
+            top:0.38rem;
+            width:100%;
+            background:#FFFFFF;
+            display:none;
+            height:0.8rem;
+            overflow-y:auto;
+        }
+        .contentlist .listhouse .h-count  .countNum li{
+            width:100%;
+            height:0.3rem;
+            display:flex;
+            align-items:center;
+            margin-top:0.05rem;
+            cursor:pointer;
+        }
+        .contentlist .listhouse .h-count  .countNum li span{
+            display:inline-block;
+            padding-left:0.12rem;
+        }
+        .contentlist .listhouse .h-count input {
+            padding-left: 0.12rem;
+        }
+        .contentlist .listhouse .h-count .down-icon {
+            position: absolute;
+            right: 0.16rem;
+        }
+        .contentlist .listtext .ltext{
+            color:#AAAAAA;
+        }
+        /*填写信息*/
+        .orderform{
+            padding:0.28rem 0 0.36rem 0;
+        }
+        .orderform .formtext{
+            height:2.54rem;
+            background:rgba(255,255,255,1);
+            border-radius:0.04rem;
+        }
+        .orderform .formtext h3{
+            padding:0.32rem 0 0 0.28rem;
+            font-size:0.26rem;
+            font-weight:500 !important;
+        }
+        .orderform .formtext ul{
+            padding-left:0.28rem;
+        }
+        .orderform .formtext ul li:first-child{
+            margin-top:0.2rem;
+        }
+        .orderform .formtext ul li input{
+            width:2.8rem;
+            height:0.36rem;
+            background:#FFFFFF;
+            border:1px solid #DFDFDF;
+            border-radius:0.02rem;
+            margin-bottom:0.12rem;
+            padding-left:0.17rem;
+        }
+        .orderform .formtext ul li .info{
+            display:inline-block;
+            width:1.1rem;
+            font-size:0.18rem;
+            font-family:NotoSansHans-Medium;
+            font-weight:500;
+            color:#707070;
+            white-space:nowrap;
+        }
+        .orderform .formtext ul li .usersex{
+            margin-left:0.3rem;
+            cursor:pointer;
+        }
+        .orderform .formtext ul li .usersex span{
+            display:block;
+            width:0.6rem;
+            height:0.36rem;
+            background:#DFDFDF;
+            border-radius:0.02rem;
+            font-size:0.16rem;
+            font-family:NotoSansHans-Regular;
+            font-weight:400;
+            color:rgba(255,255,255,1);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            margin-right:0.08rem;
+        }
+        .orderform .formtext ul li .usersex .item{
+            background:#FF7303 !important;
+        }
+        .orderform .formtext ul li .codebtn{
+            display:block;
+            width:1.28rem;
+            height:0.36rem;
+            background:#FF7303;
+            border-radius:0.02rem;
+            font-size:0.16rem;
+            font-family:NotoSansHans-Regular;
+            font-weight:400;
+            color:rgba(255,255,255,1);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            margin-left:0.3rem;
+        }
+        /*确认下单按钮*/
+        .btns{
+            padding-bottom:0.88rem;
+            display:flex;
+            justify-content:flex-end;
+        }
+        .formbtn {
+            display:block;
+            width: 2rem;
+            height: 0.6rem;
+            background: rgba(255, 115, 3, 1);
+            border-radius: 0.08rem;
+            font-size: 0.26rem;
+            font-family: NotoSansHans-Medium;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /*订单情况和编辑*/
+        .tabs {
+            width: 0.6rem;
+            height: 1.2rem;
+            background: rgba(255, 255, 255, 1);
+            border: 0.01rem solid #D9D9D9;
+            position: absolute;
+            right:-2.9rem;
+            bottom:0;
+        }
+        .tabs a {
+            height: 0.6rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+        .tabs .tab-ico1{
+            border-bottom: 0.01rem solid #D9D9D9;
+            box-sizing:border-box;
+        }
+    </style>
+</head>
+
+<!--html结构区域-->
+</body>
+<div id="containers">
+    <header id="header"></header>
+    <section>
+        <div id="box">
+            <!--下单流程提示-->
+            <div class="promptorder">
+                <ul>
+                    <li>
+                        <span class="circle num">1</span>
+                        <span class="text">确认订单</span>
+                        <span class="line"></span>
+                    </li>
+                    <li>
+                        <span class="num round">2</span>
+                        <span class="text">支付订单</span>
+                        <span class="line"></span>
+                    </li>
+                    <li>
+                        <span class="num round">3</span>
+                        <span class="text">生成订单</span>
+                    </li>
+                </ul>
+            </div>
+            <!--订单信息-->
+            <div class="allorder">
+                <!--确认订单-->
+                <div class="confirmorder main">
+                    <div class="orderbox">
+                        <form action="">
+                            <div class="orderform">
+                                <div class="formtext">
+                                    <h3>联系人信息</h3>
+                                    <ul>
+                                        <li class="flex">
+                                            <div class="username">
+                                                <span class="info">联系人姓名:</span>
+                                                <input type="text" placeholder="请输入名称" class="linkname">
+                                            </div>
+                                            <div class="usersex flex" data-val="2">
+                                                <span data-sid="2" class="item">女士</span>
+                                                <span data-sid="1">先生</span>
+                                            </div>
+                                        </li>
+                                        <li class="flex fl-align">
+                                            <div class="userphone">
+                                                <span  class="info">联系人电话:</span>
+                                                <input type="text" placeholder="请输入电话号码" class="linkphone">
+                                            </div>
+                                        </li>
+                                        <li class="flex">
+                                            <div class="userphone">
+                                                <span  class="info"></span>
+                                                <input type="text" placeholder="请输入短信验证码" class="linkcode">
+                                            </div>
+                                            <a href="javascript:;" class="codebtn" do-send="true">获取短信验证码</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="btns">
+                                <a href="javascript:;" class="formbtn">确认下单</a>
+                            </div>
+                        </form>
+                    </div>
+                    <!--编辑和订单-->
+                    <div class="tabs">
+                        <a href="javascript:;" class="tab-ico1"><span class="option-icon"></span></a>
+                        <a href="javascript:;" class="tab-ico2"><span class="order-icon"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer id="footer"></footer>
+</div>
+</body>
+<!-- js功能区域 -->
+<script src="./js/jquery.min.js"></script>
+<script src="./js/public.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/My97DatePicker/WdatePicker.js"></script>
+<script text="type/javascript">
+    $(function () {
+        /*获取所需参数*/
+        var goods_id=GetQueryString("goods_id");
+
+        /*获取酒店单个商品详情*/
+        var params={sc_id:7,goods_id:goods_id};
+        ajax_post('/api/order/index',params,function(r){
+            var singelhtml='';
+            callBack(r,{
+                success:function(res){
+                    singelhtml='<div class="ordertitle">'+
+                                    '<p onclick="javascript :history.back(-1);">'+
+                                        '<span class="back-icon"></span>'+
+                                        '<a class="c-70 fw-m">重新选择房型</a>'+
+                                    '</p>'+
+                                    '<h3 class="fz-26">'+res.store_name+'</h3>'+
+                                '</div>'+
+                                '<div class="ordercontent" data-goods="'+res.id+'" data-store="'+res.store_id+'">'+
+                                    '<div class="contentimg">'+
+                                        '<a href="javascript:;"><img src="'+res.img+'" alt=""></a>'+
+                                    '</div>'+
+                                    '<div class="contentlist">'+
+                                        '<h3 class="fz-26 c-16 fw-5">'+res.name+'</h3>'+
+                                        '<div class="listcombined">'+
+                                            '<span class="fz-14 c-70 dayTime">￥<span class="sprice">'+res.price+'</span>/间 x <span class="scount">1</span>晚 x <span class="snum">1</span>间——合计￥<span class="total">'+(res.price*1*1)+'</span>'+
+                                            '</span>'+
+                                        '</div>'+
+                                        '<div class="listprompt">'+
+                                            '<span class="c-e5">*</span>'+
+                                            '<span class="fz-16 c-666">'+(res.limit_time == "" ? '下单后，订单不可取消' : '入住当天' + res.limit_time + '前可取消')+'</span>'+
+                                        '</div>'+
+                                        '<div class="listprice">'+
+                                            '<span>¥</span>'+
+                                            '<span class="total">'+res.price+'</span>'+
+                                        '</div>'+
+                                        '<div class="listdate">'+
+                                            '<div class="satrtdate dates">'+
+                                                '<p class="d-text">入住</p>'+
+                                                '<p class="d-date">'+
+                                                    '<input type="text" value="'+getDateStr(0)+'" readonly="readonly" class="starttime" id="startDate"><span class="day"></span><span class="date-icon"></span>'+
+                                                '</p>'+
+                                            '</div>'+
+                                            '<div class="enddate dates">'+
+                                                '<p class="d-text">离店</p>'+
+                                                '<p class="d-date">'+
+                                                    '<input type="text" value="'+getDateStr(1)+'" readonly="readonly" class="endtime" id="endDate"><span class="day"></span><span class="date-icon"></span>'+
+                                                '</p>'+
+                                            '</div>'+
+                                            '<p class="daynight dayTime">共<span class="scount">1</span>晚</p>'+
+                                        '</div>'+
+                                        '<div class="listhouse">'+
+                                            '<p>房间数</p>'+
+                                            '<div class="h-count">'+
+                                                '<input type="text" value="1" readonly="readonly" class="housenum">'+
+                                                '<span class="down-icon"></span><ul class="countNum"></ul>'+
+                                            '</div>'+
+                                            '<p>每间最多入住'+res.limit_num+'人</p>'+
+                                        '</div>'+
+                                        '<div class="listtext clamp1">'+res.explain+'</div>'+
+                                    '</div>'+
+                                '</div>';
+                }
+            })
+            $('.orderbox .orderform').before(singelhtml);
+            //页面加载获取库存
+            var param={goods_id:goods_id};
+            getHotelInventory(param);
+            //开始时间
+            $(document).on("click","#startDate" ,function(e){
+                WdatePicker({
+                    el: e.target,
+                    dateFmt:'yyyy-MM-dd',
+                    minDate:'%y-%M-%d',
+                    maxDate:'#F{$dp.$D(\'endDate\',{d:-1});}',
+                    doubleCalendar:true,
+                    isShowClear:false,
+                    readOnly:true,
+                    errDealMode:1,
+                    onpicked:doStartData
+                });
+            });
+            //结束时间
+            $(document).on("click","#endDate" ,function(e){
+                WdatePicker({
+                    el: e.target,
+                    minDate:'#F{$dp.$D(\'startDate\',{d:1});}',
+                    dateFmt:'yyyy-MM-dd',
+                    doubleCalendar:true,
+                    isShowClear:false,
+                    readOnly:true,
+                    errDealMode:1,
+                    onpicked:doEndData
+                });
+            });
+            function doStartData() {
+                var time1=$('#startDate').val();
+                var time2=$('#endDate').val();
+                var d=Number(DateDiff(time2,time1));
+                var price=Number($('.sprice').text());
+                var snum=Number($('.snum').text());
+                $('.scount').html(d);
+                var  total=price*d*snum;
+                $('.total').text(toDecimal2(total));
+                var params={start_time:time1,end_time:time2,goods_id:good_id};
+                getHotelInventory(params);
+            }
+            function doEndData(){
+                var time1=$('#startDate').val();
+                var time2=$('#endDate').val();
+                var d=Number(DateDiff(time2,time1));
+                var price=Number($('.sprice').text());
+                var snum=Number($('.snum').text());
+                $('.scount').html(d);
+                var  total=price*d*snum;
+                $('.total').text(toDecimal2(total));
+                var params={start_time:time1,end_time:time2,goods_id:good_id};
+                getHotelInventory(params);
+            }
+            $('.h-count').click(function(){
+                $('.countNum').slideToggle();
+                $('.countNum').on('click','li',function(){
+                    var val1=$(this).find('span').text();
+                    $('.housenum').val(val1);
+                    $('.snum').text(val1);
+                    var price=Number($('.dayTime span').eq(0).text());
+                    var d=Number($('.dayTime span').eq(1).text());
+                    var snum=Number($('.dayTime span').eq(2).text());
+                    var total=price*d*snum;
+                    $('.total').text(toDecimal2(total));
+                })
+            })
+        });
+        function getHotelInventory(params){
+            $('.countNum').html('');
+            ajax_post('/api/spec/hotelFloat',params,function(r){
+                callBack(r,{
+                    success:function(data) {
+                         var arr=data.inventory;
+                         var html1='';
+                         for(var i=1;i<=arr;i++){
+                            html1+='<li><span>'+i+'</span></li>';
+                         }
+                         $('.countNum').append(html1);
+                    }
+                })
+            })
+
+        }
+        /*切换性别*/
+        $('.usersex').on('click', 'span', function () {
+            var id=$(this).data('sid');
+            $(this).parent().attr('data-val',id);
+            $(this).addClass('item').siblings().removeClass('item');
+        })
+
+        /*获取验证码*/
+        $('.codebtn').on('click',function () {
+            var mobile=$('.linkphone').val();//联系人电话
+            var dosend=$(this).attr('do-send');
+            if(!checkPhone(mobile)){
+                return;
+            }else{
+                if(dosend=='true'){
+                    var params={mobile:mobile, length:6};
+                    ajax_post('/api/common/sendCode',params,function(r){
+                        callBack(r,{
+                            success: function(data){
+                                ajaxTip('发送成功');
+                                ordercountdown(60);
+                            },
+                            fail:function(data){
+                                alert(data.msg);
+                            }
+                        });
+                    })
+                }else{
+                    return;
+                }
+            }
+        })
+
+        /*确认下单*/
+        $('.formbtn').on('click',function(){
+            var store_id=$('.ordercontent').data('store');//店铺id
+            var start_time=$('.starttime').val();//开始时间
+            var end_time=$('.endtime').val();//结束时间
+            var num=$('.housenum').val();//数量
+            var linkname=$('.linkname').val();//联系人
+            var sex=$('.usersex').attr('data-val');//1为男，2为女
+            var mobile=$('.linkphone').val();//联系人电话
+            var code=$('.linkcode').val();//验证码
+            var total_amount=$('.total').text();//总金额
+            if(linkname==''){
+                ajaxTip('联系人不能为空');
+                return;
+            }
+            if(!checkPhone(mobile)){
+                return;
+            }
+            if(!checkCode(code)){
+                return;
+            }
+            var params={
+                sc_id:7,
+                store_id:store_id,
+                goods_id: goods_id,
+                start_time:start_time,
+                end_time:end_time,
+                num:num,
+                link_name:linkname,
+                sex:sex,
+                mobile:mobile,
+                code:code,
+                total_amount:total_amount
+            }
+            /*调用下单函数*/
+            confirmOrder(params);
+        })
+    })
+</script>
+
+</html>

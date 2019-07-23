@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>汽车-洗车详情</title>
+    <script src="./js/rem.js"></script>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <!--css样式区域-->
+    <style>
+        /*广告轮播*/
+        .swiper-container {
+            width: 100%;
+        }
+        .swiper-container .swiper-wrapper .swiper-slide a img {
+            width: 100%;
+            height:3.25rem;
+            margin-top:-0.03rem;
+        }
+        .main{
+            width:16.8rem;
+            max-width:16.8rem;
+            margin:auto;
+            padding-bottom:0.8rem;
+        }
+        .main .topmain{
+            width:16.8rem;
+            background:#FFFFFF;
+            box-shadow:0 0.02rem 0.24rem 0 rgba(46,46,46,0.1);
+            border-radius:0.08rem;
+            margin-bottom:0.28rem;
+            position:relative;
+        }
+        /*头部左侧图片*/
+        .main .topmain .topbox{
+            padding:0.2rem 0 0.35rem 0.2rem;
+        }
+        .main .topmain .topbox .lefttop{
+            width:7rem;
+            margin-right:0.28rem;
+        }
+        .main .topmain .topbox .lefttop .pic{
+            position:relative;
+        }
+        .main .topmain .topbox .lefttop .pic img{
+            width:6.99rem;
+            height:3.87rem;
+            z-index: 1;
+        }
+        .main .topmain .topbox .lefttop .pic .icon{
+            display:block;
+            width:0.63rem;
+            height:1.21rem;
+            position:absolute;
+            z-index:99;
+        }
+        .main .topmain .topbox .lefttop .pic .icon1{
+            display:block;
+            width:0.15rem;
+            height:0.27rem;
+            position:absolute;
+            z-index:100;
+        }
+        .main .topmain .topbox .lefttop .pic .lefts .left-semicircle{
+            background:url("images/b-left.png") no-repeat center / 0.63rem;
+            top:1.25rem;
+            left:0;
+        }
+        .main .topmain .topbox .lefttop .pic .lefts .left-icon{
+            background:url("images/lefts.png") no-repeat center / 0.15rem;
+            top:1.72rem;
+            left:0.16rem;
+        }
+        .main .topmain .topbox .lefttop .pic .rights .right-semicircle{
+            background:url("images/b-right.png") no-repeat center / 0.63rem;
+            top:1.25rem;
+            right:0;
+        }
+        .main .topmain .topbox .lefttop .pic .rights .right-icon{
+            background:url("images/rights.png") no-repeat center / 0.15rem;
+            top:1.72rem;
+            right:0.16rem;
+        }
+        .main .topmain .topbox .lefttop .piclist{
+            padding-top:0.12rem;
+        }
+        .main .topmain .topbox .lefttop .piclist li img{
+            width:2.2rem;
+            height:1.3rem;
+        }
+        /*头部右侧内容*/
+        .righttop .introduce h3{
+            padding:0.1rem 0 0.35rem 0;
+
+        }
+        .righttop .introduce .price{
+            padding-bottom:0.3rem;
+        }
+        .righttop .introduce .price p:first-child{
+            margin-right:0.16rem;
+        }
+        .righttop .introduce .rtext{
+            width:6.54rem;
+            height:4.03rem;
+            background:#F6F6F6;
+        }
+        .righttop .introduce .rtext .t-text{
+           padding:0.24rem 0.2rem;
+        }
+        .righttop .introduce .rtext .t-text .t1{
+            margin-right:0.23rem;
+            white-space:nowrap;
+            color:#6B6B6B;
+            line-height:0.24rem;
+        }
+        .righttop .introduce .rtext .t-text .t2{
+            line-height:0.24rem;
+            color:#6B6B6B;
+        }
+        .righttop .introduce .rtext .t-text .t-two{
+            padding:0.3rem 0;
+        }
+        .righttop .introduce .rtext .buybtn{
+            display:block;
+            width:2rem;
+            height:0.6rem;
+            background:#FF7303;
+            border-radius:0.08rem;
+            font-size:0.26rem;
+            font-family:NotoSansHans-Medium;
+            font-weight:500;
+            color:rgba(255,255,255,1);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            margin:1rem 0 0.28rem 0;
+        }
+        .righttop  .salesnum{
+            width:2.25rem;
+            height:0.6rem;
+            background:rgba(255,245,230,1);
+            border-radius:0.08rem;
+            position:absolute;
+            top: 0.77rem;
+            right: 0;
+        }
+        .righttop  .salesnum div{
+            text-align:center;
+        }
+        .righttop  .salesnum div:first-child{
+            margin: 0.1rem 0.4rem 0.1rem 0.5rem;
+        }
+
+        /*底部左侧内容*/
+        .bottommain .leftbottom{
+            width:11.68rem;
+            background:rgba(255,255,255,1);
+            border:0.01rem solid rgba(170, 170, 170, 0.3);
+            border-radius:0.04rem;
+        }
+        .bottommain .leftbottom .bottombox{
+            width:100%;
+            height:0.7rem;
+        }
+        .bottommain .leftbottom .bottombox ul li{
+            width:1.7rem;
+            height:0.7rem;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            border-bottom:0.01rem solid rgba(170, 170, 170, 0.3);
+            color:#707070;
+            cursor:pointer;
+        }
+        .bottommain .leftbottom .bottombox ul li:first-child{
+            border-right:0.01rem solid rgba(170, 170, 170, 0.3);
+        }
+        .bottommain .leftbottom .bottombox ul li.elem{
+            border-top:0.04rem solid #0070D3 !important;
+            border-bottom:none !important;
+            color:#161616 !important;
+        }
+        .bottommain .leftbottom .bottombox .line{
+            width:8.28rem;
+            height:0.7rem;
+            border-bottom:0.01rem solid rgba(170, 170, 170, 0.3);
+        }
+        .boxlist{
+            margin:0.45rem 0.3rem;
+        }
+        .boxlist h3{
+            padding-bottom:0.16rem;
+        }
+        #lione ul{
+            padding-top:0.54rem;
+        }
+        #lione ul li{
+            padding-bottom:0.18rem;
+            display:flex;
+        }
+        #lione ul li p:first-child{
+            white-space:nowrap;
+            margin-right:0.32rem;
+            line-height:0.34rem;
+            color:#707070;
+        }
+        #lione ul li p:last-child{
+            line-height:0.34rem;
+            color:#161616;
+            font-family:NotoSansHans-Regular;
+            font-weight:400;
+        }
+        /*累计评价*/
+        #litwo{
+            display:none;
+            padding: 0.47rem 0.26rem 0.85rem 0.26rem;
+        }
+        #litwo ul .list-item .line-1 {
+            margin-bottom: 0.14rem;
+        }
+
+        #litwo ul  .list-item .line-1 .user>img {
+            width: 0.6rem;
+            height: 0.6rem;
+            border-radius: 50%;
+            margin-right: 0.2rem;
+        }
+
+        #litwo ul  .list-item .line-1 .username>p:first-child {
+            margin-bottom: 0.12rem;
+        }
+        #litwo ul  .list-item .line-2 {
+            margin-left: 0.8rem;
+            margin-bottom: 0.17rem;
+        }
+
+        #litwo ul  .list-item .line-3 {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 0.11rem;
+        }
+        #litwo ul  .list-item .line-3>span:last-child {
+            display: block;
+            width: 0.09rem;
+            height: 0.05rem;
+            background: url("images/down_icon1.png") no-repeat center / 0.09rem;
+            margin-left: 0.07rem;
+        }
+        #litwo ul  .list-item .line-4 {
+            margin-left: 0.8rem;
+            margin-bottom: 0.32rem;
+        }
+        #litwo ul  .list-item .line-4>ul>li {
+            width: 1.4rem;
+            height: 1.4rem;
+            margin-right: 0.08rem;
+        }
+        #litwo ul  .list-item .line-4>ul>li>img {
+            width: 100%;
+            height: 100%;
+        }
+        .more{
+            display:none;
+            width:100%;
+            height:0.45rem;
+            color:#FF7303;
+            border-top:0.01rem solid rgba(170, 170, 170, 0.3);
+            text-align:center;
+            padding-top:0.35rem;
+            cursor:pointer;
+        }
+
+        /*商家列表*/
+        .rightbottom .listbox1 h3{
+            margin:0.28rem;
+        }
+        .rightbottom.listbox1 ul li{
+            padding-bottom:0.14rem;
+        }
+        .rightbottom .listbox1 ul li .elem{
+            background:#FFFFFF !important;
+        }
+        .rightbottom .listbox1 .box1-list{
+            margin:0.1rem 0.28rem;
+        }
+        .rightbottom .listbox1 .box1-list .rightlistpic a img{
+            width:1.8rem;
+            height:1.8rem;
+            margin-right:0.18rem;
+            border-radius:0.04rem;
+            -webkit-border-radius:0.04rem;
+        }
+        .rightbottom .listbox1 .box1-list .rightlisttext{
+            width:2.25rem;
+        }
+        .rightbottom .listbox1 .box1-list .rightlisttext .p1{
+            border-bottom:0.01rem solid #ECECEC;
+        }
+        .rightbottom .listbox1 .box1-list .rightlisttext .p3{
+            border-bottom:0.01rem solid #ECECEC;
+        }
+
+        .rightbottom .listbox1 .box1-list .rightlisttext .p3 span:first-child{
+            margin-right:0.24rem;
+            padding:0.1rem 0;
+
+        }
+        .rightbottom .listbox1 .box1-list .rightlisttext .p4{
+            padding-top:0.7rem;
+        }
+        .rightbottom .listbox1 .box1-list .rightlisttext .ltext{
+            display:block;
+            padding:0.07rem 0 0.18rem 0;
+
+        }
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+<!--html结构区域-->
+<div id="containers">
+    <header id="header"></header>
+    <section>
+        <div id="box">
+            <!--广告轮播图-->
+            <div class="swiper-container">
+                <!--包裹图片的父级元素 -->
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="javascript:;">
+                            <img src="resources/servicebanner1.png" alt="">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="javascript:;">
+                            <img src="resources/servicebanner1.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="main">
+                <!--头部区域-->
+                <div class="topmain">
+                    <div class="topbox flex">
+                        <div class="lefttop">
+                            <div class="pic">
+                                <img src="resources/servicedetai1.png" alt="">
+                                <div class="lefts">
+                                    <span class="left-semicircle icon"></span>
+                                    <span class="left-icon icon1"></span>
+                                </div>
+                                <div class="rights">
+                                    <span class="right-semicircle icon"></span>
+                                    <span class="right-icon icon1"></span>
+                                </div>
+                            </div>
+                            <div class="piclist">
+                                <ul class="flex fl-align fl-jsb">
+                                    <li>
+                                        <img src="resources/servicedetail2.png" alt="">
+                                    </li>
+                                    <li>
+                                        <img src="resources/servicedetail3.png" alt="">
+                                    </li>
+                                    <li>
+                                        <img src="resources/servicedetail4.png" alt="">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="righttop">
+                            <div class="introduce">
+                                <h3 class="fz-26">快捷洗车套餐A</h3>
+                                <div class="price flex fl-align c-e5">
+                                    <p class="c-6b">价格</p>
+                                    <p><span class="fz-20">¥</span><span class="fz-28">68.00</span></p>
+                                </div>
+                                <div class="rtext">
+                                    <div class="t-text">
+                                        <div class="t-one flex">
+                                            <p class="t1">服务内容</p>
+                                            <p class="t2"> 镀膜美容洗车 </p>
+                                        </div>
+                                        <div class="t-two flex">
+                                            <p class="t1">购买须知</p>
+                                            <p class="t2"> 镀膜美容洗车并不是一个简单地将车洗干净的过程，而是整合车辆清洗、
+                                                车辆外部美容、车辆漆面养护的综合汽车美容养护的过程。通过实施美容
+                                                洗车的施工项目，达到让待洗车辆干净，恢复漆面原有光泽度，同时保养
+                                                漆面，防止漆面受到紫外线、酸雨、鸟虫粪等污秽的伤害。
+                                            </p>
+                                        </div>
+                                        <div class="t-four flex">
+                                            <p class="t1">店铺优惠</p>
+                                            <p class="t2">首次下单，享受新人优惠 9.9 元</p>
+                                        </div>
+                                        <a href="javascript:;" class="buybtn">立即购买</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="salesnum flex fl-align">
+                                <div>
+                                    <p class="c-hover fz-18">10w+</p>
+                                    <p class="fz-14 c-6b">销量</p>
+                                </div>
+                                <div>
+                                    <p class="c-hover fz-18">10w+</p>
+                                    <p  class="fz-14 c-6b">评价</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--底部区域-->
+                <div class="bottommain flex fl-jsb">
+                    <div class="leftbottom">
+                        <div class="bottombox flex">
+                            <ul class="flex fl-align">
+                                <li class="elem" data-target="#lione">商品详情</li>
+                                <li data-target="#litwo">累计评价&#40;<span>108</span>&#41;</li>
+                            </ul>
+                            <div class="line"></div>
+                        </div>
+                        <div class="boxlist">
+                              <div id="lione">
+                                  <h3 class="fz-22">镀膜美容洗车</h3>
+                                  <div class="flex fl-align c-70">
+                                      <p><span>用途：</span><span>保持车漆靓丽不沾灰，提高车漆亮度</span></p>
+                                      <p><span>适用：</span><span>操作简单，在洗车时同时完成车漆上光保护</span></p>
+                                  </div>
+                                  <ul>
+                                      <li>
+                                          <p>服务说明 : </p>
+                                          <p>镀膜美容洗车并不是一个简单地将车洗干净的过程，而是整合车辆清洗、车辆外部美容、车辆漆面养护的综合汽车美容养护的过程。通过实施美容洗车的施工项目，达到让待洗车辆干净，恢复漆面原有光泽度，同时保养漆面，防止漆面受到紫外线、酸雨、鸟虫粪等污秽的伤害。</p>
+                                      </li>
+                                      <li>
+                                          <p>施工流程 : </p>
+                                          <p>1.接车；2.软化污秽，使用软水将车体表面打湿、清洁轮胎，同时给车体降温；3.涂抹中性洗车液；4.软水冲洗......</p>
+                                      </li>
+                                      <li>
+                                          <p>质量标准 :</p>
+                                          <p>此处是施工质量标准表格</p>
+                                      </li>
+                                      <li>
+                                          <p>售后承诺 : </p>
+                                          <p>品质保证更安心</p>
+                                      </li>
+                                      <li>
+                                          <p>应用产品 : </p>
+                                          <p>
+                                              虫尸鸟粪清除剂
+                                              本产品主要为清冼车身上所附着的鸟虫粪便污垢，喷除本产品后，能迅速化解鸟虫粪便污垢，然后用清洗剂加清水冲冼便可清洗干净。
+                                              沥青柏油清除剂
+                                              本产品是新构思的沥青柏油清除剂。不会给漆面带来损害，此产品不是将附着的沥青柏油擦掉，而是溶解后清水冲洗即可，非常简单。
+                                              粘土
+                                              本产品是基础美容用品。专业铁粉及污秽清除粘土。对于不能用铁粉清除剂一次清除的铁粉及漆面脏点等可以在用粘土一次性清除。
+                                              车漆油脂脱脂剂
+                                              本产品主要用于清除附着于涂饰表面的残存的车腊等多余油分；提高涂饰质量。是车辆在进行车漆表面镀膜或玻璃表面镀膜处理时必需的基
+                                              础处理。</p>
+                                      </li>
+                                      <li>
+                                          <p>其他说明 :</p>
+                                          <p>特别提示：<br>
+                                              1. 乘船是前往涠洲岛唯一途径，最好提前买好往返船票。<br>
+                                              2.出行前、上岛后一定要留意天气预报，涠洲岛历年的台风主要集中在7-9月份，如因天气或风浪的原因不能开船，可能会被迫打乱旅行计划。<br>
+                                              3.乘船登岛后需在游客通道购买涠洲岛的景点通票，有些景点还会检票，一定要保管好门票。<br>
+                                              4.游玩水上运动时千万注意安全，并在指定活动区域游玩。<br>
+                                              5. 在南湾海鲜市场附近的卫生院外有一个陡坡，是事故高发地段，骑行经过时最好下车推行。<br>
+                                          </p>
+                                      </li>
+                                  </ul>
+                              </div>
+                              <div id="litwo">
+                                  <ul>
+                                      <li class="list-item">
+                                          <div class="line-1 flex row fl-align fl-jsb">
+                                              <div class="user flex fl-align">
+                                                  <img src="resources/head1.png" alt="">
+                                                  <div class="username">
+                                                      <p class="fz-18 c-333 f-w5">andrew</p>
+                                                      <p class="fz-14 c-90 f-w5">涠洲岛3日2晚跟团游</p>
+                                                  </div>
+                                              </div>
+                                              <span class="fz-14 c-70 f-w5">2019/4/11 14:52</span>
+                                          </div>
+                                          <div class="line-2">
+                                              <p>提前了十几天预定的，估计周末人会很多，果不其然，周末游人非常多。决定住一晚是对的，虽然晚上人也不少，但是第二天一大早的人很少，拍照拍的停不下来，爸爸妈妈很开心。住的“一花一世界”，环境很好，貌似处在闹市口，但没有想象中的吵闹。
+                                              </p>
+                                          </div>
+                                          <div class="line-3">
+                                              <span class="fz-16 c-active">展开</span>
+                                              <span></span>
+                                          </div>
+                                          <div class="line-4">
+                                              <ul class="flex">
+                                                  <li>
+                                                      <img src="resources/e1.png" alt="">
+                                                  </li>
+                                                  <li>
+                                                      <img src="resources/e2.png" alt="">
+                                                  </li>
+                                                  <li>
+                                                      <img src="resources/e3.png" alt="">
+                                                  </li>
+                                                  <li>
+                                                      <img src="resources/e4.png" alt="">
+                                                  </li>
+                                                  <li>
+                                                      <img src="resources/e5.png" alt="">
+                                                  </li>
+                                                  <li>
+                                                      <img src="resources/e6.png" alt="">
+                                                  </li>
+                                              </ul>
+
+                                          </div>
+                                      </li>
+                                      <li class="list-item">
+                                          <div class="line-1 flex row fl-align fl-jsb">
+                                              <div class="user flex fl-align">
+                                                  <img src="resources/head1.png" alt="">
+                                                  <div class="username">
+                                                      <p class="fz-18 c-333 f-w5">andrew</p>
+                                                      <p class="fz-14 c-90 f-w5">涠洲岛3日2晚跟团游</p>
+                                                  </div>
+                                              </div>
+                                              <span class="fz-14 c-70 f-w5">2019/4/11 14:52</span>
+                                          </div>
+                                          <div class="line-2">
+                                              <p>提前了十几天预定的，估计周末人会很多，果不其然，周末游人非常多。决定住一晚是对的，虽然晚上人也不少，但是第二天一大早的人很少，拍照拍的停不下来，爸爸妈妈很开心。住的“一花一世界”，环境很好，貌似处在闹市口，但没有想象中的吵闹。
+                                              </p>
+                                          </div>
+                                          <div class="line-3">
+                                              <span class="fz-16 c-active">展开</span>
+                                              <span></span>
+                                          </div>
+                                          <div class="line-4">
+                                              <ul class="flex">
+                                                  <li>
+                                                      <img src="resources/e1.png" alt="">
+                                                  </li>
+                                                  <li>
+                                                      <img src="resources/e2.png" alt="">
+                                                  </li>
+                                                  <li>
+                                                      <img src="resources/e3.png" alt="">
+                                                  </li>
+                                                  <li>
+                                                      <img src="resources/e4.png" alt="">
+                                                  </li>
+                                                  <li>
+                                                      <img src="resources/e5.png" alt="">
+                                                  </li>
+                                                  <li>
+                                                      <img src="resources/e6.png" alt="">
+                                                  </li>
+                                              </ul>
+
+                                          </div>
+                                      </li>
+                                      <li class="list-item">
+                                          <div class="line-1 flex row fl-align fl-jsb">
+                                              <div class="user flex fl-align">
+                                                  <img src="resources/head1.png" alt="">
+                                                  <div class="username">
+                                                      <p class="fz-18 c-333 f-w5">andrew</p>
+                                                      <p class="fz-14 c-90 f-w5">涠洲岛3日2晚跟团游</p>
+                                                  </div>
+                                              </div>
+                                              <span class="fz-14 c-70 f-w5">2019/4/11 14:52</span>
+                                          </div>
+                                          <div class="line-2">
+                                              <p>提前了十几天预定的，估计周末人会很多，果不其然，周末游人非常多。决定住一晚是对的，虽然晚上人也不少，但是第二天一大早的人很少，拍照拍的停不下来，爸爸妈妈很开心。住的“一花一世界”，环境很好，貌似处在闹市口，但没有想象中的吵闹。
+                                              </p>
+                                          </div>
+                                          <div class="line-3">
+                                              <span class="fz-16 c-active">展开</span>
+                                              <span></span>
+                                          </div>
+                                          <div class="line-4">
+                                              <ul class="flex">
+                                                  <li>
+                                                      <img src="resources/e1.png" alt="">
+                                                  </li>
+                                                  <li>
+                                                      <img src="resources/e2.png" alt="">
+                                                  </li>
+                                                  <li>
+                                                      <img src="resources/e3.png" alt="">
+                                                  </li>
+                                                  <li>
+                                                      <img src="resources/e4.png" alt="">
+                                                  </li>
+                                                  <li>
+                                                      <img src="resources/e5.png" alt="">
+                                                  </li>
+                                                  <li>
+                                                      <img src="resources/e6.png" alt="">
+                                                  </li>
+                                              </ul>
+
+                                          </div>
+                                      </li>
+                                  </ul>
+                              </div>
+                        </div>
+                        <div class="more">查看更多评论</div>
+                    </div>
+                    <div class="rightbottom">
+                        <!--商家列表-->
+                        <div class="listbox1">
+                            <h3 class="fz-26 fw-m">推荐商家</h3>
+                            <ul>
+                                <li>
+                                    <div class="box1-list flex">
+                                        <div class="rightlistpic">
+                                            <a href="javascript:;"><img src="resources/service1.png" alt=""></a>
+                                        </div>
+                                        <div class="rightlisttext">
+                                            <p class="flex fl-jsb fl-align p1">
+                                                <span class="fz-22 c-333 fw-m ltext">锦湖洗车店</span>
+                                            </p>
+                                            <p class="flex fl-align p3"><span>销量 602</span><span>评价 568</span></p>
+                                            <p class="p4">
+                                                <span class="fz-20 f-wb c-e5">¥</span>
+                                                <span class="fz-26 f-wb c-e5">29.90</span>
+                                                <span class="c-70 fw-m">/起</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="box1-list flex">
+                                        <div class="rightlistpic">
+                                            <a href="javascript:;"><img src="resources/service1.png" alt=""></a>
+                                        </div>
+                                        <div class="rightlisttext">
+                                            <p class="flex fl-jsb fl-align p1">
+                                                <span class="fz-22 c-333 fw-m ltext">锦湖洗车店</span>
+                                            </p>
+                                            <p class="flex fl-align p3"><span>销量 602</span><span>评价 568</span></p>
+                                            <p class="p4">
+                                                <span class="fz-20 f-wb c-e5">¥</span>
+                                                <span class="fz-26 f-wb c-e5">29.90</span>
+                                                <span class="c-70 fw-m">/起</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="box1-list flex">
+                                        <div class="rightlistpic">
+                                            <a href="javascript:;"><img src="resources/service1.png" alt=""></a>
+                                        </div>
+                                        <div class="rightlisttext">
+                                            <p class="flex fl-jsb fl-align p1">
+                                                <span class="fz-22 c-333 fw-m ltext">锦湖洗车店</span>
+                                            </p>
+                                            <p class="flex fl-align p3"><span>销量 602</span><span>评价 568</span></p>
+                                            <p class="p4">
+                                                <span class="fz-20 f-wb c-e5">¥</span>
+                                                <span class="fz-26 f-wb c-e5">29.90</span>
+                                                <span class="c-70 fw-m">/起</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="box1-list flex">
+                                        <div class="rightlistpic">
+                                            <a href="javascript:;"><img src="resources/service1.png" alt=""></a>
+                                        </div>
+                                        <div class="rightlisttext">
+                                            <p class="flex fl-jsb fl-align p1">
+                                                <span class="fz-22 c-333 fw-m ltext">锦湖洗车店</span>
+                                            </p>
+                                            <p class="flex fl-align p3"><span>销量 602</span><span>评价 568</span></p>
+                                            <p class="p4">
+                                                <span class="fz-20 f-wb c-e5">¥</span>
+                                                <span class="fz-26 f-wb c-e5">29.90</span>
+                                                <span class="c-70 fw-m">/起</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="footer"></div>
+</div>
+</body>
+<!-- js功能区域 -->
+<script src="./js/jquery.min.js"></script>
+<script src="./js/public.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/swiper.min.js"></script>
+<script type="text/javascript">
+
+    $(function(){
+        /*轮播图*/
+        var mySwiper = new Swiper('.swiper-container', {
+            autoplay: {
+                delay: 3000,
+                stopOnLastSlide: false,
+                disableOnInteraction: true,
+            }
+        })
+        $('.bottombox ul').on('click','li[data-target]',function(){
+            $(this).addClass('elem').siblings().removeClass('elem');
+            $($(this).data('target')).show().siblings().hide();
+            if($(this).data('target')=='#litwo'){
+                $('.more').show();
+            }else{
+                $('.more').hide();
+            }
+        })
+        /*切换div*/
+    })
+
+</script>
+</html>

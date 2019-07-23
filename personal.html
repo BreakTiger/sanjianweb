@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>个人中心</title>
+    <script src="./js/rem.js"></script>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/public.css">
+
+    <style>
+        /* 整体 */
+        #box {
+            position: relative;
+        }
+
+        /* banner */
+        .banner {
+            width: 19.20rem;
+            height: 3rem;
+            margin-bottom: 0.64rem;
+        }
+
+        /* 主内容 */
+        .main-content {
+            width: 16.8rem;
+            height: 10.41rem;
+            background: rgba(243, 245, 247, 1);
+            margin: auto;
+            margin-bottom: 0.8rem;
+        }
+
+        .main-content .content {
+            padding: 0.08rem;
+        }
+
+        .main-content .content .left-box {
+            width: 4rem;
+            height: 10.25rem;
+        }
+
+        .left-box .userhead {
+            width: 4rem;
+            height: 3.12rem;
+            background: #ffffff;
+        }
+
+        .left-box .userhead .header-img {
+            width: 1.47rem;
+            height: 1.47rem;
+            margin-bottom: 0.24rem;
+            margin-top: 0.68rem;
+            position: relative;
+        }
+
+        .left-box .userhead .header-img img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+        .change-Icon {
+            display: block;
+            width: 0.47rem;
+            height: 0.47rem;
+            background: url("images/headedit.png") no-repeat center / 0.47rem;
+            position: absolute;
+            bottom: 0rem;
+            right: 0rem;
+            cursor: pointer;
+        }
+
+        .left-box .nav-box {
+            width: 4rem;
+            height: 7.07rem;
+            background: rgba(255, 255, 255, 1);
+            margin-top: 0.06rem;
+        }
+
+        .left-box .nav-box ul {
+            width: 100%;
+        }
+
+        .left-box .nav-box ul li {
+            display: flex;
+            align-items: center;
+            text-align: left;
+            width: 2.80rem;
+            border-radius: 0.08rem;
+            margin-bottom: 0.09rem;
+            cursor: pointer;
+        }
+
+        .active-bg {
+            background: rgba(226, 236, 249, 1);
+        }
+
+        .left-box .nav-box ul li span:nth-child(3) {
+            color: #888888;
+        }
+
+        .left-box .nav-box ul li:first-child {
+            margin-top: 0.32rem;
+        }
+
+        .left-box .nav-box ul .line {
+            width: 100%;
+            height: 0.02rem;
+            background: #F3F5F7;
+            margin-top: 0.26rem;
+            margin-bottom: 0.26rem;
+        }
+
+        /* 图标 */
+        .left-box .nav-box ul li .list-icon {
+            display: block;
+            width: 0.6rem;
+            height: 0.6rem;
+            margin-left: 0.52rem;
+            margin-right: 0.03rem;
+        }
+
+        .one {
+            background: url("images/info.png") no-repeat center / 0.6rem;
+        }
+
+        .two {
+            background: url("images/wallet.png") no-repeat center / 0.6rem;
+        }
+
+        .three {
+            background: url("images/orders.png") no-repeat center / 0.6rem;
+        }
+
+        .four {
+            background: url("images/apply.png") no-repeat center / 0.6rem;
+        }
+
+        .five {
+            background: url("images/collection.png") no-repeat center / 0.6rem;
+        }
+
+        .six {
+            background: url("images/send.png") no-repeat center / 0.6rem;
+        }
+
+        .seven {
+            background: url("images/manager.png") no-repeat center / 0.6rem;
+        }
+
+        .eight {
+            background: url("images/set.png") no-repeat center / 0.6rem;
+        }
+
+        .one-active {
+            background: url("images/a-info.png") no-repeat center / 0.6rem;
+        }
+
+        .two-active {
+            background: url("images/wallet.png") no-repeat center / 0.6rem;
+        }
+
+        .three-active {
+            background: url("images/orders.png") no-repeat center / 0.6rem;
+        }
+
+        .four-active {
+            background: url("images/apply.png") no-repeat center / 0.6rem;
+        }
+
+        .five-active {
+            background: url("images/collection.png") no-repeat center / 0.6rem;
+        }
+
+        .six-active {
+            background: url("images/send.png") no-repeat center / 0.6rem;
+        }
+
+        .seven-active {
+            background: url("images/manager.png") no-repeat center / 0.6rem;
+        }
+
+        .eight-active {
+            background: url("images/set.png") no-repeat center / 0.6rem;
+        }
+
+        .main-content .content .right-box {
+            width: 12.52rem;
+            height: 10.25rem;
+        }
+
+        /* 设置 */
+        .setting .swtich-line {
+            background: #ffffff;
+            margin-bottom: 0.2rem;
+        }
+
+        .setting .swtich-line>span {
+            padding-top: 0.31rem;
+            padding-bottom: 0.25rem;
+            color: #666666;
+        }
+
+        .setting .swtich-line>span:first-child {
+            margin-left: 0.61rem;
+            margin-right: 0.81rem;
+        }
+
+        .chose {
+            color: #333333 !important;
+            border-bottom: 0.02rem solid #333333;
+        }
+
+        .certification {
+            width: 100%;
+            height: 9.25rem;
+            background: #ffffff;
+        }
+
+        .certification .info-input .rname {
+            margin-top: 0.28rem;
+            margin-bottom: 0.28rem;
+        }
+
+        .certification .info-input .rname>span {
+            margin-left: 1.69rem;
+            margin-right: 0.19rem;
+        }
+
+        .certification .info-input .rname input {
+            width: 7rem;
+            height: 0.6rem;
+            background: rgba(243, 245, 247, 1);
+            border-radius: 0.04rem;
+            text-indent: 0.29rem;
+            cursor: pointer;
+        }
+
+        .certification .info-input .IDcode>span {
+            margin-right: 0.19rem;
+            margin-left: 1.49rem;
+        }
+
+        .certification .info-input .IDcode input {
+            width: 7rem;
+            height: 0.6rem;
+            background: rgba(243, 245, 247, 1);
+            border-radius: 0.04rem;
+            text-indent: 0.29rem;
+            cursor: pointer;
+        }
+
+        .upload-one {
+            margin-top: 0.28rem;
+        }
+
+        .upload-one>span:first-child {
+            margin-left: 0.95rem;
+            margin-right: 0.24rem;
+        }
+
+        .upload-one .uploadBtn .upPositive {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0rem;
+            left: 0rem;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+
+        .upload-one .uploadBtn>form .upPositive {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0rem;
+            left: 0rem;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+
+        .upload-one .uploadBtn {
+            width: 1.77rem;
+            height: 0.60rem;
+            background: rgba(255, 255, 255, 1);
+            border: 0.01rem solid rgba(227, 230, 236, 1);
+            border-radius: 0.04rem;
+            margin-right: 0.32rem;
+            position: relative;
+        }
+
+        .upload-one .uploadBtn .upicon {
+            display: block;
+            width: 0.22rem;
+            height: 0.18rem;
+            background: url('images/upload.png') no-repeat center/0.22rem;
+            margin-right: 0.07rem;
+            margin-left: 0.32rem;
+        }
+
+        .upload-one.flie-name>span {
+            font-size: 0.18rem;
+            color: #555555;
+        }
+
+        .upload-one.flie-name .delicon {
+            display: block;
+            width: 0.17rem;
+            height: 0.17rem;
+            background: url('images/del.png') no-repeat center/0.17rem;
+            margin-left: 0.16rem;
+        }
+
+        .upImg-one {
+            margin-top: 0.16rem;
+        }
+
+        .upImg-one>img:first-child {
+            width: 4rem;
+            height: 2.1rem;
+            margin-left: 2.75rem;
+            margin-right: 1.29rem;
+        }
+
+
+
+        .upload-two {
+            margin-top: 0.28rem;
+        }
+
+        .upload-two>span:first-child {
+            margin-left: 0.95rem;
+            margin-right: 0.24rem;
+        }
+
+        .upload-two .uploadBtn .upPositive {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0rem;
+            left: 0rem;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+
+        .upload-two .uploadBtn>form .upPositive {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0rem;
+            left: 0rem;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+
+        .upload-two .uploadBtn {
+            width: 1.77rem;
+            height: 0.60rem;
+            background: rgba(255, 255, 255, 1);
+            border: 0.01rem solid rgba(227, 230, 236, 1);
+            border-radius: 0.04rem;
+            margin-right: 0.32rem;
+            position: relative;
+        }
+
+        .upload-two .uploadBtn .upicon {
+            display: block;
+            width: 0.22rem;
+            height: 0.18rem;
+            background: url('images/upload.png') no-repeat center/0.22rem;
+            margin-right: 0.07rem;
+            margin-left: 0.32rem;
+        }
+
+        .upload-two.flie-name>span {
+            font-size: 0.18rem;
+            color: #555555;
+        }
+
+        .upload-two.flie-name .delicon {
+            display: block;
+            width: 0.17rem;
+            height: 0.17rem;
+            background: url('images/del.png') no-repeat center/0.17rem;
+            margin-left: 0.16rem;
+        }
+
+
+        .upImg-two {
+            margin-top: 0.16rem;
+        }
+
+        .upImg-two>img:first-child {
+            width: 4rem;
+            height: 2.1rem;
+            margin-left: 2.75rem;
+            margin-right: 1.29rem;
+        }
+
+        .last-line{
+            margin-top: 0.43rem;
+        }
+
+        .last-line .up-btn {
+            width: 1.1rem;
+            background: rgba(255, 115, 3, 1);
+            border-radius: 0.08rem;
+            text-align: center;
+            padding: 0.12rem 0;
+            cursor: pointer;
+            margin-left: 2.75rem;
+            margin-right: 0.35rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="containers">
+        <header id="header"></header>
+        <section>
+            <div id="box">
+                <!-- banner -->
+                <img class="banner" src="resources/personbanner.png">
+                <!-- 主内容 -->
+                <div class="main-content ">
+                    <div class="content flex fl-align fl-jsb">
+                        <!-- 左 -->
+                        <div class="left-box">
+                            <div class="userhead flex col fl-align">
+                                <div class="header-img">
+                                    <img src="resources/head1.png">
+                                    <span class="change-Icon"></span>
+                                </div>
+                                <h4 class="fz-26 c-333 f-w5">圣凌皇太子</h4>
+                            </div>
+                            <div class="nav-box">
+                                <ul class="flex col fl-align">
+                                    <li class="active-bg" data-ind="1">
+                                        <span class="list-icon one hide"></span>
+                                        <span class="list-icon one-active"></span>
+                                        <span class="fz-24 f-w5 c-DB">我的信息</span>
+                                    </li>
+                                    <li data-ind="2">
+                                        <span class="list-icon two"></span>
+                                        <span class="list-icon two-active hide"></span>
+                                        <span class="fz-24 f-w5">我的钱包</span>
+                                    </li>
+                                    <li data-ind="3">
+                                        <span class="list-icon three"></span>
+                                        <span class="list-icon three-active hide"></span>
+                                        <span class="fz-24 f-w5">我的订单</span>
+                                    </li>
+                                    <li data-ind="4">
+                                        <span class="list-icon four"></span>
+                                        <span class="list-icon four-active hide"></span>
+                                        <span class="fz-24 f-w5">我的申请</span>
+                                    </li>
+                                    <li class="line"></li>
+                                    <li data-ind="5">
+                                        <span class="list-icon five"></span>
+                                        <span class="list-icon five-active hide"></span>
+                                        <span class="fz-24 f-w5">我的收藏</span>
+                                    </li>
+                                    <li data-ind="6">
+                                        <span class="list-icon six"></span>
+                                        <span class="list-icon six-active hide"></span>
+                                        <span class="fz-24 f-w5">我的发布</span>
+                                    </li>
+                                    <li class="line"></li>
+                                    <li data-ind="7">
+                                        <span class="list-icon seven"></span>
+                                        <span class="list-icon seven-active hide"></span>
+                                        <span class="fz-24 f-w5">消息管理</span>
+                                    </li>
+                                    <li data-ind="8">
+                                        <span class="list-icon eight"></span>
+                                        <span class="list-icon eight-active hide"></span>
+                                        <span class="fz-24 f-w5">设置</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- 右 -->
+                        <div class="right-box">
+                            <!-- 设置 -->
+                            <div class="setting">
+                                <div class="swtich-line flex fl-align">
+                                    <span class="fz-26 chose">我的认证</span>
+                                    <span class="fz-26">密码设置</span>
+                                </div>
+                                <div class="certification ">
+                                    <div class="info-input flex col hide">
+                                        <div class="rname">
+                                            <span class="fz-20 c-99">真实姓名:</span>
+                                            <input type="text" id="getRname">
+                                        </div>
+                                        <div class="IDcode">
+                                            <span class="fz-20 c-99">身份证号码:</span>
+                                            <input type="text" id="getIdcode">
+                                        </div>
+                                        <div class="upload-one flex fl-align">
+                                            <span class="fz-20 c-99">身份证照片(正面):</span>
+                                            <div class="uploadBtn flex fl-align">
+                                                <span class="upicon"></span>
+                                                <span class="fz-20 c-333 f-w4">点击上传</span>
+                                                <input type="file" class="upPositive">
+                                            </div>
+                                            <span class="remind fz-20 c-b5">未选择任何文件</span>
+                                            <div class="flie-name flex fl-align hide">
+                                                <span>文件名称：</span>
+                                                <span class="filesname">11111</span>
+                                                <span class="delicon"></span>
+                                            </div>
+                                        </div>
+                                        <div class="upImg-one flex fl-align">
+                                            <img src="images/positive.png" class="default-one">
+                                            <img src="images/positive-e.png" class="example-one">
+                                        </div>
+                                        <div class="upload-two flex fl-align">
+                                            <span class="fz-20 c-99">身份证照片(反面):</span>
+                                            <div class="uploadBtn flex fl-align">
+                                                <span class="upicon"></span>
+                                                <span class="fz-20 c-333 f-w4">点击上传</span>
+                                                <input type="file" class="upPositive">
+                                            </div>
+                                            <span class="remind fz-20 c-b5">未选择任何文件</span>
+                                            <div class="flie-name flex fl-align hide">
+                                                <span>文件名称：</span>
+                                                <span class="filesname">11111</span>
+                                                <span class="delicon"></span>
+                                            </div>
+                                        </div>
+                                        <div class="upImg-two flex fl-align">
+                                            <img src="images/positive.png" class="default-one">
+                                            <img src="images/positive-e.png" class="example-one">
+                                        </div>
+                                        <div class="last-line flex fl-align">
+                                            <div class="up-btn fz-18 c-fff">确认提交</div>
+                                            <p>
+                                                <span class="fz-18 c-666">查看</span>
+                                                <a href="javascript:;" class="fz-18 c-hover">用户安全协议</a>
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                    <div class="reult">
+                                        <div class=""></div>
+                                        <div class=""></div>
+                                        <div class=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 右侧导航栏 -->
+
+
+            </div>
+        </section>
+        <div id="footer"></div>
+    </div>
+</body>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/public.js"></script>
+<script src="./js/common.js"></script>
+<script src="js/pageMe.js"></script>
+<script>
+    $(function () {
+        // 基础信息
+        // $('.right-box').load('personal_tab_info.html')
+        // 我的钱包
+        // $('.right-box').load('personal_tab_wallet.html')
+
+        // 设置
+
+
+
+
+    })
+</script>
+
+</html>

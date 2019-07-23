@@ -1,0 +1,2215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    <script src="js/rem.js"></script>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/icon.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <style>
+        /*底部线条*/
+        .lbottom {
+            position: relative;
+            z-index: 0;
+        }
+
+        .lbottom ::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-bottom: 0.04rem solid #0070D3;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 200%;
+            height: 200%;
+            -webkit-transform: scale(0.5);
+            -moz-transform: scale(0.5);
+            -ms-transform: scale(0.5);
+            transform: scale(0.5);
+            -webkit-transform-origin: left top;
+            transform-origin: left top;
+            margin-top: 0.25rem;
+        }
+
+        .lbottom div,
+        .lbottom a,
+        .lbottom li {
+            position: relative;
+        }
+
+        .lbottom1 {
+            position: relative;
+            z-index: 0;
+        }
+
+        .lbottom1 ::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-bottom: 0.04rem solid #0070D3;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 1rem;
+            height: 200%;
+            -webkit-transform: scale(0.5);
+            -moz-transform: scale(0.5);
+            -ms-transform: scale(0.5);
+            transform: scale(0.5);
+            -webkit-transform-origin: left top;
+            -moz-transform-origin: left top;
+            -ms-transform-origin: left top;
+            transform-origin: left top;
+            margin: 0.16rem 0 0 0.1rem;
+
+        }
+
+        .lbottom1 div,
+        .lbottom1 span,
+        .lbottom1 a,
+        .lbottom1 li {
+            position: relative;
+        }
+
+        .l-bottom {
+            position: relative;
+            z-index: 0;
+        }
+
+        .l-bottom ::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-bottom: 0.01rem solid #D4D4D4;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 200%;
+            height: 200%;
+            -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+            -webkit-transform-origin: left top;
+            transform-origin: left top;
+            opacity: 0.5;
+        }
+
+        .l-bottom div,
+        .l-bottom a,
+        .l-bottom li {
+            position: relative;
+        }
+
+        /*轮播图, 住宿框 登录框*/
+        #box .banner {
+            position: relative;
+            width: 100%;
+            height:5.1rem;
+        }
+
+        #box .banner img {
+            width: 100%;
+            height: 5.1rem;
+            z-index: 999;
+        }
+
+        #box .banner .banner-box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 16.8rem;
+            max-width: 16.80rem;
+            z-index: 1000;
+            margin: 0 auto;
+            height: 5.1rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        /* 信息框 */
+        .m-box1{
+            width: 4.63rem;
+            height: 5.07rem;
+            background: url('resources/bg.png') no-repeat center/4.63rem;
+            z-index: 100;
+        }
+        .m-box1 .b-content {
+            width:2.8rem;
+            z-index: 120;
+            cursor:pointer;
+            padding:0 0.3rem;
+            margin: 0.46rem auto 0.93rem;
+        }
+        .m-box1 .b-form {
+            margin-top: 0.41rem;
+        }
+        .m-box1 .b-form>form .item-hotel .itembox div{
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.14rem;
+        }
+
+        .m-box1 .b-form form .item-hotel .itembox div p:first-child {
+            width:0.7rem;
+            margin-right: 0.12rem;
+            font-size:0.18rem;
+            font-family:A02-;
+            font-weight:400;
+            color:#3F3F3F;
+            white-space:nowrap;
+        }
+
+        .m-box1 .b-form>form .itembox div .m-text {
+            width: 1.96rem;
+            height: 0.36rem;
+            border: 0.01rem solid #EFEFEF;
+            border-radius: 0.02rem;
+            display: flex;
+            align-items: center;
+            box-sizing:border-box;
+        }
+
+        .m-box1 .b-form>form .item-hotel .itembox div .m-text>input {
+            width: 1.67rem;
+            height: 100%;
+            text-indent: 0.08rem;
+            cursor: pointer;
+        }
+        .m-box1 .item-hotel .search{
+            width: 2.80rem;
+            height: 0.40rem;
+            background: linear-gradient(90deg, rgba(255, 134, 0, 1) 0%, rgba(255, 165, 0, 1) 96%);
+            border: 0.01rem solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0.03rem 0.09rem 0 rgba(255, 134, 0, 0.24);
+            border-radius: 0.02rem;
+            font-size: 0.2rem;
+            color:#FFFFFF;
+        }
+        #itembox1 .search{
+            margin-top:0.08rem;
+        }
+        #itembox2 .search,#itembox3 .search{
+            margin-top: 1.22rem;
+        }
+        /*各种下拉框样式*/
+        .arealist,.hotellevel{
+            position:relative;
+        }
+
+        .m-box1 .b-form>form .item-hotel .itembox .areaModel{
+            position:absolute;
+            top:0.44rem;
+            left:0.83rem;
+            width:1.96rem;
+            background:rgba(251,251,251,1);
+            border:0.01rem solid rgba(239,239,239,1);
+            box-shadow:0 0.02rem 0.08rem 0 rgba(46,46,46,0.1);
+            border-radius:0.02rem;
+
+        }
+        .m-box1 .b-form>form .item-hotel .itembox .areaModel1,  .m-box1 .b-form>form .item-hotel .itembox .areaModel2{
+            display:none;
+            z-index:10000;
+        }
+        .areaModel ul{
+            padding:0.12rem 0 0.2rem 0.12rem;
+            font-size:0.14rem;
+            font-weight:500;
+            color:#4A4A4A;
+            line-height:0.22rem;
+        }
+        .areaModel ul li{
+            width:1.72rem;
+            border-radius:0.04rem;
+            margin-bottom:0.08rem;
+        }
+        .areaModel ul li.bhover{
+            background:#0070D3;
+            color:#FFFFFF;
+        }
+        .areaModel ul li span{
+            padding:0.06rem;
+        }
+
+        #box .banner .banner-box .m-box2 {
+            width: 3.4rem;
+            height: 4.7rem;
+            margin: 0.19rem 0 0.2rem 0;
+            background: rgba(251, 251, 251, 1);
+            border: 1px solid rgba(255, 255, 255, 1);
+            box-shadow: 0px 0.02rem 0.19rem 0.02rem rgba(60, 79, 90, 0.61);
+            border-radius: 0.08rem;
+        }
+
+        #box .banner .banner-box .m-box2 .headimg {
+            width: 0.69rem;
+            height: 0.69rem;
+            ;
+            background: url("images/headimg.png") no-repeat center / 0.69rem;
+            margin: 0.27rem auto 0.14rem;
+        }
+
+        #box .banner .banner-box .m-box2 .username {
+            font-size: 0.18rem;
+            font-family: A03-;
+            font-weight: 500;
+            color: rgba(101, 101, 101, 1);
+            line-height: 0.22rem;
+            text-align: center;
+            margin-bottom: 0.26rem;
+        }
+
+        #box .banner .banner-box .m-box2 .userbtn {
+            display: flex;
+            margin: 0.24rem;
+            justify-content: space-between;
+            border-bottom: 0.01rem solid #EDEDED;
+            padding-bottom: 0.2rem;
+        }
+
+        #box .banner .banner-box .m-box2 .userbtn a {
+            display: block;
+            width: 0.9rem;
+            height: 0.35rem;
+            background: linear-gradient(90deg, rgba(255, 134, 0, 1) 0%, rgba(255, 165, 0, 1) 96%);
+            border: 0.01rem solid rgba(255, 255, 255, 1);
+            box-shadow: 0.01rem 0.02rem 0.5rem 0.01rem rgba(122, 122, 122, 0.08);
+            border-radius: 0.04rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.18rem;
+            font-family: A03-;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 1);
+            line-height: 0.22rem;
+        }
+
+        #box .banner .banner-box .m-box2 .usertext {
+            margin: 0.24rem 0 0 0.27rem;
+        }
+
+        #box .banner .banner-box .m-box2 .usertext p {
+            margin-bottom: 0.15rem;
+            display: flex;
+            align-items: center;
+        }
+        #box .banner .banner-box .m-box3 {
+            width: 3.4rem;
+            height: 4.7rem;
+            margin: 0.19rem 0 0.2rem 0;
+            background: rgba(251, 251, 251, 1);
+            border: 1px solid rgba(255, 255, 255, 1);
+            box-shadow: 0px 0.02rem 0.19rem 0.02rem rgba(60, 79, 90, 0.61);
+            border-radius: 0.08rem;
+            display: none;
+        }
+
+        #box .banner .banner-box .m-box3 .userimg {
+            width: 0.7rem;
+            height: 0.7rem;
+            margin: 0.15rem 1.35rem;
+            border-radius: 50%;
+
+        }
+
+        #box .banner .banner-box .m-box3 .userimg img {
+            width: 100%;
+            height: 100%;
+        }
+
+        #box .banner .banner-box .m-box3 .username {
+            text-align: center;
+        }
+
+        #box .banner .banner-box .usermoney {
+            width: 2.9rem;
+            height: 1rem;
+            margin: 0 auto;
+            background: rgba(251, 251, 251, 1);
+            border: 0.01rem solid rgba(255, 255, 255, 1);
+            box-shadow: 0.01rem 0.02rem 0.5rem 0.01rem rgba(122, 122, 122, 0.08);
+            border-radius: 0.08rem;
+            margin: 0.3rem auto;
+        }
+
+        #box .banner .banner-box .usermoney div {
+            margin: 0.25rem 0.2rem;
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        #box .banner .banner-box .usermoney div p {
+            display: flex;
+        }
+
+        #box .banner .banner-box .usermoney div p .uprice {
+            font-family: DIN-Medium;
+            font-weight: 500;
+            color: rgba(255, 115, 3, 1);
+            margin-left: 0.05rem;
+        }
+
+        #box .banner .banner-box .userlist {
+            font-size: 0.16rem;
+            font-family: A03-;
+            font-weight: 500;
+            color: rgba(74, 74, 74, 1);
+            line-height: 0.22rem;
+            margin: 0 0.2rem;
+        }
+
+        #box .banner .banner-box .userlist ul li {
+            margin-bottom: 0.15rem;
+            display: flex;
+        }
+        #box .banner .banner-box .exitbtn {
+            width: 2.8rem;
+            height: 0.4rem;
+            background: linear-gradient(90deg, rgba(230, 233, 240, 1) 0%, rgba(238, 241, 245, 1) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 0.03rem 0.09rem 0 rgba(188, 188, 188, 0.24);
+            border-radius: 0.02rem;
+            text-align: center;
+            margin: 0.2rem auto;
+        }
+
+        #box .banner .banner-box .exitbtn a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.2rem;
+            font-weight: 500;
+            color: rgba(81, 81, 81, 1);
+            height: 0.4rem;
+        }
+
+        /*广告图*/
+        #box .content {
+            width: 16.8rem;
+            max-width: 16.8rem;
+            margin: auto;
+        }
+
+        #box .content .advert ul li a img {
+            width: 100%;
+        }
+
+        #box .content .advert ul li a .img1 {
+            margin-top: 0.24rem;
+            height: 1.2rem;
+        }
+
+        #box .content .advert ul li a .img2 {
+            margin-top: 0.2rem;
+            height: 1.2rem;
+        }
+
+        #box .content .advert ul li a .img3 {
+            margin-top: 0.19rem;
+            height: 1.21rem;
+        }
+
+        #box .content .advert ul li:last-child {
+            margin-bottom: 0.61rem;
+        }
+
+        /***旅游 电商 教育 房产 汽车 信息楼层结构start***/
+
+        /*楼层导航*/
+        .floor {
+            margin-bottom: 1.41rem;
+        }
+
+        .floor .floor-box .floor-nav {
+            display: flex;
+            align-items: center;
+            border-bottom: 0.02rem solid #ECEEF4;
+            position: relative;
+            padding-bottom: 0.18rem;
+        }
+
+        .floor .floor-box .floor-nav h1 {
+            font-size: 0.32rem;
+            margin-left: 0.18rem;
+        }
+
+        .floor .floor-box .floor-nav .nav-ul {
+            display: flex;
+            margin-left: 2.84rem;
+        }
+
+        .floor .floor-box .floor-nav .nav-ul li {
+            margin-right: 0.64rem;
+            cursor: pointer;
+        }
+
+        .floor .floor-box .floor-nav .nav-ul li span {
+            display: inline-block;
+
+        }
+
+        .floor .floor-box .floor-nav .nav-p {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            right: 0;
+            cursor: pointer;
+        }
+
+        .floor .floor-box .floor-nav .nav-p a {
+            display: flex;
+            align-items: center;
+        }
+
+        .floor .floor-box .floor-nav .nav-p .nav-title {
+            margin-right: 0.11rem;
+        }
+        .floor .floor-box .floor-img img {
+            width: 100%;
+            height: 1.2rem;
+            margin: 0.41rem 0 0.64rem 0;
+        }
+
+        /*楼层“旅游”内容*/
+        .floor-tourism {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.36rem;
+        }
+
+        .floor-tourism .f-box {
+            width: 12.56rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .floor-tourism .f-box .b-info {
+            width: 4.06rem;
+            height: 4.66rem;
+            background: rgba(252, 252, 252, 1);
+            margin-bottom: 0.24rem;
+        }
+
+        .floor-tourism .f-box .b-info:hover {
+            box-shadow: 0px 0.02rem 0.25rem 0.02rem rgba(60, 79, 90, 0.15);
+        }
+
+        .floor-tourism .f-box .b-info .i-box {
+            margin: 0 0.12rem;
+            padding-top: 0.12rem;
+        }
+
+        .floor-tourism .f-box .b-info .i-box .b-img {
+            position: relative;
+        }
+
+        .floor-tourism .f-box .b-info .i-box .b-img img {
+            width: 3.82rem;
+            height: 2.12rem;
+            border-radius: 0.08rem;
+            -webkit-border-radius: 0.08rem;
+        }
+        .floor-tourism .f-box .b-info .i-box .b-text {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.24rem 0 0.12rem 0;
+            border-bottom: 0.01rem solid #ECECEC;
+        }
+
+        .floor-tourism .f-box .b-info .i-box .b-information .b-p1 {
+            padding: 0.18rem 0 0.12rem 0;
+        }
+
+        .floor-tourism .f-box .b-info .i-box .b-information .b-p2 {
+            padding-bottom: 0.24rem;
+        }
+
+        .floor-tourism .f-box .b-info .i-box .b-information .b-p2 span:last-child {
+            margin-left: 0.54rem;
+        }
+
+        .floor-tourism .f-box .b-info .i-box .b-information .b-p3 {
+            padding-bottom: 0.13rem;
+        }
+
+        .floor-tourism .f-advert img {
+            width: 3.8rem;
+            height: 9.43rem;
+            border-radius: 0.08rem;
+            -webkit-border-radius: 0.08rem;
+        }
+
+        /*楼层“电商”内容*/
+        .floor-electricity {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 0.46rem;
+        }
+
+        .floor-electricity .e-box .e-text {
+            margin: 0 0 0.17rem 0.38rem;
+        }
+
+        .floor-electricity .e-box .e-content {
+            width: 8.20rem;
+            height: 4.53rem;
+            background: rgba(244, 244, 244, 1);
+            border-radius: 0.4rem;
+            -webkit-border-radius: 0.4rem;
+            position: relative;
+        }
+
+        .floor-electricity .e-box .e-content ul {
+            display: flex;
+            padding: 0.2rem 0.45rem 0.33rem 0.44rem;
+        }
+
+        .floor-electricity .e-box .e-content ul li {
+            width: 2.34rem;
+            height: 4rem;
+            background: rgba(252, 252, 252, 1);
+            box-shadow: 0 0.02rem 0.24rem 0 rgba(60, 79, 90, 0.1);
+            margin-right: 0.15rem;
+        }
+
+        .floor-electricity .e-box .e-content ul li .lbox {
+            margin: auto;
+            padding: 0.12rem 0.12rem 0;
+        }
+
+        .floor-electricity .e-box .e-content ul .l-img img {
+            width: 2.1rem;
+            height: 2.1rem;
+        }
+
+        .floor-electricity .e-box .e-content ul .l-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.19rem 0 0.16rem 0;
+            border-bottom: 0.01rem solid #ECECEC;
+        }
+
+        .floor-electricity .e-box .e-content ul .l-title {
+            padding: 0.19rem 0 0.16rem 0;
+        }
+
+        .floor-electricity .e-box .e-content ul .l-text {
+            font-size: 0.16rem;
+            line-height: 0.24rem;
+
+        }
+
+        .floor-electricity .e-box .e-content .left-icon {
+            width: 0.27rem;
+            height: 0.43rem;
+            position: absolute;
+            top: 2.06rem;
+            left: 0.14rem;
+            background: url("images/left.png") no-repeat center / 0.27rem;
+        }
+
+        .floor-electricity .e-box .e-content .right-icon {
+            width: 0.27rem;
+            height: 0.43rem;
+            position: absolute;
+            top: 2.06rem;
+            right: 0.14rem;
+            background: url("images/right.png") no-repeat center / 0.27rem;
+        }
+
+        .floor-electricity .e-box .e-text3 {
+            margin-top: 0.52rem;
+        }
+
+        .floor-electricity .e-box .e-img {
+            width: 8.2rem;
+            height: 4.54rem;
+            margin-top: 0.91rem;
+        }
+
+        /*教育*/
+        .floor-education {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+        }
+
+        .floor-education .d-box1 {
+            margin: 0.48rem 0.21rem 0 0;
+        }
+
+        .floor-education .d-box1 a img {
+            width: 5.6rem;
+            height: 3.6rem;
+        }
+
+        .floor-education .d-box1 .notice {
+            margin-top: 0.3rem;
+            color: #404040;
+        }
+
+        .floor-education .d-box1 .notice p {
+            margin-bottom: 0.21rem;
+        }
+
+        .floor-education .d-box1 .notice p:hover {
+            color: #FF7303;
+        }
+
+        .floor-education .d-box2 {
+            margin-top: 0.39rem;
+        }
+
+        .floor-education .d-box2 .dcard {
+            display: flex;
+            flex-wrap: nowrap;
+            width: 6.5rem;
+            height: 2.18rem;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 0.04rem;
+            -webkit-border-radius: 0.04rem;
+        }
+
+        .floor-education .d-box2 .dcard:hover {
+            box-shadow: 0px 0 0.21rem 0 rgba(41, 41, 41, 0.18);
+            border-radius: 0.04rem;
+        }
+
+        .floor-education .d-box2 .dcard a {
+            display: block;
+        }
+
+        .floor-education .d-box2 .dcard a img {
+            width: 2rem;
+            height: 2rem;
+            margin: 0.09rem 0 0.09rem 0.15rem;
+        }
+
+        .floor-education .d-box2 .dcard .card-text {
+            margin: 0.16rem 0 0.48rem 0.2rem;
+        }
+
+        .floor-education .d-box2 .dcard .card-text p {
+            padding-bottom: 0.26rem;
+        }
+
+        .floor-education .d-box2 .dcard .card-text p span:first-child {
+            font-size: 0.2rem;
+            line-height: 0.22rem;
+            color: #969696;
+            margin-right: 0.13rem;
+        }
+
+        .floor-education .d-box2 .dcard .card-text .card-p3 span:last-child {
+            display: inline-block;
+            padding-left: 28px;
+        }
+
+        .floor-education .d-box2 .dcard .shopping {
+            width: 1rem;
+            height: 0.4rem;
+            background: linear-gradient(0deg, rgba(208, 35, 59, 1) 0%, rgba(242, 66, 85, 1) 100%);
+            border-radius: 0.04rem;
+            -webkit-border-radius: 0.04rem;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #FFFFFF;
+            margin: 0.13rem 0 0 0.25rem;
+        }
+
+        .floor-education .d-box3 a img {
+            width: 3.8rem;
+            height: 6.3rem;
+            margin-top: 0.49rem;
+        }
+
+        /*房产*/
+        .floor-real {
+            margin-top: 0.48rem;
+            display: flex;
+            flex-wrap: nowrap;
+        }
+
+        .floor-real .r-box1 a img {
+            width: 3.8rem;
+            height: 6.3rem;
+            margin-right: 0.46rem;
+        }
+
+        .floor-real .r-box2 {
+            width: 6.52rem;
+            margin-right: 0.35rem;
+        }
+
+        .floor-real .r-box2 .r-box2-one {
+            width: 6.52rem;
+            height: 0.45rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .floor-real .r-box2 .r-box2-one p:first-child {
+            margin: 0.07rem 0 0.16rem 0;
+        }
+
+        .floor-real .r-box2 .r-box2-one p:last-child {
+            display: flex;
+            align-items: center;
+        }
+
+        .floor-real .r-box2 .r-box2-one p:last-child .arrow-icon {
+            display: block;
+            width: 0.08rem;
+            height: 0.14rem;
+            background: url('images/arrow.png') no-repeat center / 0.08rem;
+            margin-left: 0.12rem;
+        }
+
+        .floor-real .r-box2 .r-box2-two {
+            margin-top: 0.16rem
+        }
+
+        .floor-real .r-box2 .r-box2-two p {
+            width: 6.53rem;
+            padding: 0.17rem 0;
+            font-size: 0.2rem;
+            line-height: 0.22rem;
+        }
+
+        .floor-real .r-box2 .r-box2-two p span:first-child {
+            margin-right: 0.21rem;
+            color: #FF7303;
+        }
+
+        .floor-real .r-box2 .r-box2-two p span:last-child {
+            color: #404040;
+        }
+
+        .floor-real .r-box3 .rcard {
+            width: 5.6rem;
+            display: flex;
+            flex-wrap: nowrap;
+            margin-bottom: 0.16rem;
+        }
+
+        .floor-real .r-box3 .rcard:hover {
+            box-shadow: 0 0.02rem 0.21rem 0 rgba(41, 41, 41, 0.18);
+            border-radius: 0.04rem;
+            -webkit-border-radius: 0.04rem;
+        }
+
+        .floor-real .r-box3 .rcard .rcard-img img {
+            width: 2rem;
+            height: 2rem;
+            margin-right: 0.24rem;
+            padding: 0.08rem 0;
+            margin-left: 0.16rem;
+        }
+
+        .floor-real .r-box3 .rcard .rcard-text .r-p1 {
+            margin-top: 0.17rem;
+        }
+
+        .floor-real .r-box3 .rcard .rcard-text .r-p2 {
+            margin-top: 0.26rem;
+        }
+
+        .floor-real .r-box3 .rcard .rcard-text .r-p3 {
+            margin-top: 0.26rem;
+        }
+
+        .floor-real .r-box3 .rcard .rcard-text .r-p4 {
+            margin-top: 0.21rem;
+        }
+
+        .floor-real .r-box3 .rcard .rcard-text .r-p4 span:last-child {
+            padding-left: 0.2rem;
+        }
+
+        .floor-real .r-box3 .rcard .rcard-text span:first-child {
+            color: #969696;
+        }
+
+        /*汽车*/
+        .floor-car {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+
+        .floor-car .car-box1 a img {
+            width: 3.8rem;
+            height: 6.3rem;
+            margin: 0.49rem 0.46rem 0 0;
+        }
+
+        .floor-car .car-box2 {
+            width: 9.56rem;
+            margin-top: 0.53rem;
+        }
+
+        .floor-car .car-box2 .car-box2-one {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .floor-car .car-box2 .car-box2-one .car-p2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .floor-car .car-box2 .car-box2-one .car-p2 .arrow-icon {
+            display: block;
+            width: 0.08rem;
+            height: 0.14rem;
+            background: url('images/arrow.png') no-repeat center / 0.08rem;
+            margin-left: 0.1rem;
+            vertical-align: middle;
+        }
+
+        .floor-car .car-box2 .car-box2-two {
+            display: flex;
+        }
+
+        .floor-car .car-box2 .car-box2-two .car-one {
+            margin: 0.4rem 0.27rem 0 0;
+        }
+
+        .floor-car .car-box2 .car-box2-two .car-one a:first-child img {
+            width: 2.8rem;
+            height: 2.71rem;
+        }
+
+        .floor-car .car-box2 .car-box2-two .car-one a:last-child img {
+            width: 3.18rem;
+            height: 3.08rem;
+            margin-top: 0.05rem;
+            margin-left: -0.21rem;
+        }
+
+        .floor-car .car-box2 .car-box2-two .car-two {
+            margin-top: 0.4rem;
+        }
+
+        .floor-car .car-box2 .car-box2-two .car-two p {
+            width: 6.56rem;
+            padding: 0.13rem 0 0.18rem 0;
+            font-size: 0.18rem;
+            line-height: 0.22rem;
+        }
+
+        .floor-car .car-box3 {
+            margin: 0.48rem 0 0 0.8rem;
+        }
+
+        .floor-car .car-box3 a img {
+            width: 2rem;
+            height: 2.01rem;
+            margin-bottom: 0.15rem;
+            z-index: 99;
+
+        }
+
+        .floor-car .car-box3 .car-price {
+            position: relative;
+        }
+
+        /*信息*/
+        .floor-information {
+            display: flex;
+            margin-top: 0.49rem;
+        }
+
+        .floor-information .info-box a img {
+            width: 3.8rem;
+            height: 6.3rem;
+        }
+
+        .floor-information .info-box2 {
+            width: 8.14rem;
+            margin: 0 0.4rem 0 0.44rem;
+        }
+
+        .floor-information .info-box2 div {
+            padding: 0.2rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .floor-information .info-box2 .p-text {
+            display: flex;
+            align-items: center;
+        }
+
+        .floor-information .info-box2 p {
+            font-size: 0.18rem;
+            font-family: Adobe Heiti Std R;
+            font-weight: normal;
+            color: rgba(64, 64, 64, 1);
+            line-height: 0.22rem;
+        }
+        /***旅游 电商 教育 房产 汽车 信息楼层结构end***/
+    </style>
+</head>
+<!-- html结构区域 -->
+
+<body>
+    <div id="containers">
+        <!--公共头部-->
+        <header id="header"></header>
+        <!--主体内容 -->
+        <section>
+            <div id="box">
+                <!--广告轮播图 住宿框 已登录框-->
+                <div class="banner">
+                    <!--广告轮播图-->
+                    <div class="swiperbanner">
+                        <div class="swiper-container">
+                            <!--包裹图片的父级元素 -->
+                            <div class="swiper-wrapper"></div>
+                        </div>
+                    </div>
+                    <div class="banner-box">
+                        <div class="m-box1">
+                            <div class="b-content">
+                                <div class="b-nav">
+                                    <ul class="flex fl-align fl-jsb">
+                                        <li class="lbottom1" data-target="#itembox1">
+                                            <span>酒店民宿</span>
+                                        </li>
+                                        <li data-target="#itembox2">
+                                            <span>景点门票</span>
+                                        </li>
+                                        <li data-target="#itembox3">
+                                            <span>餐饮美食</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- 表单内容 -->
+                                <div class="b-form">
+                                    <form action="">
+                                        <div class="item-hotel fz-18 c-3f">
+                                            <!--酒店-->
+                                            <div id="itembox1" class="itembox" >
+                                                <div>
+                                                    <p>入住日期</p>
+                                                    <p class="m-text">
+                                                        <input type="text" value="" readonly="readonly" id="startDate" class="nowdate"  onClick="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'%y-%M-%d',maxDate:'#F{$dp.$D(\'endDate\',{d:-1});}',doubleCalendar:true,isShowClear:false,readOnly:true,errDealMode:1})">
+                                                        <span class="date-icon"></span>
+                                                    </p>
+                                                </div>
+                                                <div>
+                                                    <p>退房日期</p>
+                                                    <p class="m-text">
+                                                        <input type="text" value="" readonly="readonly" id="endDate" onClick="WdatePicker({minDate:'#F{$dp.$D(\'startDate\',{d:1});}',dateFmt:'yyyy-MM-dd',doubleCalendar:true,isShowClear:false,readOnly:true,errDealMode:1})">
+                                                        <span class="date-icon"></span>
+                                                    </p>
+                                                </div>
+                                                <div>
+                                                    <p>房间数</p>
+                                                    <p class="m-text">
+                                                        <input type="text" placeholder="1间" readonly="readonly">
+                                                        <span class="down-icon"></span>
+                                                    </p>
+                                                </div>
+                                                <div>
+                                                    <p>住客数</p>
+                                                    <p class="m-text">
+                                                        <input type="text" placeholder="1成人" readonly="readonly">
+                                                        <span class="down-icon"></span>
+                                                    </p>
+                                                </div>
+                                                <div class="hotellevel divlist">
+                                                    <p>酒店级别</p>
+                                                    <p class="m-text">
+                                                        <input type="text" placeholder="不限" readonly="readonly">
+                                                        <span class="down-icon"></span>
+                                                    </p>
+                                                    <div class="areaModel areaModel1">
+                                                        <ul>
+                                                            <li class="bhover"><span>不限</span></li>
+                                                            <li><span>五星级/豪华</span></li>
+                                                            <li><span>四星级/高档</span></li>
+                                                            <li><span>三星级/舒适</span></li>
+                                                            <li><span>二星级以下/经济</span></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="arealist divlist">
+                                                    <p>区域选择</p>
+                                                    <p class="m-text">
+                                                        <input type="text" placeholder="不限" readonly="readonly">
+                                                        <span class="down-icon"></span>
+                                                    </p>
+                                                    <!--区域弹窗-->
+                                                    <div class="areaModel areaModel2">
+                                                        <ul>
+                                                            <li class="bhover"><span>不限</span></li>
+                                                            <li><span>城中区</span></li>
+                                                            <li><span>鱼峰区</span></li>
+                                                            <li><span>柳北区</span></li>
+                                                            <li><span>柳南区</span></li>
+                                                            <li><span>柳江县</span></li>
+                                                            <li><span>柳城县</span></li>
+                                                            <li><span>鹿寨县</span></li>
+                                                            <li><span>融安县</span></li>
+                                                            <li><span>融水苗族自治县</span></li>
+                                                            <li><span>三江侗族自治县</span></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <button class="search">搜索</button>
+                                            </div>
+                                            <!--景区-->
+                                            <div id="itembox2" class="itembox hide">
+                                                <div>
+                                                    <p>出游日期</p>
+                                                    <p class="m-text">
+                                                        <input type="text" value="" readonly="readonly" id="useDate" class="nowdate"  onClick="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'%y-%M-%d',isShowClear:false,readOnly:true,errDealMode:1})">
+                                                        <span class="date-icon"></span>
+                                                    </p>
+                                                </div>
+                                                <div>
+                                                    <p>出游人数</p>
+                                                    <p class="m-text">
+                                                        <input type="text" placeholder="1成人" readonly="readonly">
+                                                        <span class="down-icon"></span>
+                                                    </p>
+                                                </div>
+                                                <div>
+                                                    <p>门票类型</p>
+                                                    <p class="m-text">
+                                                        <input type="text" placeholder="不限" readonly="readonly">
+                                                        <span class="down-icon"></span>
+                                                    </p>
+                                                </div>
+                                                <div class="arealist divlist">
+                                                    <p>区域选择</p>
+                                                    <p class="m-text">
+                                                        <input type="text" placeholder="不限" readonly="readonly">
+                                                        <span class="down-icon"></span>
+                                                    </p>
+                                                    <!--区域弹窗-->
+                                                    <div class="areaModel areaModel2">
+                                                        <ul>
+                                                            <li class="bhover"><span>不限</span></li>
+                                                            <li><span>城中区</span></li>
+                                                            <li><span>鱼峰区</span></li>
+                                                            <li><span>柳北区</span></li>
+                                                            <li><span>柳南区</span></li>
+                                                            <li><span>柳江县</span></li>
+                                                            <li><span>柳城县</span></li>
+                                                            <li><span>鹿寨县</span></li>
+                                                            <li><span>融安县</span></li>
+                                                            <li><span>融水苗族自治县</span></li>
+                                                            <li><span>三江侗族自治县</span></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <button class="search">搜索</button>
+                                            </div>
+                                            <!--餐饮美食-->
+                                            <div id="itembox3" class="itembox hide">
+                                                <div>
+                                                    <p>用餐日期</p>
+                                                    <p class="m-text">
+                                                        <input type="text" value="" readonly="readonly" id="eatDate" class="nowdate"  onClick="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'%y-%M-%d',isShowClear:false,readOnly:true,errDealMode:1})">
+                                                        <span class="date-icon"></span>
+                                                    </p>
+                                                </div>
+                                                <div>
+                                                    <p>用餐人数</p>
+                                                    <p class="m-text">
+                                                        <input type="text" placeholder="1成人" readonly="readonly">
+                                                        <span class="down-icon"></span>
+                                                    </p>
+                                                </div>
+                                                <div>
+                                                    <p>餐饮类型</p>
+                                                    <p class="m-text">
+                                                        <input type="text" placeholder="不限" readonly="readonly">
+                                                        <span class="down-icon"></span>
+                                                    </p>
+                                                </div>
+                                                <div class="arealist divlist">
+                                                    <p>区域选择</p>
+                                                    <p class="m-text">
+                                                        <input type="text" placeholder="不限" readonly="readonly">
+                                                        <span class="down-icon"></span>
+                                                    </p>
+                                                    <!--区域弹窗-->
+                                                    <div class="areaModel areaModel2">
+                                                        <ul>
+                                                            <li class="bhover"><span>不限</span></li>
+                                                            <li><span>城中区</span></li>
+                                                            <li><span>鱼峰区</span></li>
+                                                            <li><span>柳北区</span></li>
+                                                            <li><span>柳南区</span></li>
+                                                            <li><span>柳江县</span></li>
+                                                            <li><span>柳城县</span></li>
+                                                            <li><span>鹿寨县</span></li>
+                                                            <li><span>融安县</span></li>
+                                                            <li><span>融水苗族自治县</span></li>
+                                                            <li><span>三江侗族自治县</span></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <button class="search">搜索</button>
+                                            </div>
+
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-box2">
+                            <div class="headimg"></div>
+                            <div class="username">当前游客模式</div>
+                            <div class="userbtn">
+                                <a href="login.html">登录</a>
+                                <a href="register.html">注册</a>
+                                <a href="merchants.html">入驻</a>
+                            </div>
+                            <div class="usertext f-w5 c-4a">
+                                <p class="clamp1"><span>【旅游】三江旅游文化节</span><span class="hot-icon"></span></p>
+                                <p class="clamp1"><span>【汽车】皇鼎名车城开业大酬宾</span><span class="hot-icon"></span></p>
+                                <p class="clamp1"><span>【旅游】三江美食节</span><span class="hot-icon"></span></p>
+                                <p class="clamp1">【房产】楼市快讯，三居室在售老宅均...</p>
+                                <p class="clamp1">【教育】三江公务员招考公告</p>
+                                <p class="clamp1">【教育】三江公务员招考公告</p>
+                                <p class="clamp1">【教育】三江公务员招考公告</p>
+                            </div>
+                        </div>
+                        <div class="m-box3">
+                            <div class="exitbtn">
+                                <a href="javascript:;">退出登录</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--楼层内容-->
+                <div class="content">
+                    <!--数量可变化的广告图-->
+                    <div class="advert">
+                        <ul>
+                            <li>
+                                <a href="javascript:;">
+                                    <img src="resources/ad_1.png" alt="" class="img1">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    <img src="resources/ad_2.png" alt="" class="img2">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    <img src="resources/ad_3.png" alt="" class="img3">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--楼层结构-->
+                    <div class="floor">
+                        <!--旅游-->
+                        <div class="floor-box" id="tourism">
+                            <div class="floor-nav fw-m">
+                                <h1>旅游专题</h1>
+                                <ul class="nav-ul fz-26 fw-m c-6b">
+                                    <li class="lbottom" data-id="1">
+                                        <span class="c-active">酒店 / 公寓 / 客栈</span>
+                                    </li>
+                                    <li data-id="2">
+                                        <span>景点门票</span>
+                                    </li>
+                                    <li data-id="3">
+                                        <span>旅游路线</span>
+                                    </li>
+                                    <li data-id="5">
+                                        <span>吃在三江</span>
+                                    </li>
+                                </ul>
+                                <p class="nav-p">
+                                    <a href="travelindex.html">
+                                        <span class="fz-18 c-hover nav-title">进入专题</span>
+                                        <span class="arrow-icon"></span>
+                                    </a>
+                                </p>
+                            </div>
+                            <div class="floor-tourism">
+                                <div class="f-box">
+                                    <div class="b-info">
+                                        <div class="i-box">
+                                            <div class="b-img">
+                                                <img src="resources/fr1.png" alt="">
+                                                <span class="recommended-icon"></span>
+                                            </div>
+                                            <div class="b-text">
+                                                <h3 class="fz-26 c-16 f-w5">三江海源酒店</h3>
+                                                <p class="fz-20 f-w4 c-f7">4.5分</p>
+                                            </div>
+                                            <div class="b-information fw-r f-w4 fz-18 c-6b">
+                                                <p class="b-p1"></p>
+                                                <p class="b-p2 fz-16 c-90">
+                                                    <span>281人住过</span>
+                                                    <span>200条评价</span>
+                                                </p>
+                                                <p class="b-p3">
+                                                    <span>联系电话：</span>
+                                                    <span class="c-hover clamp1">020-88998899</span>
+                                                </p>
+                                                <p class="b-p4">
+                                                    <span>地址：</span>
+                                                    <span class="clamp1">广西省三江市某某镇的某某街208号</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="b-info">
+                                        <div class="i-box">
+                                            <div class="b-img">
+                                                <img src="resources/fr1.png" alt="">
+                                                <span class="recommended-icon"></span>
+                                            </div>
+                                            <div class="b-text">
+                                                <h3 class="fz-26 c-16 f-w5">三江海源酒店</h3>
+                                                <p class="fz-20 f-w4 c-f7">4.5分</p>
+                                            </div>
+                                            <div class="b-information fw-r f-w4 fz-18 c-6b">
+                                                <p class="b-p1"></p>
+                                                <p class="b-p2 fz-16 c-90">
+                                                    <span>281人住过</span>
+                                                    <span>200条评价</span>
+                                                </p>
+                                                <p class="b-p3">
+                                                    <span>联系电话：</span>
+                                                    <span class="c-hover clamp1">020-88998899</span>
+                                                </p>
+                                                <p class="b-p4">
+                                                    <span>地址：</span>
+                                                    <span class="clamp1">广西省三江市某某镇的某某街208号</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="b-info">
+                                        <div class="i-box">
+                                            <div class="b-img">
+                                                <img src="resources/fr1.png" alt="">
+                                                <span class="recommended-icon"></span>
+                                            </div>
+                                            <div class="b-text">
+                                                <h3 class="fz-26 c-16 f-w5">三江海源酒店</h3>
+                                                <p class="fz-20 f-w4 c-f7">4.5分</p>
+                                            </div>
+                                            <div class="b-information fw-r f-w4 fz-18 c-6b">
+                                                <p class="b-p1"></p>
+                                                <p class="b-p2 fz-16 c-90">
+                                                    <span>281人住过</span>
+                                                    <span>200条评价</span>
+                                                </p>
+                                                <p class="b-p3">
+                                                    <span>联系电话：</span>
+                                                    <span class="c-hover clamp1">020-88998899</span>
+                                                </p>
+                                                <p class="b-p4">
+                                                    <span>地址：</span>
+                                                    <span class="clamp1">广西省三江市某某镇的某某街208号</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="b-info">
+                                        <div class="i-box">
+                                            <div class="b-img">
+                                                <img src="resources/fr1.png" alt="">
+                                                <span class="recommended-icon"></span>
+                                            </div>
+                                            <div class="b-text">
+                                                <h3 class="fz-26 c-16 f-w5">三江海源酒店</h3>
+                                                <p class="fz-20 f-w4 c-f7">4.5分</p>
+                                            </div>
+                                            <div class="b-information fw-r f-w4 fz-18 c-6b">
+                                                <p class="b-p1"></p>
+                                                <p class="b-p2 fz-16 c-90">
+                                                    <span>281人住过</span>
+                                                    <span>200条评价</span>
+                                                </p>
+                                                <p class="b-p3">
+                                                    <span>联系电话：</span>
+                                                    <span class="c-hover clamp1">020-88998899</span>
+                                                </p>
+                                                <p class="b-p4">
+                                                    <span>地址：</span>
+                                                    <span class="clamp1">广西省三江市某某镇的某某街208号</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="b-info">
+                                        <div class="i-box">
+                                            <div class="b-img">
+                                                <img src="resources/fr1.png" alt="">
+                                                <span class="recommended-icon"></span>
+                                            </div>
+                                            <div class="b-text">
+                                                <h3 class="fz-26 c-16 f-w5">三江海源酒店</h3>
+                                                <p class="fz-20 f-w4 c-f7">4.5分</p>
+                                            </div>
+                                            <div class="b-information fw-r f-w4 fz-18 c-6b">
+                                                <p class="b-p1"></p>
+                                                <p class="b-p2 fz-16 c-90">
+                                                    <span>281人住过</span>
+                                                    <span>200条评价</span>
+                                                </p>
+                                                <p class="b-p3">
+                                                    <span>联系电话：</span>
+                                                    <span class="c-hover clamp1">020-88998899</span>
+                                                </p>
+                                                <p class="b-p4">
+                                                    <span>地址：</span>
+                                                    <span class="clamp1">广西省三江市某某镇的某某街208号</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="b-info">
+                                        <div class="i-box">
+                                            <div class="b-img">
+                                                <img src="resources/fr1.png" alt="">
+                                                <span class="recommended-icon"></span>
+                                            </div>
+                                            <div class="b-text">
+                                                <h3 class="fz-26 c-16 f-w5">三江海源酒店</h3>
+                                                <p class="fz-20 f-w4 c-f7">4.5分</p>
+                                            </div>
+                                            <div class="b-information fw-r f-w4 fz-18 c-6b">
+                                                <p class="b-p1"></p>
+                                                <p class="b-p2 fz-16 c-90">
+                                                    <span>281人住过</span>
+                                                    <span>200条评价</span>
+                                                </p>
+                                                <p class="b-p3">
+                                                    <span>联系电话：</span>
+                                                    <span class="c-hover clamp1">020-88998899</span>
+                                                </p>
+                                                <p class="b-p4">
+                                                    <span>地址：</span>
+                                                    <span class="clamp1">广西省三江市某某镇的某某街208号</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="f-advert">
+                                    <img src="resources/advert1.png" alt="">
+                                </div>
+                            </div>
+                            <div class="floor-img">
+                                <a href="javascript">
+                                    <img src="resources/ad_2.png" alt="">
+                                </a>
+
+                            </div>
+                        </div>
+                        <!--电商-->
+                        <div class="floor-box" id="electricity">
+                            <div class="floor-nav fw-m">
+                                <h1>电商专题</h1>
+                                <ul class="nav-ul fz-26 fw-m c-6b">
+                                    <li class="lbottom" data-id="6">
+                                        <span class="c-active">扶贫项目</span>
+                                    </li>
+                                    <li data-id="7">
+                                        <span>农夫集市</span>
+                                    </li>
+                                    <li data-id="8">
+                                        <span>侗网农场</span>
+                                    </li>
+                                    <li data-id="9">
+                                        <span>文旅三江</span>
+                                    </li>
+                                    <li data-id="10">
+                                        <span>跨境电商体验馆</span>
+                                    </li>
+                                </ul>
+                                <p class="nav-p">
+                                    <a href="javascript:;">
+                                        <span class="fz-18 c-hover nav-title">进入专题</span>
+                                        <span class="arrow-icon"></span>
+                                    </a>
+                                </p>
+                            </div>
+                            <div class="floor-electricity">
+                                <div class="e-box">
+                                    <div class="e-text fw-m  f-w5">
+                                        <span class=" fz-24 c-16">农夫市集</span>
+                                        <span class="fz-18 c-4b">/ 原生态</span>
+                                    </div>
+                                    <div class="e-content f-w5">
+                                        <ul>
+                                            <li>
+                                                <div class="lbox">
+                                                    <div class="l-img">
+                                                        <img src="resources/fruit1.png" alt="">
+                                                    </div>
+                                                    <div class="l-price">
+                                                        <p class="fz-22 fw-d">
+                                                            <span class="c-e5"><span class="c-da">￥</span>4.90</span>
+                                                            <span class="c-e5 fz-16 fw-m">元</span></p>
+                                                        <p class="fz-14 c-6b fw-m">1066人付款</p>
+                                                    </div>
+                                                    <div class="l-title fw-m f-w5 fz-18 c-333">新鲜水果</div>
+                                                    <div class="l-text fw-r f-w4 c-6b clamp2">新鲜果蔬，大自然的馈赠，数量有限，售完即止
+                                                    </div>
+                                                </div>
+
+                                            </li>
+                                            <li>
+                                                <div class="lbox">
+                                                    <div class="l-img">
+                                                        <img src="resources/fruit2.png" alt="">
+                                                    </div>
+                                                    <div class="l-price">
+                                                        <p class="fz-22 fw-d">
+                                                            <span class="c-e5"><span class="c-da">￥</span>16.88</span>
+                                                            <span class="c-e5 fz-16 fw-m">元</span>
+                                                        </p>
+                                                        <p class="fz-14 c-6b fw-m">403人付款</p>
+                                                    </div>
+                                                    <div class="l-title fw-m f-w5 fz-18 c-333">粗粮红薯</div>
+                                                    <div class="l-text  fw-r f-w4 c-6b clamp2">
+                                                        侗族红泥红薯，含有丰富矿物质；有机种植，新鲜出土的...</div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="lbox">
+                                                    <div class="l-img">
+                                                        <img src="resources/fruit3.png" alt="">
+                                                    </div>
+                                                    <div class="l-price">
+                                                        <p class="fz-22 fw-d">
+                                                            <span class="c-e5"><span class="c-da">￥</span>12.20</span>
+                                                            <span class="c-e5 fz-16 fw-m">元</span>
+                                                        </p>
+                                                        <p class="fz-14 c-6b fw-m">403人付款</p>
+                                                    </div>
+                                                    <div class="l-title fw-m f-w5 fz-18 c-333">农家番茄</div>
+                                                    <div class="l-text  fw-r f-w4 c-6b clamp2">
+                                                        纯手工雕刻，列入时世界文化遗产，更多详细信息查...</div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <div class="left-icon"></div>
+                                        <div class="right-icon"></div>
+                                    </div>
+                                </div>
+                                <div class="e-box">
+                                    <div class="e-text fw-m  f-w5">
+                                        <span class=" fz-24 c-16">文旅三江</span>
+                                        <span class="fz-18 c-4b">/ 手工艺术品</span>
+                                    </div>
+                                    <div class="e-content f-w5">
+                                        <ul>
+                                            <li>
+                                                <div class="lbox">
+                                                    <div class="l-img">
+                                                        <img src="resources/manual1.png" alt="">
+                                                    </div>
+                                                    <div class="l-price">
+                                                        <p class="fz-22 fw-d">
+                                                            <span class="c-e5"><span class="c-da">￥</span>999.00</span>
+                                                            <span class="c-e5 fz-16 fw-m">元</span></p>
+                                                        <p class="fz-14 c-6b fw-m">403人付款</p>
+                                                    </div>
+                                                    <div class="l-title fw-m f-w5 fz-18 c-333">手工艺品</div>
+                                                    <div class="l-text fw-r f-w4 c-6b clamp2">
+                                                        纯手工雕刻，列入时世界文
+                                                        化遗产，更多详细信息查...
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="lbox">
+                                                    <div class="l-img">
+                                                        <img src="resources/manual2.png" alt="">
+                                                    </div>
+                                                    <div class="l-price">
+                                                        <p class="fz-22 fw-d">
+                                                            <span class="c-e5"><span class="c-da">￥</span>166.68</span>
+                                                            <span class="c-e5 fz-16 fw-m">元</span>
+                                                        </p>
+                                                        <p class="fz-14 c-6b fw-m">403人付款</p>
+                                                    </div>
+                                                    <div class="l-title fw-m f-w5 fz-18 c-333">手工打造砂壶</div>
+                                                    <div class="l-text  fw-r f-w4 c-6b clamp2">
+                                                        纯手工雕刻，列入时世界文
+                                                        化遗产，更多详细信息查...
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="lbox">
+                                                    <div class="l-img">
+                                                        <img src="resources/manual3.png" alt="">
+                                                    </div>
+                                                    <div class="l-price">
+                                                        <p class="fz-22 fw-d">
+                                                            <span class="c-e5"><span class="c-da">￥</span>28.00</span>
+                                                            <span class="c-e5 fz-16 fw-m">元</span>
+                                                        </p>
+                                                        <p class="fz-14 c-6b fw-m">403人付款</p>
+                                                    </div>
+                                                    <div class="l-title fw-m f-w5 fz-18 c-333">竹编篮</div>
+                                                    <div class="l-text  fw-r f-w4 c-6b clamp2">
+                                                        纯手工雕刻，列入时世界文
+                                                        化遗产，更多详细信息查...
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <div class="left-icon"></div>
+                                        <div class="right-icon"></div>
+                                    </div>
+                                </div>
+                                <div class="e-box">
+                                    <div class="e-text fw-m f-w5 e-text3">
+                                        <span class=" fz-24 c-16">侗网农场</span>
+                                        <span class="fz-18 c-4b">/ 体验农村文化</span>
+                                    </div>
+                                    <div class="e-content f-w5">
+                                        <ul>
+                                            <li>
+                                                <div class="lbox">
+                                                    <div class="l-img">
+                                                        <img src="resources/product1.png" alt="">
+                                                    </div>
+                                                    <div class="l-price">
+                                                        <p class="fz-22 fw-d">
+                                                            <span class="c-e5"><span class="c-da">￥</span>62.20</span>
+                                                            <span class="c-e5 fz-16 fw-m">元</span></p>
+                                                        <p class="fz-14 c-6b fw-m">403人付款</p>
+                                                    </div>
+                                                    <div class="l-title fw-m f-w5 fz-18 c-333">土鸡土蛋</div>
+                                                    <div class="l-text fw-r f-w4 c-6b clamp2">
+                                                        纯手工雕刻，列入时世界文
+                                                        化遗产，更多详细信息查...
+                                                    </div>
+                                                </div>
+
+                                            </li>
+                                            <li>
+                                                <div class="lbox">
+                                                    <div class="l-img">
+                                                        <img src="resources/product2.png" alt="">
+                                                    </div>
+                                                    <div class="l-price">
+                                                        <p class="fz-22 fw-d">
+                                                            <span class="c-e5"><span class="c-da">￥</span>82.20</span>
+                                                            <span class="c-e5 fz-16 fw-m">元</span>
+                                                        </p>
+                                                        <p class="fz-14 c-6b fw-m">403人付款</p>
+                                                    </div>
+                                                    <div class="l-title fw-m f-w5 fz-18 c-333">淡水鲈鱼</div>
+                                                    <div class="l-text  fw-r f-w4 c-6b clamp2">
+                                                        纯手工雕刻，列入时世界文
+                                                        化遗产，更多详细信息查...
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="lbox">
+                                                    <div class="l-img">
+                                                        <img src="resources/product3.png" alt="">
+                                                    </div>
+                                                    <div class="l-price">
+                                                        <p class="fz-22 fw-d">
+                                                            <span class="c-e5"><span class="c-da">￥</span>22.20</span>
+                                                            <span class="c-e5 fz-16 fw-m">元</span>
+                                                        </p>
+                                                        <p class="fz-14 c-6b fw-m">403人付款</p>
+                                                    </div>
+                                                    <div class="l-title fw-m f-w5 fz-18 c-333">土猪花猪</div>
+                                                    <div class="l-text  fw-r f-w4 c-6b clamp2">
+                                                        纯手工雕刻，列入时世界文
+                                                        化遗产，更多详细信息查...
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <div class="left-icon"></div>
+                                        <div class="right-icon"></div>
+                                    </div>
+                                </div>
+                                <div class="e-box">
+                                    <a href="javascript:;">
+                                        <img src="resources/advert2.png" alt="" class="e-img">
+                                    </a>
+
+                                </div>
+                            </div>
+                            <div class="floor-img">
+                                <a href="javascript:;">
+                                    <img src="resources/ad_2.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <!--教育-->
+                        <div class="floor-box" id="education">
+                            <div class="floor-nav fw-m">
+                                <h1>教育专题</h1>
+                                <ul class="nav-ul fz-26 fw-m c-6b">
+                                    <li class="lbottom" data-id="11">
+                                        <span class="c-active">公务员培训</span>
+                                    </li>
+                                    <li data-id="12">
+                                        <span>儿童培训</span>
+                                    </li>
+                                    <li data-id="13">
+                                        <span>特色教育</span>
+                                    </li>
+                                    <li data-id="14">
+                                        <span>成人教育</span>
+                                    </li>
+                                    <li data-id="15">
+                                        <span>创业培训</span>
+                                    </li>
+                                </ul>
+                                <p class="nav-p">
+                                    <a href="javascript:;">
+                                        <span class="fz-18 c-hover nav-title">进入专题</span>
+                                        <span class="arrow-icon"></span>
+                                    </a>
+                                </p>
+                            </div>
+                            <div class="floor-education">
+                                <div class="d-box1">
+                                    <a href="javascript:;">
+                                        <img src="resources/advert4.png" alt="">
+                                    </a>
+                                    <div class=" notice fz-20 fw-r f-w4 ">
+                                        <p class="clamp1">·2019三江公务员招考公告招考公告招考公告招考公告</p>
+                                        <p class="clamp1">·2019三江公务员招考公告招考公告招考公告招考公告</p>
+                                        <p class="clamp1">·2019三江公务员招考公告招考公告招考公告招考公告</p>
+                                        <p class="clamp1">·2019三江公务员招考公告招考公告招考公告招考公告</p>
+                                        <p class="clamp1">·2019三江公务员招考公告招考公告招考公告招考公告</p>
+                                        <p class="clamp1">·2019三江公务员招考公告招考公告招考公告招考公告</p>
+                                    </div>
+                                </div>
+                                <div class="d-box2">
+                                    <div class="dcard card">
+                                        <a href="javascript:;">
+                                            <img src="resources/education1.png" alt="">
+                                        </a>
+                                        <div class="card-text f-w5 fw-m">
+                                            <p>
+                                                <span>名称：</span><span class="c-40">公务员笔试培训课</span>
+                                            </p>
+                                            <p>
+                                                <span>课程：</span><span class="c-40">10课时</span>
+                                            </p>
+                                            <p class="card-p3">
+                                                <span>费用：</span><span class="c-hover">12000元</span><span
+                                                    class="c-b0">2540人在学</span>
+                                            </p>
+                                            <p>
+                                                <span>机构：</span><span class="c-40">柳州市盛祥碧桂园</span>
+                                            </p>
+                                        </div>
+                                        <a href="javascript" class="shopping">立即购买</a>
+                                    </div>
+                                    <div class="dcard">
+                                        <a href="javascript:;">
+                                            <img src="resources/education2.png" alt="">
+                                        </a>
+                                        <div class="card-text f-w5 fw-m">
+                                            <p>
+                                                <span>名称：</span><span class="c-40">公务员笔试培训课</span>
+                                            </p>
+                                            <p>
+                                                <span>课程：</span><span class="c-40">10课时</span>
+                                            </p>
+                                            <p class="card-p3">
+                                                <span>费用：</span><span class="c-hover">12000元</span><span
+                                                    class="c-b0">2540人在学</span>
+                                            </p>
+                                            <p>
+                                                <span>机构：</span><span class="c-40">柳州市盛祥碧桂园</span>
+                                            </p>
+                                        </div>
+                                        <a href="javascript" class="shopping">立即购买</a>
+                                    </div>
+                                    <div class="dcard">
+                                        <a href="javascript:;">
+                                            <img src="resources/education3.png" alt="">
+                                        </a>
+                                        <div class="card-text f-w5 fw-m">
+                                            <p>
+                                                <span>名称：</span><span class="c-40">公务员笔试培训课</span>
+                                            </p>
+                                            <p>
+                                                <span>课程：</span><span class="c-40">10课时</span>
+                                            </p>
+                                            <p class="card-p3">
+                                                <span>费用：</span><span class="c-hover">12000元</span><span
+                                                    class="c-b0">2540人在学</span>
+                                            </p>
+                                            <p>
+                                                <span>机构：</span><span class="c-40">柳州市盛祥碧桂园</span>
+                                            </p>
+                                        </div>
+                                        <a href="javascript" class="shopping">立即购买</a>
+                                    </div>
+                                </div>
+                                <div class="d-box3">
+                                    <a href="javascript:;">
+                                        <img src="resources/advert3.png" alt="">
+                                    </a>
+                                </div>
+
+                            </div>
+                            <div class="floor-img">
+                                <a href="javascript:;">
+                                    <img src="resources/ad_1.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <!--房产-->
+                        <div class="floor-box" id="real">
+                            <div class="floor-nav fw-m">
+                                <h1>房产专题</h1>
+                                <ul class="nav-ul fz-26 fw-m c-6b">
+                                    <li class="lbottom"><span class="c-active">三江楼市</span></li>
+                                    <li><span>楼盘在线</span></li>
+                                    <li><span>二手房租售</span></li>
+                                    <li><span>看房团</span></li>
+                                    <li><span>装修天地</span></li>
+                                </ul>
+                                <p class="nav-p">
+                                    <a href="javascript:;">
+                                        <span class="fz-18 c-hover nav-title">进入专题</span>
+                                        <span class="arrow-icon"></span>
+                                    </a>
+                                </p>
+                            </div>
+                            <div class="floor-real">
+                                <div class="r-box1">
+                                    <a href="javascript:;">
+                                        <img src="resources/advert5.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="r-box2">
+                                    <div class="r-box2-one">
+                                        <p class="fz-24 f-w5 c-16">楼盘快讯</p>
+                                        <p><span class="c-hover fz-18 f-w4">查看更多</span><span class="arrow-icon"></span>
+                                        </p>
+                                    </div>
+                                    <div class="r-box2-two fw-m f-w5">
+                                        <div class="l-bottom">
+                                            <p>
+                                                <span>·通建中天城</span><span>| 新品样板间隆重开放 三房至四房火爆热销</span>
+                                            </p>
+                                        </div>
+                                        <div class="l-bottom">
+                                            <p>
+                                                <span>·通建中天城</span><span>| 新品样板间隆重开放 三房至四房火爆热销</span>
+                                            </p>
+                                        </div>
+                                        <div class="l-bottom">
+                                            <p>
+                                                <span>·通建中天城</span><span>| 新品样板间隆重开放 三房至四房火爆热销</span>
+                                            </p>
+                                        </div>
+                                        <div class="l-bottom">
+                                            <p>
+                                                <span>·通建中天城</span><span>| 新品样板间隆重开放 三房至四房火爆热销</span>
+                                            </p>
+                                        </div>
+                                        <div class="l-bottom">
+                                            <p>
+                                                <span>·通建中天城</span><span>| 新品样板间隆重开放 三房至四房火爆热销</span>
+                                            </p>
+                                        </div>
+                                        <div class="l-bottom">
+                                            <p>
+                                                <span>·通建中天城</span><span>| 新品样板间隆重开放 三房至四房火爆热销</span>
+                                            </p>
+                                        </div>
+                                        <div class="l-bottom">
+                                            <p>
+                                                <span>·通建中天城</span><span>| 新品样板间隆重开放 三房至四房火爆热销</span>
+                                            </p>
+                                        </div>
+                                        <div class="l-bottom">
+                                            <p>
+                                                <span>·通建中天城</span><span>| 新品样板间隆重开放 三房至四房火爆热销</span>
+                                            </p>
+                                        </div>
+                                        <div class="l-bottom">
+                                            <p>
+                                                <span>·通建中天城</span><span>| 新品样板间隆重开放 三房至四房火爆热销</span>
+                                            </p>
+                                        </div>
+                                        <div class="l-bottom">
+                                            <p>
+                                                <span>·通建中天城</span><span>| 新品样板间隆重开放 三房至四房火爆热销</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="r-box3">
+                                    <div class="rcard">
+                                        <div class="rcard-img">
+                                            <a href="javscript:;">
+                                                <img src="resources/real1.png" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="rcard-text fz-20 fw-m f-w5">
+                                            <p class="r-p1">
+                                                <span>楼盘名称：</span><span>白云山世家</span>
+                                            </p>
+                                            <p class="r-p2">
+                                                <span>楼业类别：</span><span>住宅</span>
+                                            </p>
+                                            <p class="r-p3">
+                                                <span>参考均价：</span><span class="c-hover">8000-12000元/㎡</span>
+                                            </p>
+                                            <p class="r-p4">
+                                                <span>开发商：</span><span>柳州市盛祥碧桂园</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="rcard">
+                                        <div class="rcard-img">
+                                            <a href="javscript:;">
+                                                <img src="resources/real1.png" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="rcard-text fz-20 fw-m f-w5">
+                                            <p class="r-p1">
+                                                <span>楼盘名称：</span><span>白云山世家</span>
+                                            </p>
+                                            <p class="r-p2">
+                                                <span>楼业类别：</span><span>住宅</span>
+                                            </p>
+                                            <p class="r-p3">
+                                                <span>参考均价：</span><span class="c-hover">8000-12000元/㎡</span>
+                                            </p>
+                                            <p class="r-p4">
+                                                <span>开发商：</span><span>柳州市盛祥碧桂园</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="rcard">
+                                        <div class="rcard-img">
+                                            <a href="javscript:;">
+                                                <img src="resources/real1.png" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="rcard-text fz-20 fw-m f-w5">
+                                            <p class="r-p1">
+                                                <span>楼盘名称：</span><span>白云山世家</span>
+                                            </p>
+                                            <p class="r-p2">
+                                                <span>楼业类别：</span><span>住宅</span>
+                                            </p>
+                                            <p class="r-p3">
+                                                <span>参考均价：</span><span class="c-hover">8000-12000元/㎡</span>
+                                            </p>
+                                            <p class="r-p4">
+                                                <span>开发商：</span><span>柳州市盛祥碧桂园</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="floor-img">
+                                <a href="javascript:;">
+                                    <img src="resources/ad_1.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <!--汽车-->
+                        <div class="floor-box" id="car">
+                            <div class="floor-nav fw-m">
+                                <h1>汽车专题</h1>
+                                <ul class="nav-ul fz-26 fw-m c-6b">
+                                    <li class="lbottom"><span class="c-active">汽车频道</span></li>
+                                    <li><span>电动车频道</span></li>
+                                    <li><span>9.9元洗车</span></li>
+                                    <li><span>汽车金融</span></li>
+                                    <li><span>经销商</span></li>
+                                </ul>
+                                <p class="nav-p">
+                                    <a href="javascript:;">
+                                        <span class="fz-18 c-hover nav-title">进入专题</span>
+                                        <span class="arrow-icon"></span>
+                                    </a>
+                                </p>
+                            </div>
+                            <div class="floor-car">
+                                <div class="car-box1">
+                                    <a href="javascript:;">
+                                        <img src="resources/advert6.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="car-box2">
+                                    <div class="car-box2-one">
+                                        <p class="car-p1 fz-24 f-w5 c-16">汽车资讯</p>
+                                        <p class="car-p2 c-hover fz-18 f-w4">
+                                            <span>更多资讯信息</span>
+                                            <span class="arrow-icon"></span>
+                                        </p>
+                                    </div>
+                                    <div class="car-box2-two">
+                                        <div class="car-one">
+                                            <a href="javascript:;">
+                                                <img src="resources/car1.png" alt="">
+                                            </a>
+                                            <a href="javascript:;">
+                                                <img src="resources/car5.png" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="car-two fw-m">
+                                            <p class="l-bottom"><span>帝豪热销中 购车优惠高达2万元</span></p>
+                                            <p class="c-hover l-bottom"><span>帝豪热销中 购车优惠高达2万元,帝豪热销中 购车优惠高达2万元.</span>
+                                            </p>
+                                            <p class="l-bottom"><span>帝豪热销中 购车优惠高达2万元</span></p>
+                                            <p class="l-bottom"><span>帝豪热销中 购车优惠高达2万元,帝豪热销中 购车优惠高达2万元.</span></p>
+                                            <p class="l-bottom"><span>帝豪热销中 购车优惠高达2万元</span></p>
+                                            <p class="l-bottom"><span>帝豪热销中 购车优惠高达2万元,帝豪热销中 购车优惠高达2万元.</span></p>
+                                            <p class="l-bottom"><span>帝豪热销中 购车优惠高达2万元</span></p>
+                                            <p class="l-bottom"><span>帝豪热销中 购车优惠高达2万元,帝豪热销中 购车优惠高达2万元.</span></p>
+                                            <p class="l-bottom"><span>帝豪热销中 购车优惠高达2万元</span></p>
+                                            <p class="l-bottom"><span>帝豪热销中 购车优惠高达2万元</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="car-box3">
+                                    <div class="car-price fw-m f-w4">
+                                        <a href="javascript:;">
+                                            <img src="resources/car3.png" alt="">
+                                        </a>
+                                        <span class="button-icon">询底价</span>
+                                    </div>
+                                    <div class="car-price">
+                                        <a href="javascript:;">
+                                            <img src="resources/car4.png" alt="">
+                                        </a>
+                                        <span class="button-icon">询底价</span>
+                                    </div>
+                                    <div class="car-price">
+                                        <a href="javascript:;">
+                                            <img src="resources/car2.png" alt="">
+                                        </a>
+                                        <span class="button-icon">询底价</span>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="floor-img">
+                                <a href="javascript:;">
+                                    <img src="resources/ad_1.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <!--信息-->
+                        <div class="floor-box" id="information">
+                            <div class="floor-nav fw-m">
+                                <h1>信息专题</h1>
+                                <ul class="nav-ul fz-26 fw-m c-6b">
+                                    <li class="lbottom"><span class="c-active">三江动态</span></li>
+                                    <li><span>招聘求职</span></li>
+                                    <li><span>二手买卖</span></li>
+                                    <li><span>电话黄页</span></li>
+                                    <li><span>网友天地</span></li>
+                                </ul>
+                                <p class="nav-p">
+                                    <a href="javascript:;">
+                                        <span class="fz-18 c-hover nav-title">进入专题</span>
+                                        <span class="arrow-icon"></span>
+                                    </a>
+                                </p>
+                            </div>
+                            <div class="floor-information">
+                                <div class="info-box">
+                                    <a href="javascript:;">
+                                        <img src="resources/advert7.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="info-box2">
+                                    <div class="l-bottom">
+                                        <p class="p-text">
+                                            <span class="stick-icon"></span>
+                                            <span>家住中山西路的柳州妹为患癌母亲“征集女儿”，原因感动哭晕柳州人！</span>
+                                        </p>
+                                        <p>2019/04/04 10:58</p>
+                                    </div>
+                                    <div class="l-bottom">
+                                        <p class="p-text">
+                                            <span class="stick-icon"></span>
+                                            <span>【净泉环保】室内空气问题交流-室内甲醛超标怎么办？问我呀！</span>
+                                        </p>
+                                        <p>2019/04/04 10:58</p>
+                                    </div>
+                                    <div class="l-bottom">
+                                        <p class="c-hover">家住中山西路的柳州妹为患癌母亲“征集女儿”，原因感动哭晕柳州人！</p>
+                                        <p>2019/04/04 10:58</p>
+                                    </div>
+                                    <div class="l-bottom">
+                                        <p>【净泉环保】室内空气问题交流-室内甲醛超标怎么办？问我呀！</p>
+                                        <p>2019/04/04 10:58</p>
+                                    </div>
+                                    <div class="l-bottom">
+                                        <p>家住中山西路的柳州妹为患癌母亲“征集女儿”，原因感动哭晕柳州人！</p>
+                                        <p>2019/04/04 10:58</p>
+                                    </div>
+                                    <div class="l-bottom">
+                                        <p>【净泉环保】室内空气问题交流-室内甲醛超标怎么办？问我呀！</p>
+                                        <p>2019/04/04 10:58</p>
+                                    </div>
+                                    <div class="l-bottom">
+                                        <p>家住中山西路的柳州妹为患癌母亲“征集女儿”，原因感动哭晕柳州人！</p>
+                                        <p>2019/04/04 10:58</p>
+                                    </div>
+                                    <div class="l-bottom">
+                                        <p>【净泉环保】室内空气问题交流-室内甲醛超标怎么办？问我呀！</p>
+                                        <p>2019/04/04 10:58</p>
+                                    </div>
+                                    <div class="l-bottom">
+                                        <p>【净泉环保】室内空气问题交流-室内甲醛超标怎么办？问我呀！</p>
+                                        <p>2019/04/04 10:58</p>
+                                    </div>
+                                    <div class="l-bottom">
+                                        <p>【净泉环保】室内空气问题交流-室内甲醛超标怎么办？问我呀！</p>
+                                        <p>2019/04/04 10:58</p>
+                                    </div>
+                                </div>
+                                <div class="info-box">
+                                    <a href="javascript:;">
+                                        <img src="resources/advert8.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--公共底部 -->
+        <footer id="footer"></footer>
+    </div>
+</body>
+<!-- js功能区域 -->
+<script src="./js/jquery.min.js"></script>
+<script src="./js/public.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/swiper.min.js"></script>
+<script src="./js/My97DatePicker/WdatePicker.js"></script>
+<script text="type/javascript">
+    $(function () {
+        //获取所需参数
+        var city_id = localData('get', 'cityinfo').city_id || 6;
+        /*调用轮播图函数 旅游板块首页 sc_id=100*/
+        var pamars = {sc_id: 100};
+        getBanner(pamars);
+        /*###信息框中功能####*/
+        $('.nowdate').val(getDateStr(0));
+        $('#endDate').val(getDateStr(1));
+        //切换div
+        $('.b-nav ul').on('click', 'li[data-target]', function () {
+            $(this).addClass('lbottom1').siblings().removeClass('lbottom1');
+            $($(this).data('target')).removeClass('hide').siblings().addClass('hide');
+        });
+
+        //酒店级别弹窗
+        $('.hotellevel .m-text').click(function () {
+            var that = $(this);
+            $('.areaModel1').slideToggle();
+            $(this).find('span').toggleClass('top-icon');
+            //子元素悬停切换
+            $('.areaModel1 ul li').hover(
+                function () {
+                    $(this).addClass('bhover').siblings().removeClass('bhover');
+                },
+                function(){
+
+                }
+            );
+            $(this).siblings('.areaModel1').find('ul').on('click', 'li', function () {
+                that.find('input').val($(this).text());
+                that.find('span').removeClass('top-icon').addClass('down-icon');
+                $(this).parents('.areaModel1').slideUp();
+                $(this).addClass('bhover');
+            })
+
+        });
+        //区域弹窗
+        $('.arealist .m-text').click(function () {
+            var that = $(this);
+            $('.areaModel2').slideToggle();
+            $(this).find('span').toggleClass('top-icon');
+            //子元素悬停切换
+            $('.areaModel2 ul li').hover(
+                function () {
+                    $(this).addClass('bhover').siblings().removeClass('bhover');
+                },
+                function () {
+
+                }
+            );
+            $(this).siblings('.areaModel2').find('ul').on('click', 'li', function () {
+                that.find('input').val($(this).text());
+                that.find('span').removeClass('top-icon').addClass('down-icon');
+                $(this).parents('.areaModel2').slideUp();
+                $(this).addClass('bhover');
+            })
+
+        });
+        //点击除弹窗内容以外关闭弹窗
+        $(document).mouseup(function (e) {
+            var pop = $('.divlist');
+            if (!pop.is(e.target) && pop.has(e.target).length === 0) {
+                $('.areaModel1,.areaModel2').slideUp();
+                $('.hotellevel .m-text span,.arealist  .m-text span').removeClass('top-icon').addClass('down-icon');
+            }
+        });
+        /*退出登录*/
+        $('.exitbtn').on('click', function () {
+            localData('remove', 'userLoginInfo');
+            localData('remove','userinfo');
+            window.location.reload();
+        });
+
+        /*切换nav*/
+        $('.m-nav ul').on('click', 'li', function () {
+            $(this).addClass('lbottom1').siblings().removeClass('lbottom1');
+        });
+        $('.nav-ul').on('click', 'li', function () {
+            $(this).addClass('lbottom').siblings().removeClass('lbottom');
+            $(this).find('span').addClass('c-active');
+            $(this).siblings().find('span').removeClass('c-active');
+
+        })
+    })
+</script>
+
+</html>

@@ -1,0 +1,569 @@
+/*旅游板块商品列表公用样式* create：2019/7/17  author:wen*/
+
+/*广告轮播图*/
+.swiperbanner .swiper-container {
+    width: 100%;
+}
+.swiperbanner .swiper-container .swiper-wrapper .swiper-slide a img {
+    width: 100%;
+    height: 3.24rem;
+    margin-top: -0.04rem;
+}
+
+/*广告详情start*/
+.content {
+    width: 16.8rem;
+    max-width: 16.8rem;
+    margin: 0 auto;
+    padding-bottom: 0.78rem;
+    position: relative;
+}
+.advertshow {
+    width: 100%;
+    height: 3.94rem;
+    background: url("../resources/hoteldetail1.png") no-repeat center / 100%;
+    margin-bottom: 0.22rem;
+}
+.advertshow .detail-box {
+    padding: 0.19rem 0.1rem 0.24rem;
+}
+.advertshow .detail-box .d-icon {
+    width: 1.22rem;
+    height: 1.22rem;
+}
+.advertshow .detail-box .d-icon img{
+    width:100%;
+    height:100%;
+    border-radius:0.04rem;
+    -webkit-border-radius:0.04rem;
+}
+.advertshow .detail-box .d-text {
+    padding: 0.11rem 0 0.12rem 0.15rem;
+}
+.advertshow .detail-box .d-text .d-text-p1 {
+    padding-bottom: 0.14rem;
+}
+.advertshow .detail-box .d-text .right-icon {
+    display: block;
+    width: 0.95rem;
+    height: 0.31rem;
+    background: url("../images/nav-right.png") no-repeat center / 0.95rem;
+    margin-right: 0.15rem;
+    display: flex;
+    align-items: center;
+}
+.advertshow .detail-box .d-text .right-icon span {
+    padding-left: 0.1rem;
+}
+.advertshow .detail-box .d-text .d-text-p2 {
+    padding-bottom: 0.14rem;
+}
+.advertshow .detail-box .d-button {
+    margin-left: 1.29rem;
+    padding-top: 0.17rem;
+    display: flex;
+}
+.advertshow .detail-box .d-button a {
+    display: block;
+    width: 1.1rem;
+    height: 0.28rem;
+    background: #EFEFEF;
+    border-radius: 0.14rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.16rem;
+    font-family: NotoSansHans-Regular;
+    font-weight: 400;
+    color: #AAAAAA;
+    line-height: 0.22rem;
+    margin-right: 0.16rem;
+}
+.dbtn {
+    background: #E8E8E8 !important;
+}
+.dbtn span:last-child{
+    margin-left:0.07rem;
+}
+.dbtn .collect-item{
+    color:#707070;
+}
+.dbtn .collect-item1{
+    color:#E5364B;
+}
+.advertshow .detail-box .detail-two {
+    width: 100%;
+    height: 2.16rem;
+}
+.advertshow .detail-box .detail-two a img {
+    width: 100%;
+    height: 100%;
+}
+
+/*广告详情end*/
+
+/*评论列表*/
+.comments {
+    background: #F7F7F7;
+    border-radius: 0.04rem;
+    margin-top: 0.12rem;
+    padding-left:0.4rem;
+}
+.comment {
+    display: flex;
+    align-items: center;
+
+}
+h3{
+    font-size: 0.26rem;
+    font-family: NotoSansHans-Medium;
+    color: rgba(22, 22, 22, 1);
+}
+.comment h3 {
+    padding: 0.3rem 0 0.2rem 0;
+    margin-right: 1.34rem;
+}
+.comment .list ul {
+    display: flex;
+    align-items: center;
+    padding-top: 0.1rem;
+}
+.comment .list ul li {
+    display: flex;
+    align-items: center;
+    margin-right: 0.67rem;
+    cursor: pointer;
+}
+.comment .list ul li p:last-child {
+    font-size: 0.18rem;
+    font-family: A02-;
+    font-weight: 400;
+    color: rgba(170, 170, 170, 1);
+    padding-left: 0.09rem;
+}
+.c-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.49rem;
+    margin-right: 0.45rem;
+}
+.c-info .user {
+    display: flex;
+    align-items: center;
+}
+.c-info .user .usericon {
+    display: block;
+    width: 0.6rem;
+    height: 0.6rem;
+    margin-right: 0.2rem;
+}
+.c-info .user .usericon img{
+    width:100%;
+    height:100%;
+    border-radius:50%;
+}
+.c-info .user .username p:last-child {
+    margin-top: 0.1rem;
+}
+.level {
+    margin-top: 0.12rem;
+}
+.level p:last-child {
+    display: flex;
+    align-items: center;
+    margin-top: 0.1rem;
+}
+.c-text {
+    margin: 0.14rem 0.55rem 0.46rem 0.8rem;
+    color: rgba(112, 112, 112, 1);
+    line-height: 26px;
+}
+.c-more {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 0.44rem;
+    cursor:pointer;
+}
+.c-img {
+    margin-left: 0.8rem;
+    margin-right: 0.44rem;
+    border-bottom: 0.02rem solid #FFFFFF;
+
+}
+.c-img ul {
+    display: flex;
+    align-items: center;
+    padding-bottom: 0.32rem;
+
+}
+.c-img ul li {
+    width: 1.4rem;
+    height: 1.4rem;
+    margin-right: 0.08rem;
+
+}
+.c-img ul li img {
+    width: 100%;
+    height: 100%;
+    border-radius:0.04rem;
+    -webkit-border-radius:0.04rem;
+    transition: all 1.5s linear;
+}
+.c-img ul li img:hover{
+    transform:translateY(-0.1rem);
+}
+
+/*详情--相册样式*/
+.merchants {
+    width: 100%;
+    background: #F7F7F7;
+    border-radius: 0.04rem;
+    margin-bottom: 0.24rem;
+}
+.merchantsbox {
+    padding: 0 0.22rem 0.41rem 0.22rem;
+}
+.merchantsbox .titles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.32rem 0 0.25rem 0;
+}
+.merchantsbox .titles span:last-child{
+    cursor:pointer;
+}
+.merchantsbox .pics .swiper-wrapper{
+    width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+.merchantsbox .pics .swiper-wrapper .swiper-slide{
+    width: 1.42rem !important;
+    height: 1.42rem !important;
+    position: relative;
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+     align-items: center;
+}
+.merchantsbox .pics .swiper-wrapper .swiper-slide a img {
+    width: 1.42rem;
+    height: 1.42rem;
+    border-radius:0.04rem;
+    -webkit-border-radius:0.04rem;
+}
+.merchantsbox .pics .swiper-wrapper .swiper-slide a .cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1.4rem;
+    height: 1.4rem;
+    background: #000000;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.merchantsbox .pics .swiper-wrapper .swiper-slide a .cover .coverIcon {
+    display: block;
+    width: 0.25rem;
+    height: 0.25rem;
+    background: url('../images/amplification.png') no-repeat center/0.25rem;
+
+}
+.merchantsbox .pics .swiper-wrapper .swiper-slide a .cover:hover {
+    opacity: 0.3;
+}
+.pro{
+    margin-top:0.25rem;
+    width:4.4rem;
+    height:0.07rem;
+    background:#DCDCDC;
+    border-radius:0.04rem;
+}
+.pro .probtn{
+    width:50%;
+    height:0.07rem;
+    background:#6DBAFF;
+    border-radius:0.04rem;
+}
+
+
+/*详情--店铺介绍列表*/
+.storebox .right-card {
+    width: 4.87rem;
+    height: 4.13rem;
+    background: rgba(249, 249, 249, 1);
+    border-radius: 0.04rem;
+    margin: 0.16rem 0;
+}
+.storebox .right-card .rcard-box {
+    padding: 0.3rem 0.24rem;
+}
+.storebox .right-card .rcard-box .rcard1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.12rem;
+}
+.storebox .right-card .rcard-box .rcard1 div:first-child {
+    display: flex;
+    align-items: center;
+}
+.storebox .right-card .rcard-box .rcard1 div:last-child a {
+    display: block;
+    width: 1rem;
+    height: 0.3rem;
+    background: #FF7303;
+    border-radius: 0.04rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.16rem;
+}
+.storebox .right-card .rcard-box .rcard1 span {
+    display: block;
+}
+.storebox .right-card .rcard-box .rcard1 .hotelicon1 {
+    width: 0.60rem;
+    height: 0.60rem;;
+    margin-right: 0.2rem;
+}
+.storebox .right-card .rcard-box .rcard1 .hotelicon1 img{
+    width:100%;
+    height:100%;
+    border-radius:0.04rem;
+    -webkit-border-radius:0.04rem;
+}
+.storebox .rcard2 a img {
+    width: 4.42rem;
+    height: 2.82rem;
+}
+
+
+
+/*详情--酒店介绍，酒店设施*/
+.facilities {
+    padding: 0.24rem;
+    background: #F7F7F7;
+    border-radius: 0.04rem;
+}
+.facilities .fac-one {
+    padding: 0.31rem 0 0.7rem 0;
+}
+.facilities .fac-one .fac-one-text{
+    padding-top:0.24rem;
+    font-size:0.16rem;
+    font-family:NotoSansHans-Regular;
+    font-weight:400;
+    color:rgba(107,107,107,1);
+    line-height:0.26rem;
+}
+.facilities .fac-two {
+    padding-bottom: 0.7rem;
+}
+.facilities .fac-two h3 {
+    padding-bottom: 0.24rem;
+}
+.facilities .fac-two .faclist {
+    display: flex;
+}
+.facilities .fac-two .faclist p {
+    white-space: nowrap;
+    margin-top: 0.07rem;
+    font-size: 0.16rem;
+    font-family: NotoSansHans-Regular;
+    font-weight: 400;
+    color: rgba(107, 107, 107, 1);
+}
+.facilities .fac-two .faclist ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 0.36rem;
+}
+.facilities .fac-two .faclist ul li {
+    background: rgba(255, 255, 255, 1);
+    border: 0.01rem solid rgba(231, 231, 231, 1);
+    border-radius: 0.15rem;
+    margin: 0 0.16rem 0.2rem 0;
+
+}
+.facilities .fac-two .faclist ul li a {
+    display: block;
+    padding: 0.07rem 0.22rem;
+    font-size: 0.16rem;
+    font-family: NotoSansHans-Medium;
+    font-weight: 500;
+    color: rgba(144, 144, 144, 1);
+}
+.facilities .fac-three {
+    padding-bottom: 0.35rem;
+}
+.facilities .fac-three .map {
+    width: 4.4rem;
+    height: 4.34rem;
+}
+.facilities .fac-three .map a img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/*右侧返回顶部 编辑 订单入口*/
+.tabs {
+    width: 0.6rem;
+    height: 1.8rem;
+    background: rgba(255, 255, 255, 1);
+    border: 0.01rem solid rgba(217, 217, 217, 1);
+    position: absolute;
+    right: -0.7rem;
+    bottom: 0.78rem;
+}
+.tabs a {
+    height: 0.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+.tabs a:nth-child(2) {
+    border-top: 0.01rem solid #D9D9D9;
+}
+.tabs a:nth-child(2) {
+    background: rgba(217, 217, 217, 1);
+    font-size: 0.2rem;
+    font-family: NotoSansHans-Medium;
+    font-weight: 500;
+    color: rgba(254, 254, 254, 1);
+    line-height: 0.22rem;
+    text-align: center;
+    padding: 0 0.1rem;
+}
+.tab-ico3 span{
+    display:block;
+}
+.prompt {
+    width: 1.9rem;
+    background: #ffffff;
+    text-align: center;
+    margin: 0.12rem 0;
+    border-radius:0.15rem;
+    font-size:0.16rem;
+    color:#999999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0.04rem 0;
+}
+.i-price .pricebtn{
+    opacity:0.4 !important;
+
+}
+
+
+/*相册弹窗*/
+#mask{
+    width:100%;
+    height:100%;
+    background:#EBEBEB;
+    opacity:0.9;
+    z-index:999;
+    position:fixed;
+    top:0;
+    left:0;
+    display:none;
+}
+#showModel{
+    position:fixed;
+    left:50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width:16.8rem;
+    height:100%;
+    display:none;
+    z-index:1000;
+}
+.model-box{
+    width:100%;
+    height:100%;
+    position:relative;
+}
+.model-box .close-btn{
+    width:0.4rem;
+    height:0.4rem;
+    background:url("../images/close-icon.png") no-repeat center / 0.4rem;
+    position:absolute;
+    top:0.55rem;
+    right:0;
+    cursor:pointer;
+}
+.model-box .left-btn{
+    width:0.42rem;
+    height:0.78rem;
+    background:url("../images/f-left.png") no-repeat center / 0.42rem;
+    position:absolute;
+    left: 0;
+    top:50%;
+    cursor: pointer;
+    outline:0;
+}
+.model-box .right-btn{
+    width:0.42rem;
+    height:0.78rem;
+    background:url("../images/f-right.png") no-repeat center / 0.42rem;
+    position:absolute;
+    right: 0;
+    top:50%;
+    cursor:pointer;
+    outline:0;
+}
+.model-box .model-list{
+    width:6.4rem;
+    height:6.4rem;
+    background:#FFFFFF;
+    position:absolute;
+    top: 0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    z-index:6666;
+}
+.model-box .model-list .model-img{
+    width:5.6rem;
+    height:5.6rem;
+    z-index:6667;
+    margin:0.4rem;
+}
+.model-box .model-list .model-img .swiper-slide{
+    display:block;
+    width:5.6rem;
+    height:5.6rem;
+}
+.model-box .model-list .model-img .swiper-slide a img{
+    display:block;
+    width:5.6rem;
+    height:5.6rem;
+}
+
+
+
+
+
+
+
+
+
+

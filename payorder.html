@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>旅游订单-支付下单</title>
+    <script src="./js/rem.js"></script>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./css/icon.css">
+    <!--css样式区域-->
+    <style>
+        #box {
+            width: 11.2rem;
+            height: auto;
+            margin: auto;
+            padding-bottom: 0.8rem;
+        }
+        .orderbtn {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .paybtn {
+            width: 2rem;
+            height: 0.6rem;
+            background: rgba(255, 115, 3, 1);
+            border-radius: 0.08rem;
+            font-size: 0.26rem;
+            font-family: NotoSansHans-Medium;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 0.36rem;
+        }
+
+        /*下单流程*/
+        .promptorder .finsh-icon{
+            display:block;
+            width:0.34rem;
+            height:0.34rem;
+            background:url("images/finsh_icon1.png") no-repeat center / 0.34rem;
+        }
+        .promptorder ul {
+            display: flex;
+            justify-content: center;
+            margin: 0.6rem 0 0.64rem 0;
+        }
+        .promptorder ul li {
+            display: flex;
+            align-items:center;
+        }
+        .promptorder ul li .num {
+            display: block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .promptorder ul li .circle {
+            width: 0.34rem;
+            height: 0.34rem;
+            border-radius: 50%;
+            background: #525252;
+            font-size: 18px;
+            font-family: Arial-BoldMT;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 1);
+        }
+        .promptorder ul li .round {
+            width: 0.34rem;
+            height: 0.34rem;
+            border: 0.02rem solid #525252;
+            border-radius: 50%;
+            font-size: 18px;
+            font-family: ArialMT;
+            font-weight: 400;
+            color: rgba(54, 54, 54, 1);
+        }
+        .promptorder ul li .text {
+            font-size: 0.2rem;
+            font-family: NotoSansHans-Medium;
+            font-weight: 500;
+            color: rgba(54, 54, 54, 1);
+            margin-left: 0.12rem;
+        }
+        .promptorder ul li .line {
+            display: block;
+            width: 1.6rem;
+            height: 1px;
+            background: rgba(189, 189, 189, 1);
+            margin: 0 0.16rem;
+        }
+
+        /*支付订单*/
+        .main {
+            width: 100%;
+            background: linear-gradient(90deg, rgba(230, 233, 240, 1) 0%, rgba(238, 241, 245, 1) 100%);
+            box-shadow: 0.02rem 0.07rem 0.21rem 0 rgba(67, 66, 67, 0.21);
+            border-radius: 0.08rem;
+            position:relative;
+        }
+        .back-icon {
+            display: inline-block;
+            width: 0.05rem;
+            height: 0.09rem;
+            background: url("images/back.png") no-repeat center / 0.05rem;
+            margin-right: 0.09rem;
+        }
+        .payorder .paybox {
+            padding: 0.26rem 0.35rem 0.8rem 0.35rem;
+        }
+        .payorder .paybox .pay-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.16rem;
+            font-weight: 500;
+            color: #707070;
+            cursor: pointer;
+        }
+        .payorder .paybox .pay-title .title-one {
+            display: flex;
+            align-items: center;
+            font-family: PingFang-SC-Medium;
+
+        }
+        .payorder .paybox .pay-title .title-two {
+            width: 0.97rem;
+            height: 0.36rem;
+            border: 1px solid rgba(206, 206, 206, 1);
+            border-radius: 0.08rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: NotoSansHans-Medium;
+        }
+        .payorder .paybox .pay-time {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 0.2rem;
+        }
+        .payorder .paybox .pay-time p {
+            display: flex;
+            align-items: center;
+            font-size: 0.18rem;
+            font-family: NotoSansHans-Regular;
+            font-weight: 400;
+            color: rgba(255, 157, 3, 1);
+        }
+        .payorder .paybox .pay-info {
+            background: rgba(255, 255, 255, 1);
+            border-radius: 0.04rem;
+            margin-bottom: 0.24rem;
+        }
+        .payorder .paybox .pay-info .info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.18rem;
+            color: rgba(112, 112, 112, 1);
+        }
+        .payorder .paybox .pay-info .info-one {
+            padding: 0.35rem 0.4rem 0.3rem 0.28rem;
+            color: #AAAAAA;
+            font-family:NotoSansHans-Medium;
+        }
+        .payorder .paybox .pay-info .info-two {
+            padding: 0 0.4rem 0.47rem 0.28rem;
+
+        }
+        .payorder .paybox .pay-info .info-two p:last-child {
+            font-family: Arial-BoldMT;
+            font-weight: bold;
+            color: rgba(229, 54, 75, 1);
+        }
+        .payorder .paybox .pay-way {
+            background: rgba(255, 255, 255, 1);
+            border-radius: 0.04rem;
+
+        }
+        .payorder .paybox .pay-way p {
+            height: 0.29rem;
+            line-height: 0.29rem;
+            font-size: 0.2rem;
+            font-family: NotoSansHans-Medium;
+            color: rgba(22, 22, 22, 1);
+            padding: 0.12rem 0 0.15rem 0.28rem;
+            background: rgba(247, 247, 247, 0.4);
+            border: 0.01rem solid rgba(255, 255, 255, 1);
+        }
+        .payorder .paybox .pay-way ul {
+            display: flex;
+            padding: 0.21rem 1.2rem;
+
+        }
+        .payorder .paybox .pay-way ul li {
+            width: 2.2rem;
+            height: 0.78rem;
+            background: rgba(247, 247, 247, 1);
+            box-shadow: 0 0.02rem 0.1rem 0 rgba(67, 66, 67, 0.12);
+            border-radius: 0.08rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 0.75rem;
+        }
+        .payorder .paybox .pay-way ul li.elem{
+            border:0.02rem solid rgba(255,202,159,1);
+            box-shadow:0 0.02rem 0.1rem 0 rgba(67,66,67,0.2);
+            box-sizing:border-box;
+
+        }
+        .payorder .paybox .pay-way ul li a {
+            display: block;
+            font-size: 0.2rem;
+            font-family: NotoSansHans-Medium;
+            color: #707070;
+            display: flex;
+            align-items: center;
+        }
+        .payorder .paybox .pay-way ul li:last-child {
+            margin-right: 0;
+        }
+        .way {
+            display: inline-block;
+            width: 0.48rem;
+            height: 0.48rem;
+            margin-right: 0.22rem;
+        }
+        .balance-icon {
+            background: url("images/balance.png") no-repeat center / 0.48rem;
+        }
+        .wx-icon {
+            background: url("images/wxpay.png") no-repeat center / 0.48rem;
+        }
+        .alipay-icon {
+            background: url("images/Alipay.png") no-repeat center / 0.48rem;
+        }
+
+
+        /*微信支付弹窗*/
+        #mask{
+            width:100%;
+            height:100%;
+            background:#333;
+            opacity:0.5;
+            z-index:999;
+            position:fixed;
+            top:0;
+            left:0;
+            display:none;
+        }
+        .wechatBox{
+            position:fixed;
+            left:50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            width:3.2rem;
+            height:3.65rem;
+            border-radius:0.08rem;
+            background:#FFFFFF;
+            display:none;
+            z-index:1000;
+        }
+        .wechatmodel{
+            padding:0.36rem 0 0.32rem;
+            text-align:center;
+        }
+        .wechatmodel .wcode{
+            width:2rem;
+            height:2rem;
+            margin:0 auto;
+        }
+        .wechatmodel .wcode img{
+            width:100%;
+            height:100%;
+        }
+        .wechatmodel .p1{
+            color:#545c63;
+            font-weight: 700;
+        }
+        .wechatmodel .p2{
+            font-size:0.12rem;
+            line-height:0.18rem;
+        }
+        .wechatmodel .p3{
+            margin-top:0.24rem;
+            color:#9199a1;
+            font-size:0.14rem;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            cursor:pointer;
+        }
+        .wechatmodel .p3 .resset-icon{
+            display:inline-block;
+            width:0.2rem;
+            height:0.2rem;
+            background:url("images/reset_icon.png") no-repeat center / 0.2rem;
+            margin-right:0.08rem;
+        }
+
+        /*订单情况和编辑*/
+        .tabs {
+            width: 0.6rem;
+            height: 1.2rem;
+            background: rgba(255, 255, 255, 1);
+            border: 0.01rem solid #D9D9D9;
+            position: absolute;
+            right:-2.9rem;
+            bottom:0;
+        }
+        .tabs a {
+            height: 0.6rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+        .tabs .tab-ico1{
+            border-bottom: 0.01rem solid #D9D9D9;
+            box-sizing:border-box;
+        }
+
+
+
+
+    </style>
+</head>
+
+<!--html结构区域-->
+</body>
+<div id="containers">
+    <header id="header"></header>
+    <section>
+        <div id="box">
+            <!--下单流程提示-->
+            <div class="promptorder">
+                <ul>
+                    <li>
+                        <span class="finsh-icon"></span>
+                        <span class="text c-active">确认订单</span>
+                        <span class="line"></span>
+                    </li>
+                    <li>
+                        <span class="num circle">2</span>
+                        <span class="text">支付订单</span>
+                        <span class="line"></span>
+                    </li>
+                    <li>
+                        <span class="num round">3</span>
+                        <span class="text">生成订单</span>
+                    </li>
+                </ul>
+            </div>
+            <!--订单信息-->
+            <div class="allorder">
+                <!--支付订单-->
+                <div class="payorder main">
+                    <div class="paybox">
+                        <div class="pay-title">
+                            <a class="title-one" onclick="javascript :history.back(-1);">
+                                <span class="back-icon"></span>
+                                <span>修改订单</span>
+                            </a>
+                            <div class="title-two">取消订单</div>
+                        </div>
+                        <div class="pay-time">
+                            <p>
+                                <span class="clock-icon"></span>
+                                <span class="">请在30分钟内完成下单，超时订单自动取消</span>
+                            </p>
+                        </div>
+                        <div class="pay-info fw-m">
+                            <div class="info info-one">
+                                <p class="c-16">订单已提交，请尽快付款</p>
+                                <p>合计金额</p>
+                            </div>
+                            <div class="info info-two c-70"></div>
+                        </div>
+                        <div class="pay-way">
+                            <p>请选择支付方式</p>
+                            <ul data-val="0">
+                                <li data-type="1">
+                                    <a href="javascript:;">
+                                        <span class="balance-icon way"></span>
+                                        <span class="balance-pay">余额支付</span>
+                                    </a>
+                                </li>
+                                <li data-type="2">
+                                    <a href="javascript:;">
+                                        <span class="wx-icon way"></span>
+                                        <span class="wechat-pay">微信支付</span>
+                                    </a>
+                                </li>
+                                <li data-type="3">
+                                    <a href="javascript:;">
+                                        <span class="alipay-icon way"></span>
+                                        <span class="Alipay-pay">支付宝支付</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="orderbtn">
+                            <button class="paybtn">立即支付</button>
+                        </div>
+                    </div>
+                    <!--编辑和订单-->
+                    <div class="tabs">
+                        <a href="javascript:;" class="tab-ico1"><span class="option-icon"></span></a>
+                        <a href="javascript:;" class="tab-ico2"><span class="order-icon"></span></a>
+                    </div>
+                </div>
+            </div>
+            <!--微信支付弹窗-->
+            <div class="wechatBox">
+                <div class="wechatmodel"></div>
+            </div>
+
+        </div>
+    </section>
+    <footer id="footer"></footer>
+</div>
+</body>
+<!-- js功能区域 -->
+<script src="./js/jquery.min.js"></script>
+<script src="./js/public.js"></script>
+<script src="./js/common.js"></script>
+<script text="type/javascript">
+    $(function () {
+        var total_amount=getCookie('total_amount');
+        var sn=GetQueryString("sn");
+        var snhtml='';
+        snhtml='<p><span>订单号：</span><span>'+sn+'</span></p>'+
+                 '<p><span class="fz-20">¥</span><span class="fz-26">'+toDecimal2(total_amount)+'</span></p>';
+
+        $('.info-two').append(snhtml);
+        /*切换支付方式*/
+        $('.pay-way ul').on('click','li',function(){
+             $(this).parent().attr('data-val',$(this).data('type'));
+             $(this).addClass('elem').siblings().removeClass('elem');
+        })
+        /*立即支付*/
+        $('.paybtn').on('click',function(e){
+            var type=$('.pay-way ul').attr('data-val');
+            payWay(sn,type,total_amount);
+        })
+        $('.wechatmodel').on('click','.p3',function(){
+            $('.wechatBox').hide();
+            $('#mask').remove();
+            document.getElementsByTagName('body')[0].style.overflow="auto";
+        })
+
+
+
+
+
+
+    })
+</script>
+
+</html>
